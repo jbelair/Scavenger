@@ -4,6 +4,10 @@
 /[Bb]uild/
 /[Bb]uilds/
 /Assets/AssetStoreTools*
+Scavenger\Temp
+Scavenger\obj
+Scavenger\Build
+Scavenger\Library
 
 # Visual Studio 2015 cache directory
 /.vs/
