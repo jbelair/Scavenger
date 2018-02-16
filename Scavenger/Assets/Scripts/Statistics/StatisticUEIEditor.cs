@@ -10,7 +10,6 @@ using UnityEngine;
 public class StatisticUEIEditor : PropertyDrawer
 {
     public SerializedProperty vName, state, vI, vF, vS, vV2, vV3, vGO;
-    private bool initialised = false;
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {

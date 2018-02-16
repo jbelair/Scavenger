@@ -6,12 +6,27 @@ using System.Text;
 using UnityEditor;
 using UnityEngine;
 
-public class PlayerUEI : MonoBehaviour
+public class PlayerUEI : MonoBehaviour, IStatistics
 {
     public List<StatisticUEI> unityStatistics = new List<StatisticUEI>();
     public Dictionary<string, Statistic> statistics = new Dictionary<string, Statistic>();
     public List<SkillUEI> unitySkills = new List<SkillUEI>();
     public bool isAlive = true;
+
+    public Statistic this[string index]
+    {
+        get
+        {
+            return statistics[index];
+        }
+        set
+        {
+            if (statistics.ContainsKey(index))
+                statistics[index] = value;
+            else
+                statistics.Add(index, value);
+        }
+    }
 
     private void Start()
     {
@@ -78,5 +93,10 @@ public class PlayerUEI : MonoBehaviour
 
             yield return new WaitForSeconds(1.0f);
         }
+    }
+
+    public bool Has(string parameter)
+    {
+        return statistics.ContainsKey(parameter);
     }
 }

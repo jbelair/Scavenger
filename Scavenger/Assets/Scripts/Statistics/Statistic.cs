@@ -89,7 +89,7 @@ public class Statistic
         Type t = typeof(T);
         // This is a type that the value will never be, so we will be fine
         Type t2 = typeof(Application);
-        switch(type)
+        switch (type)
         {
             case ValueType.Integer:
                 t2 = typeof(int);
@@ -120,7 +120,7 @@ public class Statistic
             isDirty = true;
         }
     }
-    
+
     public T Get<T>()
     {
         Type t = typeof(T);
@@ -155,5 +155,35 @@ public class Statistic
         }
 
         return default(T);
+    }
+
+    public static implicit operator int(Statistic stat)
+    {
+        return stat.Get<int>();
+    }
+
+    public static implicit operator float(Statistic stat)
+    {
+        return stat.Get<float>();
+    }
+
+    public static implicit operator string(Statistic stat)
+    {
+        return stat.Get<string>();
+    }
+
+    public static implicit operator Vector2(Statistic stat)
+    {
+        return stat.Get<Vector2>();
+    }
+
+    public static implicit operator Vector3(Statistic stat)
+    {
+        return stat.Get<Vector3>();
+    }
+
+    public static implicit operator GameObject(Statistic stat)
+    {
+        return stat.Get<GameObject>();
     }
 }

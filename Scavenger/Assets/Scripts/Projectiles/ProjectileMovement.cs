@@ -6,73 +6,91 @@ using UnityEngine;
 
 public static class ProjectileMovement
 {
-    public delegate Vector2 MoveProjectile(ProjectileMovementUEI projectile);
+    public enum MovementFormat
+    {
+        /// <summary>
+        /// MovementFormat.Shot is the standard projectile behaviour, and creates a MovementFormatBehaviour that moves the projectile in a straight line along its current forward axis.
+        /// </summary>
+        Shot,
+        /// <summary>
+        /// MovementFormat.Wander uses a modified version of shot behaviour, where it refers to the lateral and radial wander parameters to either add lateral velocity or to rotate the forward axis.
+        /// </summary>
+        Home,
+        /// <summary>
+        /// MovementFormat.Steer gathers user input data to determine what orientation the projectile should take, based on the direction of the players current targeting input.
+        /// </summary>
+        Steer,
+        /// <summary>
+        /// MovementFormat.Return uses a modified version of homing behaviour, where the projectile attempts to return to its owner.
+        /// </summary>
+        Return,
+        /// <summary>
+        /// MovementFormat.Orbit travels around an object trying to maintain a certain range orbit, at a certain speed.
+        /// </summary>
+        Orbit,
+        /// <summary>
+        /// MovementFormat.RangeWander travels out to the specified range as a shot before becoming wander.
+        /// </summary>
+    };
 
-    public static Dictionary<ProjectileMovementUEI.MovementFormat, MoveProjectile> Movements = new Dictionary<ProjectileMovementUEI.MovementFormat, MoveProjectile>();
+    public delegate Vector2 MoveProjectile(ProjectileMovementUEI move);
+
+    public static Dictionary<MovementFormat, MoveProjectile> Movements = new Dictionary<MovementFormat, MoveProjectile>();
 
     static ProjectileMovement()
     {
-        Movements.Add(ProjectileMovementUEI.MovementFormat.Shot, new MoveProjectile(Shot));
-        Movements.Add(ProjectileMovementUEI.MovementFormat.Wander, new MoveProjectile(Wander));
-        Movements.Add(ProjectileMovementUEI.MovementFormat.Home, new MoveProjectile(Home));
-        Movements.Add(ProjectileMovementUEI.MovementFormat.Steer, new MoveProjectile(Steer));
-        Movements.Add(ProjectileMovementUEI.MovementFormat.Boomerang, new MoveProjectile(Boomerang));
-        Movements.Add(ProjectileMovementUEI.MovementFormat.RangeWander, new MoveProjectile(RangeWander));
-        Movements.Add(ProjectileMovementUEI.MovementFormat.RangeHome, new MoveProjectile(RangeHome));
-        Movements.Add(ProjectileMovementUEI.MovementFormat.RangeSteer, new MoveProjectile(RangeSteer));
+        Movements.Add(MovementFormat.Shot, new MoveProjectile(Shot));
+        Movements.Add(MovementFormat.Home, new MoveProjectile(Home));
+        Movements.Add(MovementFormat.Steer, new MoveProjectile(Steer));
+        Movements.Add(MovementFormat.Return, new MoveProjectile(Return));
+        Movements.Add(MovementFormat.Orbit, new MoveProjectile(Orbit));
     }
 
-    public static void Move(ProjectileMovementUEI projectile)
+    public static void Move(ProjectileMovementUEI move)
     {
-        projectile.rigidbody.MovePosition(Movements[projectile.format].Invoke(projectile));
+        move.projectile["Rigidbody"].Get<GameObject>().GetComponent<Rigidbody2D>().MovePosition(Movements[(MovementFormat)move.projectile["Format"].Get<int>()].Invoke(move));
     }
 
     /// <summary>
     /// Shot takes a projectile and moves it along its forward at the specified velocity, accelerating by the specified acceleration, and capping at the specified maximum velocity.
     /// </summary>
-    /// <param name="projectile">The projectile executing Shot movement logic.</param>
-    public static Vector2 Shot(ProjectileMovementUEI projectile)
+    /// <param name="move">The projectile executing Shot movement logic.</param>
+    public static Vector2 Shot(ProjectileMovementUEI move)
     {
-        projectile.velocity += projectile.acceleration * Time.deltaTime;
+        move.projectile["Velocity"].Set<float>(move.projectile["Velocity"].Get<float>() + move.projectile["Acceleration"].Get<float>() * Time.deltaTime);
 
-        if (projectile.velocity > projectile.velocityMax + projectile.velocityRelative)
-            projectile.velocity = projectile.velocityMax + projectile.velocityRelative;
+        if (move.projectile["Velocity"].Get<float>() > move.projectile["Maximum Velocity"].Get<float>() + move.projectile["Relative Velocity"].Get<float>())
+            move.projectile["Velocity"].Set<float>(move.projectile["Maximum Velocity"].Get<float>() + move.projectile["Relative Velocity"].Get<float>());
 
-        return projectile.rigidbody.position + (Vector2)projectile.transform.up * projectile.velocity;
+        Rigidbody2D rigid = move.projectile["Rigidbody"].Get<GameObject>().GetComponent<Rigidbody2D>();
+        Vector2 position = rigid.position + (Vector2)move.transform.up * move.projectile["Velocity"].Get<float>();
 
-        //projectile.rigidbody.MovePosition();
-    }
-
-    /// <summary>
-    /// Wander takes a projectile and performs shot logic, adding lateral and radial wander to the projectile.
-    /// </summary>
-    /// <param name="projectile">The projectile executing Wander movement logic.</param>
-    public static Vector2 Wander(ProjectileMovementUEI projectile)
-    {
-        Vector2 position = Shot(projectile);
-
-        if (projectile.lateralWander > 0)
+        if (move.projectile.Has("Lateral Wander"))
         {
-            if (projectile.lateralWanderCurrent >= projectile.lateralWanderTime)
+            float lateralWander = move.projectile["Lateral Wander"].Get<float>();
+            float lateralWanderTime = move.projectile["Lateral Wander Time"].Get<float>();
+            if (move.projectile["Lateral Wander Current"].Get<float>() >= lateralWanderTime)
             {
-                projectile.lateralWanderCurrent -= projectile.lateralWanderTime + UnityEngine.Random.Range(0.0f, projectile.lateralWanderTime) * projectile.lateralWanderRandomness;
-                projectile.lateralWanderOffset = UnityEngine.Random.Range(-1.0f, 1.0f) * (Vector2)projectile.transform.right * projectile.acceleration * projectile.lateralWander;
+                move.projectile["Lateral Wander Current"].Set(move.projectile["Lateral Wander Current"].Get<float>() - lateralWanderTime + UnityEngine.Random.Range(0.0f, lateralWanderTime) * move.projectile.statistics["Lateral Wander Random"].Get<float>());
+                move.projectile["Lateral Wander Offset"].Set(UnityEngine.Random.Range(-1.0f, 1.0f) * (Vector2)move.transform.right * move.projectile["Acceleration"].Get<float>() * lateralWander);
             }
 
-            position += projectile.lateralWanderOffset * Time.deltaTime / projectile.lateralWanderTime;
-            projectile.lateralWanderCurrent += Time.deltaTime;
+            position += move.projectile["Lateral Wander Offset"].Get<Vector2>() * Time.deltaTime / lateralWanderTime;
+            move.projectile["Lateral Wander Current"].Set(move.projectile["Lateral Wander Current"].Get<float>() + Time.deltaTime);
         }
 
-        if (projectile.radialWander > 0)
+        if (move.projectile.Has("Radial Wander"))
         {
-            if (projectile.radialWanderCurrent >= projectile.radialWanderTime)
+            float radialWander = move.projectile["Radial Wander"].Get<float>();
+            float radialWanderTime = move.projectile["Radial Wander Time"].Get<float>();
+            if (move.projectile["Radial Wander Current"].Get<float>() >= radialWanderTime)
             {
-                projectile.radialWanderCurrent -= projectile.radialWanderTime + UnityEngine.Random.Range(0.0f, projectile.radialWanderTime) * projectile.radialWanderRandomness;
-                projectile.radialWanderOffset = Mathf.Clamp(UnityEngine.Random.Range(-1.0f, 1.0f) * Mathf.PI * 2.0f * projectile.radialWander, -projectile.turnRate * projectile.radialWanderTime, projectile.turnRate * projectile.radialWanderTime);
+                move.projectile["Radial Wander Current"].Set(move.projectile["Radial Wander Current"].Get<float>() - radialWanderTime + UnityEngine.Random.Range(0.0f, radialWanderTime) * move.projectile.statistics["Radial Wander Random"].Get<float>());
+                move.projectile["Radial Wander Offset"].Set(UnityEngine.Random.Range(-1.0f, 1.0f) * move.projectile["Turn Rate"].Get<float>() * radialWander / radialWanderTime);
             }
 
-            projectile.rigidbody.MoveRotation(projectile.rigidbody.rotation + projectile.radialWanderOffset * Time.deltaTime / projectile.radialWanderTime * Mathf.Rad2Deg);
-            projectile.radialWanderCurrent += Time.deltaTime;
+            rigid.MoveRotation(rigid.rotation + move.projectile["Radial Wander Offset"].Get<float>() * Time.deltaTime);
+            move.projectile["Radial Wander Current"].Set(move.projectile["Radial Wander Current"].Get<float>() + Time.deltaTime);
         }
 
         return position;
@@ -81,60 +99,96 @@ public static class ProjectileMovement
     /// <summary>
     /// Home takes a projectile and performs shot logic, adding forward targeting of either a target GameObject or Transform.
     /// </summary>
-    /// <param name="projectile">The projectile executing Home movement logic.</param>
-    public static Vector2 Home(ProjectileMovementUEI projectile)
+    /// <param name="move">The projectile executing Home movement logic.</param>
+    public static Vector2 Home(ProjectileMovementUEI move)
     {
-        Vector2 position = Shot(projectile);
+        Vector2 position = Shot(move);
+        Vector2 delta = move.transform.up;
+
+        if (move.projectile.Has("Target"))
+        {
+            delta = move.projectile["Target"].Get<GameObject>().transform.position - move.transform.position;
+        }
+
+        delta.Normalize();
+
+        // dotR = dot product of delta and projectile's right
+        float dotR = Vector2.Dot(move.transform.right, delta);
+
+        Rigidbody2D rigid = move.projectile["Rigidbody"].Get<GameObject>().GetComponent<Rigidbody2D>();
+        float turnRate = move.projectile["Turn Rate"].Get<float>();
+        // as dotR approaches 1 the projectile's right side is facing the direction the projectile's forward needs to face
+        // as dotR falls below 0 the left side is facing the direction the projectiles forward needs to face
+        if (dotR <= 0)
+        {
+            // Since the left side is facing the correct direction, turn left.
+            rigid.MoveRotation(rigid.rotation + turnRate * Time.deltaTime);
+        }
+        else
+        {
+            // Since the right side is facing the correct direction, turn right.
+            rigid.MoveRotation(rigid.rotation - turnRate * Time.deltaTime);
+        }
+
         return position;
     }
 
     /// <summary>
     /// Steer takes a projectile and performs shot logic, adding forward to match player aiming input.
     /// </summary>
-    /// <param name="projectile">The projectile executing Steer movement logic.</param>
-    public static Vector2 Steer(ProjectileMovementUEI projectile)
+    /// <param name="move">The projectile executing Steer movement logic.</param>
+    public static Vector2 Steer(ProjectileMovementUEI move)
     {
-        Vector2 position = Shot(projectile);
+        Vector2 position = Shot(move);
         return position;
     }
 
     /// <summary>
     /// Boomerang takes a projectile and performs shot logic, reversing course at a specified range, before switching to Home logic on the owner of the projectile.
     /// </summary>
-    /// <param name="projectile">The projectile executing Boomerang movement logic.</param>
-    public static Vector2 Boomerang(ProjectileMovementUEI projectile)
+    /// <param name="move">The projectile executing Boomerang movement logic.</param>
+    public static Vector2 Return(ProjectileMovementUEI move)
     {
-        Vector2 position = Shot(projectile);
+        Vector2 position = Shot(move);
+        Vector2 delta = move.projectile["Owner"].Get<GameObject>().transform.position - move.transform.position;
+
+        delta.Normalize();
+
+        // dotR = dot product of delta and projectile's right
+        float dotR = Vector2.Dot(move.transform.right, delta);
+
+        Rigidbody2D rigid = move.projectile["Rigidbody"].Get<GameObject>().GetComponent<Rigidbody2D>();
+        float turnRate = move.projectile["Turn Rate"].Get<float>();
+        // as dotR approaches 1 the projectile's right side is facing the direction the projectile's forward needs to face
+        // as dotR falls below 0 the left side is facing the direction the projectiles forward needs to face
+        if (dotR <= 0)
+        {
+            // Since the left side is facing the correct direction, turn left.
+            rigid.MoveRotation(rigid.rotation + turnRate * Time.deltaTime);
+        }
+        else
+        {
+            // Since the right side is facing the correct direction, turn right.
+            rigid.MoveRotation(rigid.rotation - turnRate * Time.deltaTime);
+        }
+
         return position;
     }
 
     /// <summary>
-    /// RangeWander takes a projectile and performs shot logic, switching to perform Wander logic after the specified range.
+    /// Orbit takes a projectile and performs shot logic, making sure its forward is always tangental to the specified target, or target transform.
     /// </summary>
-    /// <param name="projectile">The projectile executing RangeWander movement logic.</param>
-    public static Vector2 RangeWander(ProjectileMovementUEI projectile)
+    /// <param name="move"></param>
+    /// <returns></returns>
+    public static Vector2 Orbit(ProjectileMovementUEI move)
     {
-        Vector2 position = Shot(projectile);
-        return position;
-    }
+        Vector2 position = Shot(move);
 
-    /// <summary>
-    /// RangeHome takes a projectile and performs shot logic, switching to Home logic after the specified range.
-    /// </summary>
-    /// <param name="projectile"></param>
-    public static Vector2 RangeHome(ProjectileMovementUEI projectile)
-    {
-        Vector2 position = Shot(projectile);
-        return position;
-    }
+        //Vector2 tangent = Vector3.Cross(projectile.target.transform.position - projectile.transform.position, Vector3.forward);
+        //Vector2 forward = Vector3.RotateTowards(projectile.transform.forward, tangent.normalized, projectile.turnRate, 0);
+        //projectile.rigidbody.MoveRotation(Mathf.Atan2(forward.y, forward.x) * Mathf.Rad2Deg);
+        //projectile.rigidbody.MoveRotation(projectile.rigidbody.rotation);
 
-    /// <summary>
-    /// RangeSteer takes a projectile and performs shot logic, switching to Steer logic after the specified range.
-    /// </summary>
-    /// <param name="projectile"></param>
-    public static Vector2 RangeSteer(ProjectileMovementUEI projectile)
-    {
-        Vector2 position = Shot(projectile);
         return position;
     }
 }
