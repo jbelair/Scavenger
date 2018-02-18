@@ -40,13 +40,13 @@ public class ProjectileUEI : MonoBehaviour, IStatistics
         get
         {
             Initialise();
-            Debug.Log(index + " : " + statistics.ContainsKey(index));
+            //Debug.Log(index + " : " + statistics.ContainsKey(index));
             return statistics[index];
         }
         set
         {
             Initialise();
-            Debug.Log(index + " : " + statistics.ContainsKey(index));
+            //Debug.Log(index + " : " + statistics.ContainsKey(index));
             if (statistics.ContainsKey(index))
                 statistics[index] = value;
             else

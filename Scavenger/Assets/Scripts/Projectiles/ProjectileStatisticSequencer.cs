@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-public class ProjectileMovementSequencer : MonoBehaviour
+public class ProjectileStatisticSequencer : MonoBehaviour
 {
     public enum Format { Time, Distance, Displacement };
 

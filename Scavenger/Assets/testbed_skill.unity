@@ -342,6 +342,46 @@ Prefab:
       propertyPath: unityStatistics.Array.data[2].valueGO
       value: 
       objectReference: {fileID: 1028230715}
+    - target: {fileID: 96540770759386940, guid: 18f91199082e8bf409e569193a190f0b,
+        type: 2}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 0.6838235
+      objectReference: {fileID: 0}
+    - target: {fileID: 96540770759386940, guid: 18f91199082e8bf409e569193a190f0b,
+        type: 2}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0.75141984
+      objectReference: {fileID: 0}
+    - target: {fileID: 96540770759386940, guid: 18f91199082e8bf409e569193a190f0b,
+        type: 2}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 96540770759386940, guid: 18f91199082e8bf409e569193a190f0b,
+        type: 2}
+      propertyPath: m_Parameters.colorGradient.key1.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 96540770759386940, guid: 18f91199082e8bf409e569193a190f0b,
+        type: 2}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 0.061308295
+      objectReference: {fileID: 0}
+    - target: {fileID: 96540770759386940, guid: 18f91199082e8bf409e569193a190f0b,
+        type: 2}
+      propertyPath: m_Parameters.colorGradient.key1.b
+      value: 0.28676468
+      objectReference: {fileID: 0}
+    - target: {fileID: 96540770759386940, guid: 18f91199082e8bf409e569193a190f0b,
+        type: 2}
+      propertyPath: m_Parameters.colorGradient.ctime1
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 96540770759386940, guid: 18f91199082e8bf409e569193a190f0b,
+        type: 2}
+      propertyPath: m_Parameters.colorGradient.m_NumColorKeys
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114223002458943860, guid: 18f91199082e8bf409e569193a190f0b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 18f91199082e8bf409e569193a190f0b, type: 2}
@@ -364,16 +404,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 488407384}
   format: 0
-  duration: 2
+  duration: 10
   durationCurrent: 0
   sequences:
-  - name: Homing Thrust
+  - name: Thrust
     percent: 0
     format:
     - name: Acceleration
       type: 1
       valueInt: 0
-      valueFloat: 100
+      valueFloat: 10
       valueString: 
       valueV2: {x: 0, y: 0}
       valueV3: {x: 0, y: 0, z: 0}
@@ -381,7 +421,34 @@ MonoBehaviour:
     - name: Maximum Velocity
       type: 1
       valueInt: 0
-      valueFloat: 10
+      valueFloat: 100
+      valueString: 
+      valueV2: {x: 0, y: 0}
+      valueV3: {x: 0, y: 0, z: 0}
+      valueGO: {fileID: 0}
+    - name: Format
+      type: 0
+      valueInt: 0
+      valueFloat: 360
+      valueString: 
+      valueV2: {x: 0, y: 0}
+      valueV3: {x: 0, y: 0, z: 0}
+      valueGO: {fileID: 0}
+  - name: Homing
+    percent: 0.9
+    format:
+    - name: Acceleration
+      type: 1
+      valueInt: 0
+      valueFloat: 0
+      valueString: 
+      valueV2: {x: 0, y: 0}
+      valueV3: {x: 0, y: 0, z: 0}
+      valueGO: {fileID: 0}
+    - name: Maximum Velocity
+      type: 1
+      valueInt: 100
+      valueFloat: 100
       valueString: 
       valueV2: {x: 0, y: 0}
       valueV3: {x: 0, y: 0, z: 0}
@@ -405,33 +472,6 @@ MonoBehaviour:
     - name: Format
       type: 0
       valueInt: 1
-      valueFloat: 0
-      valueString: 
-      valueV2: {x: 0, y: 0}
-      valueV3: {x: 0, y: 0, z: 0}
-      valueGO: {fileID: 1030415752}
-  - name: Straight Fire
-    percent: 0.5
-    format:
-    - name: Acceleration
-      type: 1
-      valueInt: 0
-      valueFloat: 0
-      valueString: 
-      valueV2: {x: 0, y: 0}
-      valueV3: {x: 0, y: 0, z: 0}
-      valueGO: {fileID: 0}
-    - name: Maximum Velocity
-      type: 1
-      valueInt: 100
-      valueFloat: 10
-      valueString: 
-      valueV2: {x: 0, y: 0}
-      valueV3: {x: 0, y: 0, z: 0}
-      valueGO: {fileID: 0}
-    - name: Format
-      type: 0
-      valueInt: 0
       valueFloat: 0
       valueString: 
       valueV2: {x: 0, y: 0}
