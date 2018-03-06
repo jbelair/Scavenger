@@ -70,9 +70,11 @@ GameObject:
   - component: {fileID: 4090151451940018}
   - component: {fileID: 58671541284332104}
   - component: {fileID: 50658187247351936}
+  - component: {fileID: 114192651992836240}
   - component: {fileID: 114341896942933354}
   - component: {fileID: 114267265268436292}
-  - component: {fileID: 114223002458943860}
+  - component: {fileID: 114804350428018694}
+  - component: {fileID: 114285704112451070}
   m_Layer: 0
   m_Name: ProjectileSlugger
   m_TagString: Untagged
@@ -86,7 +88,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1918305267352360}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -95,7 +97,7 @@ Transform:
   - {fileID: 4485416954071564}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!4 &4294694196683192
 Transform:
   m_ObjectHideFlags: 1
@@ -264,8 +266,8 @@ TrailRenderer:
       m_RotationOrder: 0
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 0.9191176, g: 0.7501622, b: 0.7501622, a: 0}
+      key0: {r: 0.6838235, g: 0.75141984, b: 1, a: 1}
+      key1: {r: 0, g: 0.061308295, b: 0.28676468, a: 0}
       key2: {r: 0, g: 0.061308295, b: 0.28676468, a: 0.2509804}
       key3: {r: 1, g: 1, b: 1, a: 0}
       key4: {r: 1, g: 1, b: 1, a: 0}
@@ -273,7 +275,7 @@ TrailRenderer:
       key6: {r: 1, g: 1, b: 1, a: 0}
       key7: {r: 1, g: 0, b: 1, a: 0}
       ctime0: 0
-      ctime1: 7325
+      ctime1: 65535
       ctime2: 65535
       ctime3: 65535
       ctime4: 65535
@@ -289,7 +291,7 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_NumColorKeys: 3
+      m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
@@ -334,7 +336,7 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114223002458943860
+--- !u!114 &114192651992836240
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -342,11 +344,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1918305267352360}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6910f92a603f04b439cb390eb0a0228b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e4c5a3477d6d2a4aafcef884554a28d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 114341896942933354}
-  debug: 1
+  unityStatistics: []
+  polling: 0
 --- !u!114 &114267265268436292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -358,6 +360,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10512b7ff80923845b5a5133b3d734e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114285704112451070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1918305267352360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6910f92a603f04b439cb390eb0a0228b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 114341896942933354}
+  debug: 0
 --- !u!114 &114341896942933354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -369,76 +384,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 233314b0a661f1545b37b168b56a093b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unityStatistics:
-  - name: Owner
-    type: 5
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-  - name: Rigidbody
-    type: 5
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 1918305267352360}
-  - name: Skill
-    type: 5
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-  - name: Start
-    type: 3
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-  - name: Velocity
-    type: 1
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-  - name: Maximum Velocity
-    type: 1
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-  - name: Relative Velocity
-    type: 1
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-  - name: Acceleration
-    type: 1
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-  - name: Format
-    type: 0
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
+  statistics: {fileID: 0}
+--- !u!114 &114804350428018694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1918305267352360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94a959cec79968a40b415fe5ea6b7a24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  format: 0
+  duration: 10
+  durationCurrent: 0
+  startPosition: {x: 0, y: 0}
+  sequence: []
+  index: -1

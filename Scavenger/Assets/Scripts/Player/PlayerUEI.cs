@@ -6,37 +6,19 @@ using System.Text;
 using UnityEditor;
 using UnityEngine;
 
-public class PlayerUEI : MonoBehaviour, IStatistics
+[RequireComponent(typeof(Statistics))]
+public class PlayerUEI : MonoBehaviour
 {
-    public List<StatisticUEI> unityStatistics = new List<StatisticUEI>();
-    public Dictionary<string, Statistic> statistics = new Dictionary<string, Statistic>();
+    public Statistics statistics;
     public List<SkillUEI> unitySkills = new List<SkillUEI>();
-    public bool isAlive = true;
-
-    public Statistic this[string index]
-    {
-        get
-        {
-            return statistics[index];
-        }
-        set
-        {
-            if (statistics.ContainsKey(index))
-                statistics[index] = value;
-            else
-                statistics.Add(index, value);
-        }
-    }
+    public bool isAlive = false;
 
     private void Start()
     {
-        foreach (StatisticUEI stat in unityStatistics)
-        {
-            statistics.Add(stat.name, stat.Initialise());
-        }
+        isAlive = true;
 
-        if (Application.isEditor)
-            StartCoroutine("PollUEI");
+        if (statistics == null)
+            statistics = GetComponentInParent<Statistics>();
     }
 
     private void Update()
@@ -47,56 +29,5 @@ public class PlayerUEI : MonoBehaviour, IStatistics
     private void OnDestroy()
     {
         isAlive = false;
-    }
-
-    IEnumerable PollUEI()
-    {
-        while (isAlive)
-        {
-            foreach (KeyValuePair<string, Statistic> stat in statistics)
-            {
-                StatisticUEI statistic = unityStatistics.First(s => s.name == stat.Key);
-                if (statistic == null)
-                    unityStatistics.Add(new StatisticUEI(stat.Value));
-                else
-                {
-                    if (stat.Value.isDirty)
-                    {
-                        statistic = new StatisticUEI(stat.Value);
-                    }
-                    else
-                    {
-                        switch(stat.Value.type)
-                        {
-                            case Statistic.ValueType.Integer:
-                                stat.Value.Set(statistic.valueInt);
-                                break;
-                            case Statistic.ValueType.Float:
-                                stat.Value.Set(statistic.valueFloat);
-                                break;
-                            case Statistic.ValueType.String:
-                                stat.Value.Set(statistic.valueString);
-                                break;
-                            case Statistic.ValueType.Vector2:
-                                stat.Value.Set(statistic.valueV2);
-                                break;
-                            case Statistic.ValueType.Vector3:
-                                stat.Value.Set(statistic.valueV3);
-                                break;
-                            case Statistic.ValueType.GameObject:
-                                stat.Value.Set(statistic.valueGO);
-                                break;
-                        }
-                    }
-                }
-            }
-
-            yield return new WaitForSeconds(1.0f);
-        }
-    }
-
-    public bool Has(string parameter)
-    {
-        return statistics.ContainsKey(parameter);
     }
 }

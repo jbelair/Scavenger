@@ -54,8 +54,8 @@ public class ProjectileMovementUEI : MonoBehaviour
         //rigidbody = projectile.statistics["Rigidbody"].Get<GameObject>().GetComponent<Rigidbody2D>();
         //startPosition = rigidbody.position;
 
-        projectile["Start"].Set(projectile["Rigidbody"].Get<GameObject>().GetComponent<Rigidbody2D>().position);
-        projectile["Relative Velocity"].Set(projectile["Owner"].Get<GameObject>().GetComponent<Rigidbody2D>().velocity);
+        projectile.statistics["Starting Position"].Set(projectile.statistics["Rigidbody"].Get<GameObject>().GetComponent<Rigidbody2D>().position);
+        projectile.statistics["Relative Velocity"].Set(projectile.statistics["Owner"].Get<GameObject>().GetComponent<Rigidbody2D>().velocity);
     }
 
     // Update is called once per frame
