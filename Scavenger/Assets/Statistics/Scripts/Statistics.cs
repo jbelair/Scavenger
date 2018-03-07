@@ -9,6 +9,7 @@ public class Statistics : MonoBehaviour, IStatistics, IEnumerable<Statistic>
 {
     public List<StatisticUEI> unityStatistics;
     public bool polling = false;
+    public float pollingTime = 0.5f;
     public bool isPolling = false;
     public bool isInitialised = false;
 
@@ -28,9 +29,15 @@ public class Statistics : MonoBehaviour, IStatistics, IEnumerable<Statistic>
         {
             Initialise();
             if (!statistics.ContainsKey(index))
+            {
                 statistics.Add(index, value);
+                statistics[index].isDirty = true;
+            }
             else
+            {
                 statistics[index] = value;
+                statistics[index].isDirty = true;
+            }
         }
     }
 
@@ -63,7 +70,9 @@ public class Statistics : MonoBehaviour, IStatistics, IEnumerable<Statistic>
                 {
                     if (stat.Value.isDirty)
                     {
-                        statistic = new StatisticUEI(stat.Value);
+                        int index = unityStatistics.IndexOf(statistic);
+                        unityStatistics.Remove(statistic);
+                        unityStatistics.Insert(index, new StatisticUEI(stat.Value));
                         stat.Value.isDirty = false;
                     }
                     else
@@ -93,7 +102,7 @@ public class Statistics : MonoBehaviour, IStatistics, IEnumerable<Statistic>
                 }
             }
 
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(pollingTime);
         }
 
         //Debug.Log("PollUEI stopping");

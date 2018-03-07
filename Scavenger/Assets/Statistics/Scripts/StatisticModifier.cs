@@ -172,17 +172,17 @@ public class StatisticModifier
                     }
                     original.Set(list.ToArray());
                     break;
-                case Statistic.ValueType.Statistic:
-                    switch (type)
-                    {
-                        case ModifierType.Additive:
-                            break;
-                        case ModifierType.Subtractive:
-                            break;
-                        case ModifierType.Override:
-                            break;
-                    }
-                    break;
+                //case Statistic.ValueType.Statistic:
+                //    switch (type)
+                //    {
+                //        case ModifierType.Additive:
+                //            break;
+                //        case ModifierType.Subtractive:
+                //            break;
+                //        case ModifierType.Override:
+                //            break;
+                //    }
+                //    break;
             }
         }
         else

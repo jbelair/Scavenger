@@ -64,12 +64,23 @@ public class StatisticUEIEditor : PropertyDrawer
                 break;
             case Statistic.ValueType.GameObjectArray:
                 vGOArray = prop.FindPropertyRelative("valueGOArray");
-                EditorGUI.PropertyField(rField, vGOArray, GUIContent.none);
+                int max = vGOArray.arraySize - 1;
+                EditorGUI.indentLevel += 1;
+                for (int i = 0; i < max; i++)
+                {
+                    string name = "";
+                    if (i < max)
+                        name = "Element " + i;
+
+                    EditorGUILayout.PropertyField(vGOArray.GetArrayElementAtIndex(i), new GUIContent(name));
+                }
+                EditorGUI.indentLevel -= 1;
+                //EditorGUI.MultiPropertyField(rField, , vGOArray, GUIContent.none);
                 break;
-            case Statistic.ValueType.Statistic:
-                vStat = prop.FindPropertyRelative("valueStatistic");
-                EditorGUI.PropertyField(rField, vStat, GUIContent.none);
-                break;
+            //case Statistic.ValueType.Statistic:
+            //    vStat = prop.FindPropertyRelative("valueStatistic");
+            //    EditorGUI.PropertyField(rField, vStat, GUIContent.none);
+            //    break;
         }
 
         EditorGUI.EndProperty();

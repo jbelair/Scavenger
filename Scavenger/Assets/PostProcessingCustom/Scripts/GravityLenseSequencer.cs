@@ -61,11 +61,11 @@ public class GravityLenseSequencer : MonoBehaviour
             {
                 // Remember the last key for a bit
                 GravityLenseSequencerKey last = active;
-                last.durationCurrent = 0;
                 // Set the new active key
                 active = sequence[index];
                 // Make sure to carry over the extra time
                 active.durationCurrent = last.durationCurrent - last.duration;
+                last.durationCurrent = 0;
             }
         }
 

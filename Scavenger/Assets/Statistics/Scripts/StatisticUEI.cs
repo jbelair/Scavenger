@@ -16,7 +16,7 @@ public class StatisticUEI
     public Vector3 valueV3;
     public GameObject valueGO;
     public GameObject[] valueGOArray;
-    public StatisticUEI valueStatistic;
+    //public StatisticUEI valueStatistic;
 
     public Statistic statistic;
 
@@ -47,9 +47,9 @@ public class StatisticUEI
             case Statistic.ValueType.GameObjectArray:
                 valueGOArray = stat.Get<GameObject[]>();
                 break;
-            case Statistic.ValueType.Statistic:
-                valueStatistic = stat.Get<Statistic>();
-                break;
+            //case Statistic.ValueType.Statistic:
+            //    valueStatistic = stat.Get<Statistic>();
+            //    break;
         }
     }
 
@@ -71,8 +71,8 @@ public class StatisticUEI
                 return new Statistic(name, type, valueGO);
             case Statistic.ValueType.GameObjectArray:
                 return new Statistic(name, type, valueGOArray);
-            case Statistic.ValueType.Statistic:
-                return new Statistic(name, type, valueStatistic.Initialise());
+            //case Statistic.ValueType.Statistic:
+            //    return new Statistic(name, type, valueStatistic.Initialise());
         }
 
         return null;

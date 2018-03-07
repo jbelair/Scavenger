@@ -26,12 +26,14 @@ public class StatisticsSequencer : MonoBehaviour
         if (!statistics)
             statistics = GetComponentInParent<Statistics>();
 
-        startPosition = transform.position; 
+        startPosition = transform.position;
+
+        index = -1;
     }
 
     public void Update()
     {
-        switch(format)
+        switch (format)
         {
             case Format.Time:
                 durationCurrent += Time.deltaTime;
@@ -45,34 +47,45 @@ public class StatisticsSequencer : MonoBehaviour
                 break;
         }
 
-        float percent = Mathf.Clamp(durationCurrent / duration, 0f, 1f);
+        //float percent = Mathf.Clamp(durationCurrent / duration, 0f, 1f);
         int lastIndex = index;
-
-        if (sequence.Count == 1 || sequence[1].percent > percent)
+        if (index == -1)
         {
             index = 0;
         }
+
+        StatisticsSequenceKey active = sequence[index];
+        //float percent = active.durationCurrent / active.duration;
+
+        if (duration > 0 && durationCurrent >= duration)
+        {
+            //percent = 1;
+        }
         else
         {
-            for (int i = 1; i < sequence.Count; i++)
-            {
-                if (sequence[i].percent > percent)
-                {
-                    index = i - 1;
-                }
-                else if (i == sequence.Count - 1)
-                {
-                    index = i;
-                }
-            }
-        }
+            active.durationCurrent += Time.deltaTime;
 
-        if (lastIndex != index)
-        {
-            foreach(StatisticUEI stat in sequence[index].format)
+            if (active.durationCurrent > active.duration)
             {
-                Debug.Log(stat.name + " " + statistics.Has(stat.name));
-                statistics[stat.name] = stat.Initialise();
+                index = Mathf.Min(index + 1, sequence.Count - 1);
+            }
+
+            if (lastIndex != index)
+            {
+                // Remember the last key for a bit
+                StatisticsSequenceKey last = active;
+                // Set the new active key
+                active = sequence[index];
+                // Make sure to carry over the extra time
+                active.durationCurrent = last.durationCurrent - last.duration;
+                last.durationCurrent = 0;
+
+                foreach (StatisticUEI stat in active.format)
+                {
+                    //Debug.Log(stat.name);
+                    statistics[stat.name] = stat.Initialise();
+                    statistics[stat.name].isDirty = true;
+                }
             }
         }
     }

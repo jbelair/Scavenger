@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Statistic
 {
-    public enum ValueType { Integer, Float, String, Vector2, Vector3, GameObject, GameObjectArray, Statistic, Object };
+    public enum ValueType { Integer, Float, String, Vector2, Vector3, GameObject, GameObjectArray, /*Statistic,*/ Object };
 
     public string name = "";
     public ValueType type;
@@ -96,14 +96,14 @@ public class Statistic
         }
     }
 
-    public void Set(Statistic s)
-    {
-        if (type == ValueType.Statistic)
-        {
-            value = s;
-            isDirty = true;
-        }
-    }
+    //public void Set(Statistic s)
+    //{
+    //    if (type == ValueType.Statistic)
+    //    {
+    //        value = s;
+    //        isDirty = true;
+    //    }
+    //}
 
     public void Set(object o)
     {
