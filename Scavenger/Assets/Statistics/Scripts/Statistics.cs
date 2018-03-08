@@ -58,7 +58,7 @@ public class Statistics : MonoBehaviour, IStatistics, IEnumerable<Statistic>
             {
                 StatisticUEI statistic = null;// unityStatistics.First(s => s.name == stat.Key);
 
-                foreach(StatisticUEI statUEI in unityStatistics)
+                foreach (StatisticUEI statUEI in unityStatistics)
                 {
                     if (statUEI.name == stat.Key)
                         statistic = statUEI;
@@ -122,6 +122,17 @@ public class Statistics : MonoBehaviour, IStatistics, IEnumerable<Statistic>
             {
                 statistics.Add(stat.name, stat.Initialise());
                 stat.statistic = statistics[stat.name];
+            }
+
+            if (Has("Rigidbody"))
+            {
+                //statistics["Rigidbody"].type = Statistic.ValueType.Object;
+                statistics["Rigidbody"].Set(statistics["Rigidbody"].Get<GameObject>().GetComponentInChildren<Rigidbody2D>());
+            }
+
+            if (Has("Owner"))
+            {
+                statistics["Owner"].Set(statistics["Owner"].Get<GameObject>().GetComponentInChildren<PlayerUEI>());
             }
 
             if (!polling)

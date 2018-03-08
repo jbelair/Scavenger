@@ -25,7 +25,7 @@ public class GravityLenseSequencer : MonoBehaviour
 {
     public enum Format { Clamp, Wrap };
 
-    //public Camera postProcessing;
+    public Camera postProcessing;
     public GravityLenseImageEffect effect;
     public Format format = Format.Clamp;
     public List<GravityLenseSequencerKey> sequence;
@@ -34,7 +34,7 @@ public class GravityLenseSequencer : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        effect = Camera.main.gameObject.AddComponent<GravityLenseImageEffect>();
+        effect = postProcessing.gameObject.AddComponent<GravityLenseImageEffect>();
         effect.origin = transform;
     }
 

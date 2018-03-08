@@ -48,7 +48,7 @@ public static class ProjectileMovement
 
     public static void Move(ProjectileMovementUEI move)
     {
-        move.projectile.statistics["Rigidbody"].Get<GameObject>().GetComponent<Rigidbody2D>().MovePosition(Movements[(MovementFormat)move.projectile.statistics["Format"].Get<int>()].Invoke(move));
+        move.projectile.statistics["Rigidbody"].Get<Rigidbody2D>().MovePosition(Movements[(MovementFormat)move.projectile.statistics["Format"].Get<int>()].Invoke(move));
     }
 
     /// <summary>
@@ -57,12 +57,12 @@ public static class ProjectileMovement
     /// <param name="move">The projectile executing Shot movement logic.</param>
     public static Vector2 Shot(ProjectileMovementUEI move)
     {
-        move.projectile.statistics["Velocity"].Set<float>(move.projectile.statistics["Velocity"].Get<float>() + move.projectile.statistics["Acceleration"].Get<float>() * Time.deltaTime);
+        move.projectile.statistics["Velocity"].Set(move.projectile.statistics["Velocity"].Get<float>() + move.projectile.statistics["Acceleration"].Get<float>() * Time.deltaTime);
 
         if (move.projectile.statistics["Velocity"].Get<float>() > move.projectile.statistics["Maximum Velocity"].Get<float>() + move.projectile.statistics["Relative Velocity"].Get<float>())
-            move.projectile.statistics["Velocity"].Set<float>(move.projectile.statistics["Maximum Velocity"].Get<float>() + move.projectile.statistics["Relative Velocity"].Get<float>());
+            move.projectile.statistics["Velocity"].Set(move.projectile.statistics["Maximum Velocity"].Get<float>() + move.projectile.statistics["Relative Velocity"].Get<float>());
 
-        Rigidbody2D rigid = move.projectile.statistics["Rigidbody"].Get<GameObject>().GetComponent<Rigidbody2D>();
+        Rigidbody2D rigid = move.projectile.statistics["Rigidbody"].Get<Rigidbody2D>();
         Vector2 position = rigid.position + (Vector2)move.transform.up * move.projectile.statistics["Velocity"].Get<float>();
 
         if (move.projectile.statistics.Has("Lateral Wander"))
@@ -115,7 +115,7 @@ public static class ProjectileMovement
         // dotR = dot product of delta and projectile's right
         float dotR = Vector2.Dot(move.transform.right, delta);
 
-        Rigidbody2D rigid = move.projectile.statistics["Rigidbody"].Get<GameObject>().GetComponent<Rigidbody2D>();
+        Rigidbody2D rigid = move.projectile.statistics["Rigidbody"].Get<Rigidbody2D>();
         float turnRate = move.projectile.statistics["Turn Rate"].Get<float>();
         // as dotR approaches 1 the projectile's right side is facing the direction the projectile's forward needs to face
         // as dotR falls below 0 the left side is facing the direction the projectiles forward needs to face
@@ -157,7 +157,7 @@ public static class ProjectileMovement
         // dotR = dot product of delta and projectile's right
         float dotR = Vector2.Dot(move.transform.right, delta);
 
-        Rigidbody2D rigid = move.projectile.statistics["Rigidbody"].Get<GameObject>().GetComponent<Rigidbody2D>();
+        Rigidbody2D rigid = move.projectile.statistics["Rigidbody"].Get<Rigidbody2D>();
         float turnRate = move.projectile.statistics["Turn Rate"].Get<float>();
         // as dotR approaches 1 the projectile's right side is facing the direction the projectile's forward needs to face
         // as dotR falls below 0 the left side is facing the direction the projectiles forward needs to face

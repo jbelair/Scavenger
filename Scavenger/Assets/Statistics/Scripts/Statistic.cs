@@ -109,50 +109,56 @@ public class Statistic
     {
         if (type == ValueType.Object)
         {
-            value = 0;
+            value = o;
+            isDirty = true;
+        }
+        else
+        {
+            type = ValueType.Object;
+            value = o;
             isDirty = true;
         }
     }
 
-    public void Set<T>(T value)
-    {
-        Type t = typeof(T);
-        // This is a type that the value will never be, so we will be fine
-        Type t2 = typeof(Application);
-        switch (type)
-        {
-            case ValueType.Integer:
-                t2 = typeof(int);
-                break;
-            case ValueType.Float:
-                t2 = typeof(float);
-                break;
-            case ValueType.String:
-                t2 = typeof(string);
-                break;
-            case ValueType.Vector2:
-                t2 = typeof(Vector2);
-                break;
-            case ValueType.Vector3:
-                t2 = typeof(Vector3);
-                break;
-            case ValueType.GameObject:
-                t2 = typeof(GameObject);
-                break;
-            case ValueType.GameObjectArray:
-                t2 = typeof(GameObject[]);
-                break;
-            case ValueType.Object:
-                t2 = typeof(T);
-                break;
-        }
+    //public void Set<T>(T value)
+    //{
+    //    Type t = typeof(T);
+    //    // This is a type that the value will never be, so we will be fine
+    //    Type t2 = typeof(Application);
+    //    switch (type)
+    //    {
+    //        case ValueType.Integer:
+    //            t2 = typeof(int);
+    //            break;
+    //        case ValueType.Float:
+    //            t2 = typeof(float);
+    //            break;
+    //        case ValueType.String:
+    //            t2 = typeof(string);
+    //            break;
+    //        case ValueType.Vector2:
+    //            t2 = typeof(Vector2);
+    //            break;
+    //        case ValueType.Vector3:
+    //            t2 = typeof(Vector3);
+    //            break;
+    //        case ValueType.GameObject:
+    //            t2 = typeof(GameObject);
+    //            break;
+    //        case ValueType.GameObjectArray:
+    //            t2 = typeof(GameObject[]);
+    //            break;
+    //        case ValueType.Object:
+    //            t2 = typeof(T);
+    //            break;
+    //    }
 
-        if (t == t2)
-        {
-            this.value = value;
-            isDirty = true;
-        }
-    }
+    //    if (t == t2)
+    //    {
+    //        this.value = value;
+    //        isDirty = true;
+    //    }
+    //}
 
     public T Get<T>()
     {
