@@ -16446,6 +16446,7 @@ GameObject:
   - component: {fileID: 1030415757}
   - component: {fileID: 1030415756}
   - component: {fileID: 1030415758}
+  - component: {fileID: 1030415759}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -16780,6 +16781,61 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statistics: {fileID: 1030415757}
+--- !u!114 &1030415759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1030415752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cbd553e255412b40ba4afb23f5ee289, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  os: 0
+  player: 0
+  axis:
+  - name: Left Stick X
+    axis: 0
+  - name: Left Stick Y
+    axis: 1
+  - name: Right Stick X
+    axis: 2
+  - name: Right Stick Y
+    axis: 3
+  - name: Left Trigger
+    axis: 4
+  - name: Right Trigger
+    axis: 5
+  buttons:
+  - name: A
+    button: 4
+  - name: X
+    button: 5
+  - name: Y
+    button: 6
+  - name: B
+    button: 7
+  - name: Left Bumper
+    button: 8
+  - name: Right Bumper
+    button: 9
+  - name: Back
+    button: 10
+  - name: Start
+    button: 11
+  - name: Left Stick
+    button: 12
+  - name: Right Stick
+    button: 13
+  - name: D-Pad Up
+    button: 0
+  - name: D-Pad Down
+    button: 1
+  - name: D-Pad Left
+    button: 2
+  - name: D-Pad Right
+    button: 3
 --- !u!1 &1036275411
 GameObject:
   m_ObjectHideFlags: 0
