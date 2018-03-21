@@ -53,6 +53,7 @@ public class Statistic
     {
         if (type == ValueType.Vector2)
         {
+            Debug.Log("Setting statistic " + name + " to " + v2);
             value = v2;
             isDirty = true;
         }

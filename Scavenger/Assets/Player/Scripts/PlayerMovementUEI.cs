@@ -14,7 +14,7 @@ public class PlayerMovementUEI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Check if movement input is being supplied
         Vector2 input = statistics["Movement Input"].Get<Vector2>();
@@ -23,14 +23,15 @@ public class PlayerMovementUEI : MonoBehaviour
         if (input.magnitude > 0)
         {
             // Accelerate
-            rigid.velocity = Vector2.MoveTowards(rigid.velocity, input * statistics["Maximum Velocity"].Get<float>(), statistics["Acceleration"].Get<float>());
+            rigid.velocity = Vector2.MoveTowards(rigid.velocity, input * statistics["Maximum Velocity"].Get<float>(), statistics["Acceleration"].Get<float>() * Time.fixedDeltaTime);
+            rigid.rotation = Mathf.MoveTowardsAngle(rigid.rotation, Mathf.Atan2(-rigid.velocity.x, rigid.velocity.y) * Mathf.Rad2Deg, statistics["Turn Rate"].Get<float>() * Time.fixedDeltaTime);
         }
         else
         {
             if (rigid.velocity.magnitude > 0)
             {
                 // Decelerate
-                rigid.velocity = Vector2.MoveTowards(rigid.velocity, Vector2.zero, statistics["Acceleration"].Get<float>());
+                rigid.velocity = Vector2.MoveTowards(rigid.velocity, Vector2.zero, statistics["Acceleration"].Get<float>() * Time.fixedDeltaTime);
             }
         }
     }

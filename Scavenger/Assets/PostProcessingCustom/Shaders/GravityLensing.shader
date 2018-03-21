@@ -69,6 +69,7 @@ Shader "Hidden/Gravity Lensing"
 
 				// Modified https://unionassets.com/blog/the-effect-of-the-gravitational-lens-195 to include event horizon
 				fixed4 col = lerp(tex2D(_MainTex, offset), _Colour, pow(saturate(deformation), _Sharpness) * _Singularity);
+				//fixed4 col = lerp(tex2D(_MainTex, offset), _Colour, clamp(0, 1, deformation - _Singularity));
 				return col;
 			}
 			ENDCG
