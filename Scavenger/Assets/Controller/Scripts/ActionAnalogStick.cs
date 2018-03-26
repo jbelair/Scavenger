@@ -14,7 +14,7 @@ public class ActionAnalogStick : ActionInputBase
     public string axisY;
     public bool invertY = false;
 
-    [Range(0, 0.2f)]
+    [Range(0, 0.5f)]
     public float sensitivity = 0.15f;
 
     public Vector2 lastInput;
@@ -26,7 +26,7 @@ public class ActionAnalogStick : ActionInputBase
         float iX = (invertX) ? -1 : 1;
         float iY = (invertY) ? -1 : 1;
 
-        if (Input.anyKey)
+        if (Input.anyKey && (up != KeyCode.None || left != KeyCode.None || down != KeyCode.None || right != KeyCode.None))
         {
             if (Input.GetKey(up))
                 input += Vector2.up * iY;
@@ -39,16 +39,15 @@ public class ActionAnalogStick : ActionInputBase
         }
         else if(axisX != "" && axisY != "")
         {
-            input += Vector2.right * Input.GetAxisRaw(axisX) * iX;
-            input += Vector2.up * Input.GetAxisRaw(axisY) * iY;
+            input += Vector2.right * Input.GetAxis(axisX) * iX;
+            input += Vector2.up * Input.GetAxis(axisY) * iY;
         }
 
         if (input.magnitude < sensitivity)
             input = Vector2.zero;
         else
         {
-            input.Normalize();
-            input.Set((Mathf.Abs(input.x) - sensitivity) / (1f - sensitivity) * ((input.x < 0) ? -1f : 1f), (Mathf.Abs(input.y) - sensitivity) / (1f - sensitivity) * ((input.y < 0) ? -1f : 1f));
+            input = input.normalized * (input.magnitude - sensitivity) / (1f - sensitivity);
         }
 
         lastInput = input;

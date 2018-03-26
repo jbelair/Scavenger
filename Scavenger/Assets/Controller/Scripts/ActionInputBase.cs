@@ -18,6 +18,7 @@ public abstract class ActionInputBase
             if (platform == plat && input)
                 return true;
         }
+
         return false;
     }
 }

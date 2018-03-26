@@ -19,6 +19,7 @@ public class InputAction
     public ActionKey[] keys;
     public ActionAxis[] axis;
     public ActionAnalogStick[] sticks;
+    public ActionCursor[] cursors;
     public Action action;
     public UnityEvent start;
     public UnityEvent end;
@@ -65,6 +66,19 @@ public class InputAction
             if (stick.Enabled(Application.platform, controller.mode))
             {
                 iStick += stick.GetInput();
+                if (iStick.magnitude > 0)
+                {
+                    Input(iStick, iAxis);
+                    end = false;
+                }
+            }
+        }
+
+        foreach (ActionCursor cursor in cursors)
+        {
+            if (cursor.Enabled(Application.platform, controller.mode))
+            {
+                iStick += cursor.GetInput();
                 if (iStick.magnitude > 0)
                 {
                     Input(iStick, iAxis);
@@ -146,15 +160,26 @@ public class InputAction
                 break;
             case Action.MoveTargeted:
                 // This supplies movement input information to the player, in the form of location to reach.
+                controller.statistics["Movement Input"].Set(inputVector2);
+                break;
+            case Action.AimDirectional:
+                controller.statistics["Aim Input"].Set(inputVector2);
                 break;
             case Action.AimDirectionalX:
                 // This supplies aim input information to the player, in the form of direction to aim in.
+                input = controller.statistics["Aim Input"].Get<Vector2>();
+                input.x = inputFloat;
+                controller.statistics["Aim Input"].Set(input);
                 break;
             case Action.AimDirectionalY:
                 // This supplies aim input information to the player, in the form of direction to aim in.
+                input = controller.statistics["Aim Input"].Get<Vector2>();
+                input.y = inputFloat;
+                controller.statistics["Aim Input"].Set(input);
                 break;
             case Action.AimTargeted:
                 // This supplies aim input information to the player, in the form of location to aim at.
+                controller.statistics["Aim Input"].Set(inputVector2);
                 break;
             case Action.ZoomIn:
                 // This zooms the camera in (transition from top down to 3rd person view, strategic to pilot.)
@@ -224,12 +249,27 @@ public class InputAction
                 controller.statistics["Movement Input"].Set(input);
                 break;
             case Action.MoveTargeted:
+                controller.statistics["Movement Input"].Set(Vector2.zero);
+                break;
+            case Action.AimDirectional:
+                //controller.statistics["Aim Input"].Set(Vector2.zero);
+                // Aiming persists past input, so that the last aimed direction is always maintained.
                 break;
             case Action.AimDirectionalX:
+                //input = controller.statistics["Aim Input"].Get<Vector2>();
+                //input.y = 0;
+                //controller.statistics["Aim Input"].Set(input);
+                // Aiming persists past input, so that the last aimed direction is always maintained.
                 break;
             case Action.AimDirectionalY:
+                //input = controller.statistics["Aim Input"].Get<Vector2>();
+                //input.y = 0;
+                //controller.statistics["Aim Input"].Set(input);
+                // Aiming persists past input, so that the last aimed direction is always maintained.
                 break;
             case Action.AimTargeted:
+                //controller.statistics["Aim Input"].Set(Vector2.zero);
+                // Aiming persists past input, so that the last aimed direction is always maintained.
                 break;
             case Action.ZoomIn:
                 break;

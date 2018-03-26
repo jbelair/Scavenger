@@ -23,7 +23,7 @@ public class PlayerMovementUEI : MonoBehaviour
         if (input.magnitude > 0)
         {
             // Accelerate
-            rigid.velocity = Vector2.MoveTowards(rigid.velocity, input * statistics["Maximum Velocity"].Get<float>(), statistics["Acceleration"].Get<float>() * Time.fixedDeltaTime);
+            rigid.velocity = Vector2.MoveTowards(rigid.velocity, input * statistics["Maximum Velocity"].Get<float>() * input.magnitude, statistics["Acceleration"].Get<float>() * Time.fixedDeltaTime);
             rigid.rotation = Mathf.MoveTowardsAngle(rigid.rotation, Mathf.Atan2(-rigid.velocity.x, rigid.velocity.y) * Mathf.Rad2Deg, statistics["Turn Rate"].Get<float>() * Time.fixedDeltaTime);
         }
         else
