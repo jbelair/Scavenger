@@ -4,6 +4,77 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
+[Serializable]
+public class Sequencer
+{
+    public enum Format { Loop, PingPong };
+    public Format format;
+    public int repetitions = 1;
+    public enum Interpolation { None, Linear, Spherical };
+    public Interpolation interpolation = Interpolation.None;
+    public int index = 0;
+
+    protected int indexPrevious = 0;
+    protected int indexCurrent = 0;
+
+    public virtual void BaseStart()
+    {
+        indexCurrent = index;
+        indexPrevious = index;
+    }
+
+    //public virtual void Update()
+    //{
+    //    switch (format)
+    //    {
+    //        case Format.PingPong:
+    //            int ind = (index >= array.Length) ? 2 - index : index;
+    //            indexPrevious = ((ind - 1 >= 0) ? ((index > array.Length) ? ind + 1 : ind - 1) : 0);
+    //            indexCurrent = ind;
+    //            if (current.durationCurrent > current.duration)
+    //            {
+    //                ind = index;
+    //                index++;// = (index+1 >= transforms.Length) ? transforms.Length - 1 : index++;// = (index + 1) % transforms.Length;
+    //                if (index >= array.Length * 2)
+    //                {
+    //                    if (repetitions != 0)
+    //                    {
+    //                        repetitions--;
+    //                        index = 0;
+    //                    }
+    //                    else
+    //                        index = 0;
+    //                }
+    //                if (ind != index)
+    //                    array[index].durationCurrent = current.durationCurrent - current.duration;
+    //            }
+    //            break;
+    //        default:
+    //            previous = array[((index - 1 >= 0) ? index - 1 : 0)];
+    //            current = array[index];
+    //            current.durationCurrent += Time.deltaTime;
+    //            if (current.durationCurrent > current.duration)
+    //            {
+    //                ind = index;
+    //                index++;// = (index+1 >= transforms.Length) ? transforms.Length - 1 : index++;// = (index + 1) % transforms.Length;
+    //                if (index >= array.Length)
+    //                {
+    //                    if (repetitions != 0)
+    //                    {
+    //                        repetitions--;
+    //                        index = 0;
+    //                    }
+    //                    else
+    //                        index = array.Length - 1;
+    //                }
+    //                if (ind != index)
+    //                    array[index].durationCurrent = current.durationCurrent - current.duration;
+    //            }
+    //            break;
+    //    }
+    //}
+}
+
 public class Sequencer<T>
 {
     public enum Format { Loop, PingPong };
@@ -610,19 +681,15 @@ public class QuaternionSequencer
 }
 
 [Serializable]
-public class ColourSequencer
+public class ColourSequencer : Sequencer
 {
-    public enum Format { Loop, PingPong };
-    public Format format;
-    public int repetitions = 1;
-    public enum Interpolation { None, Linear, Spherical };
-    public Interpolation interpolation = Interpolation.None;
     public SequencerColourKey[] array;
-    public int index = 0;
+    
 
     public Color Start()
     {
-        return array[0].value;
+        base.BaseStart();
+        return array[indexCurrent].value;
     }
 
     public Color Update()

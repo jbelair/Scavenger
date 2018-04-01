@@ -8,7 +8,7 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: ui.mask.nebula
   m_Shader: {fileID: 4800000, guid: 9a07ad9bbca89ae4b936df37ba4aa806, type: 3}
-  m_ShaderKeywords: _ALPHABLIT_ON _ALPHAPRE_ON _ALPHARANGEMODE_THRESHOLD
+  m_ShaderKeywords: _ALPHABLIT_ON _ALPHARANGEMODE_THRESHOLD
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -19,7 +19,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AlphaMask:
-        m_Texture: {fileID: 2800000, guid: 02c3632b06778e449b9a845da7d09386, type: 3}
+        m_Texture: {fileID: 2800000, guid: e8c0dd3f77a2f6a4e865808746477b73, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -60,10 +60,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AlphaBlit: 1
-    - _AlphaPre: 1
-    - _AlphaRange: 0.2
+    - _AlphaPre: 0
+    - _AlphaRange: 0.1
     - _AlphaRangeMode: 4
-    - _AlphaThreshold: 0.2
+    - _AlphaThreshold: 0.1
     - _BumpScale: 1
     - _ColorMask: 15
     - _Cutoff: 0.5

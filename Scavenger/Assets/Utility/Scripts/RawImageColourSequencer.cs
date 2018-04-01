@@ -9,6 +9,11 @@ public class RawImageColourSequencer : MonoBehaviour
     public RawImage image;
     public ColourSequencer colours;
 
+    void Awake()
+    {
+        image = GetComponent<RawImage>();
+    }
+
     // Use this for initialization
     void Start()
     {

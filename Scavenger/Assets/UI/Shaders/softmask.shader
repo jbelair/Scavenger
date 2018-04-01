@@ -24,11 +24,11 @@ Shader "UI/Masks/Soft Mask"
 	_AlphaUV("Alpha UV", Vector) = (1,1,0,0)
 
 		// Alpha Mode properties
-		[KeywordEnum(Alpha, Stepped, HighPass, LowPass, Threshold, Range, RangeNormalized, Exponential)] _AlphaRangeMode("Alpha Mode", Float) = 0
+		[KeywordEnum(Alpha, Stepped, HighPass, LowPass, Threshold, Range, RangeNormalized, Exponential, MinMax)] _AlphaRangeMode("Alpha Mode", Float) = 0
 		[Toggle] _AlphaBlit("Alpha Blend", Float) = 1
 		[Toggle] _AlphaPre("Alpha Blend Pre-mode", Float) = 0
-		_AlphaRange("Alpha Range", Float) = 1
-		_AlphaThreshold("Alpha Threshold", Float) = 0
+		_AlphaRange("Alpha Range (Min)", Float) = 1
+		_AlphaThreshold("Alpha Threshold (Max)", Float) = 0
 	}
 
 		SubShader
@@ -201,6 +201,12 @@ Shader "UI/Masks/Soft Mask"
 			else if (_AlphaRangeMode == 7)
 			{
 				alpha = pow(alpha, _AlphaRange);
+			}
+			// MinMax
+			// Modifies the alpha mask by interpolating alphas between min and max, treating min as 0 and max as 1
+			else if (_AlphaRangeMode == 8)
+			{
+				alpha = lerp(0, 1, (alpha - _AlphaRange) / (_AlphaThreshold - _AlphaRange));
 			}
 
 			color.a = alpha;
