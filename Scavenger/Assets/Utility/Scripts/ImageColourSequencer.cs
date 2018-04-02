@@ -11,7 +11,8 @@ public class ImageColourSequencer : MonoBehaviour
 
     void Awake()
     {
-        image = GetComponent<Image>();
+        if (!image)
+            image = GetComponent<Image>();
     }
 
     // Use this for initialization

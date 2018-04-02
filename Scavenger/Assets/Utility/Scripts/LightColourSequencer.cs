@@ -1,29 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-[RequireComponent(typeof(RawImage))]
-public class RawImageColourSequencer : MonoBehaviour
+[RequireComponent(typeof(Light))]
+public class LightColourSequencer : MonoBehaviour
 {
-    public RawImage image;
+    public Light light;
     public ColourSequencer colours;
 
     void Awake()
     {
-        if (!image)
-            image = GetComponent<RawImage>();
+        if (!light)
+            light = GetComponent<Light>();
     }
 
     // Use this for initialization
     void Start()
     {
-        image.color = colours.Start();
+        light.color = colours.Start();
     }
 
     // Update is called once per frame
     void Update()
     {
-        image.color = colours.Update();
+        light.color = colours.Update();
     }
 }

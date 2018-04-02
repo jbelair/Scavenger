@@ -12,7 +12,8 @@ public class UITextColourSequencer : MonoBehaviour
 
     void Awake()
     {
-        text = GetComponent<Text>();
+        if (!text)
+            text = GetComponent<Text>();
     }
 
     // Use this for initialization
