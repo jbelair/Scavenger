@@ -532,6 +532,56 @@ public class Vector3Sequencer
         {
             SequencerVector3Key previous = array[((index - 1 >= 0) ? index - 1 : 0)];
             SequencerVector3Key current = array[index];
+
+            switch (format)
+            {
+                case Format.PingPong:
+                    int ind = (index >= array.Length) ? 2 - index : index;
+                    previous = array[((ind - 1 >= 0) ? ((index > array.Length) ? ind + 1 : ind - 1) : 0)];
+                    current = array[ind];
+                    current.durationCurrent += Time.deltaTime;
+                    if (current.durationCurrent > current.duration)
+                    {
+                        ind = index;
+                        index++;// = (index+1 >= transforms.Length) ? transforms.Length - 1 : index++;// = (index + 1) % transforms.Length;
+                        if (index >= array.Length * 2)
+                        {
+                            if (repetitions != 0)
+                            {
+                                repetitions--;
+                                index = 0;
+                            }
+                            else
+                                index = 0;
+                        }
+                        if (ind != index)
+                            array[index].durationCurrent = current.durationCurrent - current.duration;
+                    }
+                    break;
+                default:
+                    previous = array[((index - 1 >= 0) ? index - 1 : 0)];
+                    current = array[index];
+                    current.durationCurrent += Time.deltaTime;
+                    if (current.durationCurrent > current.duration)
+                    {
+                        ind = index;
+                        index++;// = (index+1 >= transforms.Length) ? transforms.Length - 1 : index++;// = (index + 1) % transforms.Length;
+                        if (index >= array.Length)
+                        {
+                            if (repetitions != 0)
+                            {
+                                repetitions--;
+                                index = 0;
+                            }
+                            else
+                                index = array.Length - 1;
+                        }
+                        if (ind != index)
+                            array[index].durationCurrent = current.durationCurrent - current.duration;
+                    }
+                    break;
+            }
+
             switch (interpolation)
             {
                 case Interpolation.None:
@@ -548,46 +598,6 @@ public class Vector3Sequencer
                     current = array[index];
                     percentage = current.durationCurrent / current.duration;
                     return Vector3.Lerp(previous.value, current.value, percentage);
-            }
-
-            switch (format)
-            {
-                case Format.Loop:
-                    current.durationCurrent += Time.deltaTime;
-                    if (current.durationCurrent > current.duration)
-                    {
-                        index++;// = (index+1 >= transforms.Length) ? transforms.Length - 1 : index++;// = (index + 1) % transforms.Length;
-                        if (index > array.Length - 1)
-                        {
-                            if (repetitions != 0)
-                            {
-                                repetitions--;
-                                index = 0;
-                            }
-                            else
-                                index = array.Length - 1;
-                        }
-                        array[index].durationCurrent = current.durationCurrent - current.duration;
-                    }
-                    break;
-                case Format.PingPong:
-                    current.durationCurrent += Time.deltaTime;
-                    if (current.durationCurrent > current.duration)
-                    {
-                        index++;// = (index+1 >= transforms.Length) ? transforms.Length - 1 : index++;// = (index + 1) % transforms.Length;
-                        if (index > array.Length - 1)
-                        {
-                            if (repetitions != 0)
-                            {
-                                repetitions--;
-                                index = 0;
-                            }
-                            else
-                                index = array.Length - 1;
-                        }
-                        array[index].durationCurrent = current.durationCurrent - current.duration;
-                    }
-                    break;
             }
         }
 
