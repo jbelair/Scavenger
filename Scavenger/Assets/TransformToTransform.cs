@@ -8,6 +8,7 @@ public class TransformKey
 {
     public float duration;
     public float durationCurrent;
+    public AnimationCurve curve = new AnimationCurve(new Keyframe[] { new Keyframe(0, 0), new Keyframe(1, 1) });
 
     public Vector3 position;
     public Vector3 rotation;
@@ -39,7 +40,7 @@ public class TransformToTransform : MonoBehaviour
         {
             TransformKey previous = transforms[((index - 1 >= 0) ? index - 1 : 0)];
             TransformKey current = transforms[index];
-            float percentage = current.durationCurrent / current.duration;
+            float percentage = current.curve.Evaluate(current.durationCurrent / current.duration);
 
             switch (format)
             {

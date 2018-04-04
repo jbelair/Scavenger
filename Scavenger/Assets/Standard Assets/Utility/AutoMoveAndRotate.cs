@@ -3,12 +3,15 @@ using UnityEngine;
 
 namespace UnityStandardAssets.Utility
 {
+    [ExecuteInEditMode]
     public class AutoMoveAndRotate : MonoBehaviour
     {
         public Vector3andSpace moveUnitsPerSecond;
         public Vector3andSpace rotateDegreesPerSecond;
         public bool ignoreTimescale;
         private float m_LastRealTime;
+
+        public bool inEditor = false;
 
 
         private void Start()
@@ -20,14 +23,17 @@ namespace UnityStandardAssets.Utility
         // Update is called once per frame
         private void Update()
         {
-            float deltaTime = Time.deltaTime;
-            if (ignoreTimescale)
+            if (Application.isEditor && inEditor)
             {
-                deltaTime = (Time.realtimeSinceStartup - m_LastRealTime);
-                m_LastRealTime = Time.realtimeSinceStartup;
+                float deltaTime = Time.deltaTime;
+                if (ignoreTimescale)
+                {
+                    deltaTime = (Time.realtimeSinceStartup - m_LastRealTime);
+                    m_LastRealTime = Time.realtimeSinceStartup;
+                }
+                transform.Translate(moveUnitsPerSecond.value * deltaTime, moveUnitsPerSecond.space);
+                transform.Rotate(rotateDegreesPerSecond.value * deltaTime, moveUnitsPerSecond.space);
             }
-            transform.Translate(moveUnitsPerSecond.value*deltaTime, moveUnitsPerSecond.space);
-            transform.Rotate(rotateDegreesPerSecond.value*deltaTime, moveUnitsPerSecond.space);
         }
 
 

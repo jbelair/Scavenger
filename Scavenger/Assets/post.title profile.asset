@@ -87,8 +87,8 @@ MonoBehaviour:
     m_Settings:
       lowPercent: 45
       highPercent: 95
-      minLuminance: -5
-      maxLuminance: 1
+      minLuminance: -16
+      maxLuminance: 4
       keyValue: 0.25
       dynamicKeyValue: 1
       adaptationType: 0
