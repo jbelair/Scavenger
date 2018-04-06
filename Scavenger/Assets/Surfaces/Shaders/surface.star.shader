@@ -4,15 +4,18 @@
 	{
 		_Kelvin("Temperature (K)", Range(1,100000)) = 3000
 		_KelvinRange("Range (K)", Range(1,100000)) = 500
+		_KelvinMax("Maximum (K)", Float) = 100000
+		_HDR("Emissive HDR Intensity", Range(1,8)) = 8
 		_Emissive("Colour Map", 2D) = "white" {}
+		_Spin("Spin", Float) = 0.1
+		_Scattering("Gas Scattering", Range(0,1)) = 0.2 
+		_Texture("Gas Giant (RGB)", 2D) = "white" {}
+		_Gasses("Gas Tint Map (RGB)", 2D) = "white" {}
 		_TextureY("500 Kelvin (RGB)", 2D) = "white" {}
+		_TextureL("2000 Kelvin (RGB)", 2D) = "white" {}
 		_TextureM("3000 Kelvin (RGB)", 2D) = "white" {}
-		_TextureK("5000 Kelvin (RGB)", 2D) = "white" {}
-		_TextureG("6000 Kelvin (RGB)", 2D) = "white" {}
 		_TextureF("7500 Kelvin (RGB)", 2D) = "white" {}
-		_TextureA("10000 Kelvin (RGB)", 2D) = "white" {}
-		_TextureB("30000 Start (RGB)", 2D) = "white" {}
-		_TextureO("30000+ Start (RGB)", 2D) = "white" {}
+		_TextureO("30000+ Kelvin (RGB)", 2D) = "white" {}
 	}
 		SubShader
 	{
@@ -21,39 +24,35 @@
 
 		CGPROGRAM
 		// Physically based Standard lighting model, and enable shadows on all light types
-		#pragma surface surf Standard vertex:vert
+		#pragma surface surf WrapLambert vertex:vert
 
 		// Use shader model 3.0 target, to get nicer looking lighting
-		#pragma target 3.0
-
-		static const float KELVIN_LOW = 0;
-		static const float KELVIN_HIGH = 100000;
+		#pragma target 4.6
+		
 		static const float Y = 500;
+		static const float L = 2000;
 		static const float M = 3000;
-		static const float K = 5000;
-		static const float G = 6000;
 		static const float F = 7500;
-		static const float A = 10000;
-		static const float B = 30000;
 		static const float O = 100000;
 
 		float _Kelvin;
 		float _KelvinRange;
-		sampler2D _Emissive;
+		float _KelvinMax;
+		float _HDR;
+		sampler1D _Emissive;
+		sampler1D _Gasses;
+		float _Scattering;
+		float _Spin;
+		sampler2D _Texture;
+		fixed4 _Texture_ST;
 		sampler2D _TextureY;
 		fixed4 _TextureY_ST;
+		sampler2D _TextureL;
+		fixed4 _TextureL_ST;
 		sampler2D _TextureM;
 		fixed4 _TextureM_ST;
-		sampler2D _TextureK;
-		fixed4 _TextureK_ST;
-		sampler2D _TextureG;
-		fixed4 _TextureG_ST;
 		sampler2D _TextureF;
 		fixed4 _TextureF_ST;
-		sampler2D _TextureA;
-		fixed4 _TextureA_ST;
-		sampler2D _TextureB;
-		fixed4 _TextureB_ST;
 		sampler2D _TextureO;
 		fixed4 _TextureO_ST;
 
@@ -61,6 +60,8 @@
 		{
 			float3 localPos;
 			float3 texturePos;
+			float3 viewDir;
+			float3 normal;
 		};
 
 		//
@@ -75,186 +76,136 @@
 		//
 
 		//
-		// GLSL textureless classic 3D noise "cnoise",
-		// with an RSL-style periodic variant "pnoise".
-		// Author:  Stefan Gustavson (stefan.gustavson@liu.se)
-		// Version: 2011-10-11
-		//
-		// Many thanks to Ian McEwan of Ashima Arts for the
-		// ideas for permutation and gradient selection.
-		//
-		// Copyright (c) 2011 Stefan Gustavson. All rights reserved.
-		// Distributed under the MIT license. See LICENSE file.
-		// https://github.com/ashima/webgl-noise
-		//
-		float3 mod(float3 x, float3 y)
-		{
-			return x - y * floor(x / y);
+		// Description : Array and textureless GLSL 2D/3D/4D simplex 
+		//               noise functions.
+		//      Author : Ian McEwan, Ashima Arts.
+		//  Maintainer : stegu
+		//     Lastmod : 20110822 (ijm)
+		//     License : Copyright (C) 2011 Ashima Arts. All rights reserved.
+		//               Distributed under the MIT License. See LICENSE file.
+		//               https://github.com/ashima/webgl-noise
+		//               https://github.com/stegu/webgl-noise
+		// 
+		// CONVERTED TO HLSL BY AIDAN DEARING
+
+		float4 mod289(float4 x) {
+			return x - floor(x * (1.0 / 289.0)) * 289.0;
 		}
 
-		float3 mod289(float3 x)
-		{
-			return x - floor(x / 289.0) * 289.0;
+		float mod289(float x) {
+			return x - floor(x * (1.0 / 289.0)) * 289.0;
 		}
 
-		float4 mod289(float4 x)
-		{
-			return x - floor(x / 289.0) * 289.0;
+		float4 permute(float4 x) {
+			return mod289(((x*34.0) + 1.0)*x);
 		}
 
-		float4 permute(float4 x)
-		{
+		float permute(float x) {
 			return mod289(((x*34.0) + 1.0)*x);
 		}
 
 		float4 taylorInvSqrt(float4 r)
 		{
-			return (float4)1.79284291400159 - r * 0.85373472095314;
+			return 1.79284291400159 - 0.85373472095314 * r;
 		}
 
-		float3 fade(float3 t) {
-			return t*t*t*(t*(t*6.0 - 15.0) + 10.0);
-		}
-
-		// Classic Perlin noise
-		float cnoise(float3 P)
+		float taylorInvSqrt(float r)
 		{
-			float3 Pi0 = floor(P); // Integer part for indexing
-			float3 Pi1 = Pi0 + (float3)1.0; // Integer part + 1
-			Pi0 = mod289(Pi0);
-			Pi1 = mod289(Pi1);
-			float3 Pf0 = frac(P); // Fractional part for interpolation
-			float3 Pf1 = Pf0 - (float3)1.0; // Fractional part - 1.0
-			float4 ix = float4(Pi0.x, Pi1.x, Pi0.x, Pi1.x);
-			float4 iy = float4(Pi0.y, Pi0.y, Pi1.y, Pi1.y);
-			float4 iz0 = (float4)Pi0.z;
-			float4 iz1 = (float4)Pi1.z;
-
-			float4 ixy = permute(permute(ix) + iy);
-			float4 ixy0 = permute(ixy + iz0);
-			float4 ixy1 = permute(ixy + iz1);
-
-			float4 gx0 = ixy0 / 7.0;
-			float4 gy0 = frac(floor(gx0) / 7.0) - 0.5;
-			gx0 = frac(gx0);
-			float4 gz0 = (float4)0.5 - abs(gx0) - abs(gy0);
-			float4 sz0 = step(gz0, (float4)0.0);
-			gx0 -= sz0 * (step((float4)0.0, gx0) - 0.5);
-			gy0 -= sz0 * (step((float4)0.0, gy0) - 0.5);
-
-			float4 gx1 = ixy1 / 7.0;
-			float4 gy1 = frac(floor(gx1) / 7.0) - 0.5;
-			gx1 = frac(gx1);
-			float4 gz1 = (float4)0.5 - abs(gx1) - abs(gy1);
-			float4 sz1 = step(gz1, (float4)0.0);
-			gx1 -= sz1 * (step((float4)0.0, gx1) - 0.5);
-			gy1 -= sz1 * (step((float4)0.0, gy1) - 0.5);
-
-			float3 g000 = float3(gx0.x, gy0.x, gz0.x);
-			float3 g100 = float3(gx0.y, gy0.y, gz0.y);
-			float3 g010 = float3(gx0.z, gy0.z, gz0.z);
-			float3 g110 = float3(gx0.w, gy0.w, gz0.w);
-			float3 g001 = float3(gx1.x, gy1.x, gz1.x);
-			float3 g101 = float3(gx1.y, gy1.y, gz1.y);
-			float3 g011 = float3(gx1.z, gy1.z, gz1.z);
-			float3 g111 = float3(gx1.w, gy1.w, gz1.w);
-
-			float4 norm0 = taylorInvSqrt(float4(dot(g000, g000), dot(g010, g010), dot(g100, g100), dot(g110, g110)));
-			g000 *= norm0.x;
-			g010 *= norm0.y;
-			g100 *= norm0.z;
-			g110 *= norm0.w;
-
-			float4 norm1 = taylorInvSqrt(float4(dot(g001, g001), dot(g011, g011), dot(g101, g101), dot(g111, g111)));
-			g001 *= norm1.x;
-			g011 *= norm1.y;
-			g101 *= norm1.z;
-			g111 *= norm1.w;
-
-			float n000 = dot(g000, Pf0);
-			float n100 = dot(g100, float3(Pf1.x, Pf0.y, Pf0.z));
-			float n010 = dot(g010, float3(Pf0.x, Pf1.y, Pf0.z));
-			float n110 = dot(g110, float3(Pf1.x, Pf1.y, Pf0.z));
-			float n001 = dot(g001, float3(Pf0.x, Pf0.y, Pf1.z));
-			float n101 = dot(g101, float3(Pf1.x, Pf0.y, Pf1.z));
-			float n011 = dot(g011, float3(Pf0.x, Pf1.y, Pf1.z));
-			float n111 = dot(g111, Pf1);
-
-			float3 fade_xyz = fade(Pf0);
-			float4 n_z = lerp(float4(n000, n100, n010, n110), float4(n001, n101, n011, n111), fade_xyz.z);
-			float2 n_yz = lerp(n_z.xy, n_z.zw, fade_xyz.y);
-			float n_xyz = lerp(n_yz.x, n_yz.y, fade_xyz.x);
-			return 2.2 * n_xyz;
+			return 1.79284291400159 - 0.85373472095314 * r;
 		}
 
-		// Classic Perlin noise, periodic variant
-		float pnoise(float3 P, float3 rep)
+		float4 grad4(float j, float4 ip)
 		{
-			float3 Pi0 = mod(floor(P), rep); // Integer part, modulo period
-			float3 Pi1 = mod(Pi0 + (float3)1.0, rep); // Integer part + 1, mod period
-			Pi0 = mod289(Pi0);
-			Pi1 = mod289(Pi1);
-			float3 Pf0 = frac(P); // Fractional part for interpolation
-			float3 Pf1 = Pf0 - (float3)1.0; // Fractional part - 1.0
-			float4 ix = float4(Pi0.x, Pi1.x, Pi0.x, Pi1.x);
-			float4 iy = float4(Pi0.y, Pi0.y, Pi1.y, Pi1.y);
-			float4 iz0 = (float4)Pi0.z;
-			float4 iz1 = (float4)Pi1.z;
+			const float4 ones = float4(1.0, 1.0, 1.0, -1.0);
+			float4 p, s;
 
-			float4 ixy = permute(permute(ix) + iy);
-			float4 ixy0 = permute(ixy + iz0);
-			float4 ixy1 = permute(ixy + iz1);
+			p.xyz = floor(frac(float3(j,j,j) * ip.xyz) * 7.0) * ip.z - 1.0;
+			p.w = 1.5 - dot(abs(p.xyz), ones.xyz);
+			s = float4(p < float4(0.0, 0.0, 0.0, 0.0));// p < float4(0.0, 0.0, 0.0, 0.0), p < float4(0.0, 0.0, 0.0, 0.0), p < float4(0.0, 0.0, 0.0, 0.0));
+			p.xyz = p.xyz + (s.xyz*2.0 - 1.0) * s.www;
 
-			float4 gx0 = ixy0 / 7.0;
-			float4 gy0 = frac(floor(gx0) / 7.0) - 0.5;
-			gx0 = frac(gx0);
-			float4 gz0 = (float4)0.5 - abs(gx0) - abs(gy0);
-			float4 sz0 = step(gz0, (float4)0.0);
-			gx0 -= sz0 * (step((float4)0.0, gx0) - 0.5);
-			gy0 -= sz0 * (step((float4)0.0, gy0) - 0.5);
+			return p;
+		}
 
-			float4 gx1 = ixy1 / 7.0;
-			float4 gy1 = frac(floor(gx1) / 7.0) - 0.5;
-			gx1 = frac(gx1);
-			float4 gz1 = (float4)0.5 - abs(gx1) - abs(gy1);
-			float4 sz1 = step(gz1, (float4)0.0);
-			gx1 -= sz1 * (step((float4)0.0, gx1) - 0.5);
-			gy1 -= sz1 * (step((float4)0.0, gy1) - 0.5);
+		// (sqrt(5) - 1)/4 = F4, used once below
+		#define F4 0.309016994374947451
 
-			float3 g000 = float3(gx0.x, gy0.x, gz0.x);
-			float3 g100 = float3(gx0.y, gy0.y, gz0.y);
-			float3 g010 = float3(gx0.z, gy0.z, gz0.z);
-			float3 g110 = float3(gx0.w, gy0.w, gz0.w);
-			float3 g001 = float3(gx1.x, gy1.x, gz1.x);
-			float3 g101 = float3(gx1.y, gy1.y, gz1.y);
-			float3 g011 = float3(gx1.z, gy1.z, gz1.z);
-			float3 g111 = float3(gx1.w, gy1.w, gz1.w);
+		float snoise(float4 v)
+		{
+			const float4  C = float4(0.138196601125011,  // (5 - sqrt(5))/20  G4
+				0.276393202250021,  // 2 * G4
+				0.414589803375032,  // 3 * G4
+				-0.447213595499958); // -1 + 4 * G4
 
-			float4 norm0 = taylorInvSqrt(float4(dot(g000, g000), dot(g010, g010), dot(g100, g100), dot(g110, g110)));
-			g000 *= norm0.x;
-			g010 *= norm0.y;
-			g100 *= norm0.z;
-			g110 *= norm0.w;
-			float4 norm1 = taylorInvSqrt(float4(dot(g001, g001), dot(g011, g011), dot(g101, g101), dot(g111, g111)));
-			g001 *= norm1.x;
-			g011 *= norm1.y;
-			g101 *= norm1.z;
-			g111 *= norm1.w;
+									 // First corner
+			float4 i = floor(v + dot(v, float4(F4,F4,F4,F4)));
+			float4 x0 = v - i + dot(i, C.xxxx);
 
-			float n000 = dot(g000, Pf0);
-			float n100 = dot(g100, float3(Pf1.x, Pf0.y, Pf0.z));
-			float n010 = dot(g010, float3(Pf0.x, Pf1.y, Pf0.z));
-			float n110 = dot(g110, float3(Pf1.x, Pf1.y, Pf0.z));
-			float n001 = dot(g001, float3(Pf0.x, Pf0.y, Pf1.z));
-			float n101 = dot(g101, float3(Pf1.x, Pf0.y, Pf1.z));
-			float n011 = dot(g011, float3(Pf0.x, Pf1.y, Pf1.z));
-			float n111 = dot(g111, Pf1);
+			// Other corners
 
-			float3 fade_xyz = fade(Pf0);
-			float4 n_z = lerp(float4(n000, n100, n010, n110), float4(n001, n101, n011, n111), fade_xyz.z);
-			float2 n_yz = lerp(n_z.xy, n_z.zw, fade_xyz.y);
-			float n_xyz = lerp(n_yz.x, n_yz.y, fade_xyz.x);
-			return 2.2 * n_xyz;
+			// Rank sorting originally contributed by Bill Licea-Kane, AMD (formerly ATI)
+			float4 i0;
+			float3 isX = step(x0.yzw, x0.xxx);
+			float3 isYZ = step(x0.zww, x0.yyz);
+			//  i0.x = dot( isX, vec3( 1.0 ) );
+			i0.x = isX.x + isX.y + isX.z;
+			i0.yzw = 1.0 - isX;
+			//  i0.y += dot( isYZ.xy, vec2( 1.0 ) );
+			i0.y += isYZ.x + isYZ.y;
+			i0.zw += 1.0 - isYZ.xy;
+			i0.z += isYZ.z;
+			i0.w += 1.0 - isYZ.z;
+
+			// i0 now contains the unique values 0,1,2,3 in each channel
+			float4 i3 = clamp(i0, 0.0, 1.0);
+			float4 i2 = clamp(i0 - 1.0, 0.0, 1.0);
+			float4 i1 = clamp(i0 - 2.0, 0.0, 1.0);
+
+			//  x0 = x0 - 0.0 + 0.0 * C.xxxx
+			//  x1 = x0 - i1  + 1.0 * C.xxxx
+			//  x2 = x0 - i2  + 2.0 * C.xxxx
+			//  x3 = x0 - i3  + 3.0 * C.xxxx
+			//  x4 = x0 - 1.0 + 4.0 * C.xxxx
+			float4 x1 = x0 - i1 + C.xxxx;
+			float4 x2 = x0 - i2 + C.yyyy;
+			float4 x3 = x0 - i3 + C.zzzz;
+			float4 x4 = x0 + C.wwww;
+
+			// Permutations
+			i = mod289(i);
+			float j0 = permute(permute(permute(permute(i.w) + i.z) + i.y) + i.x);
+			float4 j1 = permute(permute(permute(permute(
+				i.w + float4(i1.w, i2.w, i3.w, 1.0))
+				+ i.z + float4(i1.z, i2.z, i3.z, 1.0))
+				+ i.y + float4(i1.y, i2.y, i3.y, 1.0))
+				+ i.x + float4(i1.x, i2.x, i3.x, 1.0));
+
+			// Gradients: 7x7x6 points over a cube, mapped onto a 4-cross polytope
+			// 7*7*6 = 294, which is close to the ring size 17*17 = 289.
+			float4 ip = float4(1.0 / 294.0, 1.0 / 49.0, 1.0 / 7.0, 0.0);
+
+			float4 p0 = grad4(j0, ip);
+			float4 p1 = grad4(j1.x, ip);
+			float4 p2 = grad4(j1.y, ip);
+			float4 p3 = grad4(j1.z, ip);
+			float4 p4 = grad4(j1.w, ip);
+
+			// Normalise gradients
+			float4 norm = taylorInvSqrt(float4(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
+			p0 *= norm.x;
+			p1 *= norm.y;
+			p2 *= norm.z;
+			p3 *= norm.w;
+			p4 *= taylorInvSqrt(dot(p4, p4));
+
+			// Mix contributions from the five corners
+			float3 m0 = max(0.6 - float3(dot(x0, x0), dot(x1, x1), dot(x2, x2)), 0.0);
+			float2 m1 = max(0.6 - float2(dot(x3, x3), dot(x4, x4)), 0.0);
+			m0 = m0 * m0;
+			m1 = m1 * m1;
+			return 49.0 * (dot(m0*m0, float3(dot(p0, x0), dot(p1, x1), dot(p2, x2)))
+				+ dot(m1*m1, float2(dot(p3, x3), dot(p4, x4))));
+
 		}
 
 		float SampleKelvin(float3 colour)
@@ -262,13 +213,13 @@
 			return clamp(_Kelvin + (dot(colour, fixed3(0.33, 0.56, 0.1)) - 0.5) * 2 * _KelvinRange, _Kelvin - _KelvinRange, _Kelvin + _KelvinRange);
 		}
 
-		float3 SampleAtKelvinEmission(fixed3 emission, float3 uv)
+		float3 SampleAtKelvinEmission(fixed3 emission, float4 uv)
 		{
 			fixed3 c = fixed3(1, 1, 1);
 
-			float k = clamp(_Kelvin + (dot(emission, fixed3(0.33, 0.56, 0.1)) - 0.5) * 2 * _KelvinRange, KELVIN_LOW, KELVIN_HIGH);
+			float k = clamp(_Kelvin + (dot(emission, fixed3(0.33, 0.56, 0.1)) - 0.5) * 2 * _KelvinRange, 0, _KelvinMax);
 
-			if (k < M)
+			if (k < L)
 			{
 				if (k < Y)
 				{
@@ -276,92 +227,26 @@
 				}
 				else
 				{
-					c = lerp(tex2D(_TextureY, uv.xy * _TextureY_ST.xy + _TextureY_ST.zw).rgb, tex2D(_TextureM, uv.xy * _TextureM_ST.xy + _TextureM_ST.zw).rgb, (k - Y) / (M - Y));
+					c = lerp(tex2D(_TextureY, uv.xy * _TextureY_ST.xy + _TextureY_ST.zw).rgb, tex2D(_TextureL, uv.xy * _TextureL_ST.xy + _TextureL_ST.zw).rgb, (k - Y) / (L - Y));
 				}
 			}
-			else if (k < K)
+			else if (k < M)
 			{
-				c = lerp(tex2D(_TextureM, uv.xy * _TextureM_ST.xy + _TextureM_ST.zw).rgb, tex2D(_TextureK, uv.xy * _TextureK_ST.xy + _TextureK_ST.zw).rgb, (k - M) / (K - M));
-			}
-			else if (k < G)
-			{
-				c = lerp(tex2D(_TextureK, uv.xy * _TextureK_ST.xy + _TextureK_ST.zw).rgb, tex2D(_TextureG, uv.xy * _TextureG_ST.xy + _TextureG_ST.zw).rgb, (k - K) / (G - K));
+				c = lerp(tex2D(_TextureL, uv.xy * _TextureL_ST.xy + _TextureL_ST.zw).rgb, tex2D(_TextureM, uv.xy * _TextureM_ST.xy + _TextureM_ST.zw).rgb, (k - L) / (M - L));
 			}
 			else if (k < F)
 			{
-				c = lerp(tex2D(_TextureG, uv.xy * _TextureG_ST.xy + _TextureG_ST.zw).rgb, tex2D(_TextureF, uv.xy * _TextureF_ST.xy + _TextureF_ST.zw).rgb, (k - G) / (F - G));
-			}
-			else if (k < A)
-			{
-				c = lerp(tex2D(_TextureF, uv.xy * _TextureF_ST.xy + _TextureF_ST.zw).rgb, tex2D(_TextureA, uv.xy * _TextureA_ST.xy + _TextureA_ST.zw).rgb, (k - F) / (A - F));
-			}
-			else if (k < B)
-			{
-				c = lerp(tex2D(_TextureA, uv.xy * _TextureA_ST.xy + _TextureA_ST.zw).rgb, tex2D(_TextureB, uv.xy * _TextureB_ST.xy + _TextureB_ST.zw).rgb, (k - A) / (B - A));
+				c = lerp(tex2D(_TextureM, uv.xy * _TextureM_ST.xy + _TextureM_ST.zw).rgb, tex2D(_TextureF, uv.xy * _TextureF_ST.xy + _TextureF_ST.zw).rgb, (k - M) / (F - M));
 			}
 			else
 			{
-				c = lerp(tex2D(_TextureB, uv.xy * _TextureB_ST.xy + _TextureB_ST.zw).rgb, tex2D(_TextureO, uv.xy * _TextureO_ST.xy + _TextureO_ST.zw).rgb, (k - B) / (O - B));
+				c = lerp(tex2D(_TextureF, uv.xy * _TextureF_ST.xy + _TextureF_ST.zw).rgb, tex2D(_TextureO, uv.xy * _TextureO_ST.xy + _TextureO_ST.zw).rgb, (k - F) / (O - F));
 			}
 
 			k = SampleKelvin(c);
 
-			float2 kX = float2(k / KELVIN_HIGH, 0);
-			c = lerp(tex2D(_Emissive, kX), c * tex2D(_Emissive, kX), uv.z).rgb * 8;
-
-			return c;
-		}
-
-		float3 SampleAtKelvin(float3 uv, float3 localPos)
-		{
-			fixed3 c = fixed3(1, 1, 1);
-
-			float k = _Kelvin;
-
-			if (k < M)
-			{
-				if (k < Y)
-				{
-					c = tex2D(_TextureY, uv * _TextureY_ST.xy + _TextureY_ST.zw).rgb;
-				}
-				else
-				{
-					c = lerp(tex2D(_TextureY, uv * _TextureY_ST.xy + _TextureY_ST.zw).rgb, tex2D(_TextureM, uv * _TextureM_ST.xy + _TextureM_ST.zw).rgb, (k - Y) / (M - Y));
-				}
-			}
-			else if (k < K)
-			{
-				c = lerp(tex2D(_TextureM, uv * _TextureM_ST.xy + _TextureM_ST.zw).rgb, tex2D(_TextureK, uv * _TextureK_ST.xy + _TextureK_ST.zw).rgb, (k - M) / (K - M));
-			}
-			else if (k < G)
-			{
-				c = lerp(tex2D(_TextureK, uv * _TextureK_ST.xy + _TextureK_ST.zw).rgb, tex2D(_TextureG, uv * _TextureG_ST.xy + _TextureG_ST.zw).rgb, (k - K) / (G - K));
-			}
-			else if (k < F)
-			{
-				c = lerp(tex2D(_TextureG, uv * _TextureG_ST.xy + _TextureG_ST.zw).rgb, tex2D(_TextureF, uv * _TextureF_ST.xy + _TextureF_ST.zw).rgb, (k - G) / (F - G));
-			}
-			else if (k < A)
-			{
-				c = lerp(tex2D(_TextureF, uv * _TextureF_ST.xy + _TextureF_ST.zw).rgb, tex2D(_TextureA, uv * _TextureA_ST.xy + _TextureA_ST.zw).rgb, (k - F) / (A - F));
-			}
-			else if (k < B)
-			{
-				c = lerp(tex2D(_TextureA, uv * _TextureA_ST.xy + _TextureA_ST.zw).rgb, tex2D(_TextureB, uv * _TextureB_ST.xy + _TextureB_ST.zw).rgb, (k - A) / (B - A));
-			}
-			else
-			{
-				c = lerp(tex2D(_TextureB, uv * _TextureB_ST.xy + _TextureB_ST.zw).rgb, tex2D(_TextureO, uv * _TextureO_ST.xy + _TextureO_ST.zw).rgb, (k - B) / (O - B));
-			}
-
-			float l = pow(_Kelvin / KELVIN_HIGH, 0.1) * 20;//log10(_Kelvin);
-			//k = clamp(SampleKelvin(c) * cnoise(localPos.xyz * l + float3(_Time.x,0,_Time.x) * l), _Kelvin - _KelvinRange, _Kelvin + _KelvinRange);
-			k = SampleKelvin(c) + _KelvinRange * (cnoise(localPos.xyz * l + float3(0, _Time.x, 0) * l) - 0.5) * 2;
-			//k = SampleKelvin(c) + _KelvinRange * (cnoise(float3(uv.xy,_Time.x) * l) - 0.5) * 2;
-
-			//c *= tex2D(_Emissive, float2(k / KELVIN_HIGH, 0));
-			float2 kX = float2(k / KELVIN_HIGH, 0);
-			c = lerp(tex2D(_Emissive, kX), c * tex2D(_Emissive, kX), uv.z).rgb * 8;
+			float kX = k / _KelvinMax;
+			c = lerp(tex1D(_Emissive, (_Kelvin + _KelvinRange) / _KelvinMax), c * tex1D(_Emissive, kX), min(clamp(uv.z,0,1), 1 - uv.w)).rgb * _HDR;
 
 			return c;
 		}
@@ -373,42 +258,57 @@
 			// put more per-instance properties here
 		UNITY_INSTANCING_BUFFER_END(Props)
 
-		/*fixed4 LightingNoLighting(SurfaceOutput s, fixed3 lightDir, fixed atten)
+		half4 LightingWrapLambert(SurfaceOutput s, half3 lightDir, half atten) 
 		{
-			fixed4 c;
-			c.rgb = s.Albedo;
+			half NdotL = dot(s.Normal, lightDir);
+			half diff = NdotL * 0.5 + 0.5;
+			half4 c;
+			c.rgb = s.Albedo * _LightColor0.rgb * (diff * atten);
 			c.a = s.Alpha;
 			return c;
-		}*/
+		}
+
 
 		void vert(inout appdata_full v, out Input o) 
 		{
 			UNITY_INITIALIZE_OUTPUT(Input, o);
 			o.localPos = v.vertex.xyz;
-			o.texturePos = float3(v.texcoord.xy, pow(1-abs(v.vertex.y), 3));
+			o.texturePos = float3(v.texcoord.xy, 1 - pow(abs(v.vertex.y) * 2, 8));
+			o.normal = v.normal;
 		}
 
-		void surf (Input IN, inout SurfaceOutputStandard o)
+		void surf (Input IN, inout SurfaceOutput o)
 		{
-			// Albedo comes from a texture tinted by color
-			//o.Albedo = SampleAtKelvin(IN.localPos);//*/IN.uv_TextureY);
-			o.Albedo = float3(0, 0, 0);
-			//o.Emission = SampleAtKelvin(IN.localPos);
-			float4 pD = float4(1 - pow(_Kelvin / KELVIN_HIGH, 0.01), pow(_Kelvin / KELVIN_HIGH, 0.5) * 64, _Kelvin / KELVIN_HIGH * 128, pow(_Kelvin / KELVIN_HIGH, 2) * 256);
-			float p = cnoise(IN.localPos * float3(0, 8, 0) + float3(_Time.x, 0, 0)) * pD.x;
-			p += cnoise(IN.localPos * pD.y + float3(0, _Time.x * pD.y / 8, 0)) * pD.y / 64;
-			p += cnoise(IN.localPos * pD.z + float3(0, _Time.x * pD.z / 8, 0)) * pD.z / 128;
-			p += cnoise(IN.localPos * pD.w + float3(0, _Time.x * pD.w / 8, 0)) * pD.w / 256;
-			//p *= 8;
-			float3 c = tex2D(_Emissive, float2((p * _KelvinRange + _Kelvin) / KELVIN_HIGH, 0)) * 8;//SampleAtKelvin(IN.texturePos, IN.localPos);// *pow(2, log10(_Kelvin));// +float3(0.1, 0.1, 0) * cnoise(IN.localPos + _Time.x));
-			//float k = pow(SampleKelvin(c) / KELVIN_HIGH, 0.1);// / log10(_Kelvin);// *10;
-			//float3 kX = float3(_CosTime.w * k * _SinTime.x, _SinTime.w * k * _CosTime.y, 0);
-			o.Emission = c;//SampleAtKelvinEmission(c, IN.texturePos);// +float3(k, k, 0) * cnoise(float3(IN.texturePos.xy, _Time.x) * pow(2, log10(_Kelvin))) - float3(-0.5, -0.5, 0));// +float3(0.1, 0.1, 0) * cnoise(IN.localPos + _Time.x));// +kX);
-			//o.Emission = SampleAtKelvinEmission(o.Albedo, IN.localPos);//*/IN.uv_TextureY);
-			// Metallic and smoothness come from slider variables
-			o.Metallic = 1;//_Metallic;
-			o.Smoothness = 0;//_Glossiness;
-			o.Alpha = 1;//c.a;
+			float4 pD = float4(1 - pow(_Kelvin / _KelvinMax, 0.1), pow(_Kelvin / _KelvinMax, 0.5) * 128, _Kelvin / _KelvinMax * 256, pow(_Kelvin / _KelvinMax, 2) * 512);
+			float pt;
+			float p = pt = lerp(0, snoise(float4(IN.localPos, 0) * float4(0, 8, 0, 0) + float4(0, 0, 0, _Time.x)) * pD.x, pD.x);
+			p += lerp(0, snoise(float4(IN.localPos, 0) * pD.y + float4(0 ,0, 0, _Time.y / 4)) * pD.y / 128, 1 - pD.x);
+			p += lerp(0, snoise(float4(IN.localPos, 0) * pD.z + float4(0, 0, 0, _Time.y / 2)) * pD.z / 256, pD.z / 256);
+			p += lerp(0, snoise(float4(IN.localPos, 0) * pD.w + float4(0, 0, 0, _Time.y)) * pD.w / 512, pD.w / 512);
+
+			float4 qD = float2((1 - pow(_Kelvin / _KelvinMax, 0.1)) * 64, (1 - pow(_Kelvin / _KelvinMax, 0.1)) * 128, (1 - pow(_Kelvin / _KelvinMax, 0.1)) * 128);
+			float q = pow((lerp(0.5, snoise(float4(IN.localPos, 0) * qD.x + float4(0, 0, 0, _Time.x)) * qD.x / 64, qD.x / 64) - 0.5) * 2, 2);
+			float r = pow((lerp(0.5, snoise(float4(IN.localPos, 0) * qD.y + float4(100, 0, 0, _Time.x)) * qD.y / 128, qD.y / 128) - 0.5) * 2, 2);
+
+			float3 c = tex1D(_Emissive, (p * _KelvinRange + _Kelvin) / _KelvinMax) * _HDR;
+
+			float freznel = saturate(dot(normalize(IN.viewDir), IN.normal));
+			float4 sampleAt = float4(IN.texturePos, lerp(0, pow(freznel, pD.x), pD.x));
+			sampleAt += float4(_Time.x * _Spin, 0, 0, 0);
+			//sampleAt += 0.01 * float4(cos(p * 6.28318), sin(p * 6.28318), 0, 0);
+			//sampleAt += float4(cos(q * 6.28318) * _Spin, sin(r * 6.28318) * _Spin, 0, 0);
+			//sampleAt += float4(cos(q * 6.28318) * _Spin, sin(r * -6.28318) * _Spin, 0, 0);
+			sampleAt += float4(0, q * _Spin, 0, 0);
+			sampleAt += float4(r * _Spin, 0, 0, 0);
+
+			float3 temperature = lerp(1, dot(c, float3(0.33, 0.56, 0.11)) / (8 * 1.732051), 1 - pD.x);
+			o.Albedo = temperature * tex2D(_Texture, sampleAt.xy * _Texture_ST.xy + _Texture_ST.zw);
+			// magnitude of 1,1,1 is √3 ~ 1.732051 (1.7320508...)
+			o.Albedo = temperature * (tex1D(_Gasses, length(o.Albedo) / 1.732051) + tex1D(_Gasses, 1) * freznel) / 2;
+			o.Emission = SampleAtKelvinEmission(c, sampleAt);// +float3(k, k, 0) * cnoise(float3(IN.texturePos.xy, _Time.x) * pow(2, log10(_Kelvin))) - float3(-0.5, -0.5, 0));// +float3(0.1, 0.1, 0) * cnoise(IN.localPos + _Time.x));// +kX);
+			//o.Emission = float3((q - 0.5) * 2, (r - 0.5)*r, 0) / 2;
+			//o.Emission = o.Emission + float3(pD.x, pD.x, pD.x) * tex1D(_Gasses, 1) * (1 - freznel) * _Scattering;
+			o.Alpha = 1;
 		}
 		ENDCG
 	}
