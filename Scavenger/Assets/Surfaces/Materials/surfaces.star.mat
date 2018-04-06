@@ -47,7 +47,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Gasses:
-        m_Texture: {fileID: 2800000, guid: e8ce0bef5c85d4446a56dee7b0e8eb10, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5bca838a33ddc9346acc2ccc11b45f13, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -67,8 +67,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture:
-        m_Texture: {fileID: 2800000, guid: ce418a9883388d34281e6f2e5eca968a, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 802e9062e011a84448aeb4cb4416bc20, type: 3}
+        m_Scale: {x: 1, y: 4}
         m_Offset: {x: 0, y: 0}
     - _TextureA:
         m_Texture: {fileID: 2800000, guid: 02bbc5737733a9b41a30b0f5ea28b82c, type: 3}
@@ -107,7 +107,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TextureY:
-        m_Texture: {fileID: 2800000, guid: ce418a9883388d34281e6f2e5eca968a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4a2b78402b5c4944e830cfbade1248cf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -121,16 +121,17 @@ Material:
     - _HDR: 8
     - _Kelvin: 1
     - _KelvinMax: 100000
-    - _KelvinRange: 0
+    - _KelvinRange: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Scattering: 0.3
+    - _Scattering: 0.1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Spin: 0.005
+    - _Spin: 1
     - _SrcBlend: 1
+    - _Turbulence: 0.05
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:

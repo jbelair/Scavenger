@@ -10546,7 +10546,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 381625290}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8935f53966e6fb43ba644e716c94e5f, type: 3}
   m_Name: 
@@ -24899,6 +24899,7 @@ Material:
     - _SpecularHighlights: 1
     - _Spin: 0.1
     - _SrcBlend: 1
+    - _Turbulence: 0.1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
@@ -32029,8 +32030,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1759557290}
-  m_LocalRotation: {x: 0.10310935, y: -0.21526916, z: 0.021878215, w: 0.97084963}
-  m_LocalPosition: {x: -1417.9574, y: 22.83599, z: -196.52374}
+  m_LocalRotation: {x: -0.15505335, y: 0.17725709, z: -0.027311925, w: -0.97148985}
+  m_LocalPosition: {x: -1444.9944, y: 16.666204, z: -147.65276}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
