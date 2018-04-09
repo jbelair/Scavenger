@@ -10466,6 +10466,7 @@ GameObject:
   - component: {fileID: 381625293}
   - component: {fileID: 381625292}
   - component: {fileID: 381625295}
+  - component: {fileID: 381625296}
   m_Layer: 0
   m_Name: Planet 1
   m_TagString: Untagged
@@ -10636,6 +10637,18 @@ MonoBehaviour:
       durationCurrent: 0
       value: 0
     index: 0
+--- !u!114 &381625296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 381625290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a6038e6902c144486deca112777dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 0}
 --- !u!1 &610451828
 GameObject:
   m_ObjectHideFlags: 0
@@ -24879,6 +24892,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AtmosphereRadius: 2
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -24890,10 +24904,14 @@ Material:
     - _Kelvin: 5778
     - _KelvinMax: 100000
     - _KelvinRange: 1778
+    - _LightSamples: 4
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _Octaves: 2
     - _Parallax: 0.02
+    - _PlanetRadius: 1
+    - _RayScaleHeight: 1
     - _Scattering: 0.2
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -24906,6 +24924,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Colour: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _PlanetCenter: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1338466496
 GameObject:
   m_ObjectHideFlags: 0

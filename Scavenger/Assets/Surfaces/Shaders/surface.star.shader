@@ -1,7 +1,13 @@
-﻿Shader "Surfaces/Star" 
+﻿Shader "Surfaces/Star"
 {
-	Properties 
+	Properties
 	{
+		//_PlanetRadius("Planet Radius", Float) = 1
+		//_PlanetCenter("Planet Center", Vector) = (0,0,0,1)
+		//_RayScaleHeight("Ray Height", Float) = 1
+		//_AtmosphereRadius("Atmosphere Radius", Float) = 2
+		//_LightSamples("Atmosphere Light Samples", Int) = 4 
+
 		_Kelvin("Temperature (K)", Range(1,100000)) = 3000
 		_KelvinRange("Range (K)", Range(1,100000)) = 500
 		_KelvinMax("Maximum (K)", Float) = 100000
@@ -9,7 +15,8 @@
 		_Emissive("Colour Map", 2D) = "white" {}
 		_Spin("Spin", Float) = 0.1
 		_Turbulence("Turbulence", Float) = 0.1
-		_Scattering("Gas Scattering", Range(0,1)) = 0.2 
+		_Octaves("Turbulence Octaves", Int) = 2
+		_Scattering("Gas Scattering", Range(0,1)) = 0.2
 		_Texture("Gas Giant (RGB)", 2D) = "white" {}
 		_Gasses("Gas Tint Map (RGB)", 2D) = "white" {}
 		_TextureY("500 Kelvin (RGB)", 2D) = "white" {}
@@ -29,7 +36,7 @@
 
 		// Use shader model 3.0 target, to get nicer looking lighting
 		#pragma target 4.6
-		
+
 		static const float Y = 500;
 		static const float L = 2000;
 		static const float M = 3000;
@@ -45,6 +52,7 @@
 		float _Scattering;
 		float _Spin;
 		float _Turbulence;
+		int _Octaves;
 		sampler2D _Texture;
 		fixed4 _Texture_ST;
 		sampler2D _TextureY;
@@ -58,7 +66,9 @@
 		sampler2D _TextureO;
 		fixed4 _TextureO_ST;
 
-		struct Input 
+		float time = 0;
+
+		struct Input
 		{
 			float3 localPos;
 			float3 texturePos;
@@ -210,6 +220,17 @@
 
 		}
 
+		float snoise4(float4 pos, int octaves)
+		{
+			float noise = 0;//snoise(pos);
+			for (int i = 0; i < octaves; i++)
+			{
+				noise += snoise(pos * pow(2.0, i));
+			}
+			noise /= octaves;
+			return noise;
+		}
+
 		float SampleKelvin(float3 colour)
 		{
 			return clamp(_Kelvin + (dot(colour, fixed3(0.33, 0.56, 0.1)) - 0.5) * 2 * _KelvinRange, _Kelvin - _KelvinRange, _Kelvin + _KelvinRange);
@@ -260,18 +281,32 @@
 			// put more per-instance properties here
 		UNITY_INSTANCING_BUFFER_END(Props)
 
-		half4 LightingWrapLambert(SurfaceOutput s, half3 lightDir, half atten) 
+		#include "UnityPBSLighting.cginc"
+		inline fixed4 LightingWrapLambert(SurfaceOutputStandard s, fixed3 viewDir, UnityGI gi)
 		{
-			half NdotL = dot(s.Normal, lightDir);
+			half NdotL = dot(s.Normal, gi.light.dir);//lightDir);
 			half diff = NdotL * 0.5 + 0.5;
 			half4 c;
-			c.rgb = s.Albedo * _LightColor0.rgb * (diff * atten);
+
+			//float3 H = normalize(gi.light.dir + s.Normal * 0.5);
+			//float I = pow(saturate(dot(viewDir, -H)), 1) * 2;
+			float I = (1 - abs(dot(gi.light.dir, s.Normal))) * abs(min(0, dot(viewDir, gi.light.dir)));
+
+			half VdotL = dot(s.Normal, gi.light.dir);
+			float scat = saturate(VdotL * 2 + 0.5);
+			I = max(0.0, I);
+			c.rgb = s.Albedo * gi.light.color.rgb * diff * lerp(float3(pow(I + scat, 0.5), pow(I + scat, 0.75), pow(I + scat, 0.9)), float3(1,1,1), saturate(I));// *lerp(float3(1, 1, 1), float3(pow(I, 0.5), pow(I, 0.75), pow(I, 0.9)), (I + scat));
 			c.a = s.Alpha;
+
 			return c;
 		}
 
+		void LightingWrapLambert_GI(SurfaceOutputStandard s, UnityGIInput data, inout UnityGI gi)
+		{
+			LightingStandard_GI(s, data, gi);
+		}
 
-		void vert(inout appdata_full v, out Input o) 
+		void vert(inout appdata_full v, out Input o)
 		{
 			UNITY_INITIALIZE_OUTPUT(Input, o);
 			o.localPos = v.vertex.xyz;
@@ -279,47 +314,69 @@
 			o.normal = v.normal;
 		}
 
-		void surf (Input IN, inout SurfaceOutput o)
+		void surf(Input IN, inout SurfaceOutputStandard o)
 		{
 			float4 pD = float4(1 - pow(_Kelvin / _KelvinMax, 0.1), pow(_Kelvin / _KelvinMax, 0.5) * 128, _Kelvin / _KelvinMax * 256, pow(_Kelvin / _KelvinMax, 2) * 512);
-			float pt;
-			float p = pt = lerp(0, snoise(float4(IN.localPos, 0) * float4(0, 8, 0, 0) + float4(0, 0, 0, _Time.x)) * pD.x, pD.x);
-			p += lerp(0, snoise(float4(IN.localPos, 0) * pD.y + float4(0 ,0, 0, _Time.y / 4)) * pD.y / 128, 1 - pD.x);
-			p += lerp(0, snoise(float4(IN.localPos, 0) * pD.z + float4(0, 0, 0, _Time.y / 2)) * pD.z / 256, pD.z / 256);
-			p += lerp(0, snoise(float4(IN.localPos, 0) * pD.w + float4(0, 0, 0, _Time.y)) * pD.w / 512, pD.w / 512);
+			//float pt;
+			//float p = pt = lerp(0, snoise(float4(IN.localPos, 0) * float4(0, 8, 0, 0) + float4(0, 0, 0, _Time.x)) * pD.x, pD.x);
+			//p += lerp(0, snoise(float4(IN.localPos, 0) * pD.y + float4(0 ,0, 0, _Time.y / 4)) * pD.y / 128, 1 - pD.x);
+			//p += lerp(0, snoise(float4(IN.localPos, 0) * pD.z + float4(0, 0, 0, _Time.y / 2)) * pD.z / 256, pD.z / 256);
+			//p += lerp(0, snoise(float4(IN.localPos, 0) * pD.w + float4(0, 0, 0, _Time.y)) * pD.w / 512, pD.w / 512);
 
 			//float3 qD = float3((1 - pow(_Kelvin / _KelvinMax, 0.1)) * 64, (1 - pow(_Kelvin / _KelvinMax, 0.1)) * 128, (1 - pow(_Kelvin / _KelvinMax, 0.1)) * 32);
 			//float q = pow((lerp(0.5, abs(snoise(float4(IN.localPos, 0) * qD.x + float4(_Time.x * _Spin, 0, 0, _Time.x * _Turbulence)) * qD.x / 64), qD.x / 64) - 0.5) * 2, 2);
 			//float r = pow((lerp(0.5, abs(snoise(float4(IN.localPos, 0) * qD.y + float4(_Time.x * _Spin, 0, 0, _Time.x * _Turbulence)) * qD.y / 128), qD.y / 128) - 0.5) * 2, 2);
 			//float s = pow((lerp(0.5, abs(snoise(float4(IN.localPos, 0) * qD.z + float4(_Time.x * _Spin, 0, 0, _Time.x * _Turbulence)) * qD.y / 32), qD.z / 32) - 0.5) * 2, 2);
-			float noiseX = snoise(float4(IN.localPos * float3(16, 16, 16), 0) + float4(0, 0, 0, _Time.x * _Turbulence)) * _Turbulence;
-			float noiseY = snoise(float4(IN.localPos * float3(32, 32, 32), 100) + float4(0, 0, 0, _Time.x * _Turbulence)) * _Turbulence;
-			float noiseZ = noiseX * snoise(float4(IN.localPos * float3(64, 64, 64), 100) + float4(0, 0, 0, _Time.x * _Turbulence)) * _Turbulence;
-			float noiseW = noiseY * snoise(float4(IN.localPos * float3(8, 8, 8), 100) + float4(0, 0, 0, _Time.x * _Turbulence)) * _Turbulence;
+			//float noiseX = snoise(float4(IN.localPos * float3(16, 16, 16), 0) + float4(0, 0, 0, _Time.x * _Turbulence)) * _Turbulence;
+			//float noiseY = snoise(float4(IN.localPos * float3(32, 32, 32), 100) + float4(0, 0, 0, _Time.x * _Turbulence)) * _Turbulence;
+			//float noiseZ = noiseX * snoise(float4(IN.localPos * float3(64, 64, 64), 100) + float4(0, 0, 0, _Time.x * _Turbulence)) * _Turbulence;
+			//float noiseW = noiseY * snoise(float4(IN.localPos * float3(8, 8, 8), 100) + float4(0, 0, 0, _Time.x * _Turbulence)) * _Turbulence;
+			float3 rgbNoise = float3(0, 0, 0);
 
-			float3 c = tex1D(_Emissive, (p * _KelvinRange + _Kelvin) / _KelvinMax) * _HDR;
+			if (_Turbulence > 0)
+			{
+				rgbNoise = float3(snoise4(float4(IN.localPos * 16, _Time.x * _Spin), _Octaves), snoise4(float4(IN.localPos * 8, _Time.x * _Spin), _Octaves), snoise4(float4(IN.localPos * 128, _Time.x * _Spin), _Octaves)) * _Turbulence;
+				rgbNoise.r = cos((rgbNoise.r - 0.5) * 6.2831853);
+				rgbNoise.g = sin((rgbNoise.g - 0.5) * 6.2831853);
+				rgbNoise.b = (rgbNoise.b - 0.5);
+			}
+
+			//float4 noiseX = float4(0, 0, 0, 0);
+			//noiseX.x = snoise(float4(IN.localPos * float3(2, 2, 2), _Time.x * _Turbulence));
+			//noiseX.y = snoise(float4(IN.localPos * float3(8, 8, 8), _Time.x * _Turbulence));
+			//noiseX.z = snoise(float4(IN.localPos * float3(32, 32, 32), _Time.x * _Turbulence));
+			//noiseX.w = snoise(float4(IN.localPos * float3(64, 64, 64), _Time.x * _Turbulence));
+
+			//float4 noiseY = float4(0, 0, 0, 0);
+			//noiseY.x = snoise(float4(IN.localPos * float3(2, 2, 2), _Time.x * _Turbulence));
+			//noiseY.y = snoise(float4(IN.localPos * float3(8, 8, 8), _Time.x * _Turbulence));
+			//noiseY.z = snoise(float4(IN.localPos * float3(32, 32, 32), _Time.x * _Turbulence));
+			//noiseY.w = snoise(float4(IN.localPos * float3(64, 64, 64), _Time.x * _Turbulence));
+
+			//float3 c = tex1D(_Emissive, (p * _KelvinRange + _Kelvin) / _KelvinMax) * _HDR;
 
 			float freznel = saturate(dot(normalize(IN.viewDir), IN.normal));
 			float4 sampleAt = float4(IN.texturePos, lerp(0, pow(freznel, pD.x), pD.x));
-			sampleAt += _Turbulence * float4(noiseX - noiseX + noiseX + noiseX, 0, 0, 0);
-			sampleAt += _Turbulence * float4(0, noiseY - noiseY + noiseY + noiseY, 0, 0);
-			sampleAt += _Turbulence * float4(noiseZ - noiseZ + noiseZ + noiseZ, 0, 0, 0);
-			sampleAt += _Turbulence * float4(0, noiseW - noiseW + noiseW + noiseW, 0, 0);
-			sampleAt *= float4(2, 0.5, 1, 1);
+			sampleAt += float4(rgbNoise.r * rgbNoise.b, rgbNoise.g * rgbNoise.b, 0, 0);
+			//sampleAt += _Turbulence * float4(noiseX.x - noiseX.y + noiseX.z + noiseX.w, noiseY.x - noiseY.y + noiseY.z + noiseY.w, 0, 0);
+			//sampleAt += _Turbulence * float4(noiseZ - noiseZ + noiseZ + noiseZ, 0, 0, 0);
+			//sampleAt += _Turbulence * float4(0, noiseW - noiseW + noiseW + noiseW, 0, 0);
+			//sampleAt *= float4(2, 0.5, 1, 1);
 			sampleAt += float4(_Time.x * _Spin, 0, 0, 0);
 			//sampleAt += float4(0, q * _Turbulence, 0, 0);
 			//sampleAt += float4(r * _Turbulence, 0, 0, 0);
 			//sampleAt -= float4(s * _Turbulence, 0, 0, 0);
 			//sampleAt *= float4(_Spin, 1, 1, 1);
 
-			float3 temperature = lerp(1, dot(c, float3(0.33, 0.56, 0.11)) / (8 * 1.732051), 1 - pD.x);
-			o.Albedo = temperature * tex2D(_Texture, sampleAt.xy * _Texture_ST.xy + _Texture_ST.zw);
+			float3 albedo = tex2D(_Texture, sampleAt.xy * _Texture_ST.xy + _Texture_ST.zw);
 			// magnitude of 1,1,1 is √3 ~ 1.732051 (1.7320508...)
-			o.Albedo = temperature * lerp((tex1D(_Gasses, length(o.Albedo) / 1.732051) + tex1D(_Gasses, 1) * freznel + tex1D(_Gasses, 1) * IN.texturePos.z) / 2, tex1D(_Gasses, 1), 1 - IN.texturePos.z);
-			o.Emission = SampleAtKelvinEmission(c, sampleAt);// +float3(k, k, 0) * cnoise(float3(IN.texturePos.xy, _Time.x) * pow(2, log10(_Kelvin))) - float3(-0.5, -0.5, 0));// +float3(0.1, 0.1, 0) * cnoise(IN.localPos + _Time.x));// +kX);
+			float3 temperature = lerp(1, dot(albedo, float3(0.33, 0.56, 0.11)) / (8 * 1.732051), 1 - pD.x);
+			// magnitude of 1,1,1 is √3 ~ 1.732051 (1.7320508...)
+			o.Albedo = temperature * lerp((tex1D(_Gasses, length(albedo) / 1.732051) + tex1D(_Gasses, 1) * freznel + tex1D(_Gasses, 1) * IN.texturePos.z) / 2, tex1D(_Gasses, 1), 1 - IN.texturePos.z);
+			o.Emission = SampleAtKelvinEmission(albedo, sampleAt);// +float3(k, k, 0) * cnoise(float3(IN.texturePos.xy, _Time.x) * pow(2, log10(_Kelvin))) - float3(-0.5, -0.5, 0));// +float3(0.1, 0.1, 0) * cnoise(IN.localPos + _Time.x));// +kX);
 			//o.Emission = float3((q - 0.5) * 2, (r - 0.5) * 2, (s - 0.5) * 2) / 3;
-			o.Emission = o.Emission + float3(pD.x, pD.x, pD.x) * tex1D(_Gasses, 1) * (1 - freznel) * _Scattering;
-			
+			o.Emission = o.Emission + float3(pD.x, pD.x, pD.x) * o.Albedo * (1 - freznel) * _Scattering;
+
 			//o.Albedo = float3(length(noiseX), length(noiseY), 0);
 			//o.Emission = o.Albedo;//float3(noiseX.x, noiseY.y, 0);
 
