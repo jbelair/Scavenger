@@ -13,10 +13,10 @@
 		_KelvinMax("Maximum (K)", Float) = 100000
 		_HDR("Emissive HDR Intensity", Range(1,8)) = 8
 		_Emissive("Colour Map", 2D) = "white" {}
-		_Spin("Spin", Float) = 0.1
-		_Turbulence("Turbulence", Float) = 0.1
+		_Spin("Spin", Float) = 0.01
+		_Turbulence("Turbulence", Float) = 0.01
 		_Octaves("Turbulence Octaves", Int) = 2
-		_Scattering("Gas Scattering", Range(0,1)) = 0.2
+		_Scattering("Gas Scattering", Range(0,1)) = 0.1
 		_Texture("Gas Giant (RGB)", 2D) = "white" {}
 		_Gasses("Gas Tint Map (RGB)", 2D) = "white" {}
 		_TextureY("500 Kelvin (RGB)", 2D) = "white" {}
@@ -32,7 +32,7 @@
 
 		CGPROGRAM
 		// Physically based Standard lighting model, and enable shadows on all light types
-		#pragma surface surf WrapLambert vertex:vert
+		#pragma surface surf WrapScattering vertex:vert
 
 		// Use shader model 3.0 target, to get nicer looking lighting
 		#pragma target 4.6
@@ -282,7 +282,7 @@
 		UNITY_INSTANCING_BUFFER_END(Props)
 
 		#include "UnityPBSLighting.cginc"
-		inline fixed4 LightingWrapLambert(SurfaceOutputStandard s, fixed3 viewDir, UnityGI gi)
+		inline fixed4 LightingWrapScattering(SurfaceOutputStandard s, fixed3 viewDir, UnityGI gi)
 		{
 			half NdotL = dot(s.Normal, gi.light.dir);//lightDir);
 			half diff = NdotL * 0.5 + 0.5;
@@ -290,18 +290,19 @@
 
 			//float3 H = normalize(gi.light.dir + s.Normal * 0.5);
 			//float I = pow(saturate(dot(viewDir, -H)), 1) * 2;
-			float I = (1 - abs(dot(gi.light.dir, s.Normal))) * abs(min(0, dot(viewDir, gi.light.dir)));
+			float I = 1 - abs(dot(gi.light.dir, s.Normal));
+			I *= pow(abs(min(0, dot(viewDir, gi.light.dir))), 4.0);
+			I = saturate(pow(I,2));
 
 			half VdotL = dot(s.Normal, gi.light.dir);
-			float scat = saturate(VdotL * 2 + 0.5);
-			I = max(0.0, I);
-			c.rgb = s.Albedo * gi.light.color.rgb * diff * lerp(float3(pow(I + scat, 0.5), pow(I + scat, 0.75), pow(I + scat, 0.9)), float3(1,1,1), saturate(I));// *lerp(float3(1, 1, 1), float3(pow(I, 0.5), pow(I, 0.75), pow(I, 0.9)), (I + scat));
+			float scat = saturate(VdotL + 1) + I;
+			c.rgb = s.Albedo * gi.light.color.rgb * diff * lerp(float3(pow(scat, 0.5), pow(scat, 0.75), pow(scat, 0.9)), gi.light.color * 16, saturate(I));// *lerp(float3(1, 1, 1), float3(pow(I, 0.5), pow(I, 0.75), pow(I, 0.9)), (I + scat));
 			c.a = s.Alpha;
 
 			return c;
 		}
 
-		void LightingWrapLambert_GI(SurfaceOutputStandard s, UnityGIInput data, inout UnityGI gi)
+		void LightingWrapScattering_GI(SurfaceOutputStandard s, UnityGIInput data, inout UnityGI gi)
 		{
 			LightingStandard_GI(s, data, gi);
 		}
