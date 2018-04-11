@@ -2,11 +2,12 @@
 {
 	Properties
 	{
-		//_PlanetRadius("Planet Radius", Float) = 1
-		//_PlanetCenter("Planet Center", Vector) = (0,0,0,1)
-		//_RayScaleHeight("Ray Height", Float) = 1
-		//_AtmosphereRadius("Atmosphere Radius", Float) = 2
-		//_LightSamples("Atmosphere Light Samples", Int) = 4 
+		_AtmosphereRadius("Atmosphere Radius", Float) = 0.55
+		_PlanetRadius("Planet Radius", Float) = 0.48
+		_PlanetCentre("Planet Centre", Vector) = (0,0,0,1)
+		_AtmosphereMap("Atmosphere Map", 2D) = "gray" {}
+		_ViewSamples("View Samples", Int) = 2
+		_LightSamples("Light Samples", Int) = 4
 
 		_Kelvin("Temperature (K)", Range(1,100000)) = 3000
 		_KelvinRange("Range (K)", Range(1,100000)) = 500
@@ -382,6 +383,167 @@
 			//o.Emission = o.Albedo;//float3(noiseX.x, noiseY.y, 0);
 
 			o.Alpha = 1;
+		}
+		ENDCG
+
+		Tags{ "RenderType" = "Transparent" "Queue" = "Transparent" }
+		LOD 200
+		Cull Back
+		Blend One One
+
+		CGPROGRAM
+		#pragma surface surf WrapScattering vertex:vert
+
+		float _AtmosphereRadius;
+		float _PlanetRadius;
+		float4 _PlanetCentre;
+
+		sampler2D _AtmosphereMap;
+
+		float _ViewSamples;
+		float _LightSamples;
+
+		float _RayScaleHeight;
+
+		float _ScatteringCoefficient;
+
+		bool rayIntersect
+		(
+			// Ray
+			float3 O, // Origin
+			float3 D, // Direction
+
+					  // Sphere
+			float3 C, // Centre
+			float R,	// Radius
+			out float AO, // First intersection time
+			out float BO  // Second intersection time
+		)
+		{
+			float3 L = C - O;
+			float DT = dot(L, D);
+			float R2 = R * R;
+
+			float CT2 = dot(L, L) - DT*DT;
+
+			// Intersection point outside the circle
+			if (CT2 > R2)
+				return false;
+
+			float AT = sqrt(R2 - CT2);
+			float BT = AT;
+
+			AO = DT - AT;
+			BO = DT + BT;
+			return true;
+		}
+
+		#include "UnityPBSLighting.cginc"
+		inline fixed4 LightingWrapScattering(SurfaceOutputStandard s, fixed3 viewDir, UnityGI gi)
+		{
+			half NdotL = dot(s.Normal, gi.light.dir);//lightDir);
+			half diff = NdotL * 0.5 + 0.5;
+			half4 c;
+
+			//float3 H = normalize(gi.light.dir + s.Normal * 0.5);
+			//float I = pow(saturate(dot(viewDir, -H)), 1) * 2;
+			float I = 1 - abs(dot(gi.light.dir, s.Normal));
+			I *= pow(abs(min(0, dot(viewDir, gi.light.dir))), 4.0);
+			I = saturate(pow(I, 0.5));
+
+			float density = 0;
+			float directionality = 0;
+
+			float entry = 0;
+			float exit = 0;
+			float scattering = 0;
+			if (rayIntersect(s.Normal, -viewDir, _PlanetCentre, _AtmosphereRadius / _AtmosphereRadius, entry, exit));
+			{
+				scattering = exit - entry;
+				//s.Normal + -viewDir * scattering / 2;
+			}
+			scattering = saturate(scattering);
+
+			float entryP = 0;
+			float exitP = 0;
+			float planet = 0;
+			if (rayIntersect(s.Normal, -viewDir, _PlanetCentre, _PlanetRadius / _AtmosphereRadius, entryP, exitP));
+			{
+				planet = exitP - entryP;
+			}
+			planet = saturate(planet) / 5;
+
+			//density = scattering - planet;
+			density = scattering - planet;
+
+			float viewSample = scattering / _ViewSamples;
+			for (int i = 0; i < _ViewSamples; i++)
+			{
+				float entryD = 0;
+				float exitD = 0;
+
+				rayIntersect(s.Normal + -viewDir * viewSample * i, -gi.light.dir, _PlanetCentre, _AtmosphereRadius / _AtmosphereRadius, entryD, exitD);
+
+				float d = exitD - entryD - planet;
+				float lightSamples = d / _LightSamples;
+				for (int j = 0; j < _LightSamples; j++)
+				{
+					directionality += lightSamples * (dot(s.Normal, -gi.light.dir) / 2 + 0.5);
+					directionality += min(0, dot(gi.light.dir + viewDir, -s.Normal)) * pow((dot(viewDir, -gi.light.dir) / 2 + 0.5), 0.5);
+				}
+
+				//density += d;
+			}
+			directionality = directionality / _LightSamples;
+
+			half VdotL = dot(s.Normal, gi.light.dir);
+
+			float freznel = pow(saturate(abs(dot(s.Normal, viewDir))), 5);
+			float scat = saturate(VdotL + I);
+
+			//density -= planet;
+
+			//float density = saturate(scattering * (abs(dot(-viewDir, gi.light.dir)) / 2 + 0.5) * (dot(s.Normal, gi.light.dir) / 2 + 0.5) - planet);// *(dot(s.Normal, gi.light.dir) / 2 + 0.5));
+			//float density = saturate((scattering - planet)) * pow((dot(viewDir, gi.light.dir) / 2 + 0.5), 0.05); /* (saturate(dot(-viewDir, gi.light.dir)) / 2 + 0.5)*/;// -planet;
+			//float directionality = /*density */ density * saturate(pow((dot(-viewDir, gi.light.dir) / 2 + 0.5) * pow((dot(s.Normal, -gi.light.dir) / 2 + 0.5), 2), 2));
+
+			c.rgb = gi.light.color.rgb * tex2D(_AtmosphereMap, float2(density, sin(directionality * 1.570796)));// * (dot(s.Normal, -gi.light.dir) / 2 + 0.5);
+																								//float3(pow(density, 2) + pow(directionality, 0.25), pow(density, 0.9) + pow(directionality, 0.9), pow(density, 0.75) - pow(directionality, 1)) / 2;
+																								//saturate(dot(viewDir, -gi.light.dir)) * (1 - abs(dot(s.Normal, gi.light.dir))), 0);
+																								//float3(scattering, planet, 0) / 10;
+																								//s.Albedo * gi.light.color.rgb * diff * lerp(float3(0, 0, 0), lerp(lerp(float3(pow(freznel, 0.9), pow(freznel, 0.75), pow(freznel, 0.5)), float3(pow(scat, 0.5), pow(scat, 0.75), pow(scat, 0.9)), freznel), gi.light.color * 16, saturate(I - (1 - freznel))), min(1 - I, pow(1 - freznel, 2)));
+																								// *lerp(float3(1, 1, 1), float3(pow(I, 0.5), pow(I, 0.75), pow(I, 0.9)), (I + scat));
+			c.a = s.Alpha;
+
+			return c;
+		}
+
+		void LightingWrapScattering_GI(SurfaceOutputStandard s, UnityGIInput data, inout UnityGI gi)
+		{
+			LightingStandard_GI(s, data, gi);
+		}
+
+		struct Input {
+			float3 worldPos;
+			float3 centre;
+		};
+
+		void vert(inout appdata_full v, out Input o)
+		{
+			UNITY_INITIALIZE_OUTPUT(Input, o);
+			v.vertex.xyz += v.normal * (_AtmosphereRadius - _PlanetRadius);
+			o.centre = mul(unity_ObjectToWorld, half4(0, 0, 0, 1));
+		}
+
+		void surf(Input IN, inout SurfaceOutputStandard o)
+		{
+			// Albedo comes from a texture tinted by color
+			//fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
+			o.Albedo = float3(1, 1, 1);//c.rgb;
+									   // Metallic and smoothness come from slider variables
+									   //o.Metallic = _Metallic;
+									   //o.Smoothness = _Glossiness;
+			o.Alpha = 1;//.a;
 		}
 		ENDCG
 	}
