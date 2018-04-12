@@ -2,11 +2,14 @@
 {
 	Properties
 	{
-		_AtmosphereRadius("Atmosphere Radius", Float) = 0.55
-		_PlanetRadius("Planet Radius", Float) = 0.48
+		_AtmosphereRadius("Atmosphere Radius", Float) = 1
+		_AtmosphereDensity("Atmosphere Density", Float) = 1
+		_AtmosphereIntensity("Atmosphere Intensity", Float) = 4
+		_PlanetRadius("Planet Radius", Float) = 0.95
+		_PlanetDensity("Planet Density", Float) = 0.8
 		_PlanetCentre("Planet Centre", Vector) = (0,0,0,1)
 		_AtmosphereMap("Atmosphere Map", 2D) = "gray" {}
-		_ViewSamples("View Samples", Int) = 2
+		_ViewSamples("View Samples", Int) = 1
 		_LightSamples("Light Samples", Int) = 4
 
 		_Kelvin("Temperature (K)", Range(1,100000)) = 3000
@@ -386,16 +389,19 @@
 		}
 		ENDCG
 
-		Tags{ "RenderType" = "Transparent" "Queue" = "Transparent" }
-		LOD 200
-		Cull Back
-		Blend One One
+			Tags{ "RenderType" = "Transparent" "Queue" = "Transparent" }
+			LOD 200
+			Cull Back
+			Blend One One
 
-		CGPROGRAM
-		#pragma surface surf WrapScattering vertex:vert
+			CGPROGRAM
+#pragma surface surf WrapScattering vertex:vert
 
-		float _AtmosphereRadius;
+			float _AtmosphereRadius;
+		float _AtmosphereDensity;
+		float _AtmosphereIntensity;
 		float _PlanetRadius;
+		float _PlanetDensity;
 		float4 _PlanetCentre;
 
 		sampler2D _AtmosphereMap;
@@ -438,7 +444,7 @@
 			return true;
 		}
 
-		#include "UnityPBSLighting.cginc"
+#include "UnityPBSLighting.cginc"
 		inline fixed4 LightingWrapScattering(SurfaceOutputStandard s, fixed3 viewDir, UnityGI gi)
 		{
 			half NdotL = dot(s.Normal, gi.light.dir);//lightDir);
@@ -457,7 +463,7 @@
 			float entry = 0;
 			float exit = 0;
 			float scattering = 0;
-			if (rayIntersect(s.Normal, -viewDir, _PlanetCentre, _AtmosphereRadius / _AtmosphereRadius, entry, exit));
+			if (rayIntersect(s.Normal, -viewDir, _PlanetCentre, _AtmosphereRadius, entry, exit));
 			{
 				scattering = exit - entry;
 				//s.Normal + -viewDir * scattering / 2;
@@ -467,14 +473,14 @@
 			float entryP = 0;
 			float exitP = 0;
 			float planet = 0;
-			if (rayIntersect(s.Normal, -viewDir, _PlanetCentre, _PlanetRadius / _AtmosphereRadius, entryP, exitP));
+			if (rayIntersect(s.Normal, -viewDir, _PlanetCentre, _PlanetRadius / (_AtmosphereRadius + (_AtmosphereRadius - _PlanetRadius)), entryP, exitP));
 			{
 				planet = exitP - entryP;
 			}
-			planet = saturate(planet) / 5;
+			planet = saturate(planet);
 
 			//density = scattering - planet;
-			density = scattering - planet;
+			density = scattering * _AtmosphereDensity - planet * _PlanetDensity;
 
 			float viewSample = scattering / _ViewSamples;
 			for (int i = 0; i < _ViewSamples; i++)
@@ -482,14 +488,24 @@
 				float entryD = 0;
 				float exitD = 0;
 
-				rayIntersect(s.Normal + -viewDir * viewSample * i, -gi.light.dir, _PlanetCentre, _AtmosphereRadius / _AtmosphereRadius, entryD, exitD);
+				float3 p = s.Normal + -viewDir * viewSample * i;
 
-				float d = exitD - entryD - planet;
+				rayIntersect(p, -gi.light.dir, _PlanetCentre, _AtmosphereRadius, entryD, exitD);
+
+				float d = exitD - entryD;
+
+				//if (planet > 0)
+				//	break;
+
 				float lightSamples = d / _LightSamples;
 				for (int j = 0; j < _LightSamples; j++)
 				{
 					directionality += lightSamples * (dot(s.Normal, -gi.light.dir) / 2 + 0.5);
-					directionality += min(0, dot(gi.light.dir + viewDir, -s.Normal)) * pow((dot(viewDir, -gi.light.dir) / 2 + 0.5), 0.5);
+					directionality += min(0, dot(gi.light.dir + viewDir, -s.Normal)) * pow(min((dot(viewDir, -gi.light.dir) / 2 + 0.5), 0.5), 0.01);
+
+					//directionality += lightSamples * (dot(gi.light.dir + s.Normal, gi.light.dir)) * dot(gi.light.dir + viewDir, -s.Normal);
+
+					//directionality += lightSamples * (dot(gi.light.dir + s.Normal, gi.light.dir) * (max(0, dot(normalize(gi.light.dir + viewDir), s.Normal)) + max(0, dot(normalize(gi.light.dir + viewDir), -s.Normal))));
 				}
 
 				//density += d;
@@ -507,12 +523,12 @@
 			//float density = saturate((scattering - planet)) * pow((dot(viewDir, gi.light.dir) / 2 + 0.5), 0.05); /* (saturate(dot(-viewDir, gi.light.dir)) / 2 + 0.5)*/;// -planet;
 			//float directionality = /*density */ density * saturate(pow((dot(-viewDir, gi.light.dir) / 2 + 0.5) * pow((dot(s.Normal, -gi.light.dir) / 2 + 0.5), 2), 2));
 
-			c.rgb = gi.light.color.rgb * tex2D(_AtmosphereMap, float2(density, sin(directionality * 1.570796)));// * (dot(s.Normal, -gi.light.dir) / 2 + 0.5);
-																								//float3(pow(density, 2) + pow(directionality, 0.25), pow(density, 0.9) + pow(directionality, 0.9), pow(density, 0.75) - pow(directionality, 1)) / 2;
-																								//saturate(dot(viewDir, -gi.light.dir)) * (1 - abs(dot(s.Normal, gi.light.dir))), 0);
-																								//float3(scattering, planet, 0) / 10;
-																								//s.Albedo * gi.light.color.rgb * diff * lerp(float3(0, 0, 0), lerp(lerp(float3(pow(freznel, 0.9), pow(freznel, 0.75), pow(freznel, 0.5)), float3(pow(scat, 0.5), pow(scat, 0.75), pow(scat, 0.9)), freznel), gi.light.color * 16, saturate(I - (1 - freznel))), min(1 - I, pow(1 - freznel, 2)));
-																								// *lerp(float3(1, 1, 1), float3(pow(I, 0.5), pow(I, 0.75), pow(I, 0.9)), (I + scat));
+			c.rgb = gi.light.color.rgb * tex2D(_AtmosphereMap, float2(pow(density, 2), directionality)) * _AtmosphereIntensity;// * (dot(s.Normal, -gi.light.dir) / 2 + 0.5);
+																															   //float3(pow(density, 2) + pow(directionality, 0.25), pow(density, 0.9) + pow(directionality, 0.9), pow(density, 0.75) - pow(directionality, 1)) / 2;
+																															   //saturate(dot(viewDir, -gi.light.dir)) * (1 - abs(dot(s.Normal, gi.light.dir))), 0);
+																															   //float3(scattering, planet, 0) / 10;
+																															   //s.Albedo * gi.light.color.rgb * diff * lerp(float3(0, 0, 0), lerp(lerp(float3(pow(freznel, 0.9), pow(freznel, 0.75), pow(freznel, 0.5)), float3(pow(scat, 0.5), pow(scat, 0.75), pow(scat, 0.9)), freznel), gi.light.color * 16, saturate(I - (1 - freznel))), min(1 - I, pow(1 - freznel, 2)));
+																															   // *lerp(float3(1, 1, 1), float3(pow(I, 0.5), pow(I, 0.75), pow(I, 0.9)), (I + scat));
 			c.a = s.Alpha;
 
 			return c;

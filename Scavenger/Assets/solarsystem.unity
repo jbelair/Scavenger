@@ -10480,7 +10480,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 381625290}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2926, y: 0, z: -100}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
@@ -17692,13 +17692,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 954514792}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -476, y: 0, z: -5}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!23 &954514794
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17713,7 +17713,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: e7906770f5df217489ea566c23733f62, type: 2}
+  - {fileID: 2100000, guid: 302405b876b3377489620b63d00b00be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24896,7 +24896,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AtmosphereRadius: 0.55
+    - _AtmosphereDensity: 1
+    - _AtmosphereIntensity: 50
+    - _AtmosphereRadius: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -24905,7 +24907,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _HDR: 8
-    - _Kelvin: 5778
+    - _Kelvin: 2000
     - _KelvinMax: 100000
     - _KelvinRange: 1778
     - _LightSamples: 4
@@ -24914,7 +24916,8 @@ Material:
     - _OcclusionStrength: 1
     - _Octaves: 2
     - _Parallax: 0.02
-    - _PlanetRadius: 0.5
+    - _PlanetDensity: 0.8
+    - _PlanetRadius: 0.95
     - _RayScaleHeight: 1
     - _Scattering: 0.2
     - _SmoothnessTextureChannel: 0
@@ -28541,7 +28544,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000000
-  field of view: 60
+  field of view: 65
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -28565,8 +28568,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1759557290}
-  m_LocalRotation: {x: -0.026798803, y: -0.85063064, z: 0.03174703, w: -0.5241198}
-  m_LocalPosition: {x: -945.9662, y: 5.0692472, z: 47.06788}
+  m_LocalRotation: {x: 0.7122595, y: 0.022938397, z: 0.70145375, w: -0.011087689}
+  m_LocalPosition: {x: -1109.6533, y: -53.303658, z: 17.421207}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -28664,8 +28667,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.15712754, g: 0.16078432, b: 0.15712754, a: 1}
-  m_Intensity: 2.194243
+  m_Color: {r: 0.12941177, g: 0.021895533, b: 0, a: 1}
+  m_Intensity: 1.0500078
   m_Range: 100000
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -28728,7 +28731,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1963350259}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -900, y: 0, z: 21}
   m_LocalScale: {x: 63.71, y: 63.71, z: 63.71}
   m_Children: []

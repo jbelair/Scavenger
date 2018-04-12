@@ -38,6 +38,18 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _EmiMain:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmiPoleN:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmiPoleS:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -50,6 +62,18 @@ Material:
         m_Texture: {fileID: 2800000, guid: e8ce0bef5c85d4446a56dee7b0e8eb10, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MSMain:
+        m_Texture: {fileID: 2800000, guid: 4607f33e10c5fcd41871d1d7ce113e2f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MSPoleN:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MSPoleS:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: e35c8d1618ea6e943bfdbfe61f911208, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -58,12 +82,36 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _NorMain:
+        m_Texture: {fileID: 2800000, guid: 53bcdc612153c974aa23e0ea2c5b53d6, type: 3}
+        m_Scale: {x: 2, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _NorPoleN:
+        m_Texture: {fileID: 2800000, guid: 1654587b855754e47b470087c7f4944b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NorPoleS:
+        m_Texture: {fileID: 2800000, guid: 1654587b855754e47b470087c7f4944b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexMain:
+        m_Texture: {fileID: 2800000, guid: 53a55afed47a82a49a42348b374092dd, type: 3}
+        m_Scale: {x: 2, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _TexPoleN:
+        m_Texture: {fileID: 2800000, guid: 201553f634a26134e8b064fee896460b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexPoleS:
+        m_Texture: {fileID: 2800000, guid: 201553f634a26134e8b064fee896460b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture:
@@ -91,7 +139,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AtmosphereRadius: 1.06
+    - _AtmosphereDensity: 1
+    - _AtmosphereIntensity: 2
+    - _AtmosphereRadius: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -103,14 +153,16 @@ Material:
     - _Kelvin: 3000
     - _KelvinMax: 100000
     - _KelvinRange: 500
-    - _LightSamples: 4
+    - _LightSamples: 2
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Octaves: 2
     - _Parallax: 0.02
-    - _PlanetRadius: 1
-    - _RayScaleHeight: 0.1
+    - _PlanetDensity: 1
+    - _PlanetRadius: 0.95
+    - _PoleScale: 0.75
+    - _RayScaleHeight: 1
     - _Scattering: 0.1
     - _ScatteringCoefficient: 1
     - _SmoothnessTextureChannel: 0
@@ -123,5 +175,8 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmiMainColour: {r: 1, g: 1, b: 1, a: 1}
+    - _EmiPoleNColour: {r: 1, g: 1, b: 1, a: 1}
+    - _EmiPoleSColour: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _PlanetCentre: {r: 0, g: 0, b: 0, a: 1}
