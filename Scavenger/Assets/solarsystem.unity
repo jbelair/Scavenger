@@ -7025,7 +7025,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &311190705
 Transform:
   m_ObjectHideFlags: 0
@@ -7305,8 +7305,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 300
-      minScalar: 150
+      scalar: 500
+      minScalar: 300
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -7549,7 +7549,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 10
+    maxNumParticles: 100
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -7595,7 +7595,7 @@ ParticleSystem:
         m_RotationOrder: 4
   ShapeModule:
     serializedVersion: 5
-    enabled: 1
+    enabled: 0
     type: 12
     angle: 25
     length: 5
@@ -8007,7 +8007,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.08726646
+      scalar: 0.17453292
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -17883,7 +17883,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -419283178
+  randomSeed: -1230835362
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -24800,7 +24800,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AtmosphereMap:
-        m_Texture: {fileID: 2800000, guid: 33138726d19f28d4e8fac58175e38054, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -24897,7 +24897,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AtmosphereDensity: 1
-    - _AtmosphereIntensity: 50
+    - _AtmosphereIntensity: 20
     - _AtmosphereRadius: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -24907,7 +24907,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _HDR: 8
-    - _Kelvin: 2000
+    - _Kelvin: 5778
     - _KelvinMax: 100000
     - _KelvinRange: 1778
     - _LightSamples: 4
@@ -24916,7 +24916,7 @@ Material:
     - _OcclusionStrength: 1
     - _Octaves: 2
     - _Parallax: 0.02
-    - _PlanetDensity: 0.8
+    - _PlanetDensity: 1
     - _PlanetRadius: 0.95
     - _RayScaleHeight: 1
     - _Scattering: 0.2
@@ -24932,6 +24932,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Colour: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Phase: {r: 0.75, g: 0.825, b: 1, a: 1}
     - _PlanetCenter: {r: 0, g: 0, b: 0, a: 1}
     - _PlanetCentre: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1338466496
@@ -28568,8 +28569,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1759557290}
-  m_LocalRotation: {x: 0.7122595, y: 0.022938397, z: 0.70145375, w: -0.011087689}
-  m_LocalPosition: {x: -1109.6533, y: -53.303658, z: 17.421207}
+  m_LocalRotation: {x: -0.9574629, y: 0.019640645, z: 0.26870352, w: 0.103331335}
+  m_LocalPosition: {x: -461.3745, y: -5.9714394, z: 18.901081}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -28667,13 +28668,13 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.12941177, g: 0.021895533, b: 0, a: 1}
-  m_Intensity: 1.0500078
+  m_Color: {r: 0.15712754, g: 0.16078432, b: 0.15712754, a: 1}
+  m_Intensity: 2.194243
   m_Range: 100000
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1

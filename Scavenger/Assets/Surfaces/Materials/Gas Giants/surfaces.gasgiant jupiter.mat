@@ -102,7 +102,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _HDR: 8
-    - _Kelvin: 200
+    - _Kelvin: 1
     - _KelvinMax: 100000
     - _KelvinRange: 1
     - _LightSamples: 4
@@ -111,7 +111,7 @@ Material:
     - _OcclusionStrength: 1
     - _Octaves: 2
     - _Parallax: 0.02
-    - _PlanetDensity: 0.5
+    - _PlanetDensity: 1
     - _PlanetRadius: 0.95
     - _RayScaleHeight: 1
     - _Scattering: 0
@@ -126,5 +126,6 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Phase: {r: 0.33, g: 0.75, b: 1, a: 1}
     - _PlanetCenter: {r: 0, g: 0, b: 0, a: 1}
     - _PlanetCentre: {r: 0, g: 0, b: 0, a: 1}

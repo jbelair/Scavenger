@@ -8,7 +8,8 @@
 		_PlanetRadius("Planet Radius", Float) = 0.95
 		_PlanetDensity("Planet Density", Float) = 0.8
 		_PlanetCentre("Planet Centre", Vector) = (0,0,0,1)
-		_AtmosphereMap("Atmosphere Map", 2D) = "gray" {}
+		_AtmosphereMap("Atmosphere Map", 2D) = "black" {}
+		_Phase("Atmosphere Phase", Vector) = (0.75,0.825,1,1)
 		_ViewSamples("View Samples", Int) = 1
 		_LightSamples("Light Samples", Int) = 4
 
@@ -69,6 +70,8 @@
 		fixed4 _TextureF_ST;
 		sampler2D _TextureO;
 		fixed4 _TextureO_ST;
+
+		fixed4 _Phase;
 
 		float time = 0;
 
@@ -290,17 +293,17 @@
 		{
 			half NdotL = dot(s.Normal, gi.light.dir);//lightDir);
 			half diff = NdotL * 0.5 + 0.5;
-			half4 c;
+			half4 c = LightingStandard(s, viewDir, gi);
 
 			//float3 H = normalize(gi.light.dir + s.Normal * 0.5);
 			//float I = pow(saturate(dot(viewDir, -H)), 1) * 2;
 			float I = 1 - abs(dot(gi.light.dir, s.Normal));
 			I *= pow(abs(min(0, dot(viewDir, gi.light.dir))), 4.0);
-			I = saturate(pow(I,2));
+			I = saturate(pow(I, 2));
 
 			half VdotL = dot(s.Normal, gi.light.dir);
 			float scat = saturate(VdotL + 1) + I;
-			c.rgb = s.Albedo * gi.light.color.rgb * diff * lerp(float3(pow(scat, 0.5), pow(scat, 0.75), pow(scat, 0.9)), gi.light.color * 16, saturate(I));// *lerp(float3(1, 1, 1), float3(pow(I, 0.5), pow(I, 0.75), pow(I, 0.9)), (I + scat));
+			c.rgb = (c + s.Albedo * gi.light.color * float3(pow(diff, _Phase.r), pow(diff, _Phase.g), pow(diff, _Phase.b))) / 2;
 			c.a = s.Alpha;
 
 			return c;
@@ -413,6 +416,8 @@
 
 		float _ScatteringCoefficient;
 
+		float3 _Phase;
+
 		bool rayIntersect
 		(
 			// Ray
@@ -444,9 +449,10 @@
 			return true;
 		}
 
-#include "UnityPBSLighting.cginc"
+		#include "UnityPBSLighting.cginc"
 		inline fixed4 LightingWrapScattering(SurfaceOutputStandard s, fixed3 viewDir, UnityGI gi)
 		{
+
 			half NdotL = dot(s.Normal, gi.light.dir);//lightDir);
 			half diff = NdotL * 0.5 + 0.5;
 			half4 c;
@@ -480,7 +486,10 @@
 			planet = saturate(planet);
 
 			//density = scattering - planet;
-			density = scattering * _AtmosphereDensity - planet * _PlanetDensity;
+			density = abs(scattering - planet * _PlanetDensity);
+			//density = scattering;
+			density = pow(density, _AtmosphereDensity);
+			density = max(density, 1 * dot(viewDir, -gi.light.dir) * (saturate(dot(s.Normal, gi.light.dir))) * abs(dot(s.Normal, viewDir)));
 
 			float viewSample = scattering / _ViewSamples;
 			for (int i = 0; i < _ViewSamples; i++)
@@ -510,26 +519,42 @@
 
 				//density += d;
 			}
-			directionality = directionality / _LightSamples;
+			directionality = saturate(directionality / _LightSamples);
+			//directionality = saturate(0.25 - saturate(directionality / _LightSamples));
+
+			//directionality = directionality + 0.1 * dot(viewDir, -gi.light.dir) * (1 - saturate(dot(s.Normal, gi.light.dir))) * abs(dot(s.Normal, viewDir));
+
+			//if (directionality > density)
+			//	density *= directionality;
 
 			half VdotL = dot(s.Normal, gi.light.dir);
 
-			float freznel = pow(saturate(abs(dot(s.Normal, viewDir))), 5);
+			float freznel = pow(saturate(abs(dot(s.Normal, viewDir))), 1); /*used to be 5*/
 			float scat = saturate(VdotL + I);
 
 			//density -= planet;
+			density += density * directionality;
 
 			//float density = saturate(scattering * (abs(dot(-viewDir, gi.light.dir)) / 2 + 0.5) * (dot(s.Normal, gi.light.dir) / 2 + 0.5) - planet);// *(dot(s.Normal, gi.light.dir) / 2 + 0.5));
 			//float density = saturate((scattering - planet)) * pow((dot(viewDir, gi.light.dir) / 2 + 0.5), 0.05); /* (saturate(dot(-viewDir, gi.light.dir)) / 2 + 0.5)*/;// -planet;
 			//float directionality = /*density */ density * saturate(pow((dot(-viewDir, gi.light.dir) / 2 + 0.5) * pow((dot(s.Normal, -gi.light.dir) / 2 + 0.5), 2), 2));
+			//density = max(abs(dot(s.Normal, viewDir)) * saturate(1 - dot(s.Normal, gi.light.dir)), density);
+			//directionality = lerp(directionality, density, freznel);
 
-			c.rgb = gi.light.color.rgb * tex2D(_AtmosphereMap, float2(pow(density, 2), directionality)) * _AtmosphereIntensity;// * (dot(s.Normal, -gi.light.dir) / 2 + 0.5);
-																															   //float3(pow(density, 2) + pow(directionality, 0.25), pow(density, 0.9) + pow(directionality, 0.9), pow(density, 0.75) - pow(directionality, 1)) / 2;
-																															   //saturate(dot(viewDir, -gi.light.dir)) * (1 - abs(dot(s.Normal, gi.light.dir))), 0);
-																															   //float3(scattering, planet, 0) / 10;
-																															   //s.Albedo * gi.light.color.rgb * diff * lerp(float3(0, 0, 0), lerp(lerp(float3(pow(freznel, 0.9), pow(freznel, 0.75), pow(freznel, 0.5)), float3(pow(scat, 0.5), pow(scat, 0.75), pow(scat, 0.9)), freznel), gi.light.color * 16, saturate(I - (1 - freznel))), min(1 - I, pow(1 - freznel, 2)));
-																															   // *lerp(float3(1, 1, 1), float3(pow(I, 0.5), pow(I, 0.75), pow(I, 0.9)), (I + scat));
+			//directionality *= density;
+			//density *= 1 + directionality;
+
+			//c.rgb = gi.light.color.rgb * (float3(pow(density, 1 / _Phase.r), pow(density, 1 / _Phase.g), pow(density, 1 / _Phase.b)) * float3(pow(directionality, _Phase.r), pow(directionality, _Phase.g), pow(directionality, _Phase.b))) * _AtmosphereIntensity;
+			c.rgb = gi.light.color.rgb * tex2D(_AtmosphereMap, float2(density, directionality)) * _AtmosphereIntensity;
+			// * (dot(s.Normal, -gi.light.dir) / 2 + 0.5);
+			//float3(pow(density, 2) + pow(directionality, 0.25), pow(density, 0.9) + pow(directionality, 0.9), pow(density, 0.75) - pow(directionality, 1)) / 2;
+			//saturate(dot(viewDir, -gi.light.dir)) * (1 - abs(dot(s.Normal, gi.light.dir))), 0);
+			//float3(scattering, planet, 0) / 10;
+			//s.Albedo * gi.light.color.rgb * diff * lerp(float3(0, 0, 0), lerp(lerp(float3(pow(freznel, 0.9), pow(freznel, 0.75), pow(freznel, 0.5)), float3(pow(scat, 0.5), pow(scat, 0.75), pow(scat, 0.9)), freznel), gi.light.color * 16, saturate(I - (1 - freznel))), min(1 - I, pow(1 - freznel, 2)));
+			// *lerp(float3(1, 1, 1), float3(pow(I, 0.5), pow(I, 0.75), pow(I, 0.9)), (I + scat));
 			c.a = s.Alpha;
+
+			//c = float4(density, directionality * density, 0, 1);
 
 			return c;
 		}
