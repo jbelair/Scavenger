@@ -339,7 +339,7 @@ Shader "Surfaces/Planet" {
 			float scat = saturate(VdotL + I);
 
 			//density -= planet;
-			//directionality *= density;
+			directionality *= density;
 			density += density * directionality;
 
 			//float density = saturate(scattering * (abs(dot(-viewDir, gi.light.dir)) / 2 + 0.5) * (dot(s.Normal, gi.light.dir) / 2 + 0.5) - planet);// *(dot(s.Normal, gi.light.dir) / 2 + 0.5));
