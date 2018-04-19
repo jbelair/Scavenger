@@ -47,11 +47,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FrontTex:
-        m_Texture: {fileID: 2800000, guid: ec610314cd2a4c14c82c9c4023d2c01e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 74c6a68727659174ba361c2986a7e0f5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LeftTex:
-        m_Texture: {fileID: 2800000, guid: ec610314cd2a4c14c82c9c4023d2c01e, type: 3}
+        m_Texture: {fileID: 2800000, guid: c2b5d78054c86774597b091bcd94a1eb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -71,7 +71,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RightTex:
-        m_Texture: {fileID: 2800000, guid: ec610314cd2a4c14c82c9c4023d2c01e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2de88d59552f1b741b0d8f70eaa0346c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _UpTex:
@@ -100,4 +100,4 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Tint: {r: 1, g: 1, b: 1, a: 1}
+    - _Tint: {r: 0.5058824, g: 0.5058824, b: 0.5058824, a: 1}

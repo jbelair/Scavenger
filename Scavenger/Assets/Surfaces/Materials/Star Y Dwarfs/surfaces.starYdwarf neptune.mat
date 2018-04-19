@@ -18,6 +18,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AtmosphereMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -111,6 +115,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AtmosphereDensity: 2
+    - _AtmosphereIntensity: 1
     - _AtmosphereRadius: 2
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -129,6 +135,7 @@ Material:
     - _OcclusionStrength: 1
     - _Octaves: 2
     - _Parallax: 0.02
+    - _PlanetDensity: 1
     - _PlanetRadius: 1
     - _RayScaleHeight: 1
     - _Scattering: 0.1
@@ -138,9 +145,12 @@ Material:
     - _SrcBlend: 1
     - _Turbulence: 0.02
     - _UVSec: 0
+    - _ViewSamples: 2
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Colour: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Phase: {r: 0.75, g: 0.825, b: 1, a: 1}
     - _PlanetCenter: {r: 0, g: 0, b: 0, a: 1}
+    - _PlanetCentre: {r: 0, g: 0, b: 0, a: 1}

@@ -76,7 +76,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NorMain:
         m_Texture: {fileID: 2800000, guid: 1654587b855754e47b470087c7f4944b, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
     - _NorPoleN:
         m_Texture: {fileID: 2800000, guid: 0de575fab2e8dc84faf932a02cb21fe7, type: 3}
@@ -139,5 +139,5 @@ Material:
     - _EmiPoleNColour: {r: 1, g: 0.1448276, b: 0, a: 1}
     - _EmiPoleSColour: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Phase: {r: 0.5, g: 0.75, b: 0.75, a: 1}
+    - _Phase: {r: 0.5, g: 0.75, b: 1, a: 1}
     - _PlanetCentre: {r: 0, g: 0, b: 0, a: 1}
