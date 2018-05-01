@@ -19,7 +19,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AtmosphereMap:
-        m_Texture: {fileID: 2800000, guid: 8320a20f7abed25499c633c4f7727146, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0cf0fa2b56cae5142b72a2d1a54bce24, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -64,7 +64,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MSMain:
         m_Texture: {fileID: 2800000, guid: 0ce3cac81b13cdc4790d485f3b9291fb, type: 3}
-        m_Scale: {x: 10, y: 10}
+        m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
     - _MSPoleN:
         m_Texture: {fileID: 0}
@@ -139,9 +139,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AtmosphereDensity: 2
+    - _AtmosphereDensity: 5
     - _AtmosphereIntensity: 1
-    - _AtmosphereRadius: 1
+    - _AtmosphereRadius: 1.15
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -159,9 +159,9 @@ Material:
     - _OcclusionStrength: 1
     - _Octaves: 2
     - _Parallax: 0.02
-    - _PlanetDensity: 0.1
-    - _PlanetRadius: 0.93
-    - _PoleScale: 0.1
+    - _PlanetDensity: 0.25
+    - _PlanetRadius: 1
+    - _PoleScale: 0.253
     - _RayScaleHeight: 1
     - _Scattering: 0.1
     - _ScatteringCoefficient: 1
@@ -169,6 +169,8 @@ Material:
     - _SpecularHighlights: 1
     - _Spin: 0.01
     - _SrcBlend: 1
+    - _TesselationEdge: 1
+    - _TesselationFactor: 0.5
     - _Turbulence: 0.01
     - _UVSec: 0
     - _ViewSamples: 2
@@ -179,5 +181,5 @@ Material:
     - _EmiPoleNColour: {r: 1, g: 1, b: 1, a: 1}
     - _EmiPoleSColour: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Phase: {r: 1, g: 1.5, b: 2, a: 1}
-    - _PlanetCentre: {r: 0, g: 0, b: 0, a: 1}
+    - _Phase: {r: 0.8, g: 0.95, b: 1, a: 1}
+    - _PlanetCentre: {r: 0, g: 0, b: 0, a: 0}

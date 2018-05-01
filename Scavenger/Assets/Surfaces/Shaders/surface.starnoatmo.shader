@@ -6,13 +6,13 @@
 		_KelvinRange("Range (K)", Range(1,100000)) = 500
 		_KelvinMax("Maximum (K)", Float) = 100000
 		_HDR("Emissive HDR Intensity", Range(1,8)) = 8
-		_Emissive("Colour Map", 2D) = "white" {}
+		[NoScaleOffset]_Emissive("Colour Map", 2D) = "white" {}
 		_Spin("Spin", Float) = 0.01
 		_Turbulence("Turbulence", Float) = 0.01
 		_Octaves("Turbulence Octaves", Int) = 2
 		_Scattering("Gas Scattering", Range(0,1)) = 0.1
 		_Texture("Gas Giant (RGB)", 2D) = "white" {}
-		_Gasses("Gas Tint Map (RGB)", 2D) = "white" {}
+		[NoScaleOffset]_Gasses("Gas Tint Map (RGB)", 2D) = "white" {}
 		_TextureY("500 Kelvin (RGB)", 2D) = "white" {}
 		_TextureL("2000 Kelvin (RGB)", 2D) = "white" {}
 		_TextureM("3000 Kelvin (RGB)", 2D) = "white" {}

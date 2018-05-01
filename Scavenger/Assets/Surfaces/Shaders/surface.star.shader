@@ -8,16 +8,14 @@
 		_PlanetRadius("Planet Radius", Float) = 0.95
 		_PlanetDensity("Planet Density", Float) = 1
 		_PlanetCentre("Planet Centre", Vector) = (0,0,0,1)
-		_AtmosphereMap("Atmosphere Map", 2D) = "black" {}
+		[NoScaleOffset]_AtmosphereMap("Atmosphere Map", 2D) = "black" {}
 		_Phase("Atmosphere Phase", Vector) = (0.75,0.825,1,1)
-		_ViewSamples("View Samples", Int) = 2
-		_LightSamples("Light Samples", Int) = 2
 
 		_Kelvin("Temperature (K)", Range(1,100000)) = 3000
 		_KelvinRange("Range (K)", Range(1,100000)) = 500
 		_KelvinMax("Maximum (K)", Float) = 100000
 		_HDR("Emissive HDR Intensity", Range(1,8)) = 8
-		_Emissive("Colour Map", 2D) = "white" {}
+		[NoScaleOffset]_Emissive("Colour Map", 2D) = "white" {}
 		_Spin("Spin", Float) = 0.01
 		_Turbulence("Turbulence", Float) = 0.01
 		_Octaves("Turbulence Octaves", Int) = 2
@@ -368,13 +366,6 @@
 
 		sampler2D _AtmosphereMap;
 
-		float _ViewSamples;
-		float _LightSamples;
-
-		float _RayScaleHeight;
-
-		float _ScatteringCoefficient;
-
 		float3 _Phase;
 
 		bool rayIntersect
@@ -411,14 +402,7 @@
 		#include "UnityPBSLighting.cginc"
 		inline fixed4 LightingWrapScattering(SurfaceOutputStandard s, fixed3 viewDir, UnityGI gi)
 		{
-
-			half NdotL = dot(s.Normal, gi.light.dir);
-			half diff = NdotL * 0.5 + 0.5;
 			half4 c;
-
-			float I = 1 - abs(dot(gi.light.dir, s.Normal));
-			I *= pow(abs(min(0, dot(viewDir, gi.light.dir))), 4.0);
-			I = saturate(pow(I, 0.5));
 
 			float density = 0;
 			float directionality = 0;
@@ -431,6 +415,7 @@
 				scattering = exit - entry;
 			}
 			scattering = saturate(scattering);
+
 
 			float entryP = 0;
 			float exitP = 0;
@@ -445,32 +430,25 @@
 			density = pow(density, _AtmosphereDensity);
 			density = max(density, 1 * dot(viewDir, -gi.light.dir) * (saturate(dot(s.Normal, gi.light.dir))) * abs(dot(s.Normal, viewDir)));
 
-			float viewSample = scattering / _ViewSamples;
-			for (int i = 0; i < _ViewSamples; i++)
-			{
-				float entryD = 0;
-				float exitD = 0;
+			float entryD = 0;
+			float exitD = 0;
 
-				float3 p = s.Normal + -viewDir * viewSample * i;
+			float3 p = s.Normal + -viewDir;
 
-				rayIntersect(p, -gi.light.dir, _PlanetCentre, _AtmosphereRadius, entryD, exitD);
+			rayIntersect(p, -gi.light.dir, _PlanetCentre, _AtmosphereRadius, entryD, exitD);
 
-				float d = exitD - entryD;
+			directionality = dot(s.Normal, -gi.light.dir);
 
-				float lightSamples = d / _LightSamples;
-				for (int j = 0; j < _LightSamples; j++)
-				{
-					float direction = dot(s.Normal, -gi.light.dir);
-					direction = pow(direction / 2 + 0.5, _AtmosphereDensity);
-					directionality += lightSamples * direction;
-				}
-			}
-			directionality = saturate(directionality / _LightSamples);
+			if (directionality > 0)
+				directionality = pow(directionality, _AtmosphereDensity);
+			else
+				directionality = pow(abs(directionality), _AtmosphereDensity) * -1;
 
-			directionality *= density;
-			density += density * directionality;
+			//directionality = pow(directionality / 2 + 0.5, _AtmosphereDensity);
+			directionality = directionality / 2 + 0.5;
 
 			c.rgb = gi.light.color.rgb * tex2D(_AtmosphereMap, float2(density, directionality)) * _AtmosphereIntensity;
+
 			c.a = s.Alpha;
 
 			return c;

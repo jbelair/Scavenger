@@ -10,10 +10,8 @@ Shader "Surfaces/Planet" {
 		_PlanetRadius("Planet Radius", Float) = 0.95
 		_PlanetDensity("Planet Density", Float) = 1
 		_PlanetCentre("Planet Centre", Vector) = (0,0,0,1)
-		_AtmosphereMap("Atmosphere Map", 2D) = "black" {}
+		[NoScaleOffset]_AtmosphereMap("Atmosphere Map", 2D) = "black" {}
 		_Phase("Atmosphere Phase", Vector) = (0.75,0.825,1,1)
-		_ViewSamples("View Samples", Int) = 2
-		_LightSamples("Light Samples", Int) = 2
 
 		_TexMain("Main Texture", 2D) = "white" {}
 		_NorMain("Main Normal Map", 2D) = "bump" {}
@@ -39,9 +37,7 @@ Shader "Surfaces/Planet" {
 		CGPROGRAM
 		// Physically based Standard lighting model, and enable shadows on all light types
 		#pragma surface surf WrapScattering fullforwardshadows vertex:vert
-
-		// Use shader model 3.0 target, to get nicer looking lighting
-		#pragma target 3.0
+		#include "UnityPBSLighting.cginc"
 
 		// Primary Texture
 		sampler2D _TexMain;
@@ -85,6 +81,9 @@ Shader "Surfaces/Planet" {
 		float4 _EmiPoleS_ST;
 		float4 _EmiPoleSColour;
 
+		float _TesselationFactor;
+		float _TesselationEdge;
+
 		struct Input {
 			float3 localPos;
 			float2 texturePos;
@@ -103,7 +102,6 @@ Shader "Surfaces/Planet" {
 			// put more per-instance properties here
 		UNITY_INSTANCING_BUFFER_END(Props)
 
-		#include "UnityPBSLighting.cginc"
 		inline fixed4 LightingWrapScattering(SurfaceOutputStandard s, fixed3 viewDir, UnityGI gi)
 		{
 			half NdotL = dot(s.Normal, gi.light.dir);
@@ -140,7 +138,7 @@ Shader "Surfaces/Planet" {
 			fixed4 e = 0;
 			float3 n = 0;
 			float2 ms = 0;
-			if (IN.localPos.y < 0.5 - _PoleScale / 2 && IN.localPos.y > -0.5 + (_PoleScale / 2))
+			if (IN.localPos.y < 1 - _PoleScale / 2 && IN.localPos.y > -1 + (_PoleScale / 2))
 			{
 				c = tex2D(_TexMain, IN.texturePos * _TexMain_ST.xy + _TexMain_ST.zw);
 				e = tex2D(_EmiMain, IN.texturePos * _EmiMain_ST.xy + _EmiMain_ST.zw) * _EmiMainColour;
@@ -150,7 +148,7 @@ Shader "Surfaces/Planet" {
 			else
 			{
 				float scale = sin(_PoleScale);
-				if (IN.localPos.y >= 0.5 - _PoleScale / 2)
+				if (IN.localPos.y >= 1 - _PoleScale / 2)
 				{
 					c = tex2D(_TexPoleN, ((IN.localPos.xz / scale) + 0.5) * _TexPoleN_ST.xy + _TexPoleN_ST.zw);
 					e = tex2D(_EmiPoleN, ((IN.localPos.xz / scale) + 0.5) * _EmiPoleN_ST.xy + _EmiPoleN_ST.zw) * _EmiPoleNColour;
@@ -163,7 +161,7 @@ Shader "Surfaces/Planet" {
 					c = lerp(tex2D(_TexMain, IN.texturePos * _TexMain_ST.xy + _TexMain_ST.zw), c, c.a);
 						
 				}
-				else if (IN.localPos.y <= -0.5 + (_PoleScale / 2))
+				else if (IN.localPos.y <= -1 + (_PoleScale / 2))
 				{
 					c = tex2D(_TexPoleS, ((IN.localPos.xz / scale) + 0.5) * _TexPoleS_ST.xy + _TexPoleS_ST.zw);
 					e = tex2D(_EmiPoleS, ((IN.localPos.xz / scale) + 0.5) * _EmiPoleS_ST.xy + _EmiPoleS_ST.zw) * _EmiPoleSColour;
@@ -199,19 +197,7 @@ Shader "Surfaces/Planet" {
 		float _PlanetDensity;
 		float4 _PlanetCentre;
 
-		float _HEIGHT_RAY = 0.7994;
-		float _HEIGHT_MIE = 0.1200;
-		float3 _BETA_RAY = float3(3.8e-6, 13.5e-6, 33.1e-6);
-		float3 _BETA_MIE = 21e-6; 
-
 		sampler2D _AtmosphereMap;
-
-		float _ViewSamples;
-		float _LightSamples;
-
-		float _RayScaleHeight;
-
-		float _ScatteringCoefficient;
 
 		float3 _Phase;
 
@@ -246,17 +232,14 @@ Shader "Surfaces/Planet" {
 			return true;
 		}
 
+		struct Input {
+			float3 worldPos;
+		};
+
 		#include "UnityPBSLighting.cginc"
 		inline fixed4 LightingWrapScattering(SurfaceOutputStandard s, fixed3 viewDir, UnityGI gi)
 		{
-			
-			half NdotL = dot(s.Normal, gi.light.dir);
-			half diff = NdotL * 0.5 + 0.5;
 			half4 c;
-
-			float I = 1 - abs(dot(gi.light.dir, s.Normal));
-			I *= pow(abs(min(0, dot(viewDir, gi.light.dir))), 4.0);
-			I = saturate(pow(I, 0.5));
 
 			float density = 0;
 			float directionality = 0;
@@ -264,16 +247,17 @@ Shader "Surfaces/Planet" {
 			float entry = 0;
 			float exit = 0;
 			float scattering = 0;
-			if (rayIntersect(s.Normal, -viewDir, _PlanetCentre, _AtmosphereRadius, entry, exit));
+			if (rayIntersect(s.Normal, -viewDir, _PlanetCentre, 1, entry, exit));
 			{
 				scattering = exit - entry;
 			}
 			scattering = saturate(scattering);
+			
 
 			float entryP = 0;
 			float exitP = 0;
 			float planet = 0;
-			if (rayIntersect(s.Normal, -viewDir, _PlanetCentre, _PlanetRadius / (_AtmosphereRadius + (_AtmosphereRadius - _PlanetRadius)), entryP, exitP));
+			if (rayIntersect(s.Normal, -viewDir, _PlanetCentre, _PlanetRadius / _AtmosphereRadius, entryP, exitP));
 			{
 				planet = exitP - entryP;
 			}
@@ -281,39 +265,21 @@ Shader "Surfaces/Planet" {
 
 			density = abs(scattering - planet * _PlanetDensity);
 			density = pow(density, _AtmosphereDensity);
-			density = max(density, 1 * dot(viewDir, -gi.light.dir) * (saturate(dot(s.Normal, gi.light.dir))) * abs(dot(s.Normal, viewDir)));
+			//density = max(density, 1 * dot(viewDir, -gi.light.dir) * (saturate(dot(s.Normal, gi.light.dir))) * abs(dot(s.Normal, viewDir)));
 
-			float viewSample = scattering / _ViewSamples;
-			for (int i = 0; i < _ViewSamples; i++)
-			{
-				float entryD = 0;
-				float exitD = 0;
+			float entryD = 0;
+			float exitD = 0;
 
-				float3 p = s.Normal + -viewDir * viewSample * i;
+			float3 p = s.Normal + -viewDir;
 
-				rayIntersect(p, -gi.light.dir, _PlanetCentre, _AtmosphereRadius, entryD, exitD);
+			rayIntersect(p, -gi.light.dir, _PlanetCentre, _AtmosphereRadius, entryD, exitD);
 
-				float d = exitD - entryD;
+			directionality = dot(s.Normal, -gi.light.dir);
 
-				float lightSamples = d / _LightSamples;
-				for (int j = 0; j < _LightSamples; j++)
-				{
-					float direction = dot(s.Normal, -gi.light.dir);
-					direction = pow(direction / 2 + 0.5, _AtmosphereDensity);
-					directionality += lightSamples * direction;
-				}
-			}
-			directionality = saturate(directionality / _LightSamples);
-
-			half VdotL = dot(s.Normal, gi.light.dir);
-
-			float freznel = pow(saturate(abs(dot(s.Normal, viewDir))), 1);
-			float scat = saturate(VdotL + I);
-
-			directionality *= density;
-			density += density * directionality;
+			directionality = directionality / 2 + 0.5;
 
 			c.rgb = gi.light.color.rgb * tex2D(_AtmosphereMap, float2(density, directionality)) * _AtmosphereIntensity;
+
 			c.a = s.Alpha;
 
 			return c;
@@ -324,14 +290,10 @@ Shader "Surfaces/Planet" {
 			LightingStandard_GI(s, data, gi);
 		}
 
-		struct Input {
-			float3 worldPos;
-		};
-
 		void vert(inout appdata_full v, out Input o)
 		{
 			UNITY_INITIALIZE_OUTPUT(Input, o);
-			v.vertex.xyz += v.normal * (_AtmosphereRadius - _PlanetRadius);
+			v.vertex.xyz = v.normal * _AtmosphereRadius;
 		}
 
 		void surf(Input IN, inout SurfaceOutputStandard o)
