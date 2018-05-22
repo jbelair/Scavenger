@@ -45,3 +45,4 @@ Scavenger/Temp/UnityTempFile-babaeccfe39af614bb2a08ff9147ca3d
 Scavenger/.vs/Scavenger/v15/Browse.VC.opendb
 Scavenger/.vs/Scavenger/v15/Browse.VC.db
 *.db
+*.cache
