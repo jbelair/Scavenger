@@ -35,7 +35,6 @@ sysinfo.txt
 *.apk
 *.unitypackage
 Scavenger/Temp/UnityLockfile
-*.meta
 *.bakert
 Scavenger/Temp/UnityTempFile-1e52a2a733c5bb34dab765b8b085669e
 Scavenger/Temp/UnityTempFile-88cf0abe725a83f4fb1691b0ff261ce3

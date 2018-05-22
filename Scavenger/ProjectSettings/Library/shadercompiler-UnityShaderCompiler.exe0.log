@@ -1,0 +1,13 @@
+Base path: D:/Apps/Unity/Editor/Data
+Cmd: initializeCompiler
+Cmd: preprocess
+  insize=6342 outsize=2260 ok=1
+Cmd: preprocess
+  insize=493 outsize=490 ok=1
+Cmd: preprocess
+  insize=2035 outsize=680 ok=1
+Cmd: preprocess
+  insize=1933 outsize=300 ok=1
+Cmd: preprocess
+  error: 1 plat 21 at (14): Unrecognized #pragma surface directive: NoForwardAdd
+  insize=1327 outsize=923 ok=1
