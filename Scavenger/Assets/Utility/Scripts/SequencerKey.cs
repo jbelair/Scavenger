@@ -64,3 +64,12 @@ public class SequencerColourKey
     public float durationCurrent;
     public Color value;
 }
+
+[Serializable]
+public class SequencerStringKey
+{
+    public string name;
+    public float duration;
+    public float durationCurrent;
+    public string value;
+}

@@ -3,18 +3,12 @@
 // Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 
 Shader "Surfaces/Planet" {
-	Properties{
-		_AtmosphereRadius("Atmosphere Radius", Float) = 1
-		_AtmosphereDensity("Atmosphere Density", Float) = 2
-		_AtmosphereIntensity("Atmosphere Intensity", Float) = 1
-		_PlanetRadius("Planet Radius", Float) = 0.95
-		_PlanetDensity("Planet Density", Float) = 1
-		_PlanetCentre("Planet Centre", Vector) = (0,0,0,1)
-		[NoScaleOffset]_AtmosphereMap("Atmosphere Map", 2D) = "black" {}
+	Properties
+	{
 		_Phase("Atmosphere Phase", Vector) = (0.75,0.825,1,1)
-
 		_TexMain("Main Texture", 2D) = "white" {}
 		_NorMain("Main Normal Map", 2D) = "bump" {}
+		_NorStrength("Normal Strength", Range(0,10)) = 1
 		_MSMain("Main Metallic & Smoothness Map", 2D) = "black" {}
 		[HDR]_EmiMainColour("Main Emission Colour", Color) = (1,1,1,1)
 		_EmiMain("Main Emission Map", 2D) = "black" {}
@@ -45,6 +39,7 @@ Shader "Surfaces/Planet" {
 		// Primary Normal Map
 		sampler2D _NorMain;
 		float4 _NorMain_ST;
+		float _NorStrength;
 		// Primary Metallic and Smoothness Map
 		sampler2D _MSMain;
 		float4 _MSMain_ST;
@@ -108,12 +103,6 @@ Shader "Surfaces/Planet" {
 			half diff = NdotL * 0.5 + 0.5;
 			half4 c = LightingStandard(s, viewDir, gi);
 
-			float I = 1 - abs(dot(gi.light.dir, s.Normal));
-			I *= pow(abs(min(0, dot(viewDir, gi.light.dir))), 4.0);
-			I = saturate(pow(I, 2));
-
-			half VdotL = dot(s.Normal, gi.light.dir);
-			float scat = saturate(VdotL + 1) + I;
 			c.rgb = (c + s.Albedo * gi.light.color * float3(pow(diff, _Phase.r), pow(diff, _Phase.g), pow(diff, _Phase.b))) / 2;
 			c.a = s.Alpha;
 
@@ -138,7 +127,7 @@ Shader "Surfaces/Planet" {
 			fixed4 e = 0;
 			float3 n = 0;
 			float2 ms = 0;
-			if (IN.localPos.y < 1 - _PoleScale / 2 && IN.localPos.y > -1 + (_PoleScale / 2))
+			if (IN.localPos.y < 0.5 - _PoleScale && IN.localPos.y > -0.5 + _PoleScale)
 			{
 				c = tex2D(_TexMain, IN.texturePos * _TexMain_ST.xy + _TexMain_ST.zw);
 				e = tex2D(_EmiMain, IN.texturePos * _EmiMain_ST.xy + _EmiMain_ST.zw) * _EmiMainColour;
@@ -147,13 +136,13 @@ Shader "Surfaces/Planet" {
 			}
 			else
 			{
-				float scale = sin(_PoleScale);
-				if (IN.localPos.y >= 1 - _PoleScale / 2)
+				float scale = _PoleScale * 1.5;
+				if (IN.localPos.y >= 0.5 - _PoleScale)
 				{
 					c = tex2D(_TexPoleN, ((IN.localPos.xz / scale) + 0.5) * _TexPoleN_ST.xy + _TexPoleN_ST.zw);
 					e = tex2D(_EmiPoleN, ((IN.localPos.xz / scale) + 0.5) * _EmiPoleN_ST.xy + _EmiPoleN_ST.zw) * _EmiPoleNColour;
 					n = UnpackNormal(tex2D(_NorPoleN, ((IN.localPos.xz / scale) + 0.5) * _NorPoleN_ST.xy + _NorPoleN_ST.zw));
-					ms = tex2D(_MSPoleN, IN.texturePos * _MSPoleN_ST.xy + _MSPoleN_ST.zw).rg;
+					ms = tex2D(_MSPoleN, ((IN.localPos.xz / scale) + 0.5) * _MSPoleN_ST.xy + _MSPoleN_ST.zw).rg;
 
 					e = lerp(tex2D(_EmiMain, IN.texturePos* _EmiMain_ST.xy + _EmiMain_ST.zw) * _EmiMainColour, e, c.a);
 					n = lerp(UnpackNormal(tex2D(_NorMain, IN.texturePos * _NorMain_ST.xy + _NorMain_ST.zw)), n, c.a);
@@ -161,12 +150,12 @@ Shader "Surfaces/Planet" {
 					c = lerp(tex2D(_TexMain, IN.texturePos * _TexMain_ST.xy + _TexMain_ST.zw), c, c.a);
 						
 				}
-				else if (IN.localPos.y <= -1 + (_PoleScale / 2))
+				else if (IN.localPos.y <= -0.5 + _PoleScale)
 				{
 					c = tex2D(_TexPoleS, ((IN.localPos.xz / scale) + 0.5) * _TexPoleS_ST.xy + _TexPoleS_ST.zw);
 					e = tex2D(_EmiPoleS, ((IN.localPos.xz / scale) + 0.5) * _EmiPoleS_ST.xy + _EmiPoleS_ST.zw) * _EmiPoleSColour;
 					n = UnpackNormal(tex2D(_NorPoleS, ((IN.localPos.xz / scale) + 0.5) * _NorPoleS_ST.xy + _NorPoleS_ST.zw));
-					ms = tex2D(_MSPoleS, IN.texturePos * _MSPoleS_ST.xy + _MSPoleS_ST.zw).rg;
+					ms = tex2D(_MSPoleS, ((IN.localPos.xz / scale) + 0.5) * _MSPoleS_ST.xy + _MSPoleS_ST.zw).rg;
 
 					e = lerp(tex2D(_EmiMain, IN.texturePos* _EmiMain_ST.xy + _EmiMain_ST.zw) * _EmiMainColour, e, c.a);
 					n = lerp(UnpackNormal(tex2D(_NorMain, IN.texturePos * _NorMain_ST.xy + _NorMain_ST.zw)), n, c.a);
@@ -174,134 +163,16 @@ Shader "Surfaces/Planet" {
 					c = lerp(tex2D(_TexMain, IN.texturePos * _TexMain_ST.xy + _TexMain_ST.zw), c, c.a);
 				}
 			}
+
 			o.Albedo = c.rgb;
 			o.Emission = lerp(float3(0,0,0),e.rgb,e.a);
+			n = float3(n.x * _NorStrength, n.y * _NorStrength, n.z);
+			n = normalize(n);
 			o.Normal = n;
 			o.Metallic = ms.x;
 			o.Smoothness = ms.y;
 		}
 		ENDCG
-
-		Tags { "RenderType" = "Transparent" "Queue" = "Transparent" }
-		LOD 600
-		Cull Back
-		Blend One One
-
-		CGPROGRAM
-		#pragma surface surf WrapScattering vertex:vert
-
-		float _AtmosphereRadius;
-		float _AtmosphereDensity;
-		float _AtmosphereIntensity;
-		float _PlanetRadius;
-		float _PlanetDensity;
-		float4 _PlanetCentre;
-
-		sampler2D _AtmosphereMap;
-
-		float3 _Phase;
-
-		bool rayIntersect
-		(
-			// Ray
-			float3 O, // Origin
-			float3 D, // Direction
-
-					  // Sphere
-			float3 C, // Centre
-			float R,	// Radius
-			out float AO, // First intersection time
-			out float BO  // Second intersection time
-		)
-		{
-			float3 L = C - O;
-			float DT = dot(L, D);
-			float R2 = R * R;
-
-			float CT2 = dot(L, L) - DT*DT;
-
-			// Intersection point outside the circle
-			if (CT2 > R2)
-				return false;
-
-			float AT = sqrt(R2 - CT2);
-			float BT = AT;
-
-			AO = DT - AT;
-			BO = DT + BT;
-			return true;
-		}
-
-		struct Input {
-			float3 worldPos;
-		};
-
-		#include "UnityPBSLighting.cginc"
-		inline fixed4 LightingWrapScattering(SurfaceOutputStandard s, fixed3 viewDir, UnityGI gi)
-		{
-			half4 c;
-
-			float density = 0;
-			float directionality = 0;
-
-			float entry = 0;
-			float exit = 0;
-			float scattering = 0;
-			if (rayIntersect(s.Normal, -viewDir, _PlanetCentre, 1, entry, exit));
-			{
-				scattering = exit - entry;
-			}
-			scattering = saturate(scattering);
-			
-
-			float entryP = 0;
-			float exitP = 0;
-			float planet = 0;
-			if (rayIntersect(s.Normal, -viewDir, _PlanetCentre, _PlanetRadius / _AtmosphereRadius, entryP, exitP));
-			{
-				planet = exitP - entryP;
-			}
-			planet = saturate(planet);
-
-			density = abs(scattering - planet * _PlanetDensity);
-			density = pow(density, _AtmosphereDensity);
-			//density = max(density, 1 * dot(viewDir, -gi.light.dir) * (saturate(dot(s.Normal, gi.light.dir))) * abs(dot(s.Normal, viewDir)));
-
-			float entryD = 0;
-			float exitD = 0;
-
-			float3 p = s.Normal + -viewDir;
-
-			rayIntersect(p, -gi.light.dir, _PlanetCentre, _AtmosphereRadius, entryD, exitD);
-
-			directionality = dot(s.Normal, -gi.light.dir);
-
-			directionality = directionality / 2 + 0.5;
-
-			c.rgb = gi.light.color.rgb * tex2D(_AtmosphereMap, float2(density, directionality)) * _AtmosphereIntensity;
-
-			c.a = s.Alpha;
-
-			return c;
-		}
-
-		void LightingWrapScattering_GI(SurfaceOutputStandard s, UnityGIInput data, inout UnityGI gi)
-		{
-			LightingStandard_GI(s, data, gi);
-		}
-
-		void vert(inout appdata_full v, out Input o)
-		{
-			UNITY_INITIALIZE_OUTPUT(Input, o);
-			v.vertex.xyz = v.normal * _AtmosphereRadius;
-		}
-
-		void surf(Input IN, inout SurfaceOutputStandard o)
-		{
-			o.Albedo = float3(1, 1, 1);
-			o.Alpha = 1;
-		}
-		ENDCG
 	}
-		FallBack "Diffuse"
+	FallBack "Diffuse"
 }

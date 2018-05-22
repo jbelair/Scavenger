@@ -2,27 +2,27 @@
 
 // Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 
-Shader "Surfaces/Atmosphere" 
+Shader "Surfaces/Atmosphere"
 {
 	Properties
 	{
-		_AtmosphereRadius("Atmosphere Radius", Float) = 1
+		_AtmosphereRadius("Atmosphere Radius", Float) = 1.15
 		_AtmosphereDensity("Atmosphere Density", Float) = 2
 		_AtmosphereIntensity("Atmosphere Intensity", Float) = 1
-		_PlanetRadius("Planet Radius", Float) = 0.95
+		_PlanetRadius("Planet Radius", Float) = 1
 		_PlanetDensity("Planet Density", Float) = 1
 		_PlanetCentre("Planet Centre", Vector) = (0,0,0,1)
 		[NoScaleOffset]_AtmosphereMap("Atmosphere Map", 2D) = "black" {}
-		_Phase("Atmosphere Phase", Vector) = (0.75,0.825,1,1)
 	}
-	SubShader
+		SubShader
 	{
-		Tags{ "RenderType" = "Transparent" "Queue" = "Transparent" }
-		LOD 600
-		Cull Back
-		Blend One One
+			Tags{ "RenderType" = "Transparent" "Queue" = "Transparent" }
+			LOD 600
+			Cull Back
+			ZWrite Off
+			Blend One One
 
-		CGPROGRAM
+			CGPROGRAM
 		#pragma surface surf WrapScattering vertex:vert
 
 		float _AtmosphereRadius;
@@ -42,7 +42,7 @@ Shader "Surfaces/Atmosphere"
 			float3 O, // Origin
 			float3 D, // Direction
 
-					  // Sphere
+			// Sphere
 			float3 C, // Centre
 			float R,	// Radius
 			out float AO, // First intersection time
@@ -67,7 +67,12 @@ Shader "Surfaces/Atmosphere"
 			return true;
 		}
 
-#include "UnityPBSLighting.cginc"
+		struct Input 
+		{
+			float3 worldPos;
+		};
+
+		#include "UnityPBSLighting.cginc"
 		inline fixed4 LightingWrapScattering(SurfaceOutputStandard s, fixed3 viewDir, UnityGI gi)
 		{
 			half4 c;
@@ -78,17 +83,16 @@ Shader "Surfaces/Atmosphere"
 			float entry = 0;
 			float exit = 0;
 			float scattering = 0;
-			if (rayIntersect(s.Normal, -viewDir, _PlanetCentre, _AtmosphereRadius, entry, exit));
+			if (rayIntersect(s.Normal, -viewDir, _PlanetCentre, 1, entry, exit));
 			{
 				scattering = exit - entry;
 			}
 			scattering = saturate(scattering);
 
-
 			float entryP = 0;
 			float exitP = 0;
 			float planet = 0;
-			if (rayIntersect(s.Normal, -viewDir, _PlanetCentre, _PlanetRadius / (_AtmosphereRadius + (_AtmosphereRadius - _PlanetRadius)), entryP, exitP));
+			if (rayIntersect(s.Normal, -viewDir, _PlanetCentre, _PlanetRadius / _AtmosphereRadius, entryP, exitP));
 			{
 				planet = exitP - entryP;
 			}
@@ -96,7 +100,6 @@ Shader "Surfaces/Atmosphere"
 
 			density = abs(scattering - planet * _PlanetDensity);
 			density = pow(density, _AtmosphereDensity);
-			density = max(density, 1 * dot(viewDir, -gi.light.dir) * (saturate(dot(s.Normal, gi.light.dir))) * abs(dot(s.Normal, viewDir)));
 
 			float entryD = 0;
 			float exitD = 0;
@@ -105,15 +108,9 @@ Shader "Surfaces/Atmosphere"
 
 			rayIntersect(p, -gi.light.dir, _PlanetCentre, _AtmosphereRadius, entryD, exitD);
 
-			directionality = dot(s.Normal, -gi.light.dir);
+			directionality = dot(s.Normal, -gi.light.dir) * dot(s.Normal, viewDir);
 
-			if (directionality > 0)
-				directionality = pow(directionality, _AtmosphereDensity);
-			else
-				directionality = pow(abs(directionality), _AtmosphereDensity) * -1;
-
-			//directionality = pow(directionality / 2 + 0.5, _AtmosphereDensity);
-			directionality = directionality / 2 + 0.5;
+			directionality = directionality * 0.5 + 0.5;
 
 			c.rgb = gi.light.color.rgb * tex2D(_AtmosphereMap, float2(density, directionality)) * _AtmosphereIntensity;
 
@@ -127,14 +124,10 @@ Shader "Surfaces/Atmosphere"
 			LightingStandard_GI(s, data, gi);
 		}
 
-		struct Input {
-			float3 worldPos;
-		};
-
 		void vert(inout appdata_full v, out Input o)
 		{
 			UNITY_INITIALIZE_OUTPUT(Input, o);
-			v.vertex.xyz += v.normal * (_AtmosphereRadius - _PlanetRadius);
+			v.vertex.xyz = v.normal * _AtmosphereRadius;
 		}
 
 		void surf(Input IN, inout SurfaceOutputStandard o)
@@ -144,5 +137,5 @@ Shader "Surfaces/Atmosphere"
 		}
 		ENDCG
 	}
-	FallBack "Diffuse"
+		FallBack "Diffuse"
 }

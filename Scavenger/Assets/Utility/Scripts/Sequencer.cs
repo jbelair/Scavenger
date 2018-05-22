@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Events;
 
 [Serializable]
 public class Sequencer
 {
     public enum Format { Loop, PingPong };
     public Format format;
-    public int repetitions = 1;
+    public int repetitions = 0;
     public enum Interpolation { None, Linear, Spherical };
     public Interpolation interpolation = Interpolation.None;
     public int index = 0;
+    public UnityEvent end;
 
     protected int indexPrevious = 0;
     protected int indexCurrent = 0;
@@ -265,6 +267,7 @@ public class IntSequencer
     public Interpolation interpolation = Interpolation.None;
     public SequencerIntKey[] array;
     public int index = 0;
+    public UnityEvent end;
 
     public int Start()
     {
@@ -301,7 +304,7 @@ public class IntSequencer
                     current.durationCurrent += Time.deltaTime;
                     if (current.durationCurrent > current.duration)
                     {
-                        index++;// = (index+1 >= transforms.Length) ? transforms.Length - 1 : index++;// = (index + 1) % transforms.Length;
+                        int ind = index++;// = (index+1 >= transforms.Length) ? transforms.Length - 1 : index++;// = (index + 1) % transforms.Length;
                         if (index > array.Length - 1)
                         {
                             if (repetitions != 0)
@@ -313,13 +316,16 @@ public class IntSequencer
                                 index = array.Length - 1;
                         }
                         array[index].durationCurrent = current.durationCurrent - current.duration;
+
+                        if (ind == index)
+                            end.Invoke();
                     }
                     break;
                 case Format.PingPong:
                     current.durationCurrent += Time.deltaTime;
                     if (current.durationCurrent > current.duration)
                     {
-                        index++;// = (index+1 >= transforms.Length) ? transforms.Length - 1 : index++;// = (index + 1) % transforms.Length;
+                        int ind = index++;// = (index+1 >= transforms.Length) ? transforms.Length - 1 : index++;// = (index + 1) % transforms.Length;
                         if (index > array.Length - 1)
                         {
                             if (repetitions != 0)
@@ -331,6 +337,9 @@ public class IntSequencer
                                 index = array.Length - 1;
                         }
                         array[index].durationCurrent = current.durationCurrent - current.duration;
+
+                        if (ind == index)
+                            end.Invoke();
                     }
                     break;
             }
@@ -350,6 +359,7 @@ public class FloatSequencer
     public Interpolation interpolation = Interpolation.None;
     public SequencerFloatKey[] array;
     public int index = 0;
+    public UnityEvent end;
 
     public float Start()
     {
@@ -385,7 +395,12 @@ public class FloatSequencer
                                 index = 0;
                         }
                         if (ind != index)
+                        {
                             array[index].durationCurrent = current.durationCurrent - current.duration;
+
+                            if (ind == index)
+                                end.Invoke();
+                        }
                     }
                     break;
                 default:
@@ -407,7 +422,12 @@ public class FloatSequencer
                                 index = array.Length - 1;
                         }
                         if (ind != index)
+                        {
                             array[index].durationCurrent = current.durationCurrent - current.duration;
+
+                            if (ind == index)
+                                end.Invoke();
+                        }
                     }
                     break;
             }
@@ -445,6 +465,7 @@ public class Vector2Sequencer
     public Interpolation interpolation = Interpolation.None;
     public SequencerVector2Key[] array;
     public int index = 0;
+    public UnityEvent end;
 
     public Vector2 Start()
     {
@@ -481,7 +502,7 @@ public class Vector2Sequencer
                     current.durationCurrent += Time.deltaTime;
                     if (current.durationCurrent > current.duration)
                     {
-                        index++;// = (index+1 >= transforms.Length) ? transforms.Length - 1 : index++;// = (index + 1) % transforms.Length;
+                        int ind = index++;// = (index+1 >= transforms.Length) ? transforms.Length - 1 : index++;// = (index + 1) % transforms.Length;
                         if (index > array.Length - 1)
                         {
                             if (repetitions != 0)
@@ -493,13 +514,16 @@ public class Vector2Sequencer
                                 index = array.Length - 1;
                         }
                         array[index].durationCurrent = current.durationCurrent - current.duration;
+
+                        if (ind == index)
+                            end.Invoke();
                     }
                     break;
                 case Format.PingPong:
                     current.durationCurrent += Time.deltaTime;
                     if (current.durationCurrent > current.duration)
                     {
-                        index++;// = (index+1 >= transforms.Length) ? transforms.Length - 1 : index++;// = (index + 1) % transforms.Length;
+                        int ind = index++;// = (index+1 >= transforms.Length) ? transforms.Length - 1 : index++;// = (index + 1) % transforms.Length;
                         if (index > array.Length - 1)
                         {
                             if (repetitions != 0)
@@ -511,6 +535,9 @@ public class Vector2Sequencer
                                 index = array.Length - 1;
                         }
                         array[index].durationCurrent = current.durationCurrent - current.duration;
+
+                        if (ind == index)
+                            end.Invoke();
                     }
                     break;
             }
@@ -530,6 +557,7 @@ public class Vector3Sequencer
     public Interpolation interpolation = Interpolation.None;
     public SequencerVector3Key[] array;
     public int index = 0;
+    public UnityEvent end;
 
     public Vector3 Start()
     {
@@ -565,7 +593,12 @@ public class Vector3Sequencer
                                 index = 0;
                         }
                         if (ind != index)
+                        {
                             array[index].durationCurrent = current.durationCurrent - current.duration;
+
+                            if (ind == index)
+                                end.Invoke();
+                        }
                     }
                     break;
                 default:
@@ -587,7 +620,12 @@ public class Vector3Sequencer
                                 index = array.Length - 1;
                         }
                         if (ind != index)
+                        {
                             array[index].durationCurrent = current.durationCurrent - current.duration;
+
+                            if (ind == index)
+                                end.Invoke();
+                        }
                     }
                     break;
             }
@@ -625,6 +663,7 @@ public class QuaternionSequencer
     public Interpolation interpolation = Interpolation.None;
     public SequencerQuaternionKey[] array;
     public int index = 0;
+    public UnityEvent end;
 
     public Quaternion Start()
     {
@@ -661,7 +700,7 @@ public class QuaternionSequencer
                     current.durationCurrent += Time.deltaTime;
                     if (current.durationCurrent > current.duration)
                     {
-                        index++;// = (index+1 >= transforms.Length) ? transforms.Length - 1 : index++;// = (index + 1) % transforms.Length;
+                        int ind = index++;// = (index+1 >= transforms.Length) ? transforms.Length - 1 : index++;// = (index + 1) % transforms.Length;
                         if (index > array.Length - 1)
                         {
                             if (repetitions != 0)
@@ -673,13 +712,16 @@ public class QuaternionSequencer
                                 index = array.Length - 1;
                         }
                         array[index].durationCurrent = current.durationCurrent - current.duration;
+
+                        if (ind == index)
+                            end.Invoke();
                     }
                     break;
                 case Format.PingPong:
                     current.durationCurrent += Time.deltaTime;
                     if (current.durationCurrent > current.duration)
                     {
-                        index++;// = (index+1 >= transforms.Length) ? transforms.Length - 1 : index++;// = (index + 1) % transforms.Length;
+                        int ind = index++;// = (index+1 >= transforms.Length) ? transforms.Length - 1 : index++;// = (index + 1) % transforms.Length;
                         if (index > array.Length - 1)
                         {
                             if (repetitions != 0)
@@ -691,6 +733,9 @@ public class QuaternionSequencer
                                 index = array.Length - 1;
                         }
                         array[index].durationCurrent = current.durationCurrent - current.duration;
+
+                        if (ind == index)
+                            end.Invoke();
                     }
                     break;
             }
@@ -704,7 +749,6 @@ public class QuaternionSequencer
 public class ColourSequencer : Sequencer
 {
     public SequencerColourKey[] array;
-    
 
     public Color Start()
     {
@@ -741,7 +785,12 @@ public class ColourSequencer : Sequencer
                                 index = 0;
                         }
                         if (ind != index)
+                        {
                             array[index].durationCurrent = current.durationCurrent - current.duration;
+
+                            if (ind == index)
+                                end.Invoke();
+                        }
                     }
                     break;
                 default:
@@ -763,7 +812,12 @@ public class ColourSequencer : Sequencer
                                 index = array.Length - 1;
                         }
                         if (ind != index)
+                        {
                             array[index].durationCurrent = current.durationCurrent - current.duration;
+
+                            if (ind == index)
+                                end.Invoke();
+                        }
                     }
                     break;
             }
@@ -788,5 +842,109 @@ public class ColourSequencer : Sequencer
         }
 
         return Color.white;
+    }
+}
+
+[Serializable]
+public class StringSequencer : Sequencer
+{
+    public SequencerStringKey[] array;
+
+    public string Start()
+    {
+        base.BaseStart();
+        return array[indexCurrent].value;
+    }
+
+    public string Update()
+    {
+        if (array.Length > 0)
+        {
+            SequencerStringKey previous;
+            SequencerStringKey current;
+
+            switch (format)
+            {
+                case Format.PingPong:
+                    int ind = (index >= array.Length) ? 2 - index : index;
+                    previous = array[((ind - 1 >= 0) ? ((index > array.Length) ? ind + 1 : ind - 1) : 0)];
+                    current = array[ind];
+                    current.durationCurrent += Time.deltaTime;
+                    if (current.durationCurrent > current.duration)
+                    {
+                        ind = index;
+                        index++;// = (index+1 >= transforms.Length) ? transforms.Length - 1 : index++;// = (index + 1) % transforms.Length;
+                        if (index >= array.Length * 2)
+                        {
+                            if (repetitions != 0)
+                            {
+                                repetitions--;
+                                index = 0;
+                            }
+                            else
+                                index = 0;
+                        }
+                        if (ind != index)
+                        {
+                            array[index].durationCurrent = current.durationCurrent - current.duration;
+
+                            if (ind == index)
+                                end.Invoke();
+                        }
+                    }
+                    break;
+                default:
+                    previous = array[((index - 1 >= 0) ? index - 1 : 0)];
+                    current = array[index];
+                    current.durationCurrent += Time.deltaTime;
+                    if (current.durationCurrent > current.duration)
+                    {
+                        ind = index;
+                        index++;// = (index+1 >= transforms.Length) ? transforms.Length - 1 : index++;// = (index + 1) % transforms.Length;
+                        if (index >= array.Length)
+                        {
+                            if (repetitions != 0)
+                            {
+                                repetitions--;
+                                index = 0;
+                            }
+                            else
+                                index = array.Length - 1;
+                        }
+                        if (ind != index)
+                        {
+                            array[index].durationCurrent = current.durationCurrent - current.duration;
+
+                            if (ind == index)
+                                end.Invoke();
+                        }
+                    }
+                    break;
+            }
+
+            switch (interpolation)
+            {
+                case Interpolation.None:
+                    return current.value;
+                case Interpolation.Linear:
+                    float percentage = 0;
+                    previous = array[((index - 1 >= 0) ? index - 1 : 0)];
+                    current = array[index];
+                    percentage = current.durationCurrent / current.duration;
+                    int iPrevious = Mathf.RoundToInt(previous.value.Length * percentage);
+                    int iCurrent = Mathf.RoundToInt(current.value.Length * percentage);
+                    return previous.value.Substring(0, iPrevious) + current.value.Substring(iCurrent, current.value.Length - iCurrent);
+                case Interpolation.Spherical:
+                    percentage = 0;
+                    previous = array[((index - 1 >= 0) ? index - 1 : 0)];
+                    current = array[index];
+                    percentage = current.durationCurrent / current.duration;
+                    iPrevious = Mathf.RoundToInt(previous.value.Length * percentage);
+                    iCurrent = Mathf.RoundToInt(current.value.Length * percentage);
+                    return previous.value.Substring(0, iPrevious) + current.value.Substring(iCurrent, current.value.Length - iCurrent);
+            }
+        }
+
+        return "";
     }
 }
