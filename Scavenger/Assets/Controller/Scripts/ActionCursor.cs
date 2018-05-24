@@ -41,10 +41,11 @@ public class ActionCursor : ActionInputBase
         }
         else
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-                input = hit.point;//Input.mousePosition;
+            input = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            //RaycastHit hit;
+            //if (Physics.Raycast(ray, out hit))
+            //    input = hit.point;//Input.mousePosition;
         }
 
         lastInput = input;

@@ -188,7 +188,7 @@ Transform:
   - {fileID: 287603326}
   - {fileID: 348218932}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &66541423
 MonoBehaviour:
@@ -201,44 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e7eaa728c4d7c40b6e2de5070ad9e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  postProcessing: {fileID: 1111216942}
-  effect: {fileID: 0}
-  format: 0
-  sequence:
-  - name: Start
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 0
-    radiusEnd: 10
-    eventHorizonStart: 1
-    eventHorizonEnd: 1
-    sharpnessStart: 1
-    sharpnessEnd: 1
-    singularityStart: {r: 0, g: 0, b: 0, a: 0}
-    singularityEnd: {r: 0, g: 0, b: 0, a: 0}
-  - name: Run
-    duration: 10
-    durationCurrent: 0
-    radiusStart: 10
-    radiusEnd: 3.33
-    eventHorizonStart: 1
-    eventHorizonEnd: 1
-    sharpnessStart: 1
-    sharpnessEnd: 1
-    singularityStart: {r: 0, g: 0, b: 0, a: 0}
-    singularityEnd: {r: 0, g: 0, b: 0, a: 0}
-  - name: End
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 3.33
-    radiusEnd: 0
-    eventHorizonStart: 1
-    eventHorizonEnd: 1
-    sharpnessStart: 1
-    sharpnessEnd: 1
-    singularityStart: {r: 0, g: 0, b: 0, a: 0}
-    singularityEnd: {r: 0, g: 0, b: 0, a: 0}
-  index: 0
 --- !u!1 &92958371
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,291 +244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910a449e05d1b854e870dfa481032d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 92958374}
-  format: 0
-  duration: 0
-  durationCurrent: 0
-  sequence:
-  - name: Start
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 0
-    radiusEnd: 0
-    line:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    displayLabel: 0
-  - name: Run
-    duration: 10
-    durationCurrent: 0
-    radiusStart: 525
-    radiusEnd: 262
-    line:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 49151
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 4
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 49151
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 4
-    label:
-      serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 0}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 49151
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 4
-    displayLabel: 1
-  - name: End
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 0
-    radiusEnd: 0
-    line:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    displayLabel: 0
-  index: 0
 --- !u!114 &92958374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,19 +255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7c7e128632e77499f3af378f7e4703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: {fileID: 92958375}
-  pointsOnCircle: 32
-  distanceBetweenPoints: 10
-  pointsAuto: 0
-  radius: 525
-  lineColour: {r: 0, g: 0, b: 0, a: 0}
-  fill: {fileID: 0}
-  fillRender: {fileID: 0}
-  fillColour: {r: 0, g: 0, b: 0, a: 0}
-  label: {fileID: 469192964}
-  labelRender: {fileID: 0}
-  labelColour: {r: 0, g: 0, b: 0, a: 0}
-  labelOffset: {x: 0, y: 0, z: 0}
 --- !u!120 &92958375
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -755,19 +419,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7c7e128632e77499f3af378f7e4703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: {fileID: 127079774}
-  pointsOnCircle: 64
-  distanceBetweenPoints: 122
-  pointsAuto: 0
-  radius: 1250
-  lineColour: {r: 1, g: 1, b: 1, a: 1}
-  fill: {fileID: 0}
-  fillRender: {fileID: 0}
-  fillColour: {r: 0, g: 0, b: 0, a: 0}
-  label: {fileID: 0}
-  labelRender: {fileID: 0}
-  labelColour: {r: 0, g: 0, b: 0, a: 0}
-  labelOffset: {x: 0, y: 0, z: 0}
 --- !u!120 &127079774
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -976,13 +627,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 167659981}
-  m_LocalRotation: {x: 0, y: 0.953717, z: 0, w: 0.30070582}
+  m_LocalRotation: {x: 0, y: 0.7593848, z: 0, w: 0.6506418}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 523788244}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 145, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 98.82, z: 0}
 --- !u!1 &215200084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,7 +776,7 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5db928ecfab979846be6e887417e945a, type: 2}
+  - {fileID: 2100000, guid: 4a072cea48d14f145a5c3d587a01af1e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1210,8 +861,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fbd37bc341dfc14080a4b8fa3085a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1030415757}
-  lines: []
 --- !u!1 &267253141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,44 +888,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e7eaa728c4d7c40b6e2de5070ad9e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  postProcessing: {fileID: 1111216942}
-  effect: {fileID: 0}
-  format: 0
-  sequence:
-  - name: Start
-    duration: 0.25
-    durationCurrent: 0
-    radiusStart: 0
-    radiusEnd: 1
-    eventHorizonStart: 1
-    eventHorizonEnd: 0
-    sharpnessStart: 1
-    sharpnessEnd: 1
-    singularityStart: {r: 0, g: 0, b: 0, a: 0}
-    singularityEnd: {r: 0, g: 0, b: 0, a: 0}
-  - name: Run
-    duration: 0.75
-    durationCurrent: 0
-    radiusStart: 1
-    radiusEnd: 1
-    eventHorizonStart: 0
-    eventHorizonEnd: 0
-    sharpnessStart: 1
-    sharpnessEnd: 1
-    singularityStart: {r: 0, g: 0, b: 0, a: 0}
-    singularityEnd: {r: 0, g: 0, b: 0, a: 0}
-  - name: End
-    duration: 0.5
-    durationCurrent: 0
-    radiusStart: 1
-    radiusEnd: 0
-    eventHorizonStart: 0
-    eventHorizonEnd: 1
-    sharpnessStart: 1
-    sharpnessEnd: 1
-    singularityStart: {r: 0, g: 0, b: 0, a: 0}
-    singularityEnd: {r: 0, g: 0, b: 0, a: 0}
-  index: 0
 --- !u!4 &267253143
 Transform:
   m_ObjectHideFlags: 0
@@ -4814,291 +4425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910a449e05d1b854e870dfa481032d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 348218934}
-  format: 0
-  duration: 0
-  durationCurrent: 0
-  sequence:
-  - name: Start
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 0
-    radiusEnd: 0.5
-    line:
-      serializedVersion: 2
-      key0: {r: 0, g: 0, b: 0, a: 0}
-      key1: {r: 0, g: 0, b: 0, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0, g: 0, b: 0, a: 0}
-      key1: {r: 0, g: 0, b: 0, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 0}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 65535
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    displayLabel: 1
-  - name: Run
-    duration: 10
-    durationCurrent: 0
-    radiusStart: 0.5
-    radiusEnd: 0.25
-    line:
-      serializedVersion: 2
-      key0: {r: 0, g: 0, b: 0, a: 0}
-      key1: {r: 0, g: 0, b: 0, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0, g: 0, b: 0, a: 0}
-      key1: {r: 0, g: 0, b: 0, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    displayLabel: 1
-  - name: End
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 0.25
-    radiusEnd: 0
-    line:
-      serializedVersion: 2
-      key0: {r: 0, g: 0, b: 0, a: 0}
-      key1: {r: 0, g: 0, b: 0, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0, g: 0, b: 0, a: 0}
-      key1: {r: 0, g: 0, b: 0, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 49151
-      atime2: 65535
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    displayLabel: 1
-  index: 0
 --- !u!114 &348218934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5110,19 +4436,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7c7e128632e77499f3af378f7e4703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: {fileID: 348218935}
-  pointsOnCircle: 32
-  distanceBetweenPoints: 122
-  pointsAuto: 0
-  radius: 1
-  lineColour: {r: 0, g: 0, b: 0, a: 0}
-  fill: {fileID: 2068221954}
-  fillRender: {fileID: 2068221955}
-  fillColour: {r: 0, g: 0, b: 0, a: 0}
-  label: {fileID: 915931503}
-  labelRender: {fileID: 915931505}
-  labelColour: {r: 0, g: 0, b: 0, a: 0}
-  labelOffset: {x: -1270, y: 92, z: 0}
 --- !u!120 &348218935
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -5320,7 +4633,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 8ef26cbfa0a70974ebb000ed2dbdcc07, type: 2}
 --- !u!81 &363857222
 AudioListener:
   m_ObjectHideFlags: 0
@@ -5848,8 +5160,9 @@ Transform:
   m_Children:
   - {fileID: 53169708}
   - {fileID: 1503284757}
+  - {fileID: 167659983}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &551838281
 GameObject:
@@ -5988,11 +5301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec64eb3bd06f0c42b930550b58734f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: {fileID: 553079035}
-  pointsOnCircle: 32
-  distanceBetweenPoints: 122
-  pointsAuto: 0
-  radius: 25
 --- !u!120 &553079035
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -6007,7 +5315,7 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5db928ecfab979846be6e887417e945a, type: 2}
+  - {fileID: 2100000, guid: 4a072cea48d14f145a5c3d587a01af1e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9867,291 +9175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910a449e05d1b854e870dfa481032d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 659466324}
-  format: 0
-  duration: 0
-  durationCurrent: 0
-  sequence:
-  - name: Start
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 100
-    radiusEnd: 100
-    line:
-      serializedVersion: 2
-      key0: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 0}
-      key1: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 1}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 32768
-      atime1: 49151
-      atime2: 65535
-      atime3: 65535
-      atime4: 65535
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 0}
-      key1: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 1}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 32768
-      atime1: 49151
-      atime2: 65535
-      atime3: 65535
-      atime4: 65535
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    label:
-      serializedVersion: 2
-      key0: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 0}
-      key1: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 1}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 32768
-      atime1: 49151
-      atime2: 65535
-      atime3: 65535
-      atime4: 65535
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    displayLabel: 1
-  - name: Run
-    duration: 10
-    durationCurrent: 0
-    radiusStart: 100
-    radiusEnd: 100
-    line:
-      serializedVersion: 2
-      key0: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 1}
-      key1: {r: 0.9123128, g: 0.9191176, b: 0.42576775, a: 1}
-      key2: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 32768
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 3
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 1}
-      key1: {r: 0.9123128, g: 0.9191176, b: 0.42576775, a: 1}
-      key2: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 32768
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 3
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 1}
-      key1: {r: 0.9123128, g: 0.9191176, b: 0.42576775, a: 1}
-      key2: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 32768
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 3
-      m_NumAlphaKeys: 2
-    displayLabel: 1
-  - name: End
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 100
-    radiusEnd: 100
-    line:
-      serializedVersion: 2
-      key0: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 1}
-      key1: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 0.2509804}
-      key2: {r: 0.8014706, g: 0.46169907, b: 0.15322232, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 32768
-      atime3: 65535
-      atime4: 65535
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 1}
-      key1: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 0.2509804}
-      key2: {r: 0.8014706, g: 0.46169907, b: 0.15322232, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 32768
-      atime3: 65535
-      atime4: 65535
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    label:
-      serializedVersion: 2
-      key0: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 1}
-      key1: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 0.2509804}
-      key2: {r: 0.8014706, g: 0.46169907, b: 0.15322232, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 32768
-      atime3: 65535
-      atime4: 65535
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    displayLabel: 1
-  index: 0
 --- !u!114 &659466324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10163,19 +9186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7c7e128632e77499f3af378f7e4703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: {fileID: 659466322}
-  pointsOnCircle: 40
-  distanceBetweenPoints: 49
-  pointsAuto: 0
-  radius: 100
-  lineColour: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 1}
-  fill: {fileID: 1180064165}
-  fillRender: {fileID: 1180064166}
-  fillColour: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 0.2509804}
-  label: {fileID: 551838282}
-  labelRender: {fileID: 551838284}
-  labelColour: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 1}
-  labelOffset: {x: -20, y: 0, z: 0}
 --- !u!1 &739817699
 GameObject:
   m_ObjectHideFlags: 0
@@ -10407,7 +9417,7 @@ Transform:
   - {fileID: 1092525269}
   - {fileID: 659466320}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &762496281
 MonoBehaviour:
@@ -10420,44 +9430,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e7eaa728c4d7c40b6e2de5070ad9e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  postProcessing: {fileID: 1111216942}
-  effect: {fileID: 0}
-  format: 0
-  sequence:
-  - name: Start Glow
-    duration: 1
-    durationCurrent: 0
-    radiusStart: 0
-    radiusEnd: 5
-    eventHorizonStart: 1
-    eventHorizonEnd: 0
-    sharpnessStart: 1
-    sharpnessEnd: 1
-    singularityStart: {r: 3.9776883, g: 2.352941, b: 5, a: 0}
-    singularityEnd: {r: 0, g: 0, b: 0, a: 0}
-  - name: Run
-    duration: 10
-    durationCurrent: 0
-    radiusStart: 5
-    radiusEnd: 1
-    eventHorizonStart: 0
-    eventHorizonEnd: 0
-    sharpnessStart: 1
-    sharpnessEnd: 1
-    singularityStart: {r: 0, g: 0, b: 0, a: 0}
-    singularityEnd: {r: 0, g: 0, b: 0, a: 0}
-  - name: End Glow
-    duration: 1
-    durationCurrent: 0
-    radiusStart: 1
-    radiusEnd: 0
-    eventHorizonStart: 0
-    eventHorizonEnd: 1
-    sharpnessStart: 1
-    sharpnessEnd: 1
-    singularityStart: {r: 0, g: 0, b: 0, a: 0}
-    singularityEnd: {r: 2.352941, g: 2.8093305, b: 5, a: 0}
-  index: 0
 --- !u!1 &817986984
 GameObject:
   m_ObjectHideFlags: 0
@@ -10502,291 +9474,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910a449e05d1b854e870dfa481032d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 817986987}
-  format: 0
-  duration: 0
-  durationCurrent: 0
-  sequence:
-  - name: Start
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 0
-    radiusEnd: 100
-    line:
-      serializedVersion: 2
-      key0: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 0}
-      key1: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 1}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 32768
-      atime1: 49151
-      atime2: 65535
-      atime3: 65535
-      atime4: 65535
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 0}
-      key1: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 1}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 32768
-      atime1: 49151
-      atime2: 65535
-      atime3: 65535
-      atime4: 65535
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    label:
-      serializedVersion: 2
-      key0: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 0}
-      key1: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 1}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 32768
-      atime1: 49151
-      atime2: 65535
-      atime3: 65535
-      atime4: 65535
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    displayLabel: 1
-  - name: Run
-    duration: 10
-    durationCurrent: 0
-    radiusStart: 100
-    radiusEnd: 25
-    line:
-      serializedVersion: 2
-      key0: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 1}
-      key1: {r: 0.9123128, g: 0.9191176, b: 0.42576775, a: 1}
-      key2: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 32768
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 3
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 1}
-      key1: {r: 0.9123128, g: 0.9191176, b: 0.42576775, a: 1}
-      key2: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 32768
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 3
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 1}
-      key1: {r: 0.9123128, g: 0.9191176, b: 0.42576775, a: 1}
-      key2: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 32768
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 3
-      m_NumAlphaKeys: 2
-    displayLabel: 1
-  - name: End
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 25
-    radiusEnd: 0
-    line:
-      serializedVersion: 2
-      key0: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 1}
-      key1: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 0.2509804}
-      key2: {r: 0.8014706, g: 0.46169907, b: 0.15322232, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 32768
-      atime3: 65535
-      atime4: 65535
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 1}
-      key1: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 0.2509804}
-      key2: {r: 0.8014706, g: 0.46169907, b: 0.15322232, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 32768
-      atime3: 65535
-      atime4: 65535
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    label:
-      serializedVersion: 2
-      key0: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 1}
-      key1: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 0.2509804}
-      key2: {r: 0.8014706, g: 0.46169907, b: 0.15322232, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 32768
-      atime3: 65535
-      atime4: 65535
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    displayLabel: 1
-  index: 0
 --- !u!114 &817986987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10798,19 +9485,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7c7e128632e77499f3af378f7e4703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: {fileID: 817986988}
-  pointsOnCircle: 40
-  distanceBetweenPoints: 49
-  pointsAuto: 0
-  radius: 100
-  lineColour: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 1}
-  fill: {fileID: 976293490}
-  fillRender: {fileID: 976293491}
-  fillColour: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 0.2509804}
-  label: {fileID: 1327102775}
-  labelRender: {fileID: 1327102777}
-  labelColour: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 1}
-  labelOffset: {x: -20, y: 0, z: 0}
 --- !u!120 &817986988
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -10971,8 +9645,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c9603efc20048a46bd954357715bcb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
-  debug: 0
 --- !u!114 &853616024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10985,75 +9657,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a959cec79968a40b415fe5ea6b7a24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statistics: {fileID: 880379330}
-  format: 0
-  duration: 10
-  durationCurrent: 0
-  startPosition: {x: 0, y: 0}
-  sequence:
-  - name: Homing Thrust
-    duration: 5
-    durationCurrent: 0
-    format:
-    - name: Maximum Velocity
-      type: 1
-      valueInt: 0
-      valueFloat: 100
-      valueString: 
-      valueV2: {x: 0, y: 0}
-      valueV3: {x: 0, y: 0, z: 0}
-      valueGO: {fileID: 0}
-      valueGOArray: []
-    - name: Acceleration
-      type: 1
-      valueInt: 0
-      valueFloat: 10
-      valueString: 
-      valueV2: {x: 0, y: 0}
-      valueV3: {x: 0, y: 0, z: 0}
-      valueGO: {fileID: 0}
-      valueGOArray: []
-    - name: Turn Rate
-      type: 1
-      valueInt: 0
-      valueFloat: 360
-      valueString: 
-      valueV2: {x: 0, y: 0}
-      valueV3: {x: 0, y: 0, z: 0}
-      valueGO: {fileID: 0}
-      valueGOArray: []
-    - name: Target
-      type: 5
-      valueInt: 0
-      valueFloat: 0
-      valueString: 
-      valueV2: {x: 0, y: 0}
-      valueV3: {x: 0, y: 0, z: 0}
-      valueGO: {fileID: 1030415752}
-      valueGOArray: []
-    - name: Format
-      type: 0
-      valueInt: 1
-      valueFloat: 0
-      valueString: 
-      valueV2: {x: 0, y: 0}
-      valueV3: {x: 0, y: 0, z: 0}
-      valueGO: {fileID: 0}
-      valueGOArray: []
-  - name: Non Thrusting Straight Fire
-    duration: 5
-    durationCurrent: 0
-    format:
-    - name: Format
-      type: 0
-      valueInt: 0
-      valueFloat: 0
-      valueString: 
-      valueV2: {x: 0, y: 0}
-      valueV3: {x: 0, y: 0, z: 0}
-      valueGO: {fileID: 0}
-      valueGOArray: []
-  index: -1
 --- !u!114 &853616025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11076,7 +9679,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee3ffbcf0a910f4eaa134ccd35b9ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statistics: {fileID: 0}
 --- !u!50 &853616027
 Rigidbody2D:
   serializedVersion: 4
@@ -11129,7 +9731,7 @@ Transform:
   - {fileID: 453742366}
   - {fileID: 1708572617}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &864804126
 GameObject:
@@ -11180,291 +9782,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910a449e05d1b854e870dfa481032d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 864804130}
-  format: 0
-  duration: 0
-  durationCurrent: 0
-  sequence:
-  - name: Start
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 0
-    radiusEnd: 0
-    line:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    displayLabel: 0
-  - name: Run
-    duration: 10
-    durationCurrent: 0
-    radiusStart: 1250
-    radiusEnd: 625
-    line:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 0.2509804}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    displayLabel: 1
-  - name: End
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 625
-    radiusEnd: 0
-    line:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 0.2509804}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    displayLabel: 0
-  index: 0
 --- !u!120 &864804129
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -11626,19 +9943,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7c7e128632e77499f3af378f7e4703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: {fileID: 864804129}
-  pointsOnCircle: 64
-  distanceBetweenPoints: 122
-  pointsAuto: 0
-  radius: 1250
-  lineColour: {r: 0, g: 0, b: 0, a: 0}
-  fill: {fileID: 1769115124}
-  fillRender: {fileID: 1769115125}
-  fillColour: {r: 0, g: 0, b: 0, a: 0}
-  label: {fileID: 930713608}
-  labelRender: {fileID: 930713609}
-  labelColour: {r: 0, g: 0, b: 0, a: 0}
-  labelOffset: {x: -20, y: 0, z: 0}
 --- !u!114 &880379330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11651,92 +9955,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e4c5a3477d6d2a4aafcef884554a28d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unityStatistics:
-  - name: Owner
-    type: 5
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 853616022}
-    valueGOArray: []
-  - name: Skill
-    type: 5
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Rigidbody
-    type: 5
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 853616022}
-    valueGOArray: []
-  - name: Relative Velocity
-    type: 3
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Starting Position
-    type: 3
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Velocity
-    type: 1
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Maximum Velocity
-    type: 1
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Acceleration
-    type: 1
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Format
-    type: 0
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  polling: 1
-  pollingTime: 0.1
-  isPolling: 0
-  isInitialised: 0
 --- !u!1 &890221751
 GameObject:
   m_ObjectHideFlags: 0
@@ -11937,7 +10155,7 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: f5869171e3f542d42899e9597c982365, type: 2}
+  - {fileID: 2100000, guid: 358078226de8d3c4f9291e0543bd720a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16145,291 +14363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910a449e05d1b854e870dfa481032d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 1013206081}
-  format: 1
-  duration: 5
-  durationCurrent: 0
-  sequence:
-  - name: Fade In
-    duration: 0.25
-    durationCurrent: 0
-    radiusStart: 750
-    radiusEnd: 750
-    line:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    displayLabel: 0
-  - name: Run
-    duration: 0.5
-    durationCurrent: 0
-    radiusStart: 750
-    radiusEnd: 750
-    line:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 16384
-      atime1: 49151
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0.5019608}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0.5019608}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65342
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    displayLabel: 0
-  - name: Fade Out
-    duration: 0.25
-    durationCurrent: 0
-    radiusStart: 750
-    radiusEnd: 750
-    line:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 32768
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 33153
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    displayLabel: 0
-  index: 0
 --- !u!114 &1013206081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16441,19 +14374,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7c7e128632e77499f3af378f7e4703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: {fileID: 1013206082}
-  pointsOnCircle: 40
-  distanceBetweenPoints: 49
-  pointsAuto: 0
-  radius: 750
-  lineColour: {r: 0, g: 0, b: 0, a: 0}
-  fill: {fileID: 0}
-  fillRender: {fileID: 745021840}
-  fillColour: {r: 0, g: 0, b: 0, a: 0}
-  label: {fileID: 0}
-  labelRender: {fileID: 0}
-  labelColour: {r: 0, g: 0, b: 0, a: 0}
-  labelOffset: {x: -20, y: 0, z: 0}
 --- !u!120 &1013206082
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -16590,10 +14510,11 @@ GameObject:
   - component: {fileID: 1030415753}
   - component: {fileID: 1030415754}
   - component: {fileID: 1030415755}
+  - component: {fileID: 1030415759}
+  - component: {fileID: 1030415758}
   - component: {fileID: 1030415757}
   - component: {fileID: 1030415756}
-  - component: {fileID: 1030415758}
-  - component: {fileID: 1030415759}
+  - component: {fileID: 1030415760}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -16611,6 +14532,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1257600558}
   - {fileID: 1154866535}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -16693,13 +14615,75 @@ MonoBehaviour:
   m_GameObject: {fileID: 1030415752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60a7607db07d55f4081b9af9c0d1a01d, type: 3}
+  m_Script: {fileID: 11500000, guid: b37995a57a7d68f4ab3807369d6c1d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statistics: {fileID: 1030415757}
-  unitySkills:
-  - {fileID: 0}
-  isAlive: 1
+  statistics: {fileID: 1030415759}
+  mode: 0
+  actions:
+  - name: Keyboard and Mouse Movement Stick
+    controller: {fileID: 0}
+    enabled: 1
+    toggle: 0
+    isToggled: 0
+    keys: []
+    axis: []
+    sticks:
+    - name: Movement Stick
+      platforms: 000000000100000002000000
+      mode: 4
+      up: 119
+      left: 97
+      down: 115
+      right: 100
+      axisX: 
+      invertX: 0
+      axisY: 
+      invertY: 0
+      sensitivity: 0
+      lastInput: {x: 0, y: 0}
+    cursors: []
+    action: 
+    start:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    end:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: Keyboard and Mouse Aiming Cursor
+    controller: {fileID: 0}
+    enabled: 1
+    toggle: 0
+    isToggled: 0
+    keys: []
+    axis: []
+    sticks: []
+    cursors:
+    - name: Aiming Cursor
+      platforms: 000000000100000002000000
+      mode: 4
+      axisX: 
+      invertX: 0
+      axisY: 
+      invertY: 0
+      sensitivity: 0
+      strength: 0
+      lastInput: {x: 0, y: 0}
+    action: 
+    start:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    end:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!114 &1030415757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16708,14 +14692,76 @@ MonoBehaviour:
   m_GameObject: {fileID: 1030415752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e4c5a3477d6d2a4aafcef884554a28d, type: 3}
+  m_Script: {fileID: 11500000, guid: d4737c8a8876de744a8f1ffaaefc8726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statistics: {fileID: 1030415759}
+--- !u!114 &1030415758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1030415752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ef9547dabecdd94db07e479ca7bebb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statistics: {fileID: 1030415759}
+  unitySkills: []
+  isAlive: 0
+--- !u!114 &1030415759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1030415752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82700e6955cbeb547af85dcd81d0035c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   unityStatistics:
+  - name: Player
+    type: 5
+    valueInt: 0
+    valueFloat: 1000
+    valueString: 
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 1030415752}
+    valueGOArray: []
+  - name: Owner
+    type: 5
+    valueInt: 0
+    valueFloat: 1000
+    valueString: 
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 1030415752}
+    valueGOArray: []
   - name: Rigidbody
     type: 5
-    valueInt: 7
-    valueFloat: 100
+    valueInt: 0
+    valueFloat: 1000
+    valueString: 
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 1030415752}
+    valueGOArray: []
+  - name: Movement Input
+    type: 3
+    valueInt: 0
+    valueFloat: 1000
+    valueString: 
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 1030415752}
+    valueGOArray: []
+  - name: Aim Input
+    type: 3
+    valueInt: 0
+    valueFloat: 1000
     valueString: 
     valueV2: {x: 0, y: 0}
     valueV3: {x: 0, y: 0, z: 0}
@@ -16723,8 +14769,8 @@ MonoBehaviour:
     valueGOArray: []
   - name: Hull
     type: 1
-    valueInt: 7
-    valueFloat: 100
+    valueInt: 0
+    valueFloat: 1000
     valueString: 
     valueV2: {x: 0, y: 0}
     valueV3: {x: 0, y: 0, z: 0}
@@ -16733,7 +14779,7 @@ MonoBehaviour:
   - name: Hull Maximum
     type: 1
     valueInt: 0
-    valueFloat: 100
+    valueFloat: 1000
     valueString: 
     valueV2: {x: 0, y: 0}
     valueV3: {x: 0, y: 0, z: 0}
@@ -16787,34 +14833,25 @@ MonoBehaviour:
   - name: Acceleration
     type: 1
     valueInt: 0
-    valueFloat: 1000
+    valueFloat: 100
     valueString: 
     valueV2: {x: 0, y: 0}
     valueV3: {x: 0, y: 0, z: 0}
     valueGO: {fileID: 0}
     valueGOArray: []
-  - name: Maximum Velocity
+  - name: Maximum Speed
     type: 1
     valueInt: 0
-    valueFloat: 500
+    valueFloat: 100
     valueString: 
     valueV2: {x: 0, y: 0}
     valueV3: {x: 0, y: 0, z: 0}
     valueGO: {fileID: 0}
     valueGOArray: []
-  - name: Turn Rate
+  - name: Maneuverability
     type: 1
     valueInt: 0
-    valueFloat: 720
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Radar Resolution
-    type: 1
-    valueInt: 0
-    valueFloat: 1024
+    valueFloat: 100
     valueString: 
     valueV2: {x: 0, y: 0}
     valueV3: {x: 0, y: 0, z: 0}
@@ -16823,7 +14860,7 @@ MonoBehaviour:
   - name: Radar Range
     type: 1
     valueInt: 0
-    valueFloat: 0
+    valueFloat: 1000000
     valueString: 
     valueV2: {x: 0, y: 0}
     valueV3: {x: 0, y: 0, z: 0}
@@ -16832,7 +14869,43 @@ MonoBehaviour:
   - name: Radar Visibility
     type: 1
     valueInt: 0
-    valueFloat: 0
+    valueFloat: 1
+    valueString: 
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: EMS Range
+    type: 1
+    valueInt: 0
+    valueFloat: 1000
+    valueString: 
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: EMS Visibility
+    type: 1
+    valueInt: 0
+    valueFloat: 1
+    valueString: 
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Gravimetrics Range
+    type: 1
+    valueInt: 0
+    valueFloat: 1e+9
+    valueString: 
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Gravimetrics Visibility
+    type: 1
+    valueInt: 0
+    valueFloat: 100
     valueString: 
     valueV2: {x: 0, y: 0}
     valueV3: {x: 0, y: 0, z: 0}
@@ -16865,74 +14938,74 @@ MonoBehaviour:
     valueV3: {x: 0, y: 0, z: 0}
     valueGO: {fileID: 0}
     valueGOArray: []
-  - name: Skill 1
-    type: 5
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Skill 2
-    type: 5
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Skill 3
-    type: 5
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Skill 4
-    type: 5
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Movement Input
-    type: 3
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Aim Input
-    type: 3
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Range
+  - name: Subunit Multiplier
     type: 1
     valueInt: 0
-    valueFloat: 250
+    valueFloat: 1
+    valueString: 
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Projectile Multiplier
+    type: 1
+    valueInt: 0
+    valueFloat: 1
+    valueString: 
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Projectile Speed Multiplier
+    type: 1
+    valueInt: 0
+    valueFloat: 1
+    valueString: 
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Effect Multiplier
+    type: 1
+    valueInt: 0
+    valueFloat: 1
+    valueString: 
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Effect Area Multiplier
+    type: 1
+    valueInt: 0
+    valueFloat: 1
+    valueString: 
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Effect Duration Multiplier
+    type: 1
+    valueInt: 0
+    valueFloat: 1
+    valueString: 
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Effect Strength Multiplier
+    type: 1
+    valueInt: 0
+    valueFloat: 1
     valueString: 
     valueV2: {x: 0, y: 0}
     valueV3: {x: 0, y: 0, z: 0}
     valueGO: {fileID: 0}
     valueGOArray: []
   polling: 1
-  pollingTime: 1
+  pollingTime: 0.5
   isPolling: 0
   isInitialised: 0
---- !u!114 &1030415758
+--- !u!114 &1030415760
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -16940,1176 +15013,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1030415752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31250b65a058cf045b1886badc74b78a, type: 3}
+  m_Script: {fileID: 11500000, guid: e0c1afabd24061841ae21dd51f0a1558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statistics: {fileID: 1030415757}
---- !u!114 &1030415759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1030415752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cbd553e255412b40ba4afb23f5ee289, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statistics: {fileID: 1030415757}
-  mode: 0
-  actions:
-  - name: Select
-    controller: {fileID: 1030415759}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Keyboard
-      platforms: 020000000700000001000000000000000d00000010000000
-      mode: 4
-      positive: 13
-      negative: 0
-      lastInput: 0
-    - name: Mouse
-      platforms: 020000000700000001000000000000000d00000010000000
-      mode: 4
-      positive: 323
-      negative: 0
-      lastInput: 0
-    - name: Windows and Linux Gamepad
-      platforms: 02000000070000000d000000100000001b000000
-      mode: 0
-      positive: 330
-      negative: 0
-      lastInput: 0
-    - name: Mac OS X Gamepad
-      platforms: 0100000000000000
-      mode: 0
-      positive: 346
-      negative: 0
-      lastInput: 0
-    axis: []
-    sticks: []
-    cursors: []
-    action: 1
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Deselect
-    controller: {fileID: 1030415759}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Keyboard
-      platforms: 010000000000000002000000070000000d00000010000000
-      mode: 4
-      positive: 27
-      negative: 0
-      lastInput: 0
-    - name: Mouse
-      platforms: 010000000000000002000000070000000d00000010000000
-      mode: 4
-      positive: 324
-      negative: 0
-      lastInput: 0
-    - name: Windows and Linux Gamepad
-      platforms: 02000000070000000d000000100000001b000000
-      mode: 0
-      positive: 331
-      negative: 0
-      lastInput: 0
-    - name: Mac OS X Gamepad
-      platforms: 0100000000000000
-      mode: 0
-      positive: 347
-      negative: 0
-      lastInput: 0
-    axis: []
-    sticks: []
-    cursors: []
-    action: 2
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Skill 0
-    controller: {fileID: 1030415759}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Mouse
-      platforms: 010000000000000002000000070000000d00000010000000
-      mode: 4
-      positive: 323
-      negative: 0
-      lastInput: 0
-    axis:
-    - name: Windows Gamepad
-      platforms: 02000000070000001b000000
-      mode: 0
-      axis: 10th
-      invert: 0
-      sensitivity: 0.15
-      lastInput: 0
-    - name: Linux and Mac OS X Gamepad
-      platforms: 0d000000100000000100000000000000
-      mode: 0
-      axis: 6th
-      invert: 0
-      sensitivity: 0.15
-      lastInput: 0
-    sticks: []
-    cursors: []
-    action: 3
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Skill 1
-    controller: {fileID: 1030415759}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Mouse
-      platforms: 010000000000000002000000070000000d00000010000000
-      mode: 4
-      positive: 324
-      negative: 0
-      lastInput: 0
-    axis:
-    - name: Windows Gamepad
-      platforms: 02000000070000001b000000
-      mode: 0
-      axis: 9th
-      invert: 0
-      sensitivity: 0.15
-      lastInput: 0
-    - name: Linux Gamepad
-      platforms: 0d00000010000000
-      mode: 0
-      axis: 3rd
-      invert: 0
-      sensitivity: 0.15
-      lastInput: 0
-    - name: Mac OS X Gamepad
-      platforms: 0100000000000000
-      mode: 0
-      axis: 5th
-      invert: 0
-      sensitivity: 0.15
-      lastInput: 0
-    sticks: []
-    cursors: []
-    action: 3
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Skill 2
-    controller: {fileID: 1030415759}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Keyboard
-      platforms: 010000000000000002000000070000000d00000010000000
-      mode: 4
-      positive: 113
-      negative: 0
-      lastInput: 0
-    - name: Windows and Linux Gamepad
-      platforms: 02000000070000000d000000100000001b000000
-      mode: 0
-      positive: 335
-      negative: 0
-      lastInput: 0
-    - name: Mac OS X Gamepad
-      platforms: 0100000000000000
-      mode: 0
-      positive: 344
-      negative: 0
-      lastInput: 0
-    axis: []
-    sticks: []
-    cursors: []
-    action: 3
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Skill 3
-    controller: {fileID: 1030415759}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Keyboard
-      platforms: 010000000000000002000000070000000d00000010000000
-      mode: 4
-      positive: 101
-      negative: 0
-      lastInput: 0
-    - name: Windows and Linux Gamepad
-      platforms: 02000000070000000d000000100000001b000000
-      mode: 0
-      positive: 334
-      negative: 0
-      lastInput: 0
-    - name: Mac OS X Gamepad
-      platforms: 0100000000000000
-      mode: 0
-      positive: 343
-      negative: 0
-      lastInput: 0
-    axis: []
-    sticks: []
-    cursors: []
-    action: 3
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Equip
-    controller: {fileID: 1030415759}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Keyboard
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      positive: 114
-      negative: 0
-      lastInput: 0
-    - name: Mouse
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      positive: 323
-      negative: 0
-      lastInput: 0
-    - name: Windows and Linux Gamepad
-      platforms: 02000000070000000d000000100000001b000000
-      mode: 0
-      positive: 332
-      negative: 0
-      lastInput: 0
-    - name: Mac OS X Gamepad
-      platforms: 0100000000000000
-      mode: 0
-      positive: 348
-      negative: 0
-      lastInput: 0
-    axis: []
-    sticks: []
-    cursors: []
-    action: 7
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Equip 0
-    controller: {fileID: 1030415759}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Mouse
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      positive: 323
-      negative: 0
-      lastInput: 0
-    axis:
-    - name: Windows Gamepad
-      platforms: 02000000070000001b000000
-      mode: 0
-      axis: 10th
-      invert: 0
-      sensitivity: 0.15
-      lastInput: 0
-    - name: Linux and Mac OS X Gamepad
-      platforms: 0d000000100000000100000000000000
-      mode: 0
-      axis: 6th
-      invert: 0
-      sensitivity: 0.15
-      lastInput: 0
-    sticks: []
-    cursors: []
-    action: 8
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Equip 1
-    controller: {fileID: 1030415759}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Mouse
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      positive: 324
-      negative: 0
-      lastInput: 0
-    axis:
-    - name: Windows Gamepad
-      platforms: 02000000070000001b000000
-      mode: 0
-      axis: 9th
-      invert: 0
-      sensitivity: 0.15
-      lastInput: 0
-    - name: Linux Gamepad
-      platforms: 0d00000010000000
-      mode: 0
-      axis: 3rd
-      invert: 0
-      sensitivity: 0.15
-      lastInput: 0
-    - name: Mac OS X Gamepad
-      platforms: 0100000000000000
-      mode: 0
-      axis: 5th
-      invert: 0
-      sensitivity: 0.15
-      lastInput: 0
-    sticks: []
-    cursors: []
-    action: 9
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Equip 2
-    controller: {fileID: 1030415759}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Keyboard
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      positive: 113
-      negative: 0
-      lastInput: 0
-    - name: Windows and Linux Gamepad
-      platforms: 02000000070000000d000000100000001b000000
-      mode: 0
-      positive: 335
-      negative: 0
-      lastInput: 0
-    - name: Mac OS X Gamepad
-      platforms: 0100000000000000
-      mode: 0
-      positive: 344
-      negative: 0
-      lastInput: 0
-    axis: []
-    sticks: []
-    cursors: []
-    action: 10
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Equip 3
-    controller: {fileID: 1030415759}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Keyboard
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      positive: 101
-      negative: 0
-      lastInput: 0
-    - name: Windows and Linux Gamepad
-      platforms: 02000000070000000d000000100000001b000000
-      mode: 0
-      positive: 334
-      negative: 0
-      lastInput: 0
-    - name: Mac OS X Gamepad
-      platforms: 0100000000000000
-      mode: 0
-      positive: 343
-      negative: 0
-      lastInput: 0
-    axis: []
-    sticks: []
-    cursors: []
-    action: 10
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Unequip
-    controller: {fileID: 1030415759}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Keyboard
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      positive: 102
-      negative: 0
-      lastInput: 0
-    - name: Windows and Linux Gamepad
-      platforms: 02000000070000000d000000100000001b000000
-      mode: 0
-      positive: 333
-      negative: 0
-      lastInput: 0
-    - name: Mac OS X Gamepad
-      platforms: 0100000000000000
-      mode: 0
-      positive: 349
-      negative: 0
-      lastInput: 0
-    axis: []
-    sticks: []
-    cursors: []
-    action: 12
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Unequip 0
-    controller: {fileID: 1030415759}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Mouse
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      positive: 323
-      negative: 0
-      lastInput: 0
-    axis:
-    - name: Windows Gamepad
-      platforms: 02000000070000001b000000
-      mode: 0
-      axis: 10th
-      invert: 0
-      sensitivity: 0.15
-      lastInput: 0
-    - name: Linux and Mac OS X Gamepad
-      platforms: 0d000000100000000100000000000000
-      mode: 0
-      axis: 6th
-      invert: 0
-      sensitivity: 0.15
-      lastInput: 0
-    sticks: []
-    cursors: []
-    action: 13
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Unequip 1
-    controller: {fileID: 1030415759}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Mouse
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      positive: 324
-      negative: 0
-      lastInput: 0
-    axis:
-    - name: Windows Gamepad
-      platforms: 02000000070000001b000000
-      mode: 0
-      axis: 9th
-      invert: 0
-      sensitivity: 0.15
-      lastInput: 0
-    - name: Linux Gamepad
-      platforms: 0d00000010000000
-      mode: 0
-      axis: 3rd
-      invert: 0
-      sensitivity: 0.15
-      lastInput: 0
-    - name: Mac OS X Gamepad
-      platforms: 0100000000000000
-      mode: 0
-      axis: 5th
-      invert: 0
-      sensitivity: 0.15
-      lastInput: 0
-    sticks: []
-    cursors: []
-    action: 14
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Unequip 2
-    controller: {fileID: 1030415759}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Keyboard
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      positive: 113
-      negative: 0
-      lastInput: 0
-    - name: Windows and Linux Gamepad
-      platforms: 02000000070000000d000000100000001b000000
-      mode: 0
-      positive: 335
-      negative: 0
-      lastInput: 0
-    - name: Mac OS X Gamepad
-      platforms: 0100000000000000
-      mode: 0
-      positive: 344
-      negative: 0
-      lastInput: 0
-    axis: []
-    sticks: []
-    cursors: []
-    action: 15
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Unequip 3
-    controller: {fileID: 1030415759}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Keyboard
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      positive: 101
-      negative: 0
-      lastInput: 0
-    - name: Windows and Linux Gamepad
-      platforms: 02000000070000000d000000100000001b000000
-      mode: 0
-      positive: 334
-      negative: 0
-      lastInput: 0
-    - name: Mac OS X Gamepad
-      platforms: 0100000000000000
-      mode: 0
-      positive: 343
-      negative: 0
-      lastInput: 0
-    axis: []
-    sticks: []
-    cursors: []
-    action: 16
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Move Directional
-    controller: {fileID: 0}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys: []
-    axis: []
-    sticks:
-    - name: Keyboard
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      up: 273
-      left: 276
-      down: 274
-      right: 275
-      axisX: 
-      invertX: 1
-      axisY: 
-      invertY: 0
-      sensitivity: 0
-      lastInput: {x: -1, y: 0}
-    - name: Keyboard WASD
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      up: 119
-      left: 97
-      down: 115
-      right: 100
-      axisX: 
-      invertX: 1
-      axisY: 
-      invertY: 0
-      sensitivity: 0
-      lastInput: {x: 0, y: 0}
-    - name: Gamepad
-      platforms: 02000000070000000d0000001000000001000000000000001b000000
-      mode: 0
-      up: 0
-      left: 0
-      down: 0
-      right: 0
-      axisX: X
-      invertX: 0
-      axisY: Y
-      invertY: 0
-      sensitivity: 0.2
-      lastInput: {x: 0, y: 0}
-    cursors: []
-    action: 17
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Aim Directional
-    controller: {fileID: 0}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys: []
-    axis: []
-    sticks:
-    - name: Windows and Linux Gamepad
-      platforms: 02000000070000000d000000100000001b000000
-      mode: 0
-      up: 0
-      left: 0
-      down: 0
-      right: 0
-      axisX: 4th
-      invertX: 1
-      axisY: 5th
-      invertY: 1
-      sensitivity: 0.5
-      lastInput: {x: 0, y: 0}
-    - name: Mac OS X Gamepad
-      platforms: 0100000000000000
-      mode: 0
-      up: 0
-      left: 0
-      down: 0
-      right: 0
-      axisX: 3rd
-      invertX: 1
-      axisY: 4th
-      invertY: 1
-      sensitivity: 0.5
-      lastInput: {x: 0, y: 0}
-    cursors:
-    - name: Mouse
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      axisX: 
-      invertX: 0
-      axisY: 
-      invertY: 0
-      sensitivity: 0
-      strength: 0
-      lastInput: {x: 0, y: 0}
-    action: 21
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Move Directional X
-    controller: {fileID: 1030415759}
-    enabled: 0
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Keyboard
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      positive: 97
-      negative: 100
-      lastInput: 0
-    - name: Keyboard
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      positive: 276
-      negative: 275
-      lastInput: 0
-    axis: []
-    sticks: []
-    cursors: []
-    action: 0
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Move Directional Y
-    controller: {fileID: 1030415759}
-    enabled: 0
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Keyboard
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      positive: 119
-      negative: 115
-      lastInput: 0
-    - name: Keyboard
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      positive: 273
-      negative: 274
-      lastInput: 0
-    axis: []
-    sticks: []
-    cursors: []
-    action: 0
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Aim Directional X
-    controller: {fileID: 1030415759}
-    enabled: 0
-    toggle: 0
-    isToggled: 0
-    keys: []
-    axis: []
-    sticks: []
-    cursors: []
-    action: 20
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Aim Directional Y
-    controller: {fileID: 1030415759}
-    enabled: 0
-    toggle: 0
-    isToggled: 0
-    keys: []
-    axis: []
-    sticks: []
-    cursors: []
-    action: 21
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Move Targeted
-    controller: {fileID: 1030415759}
-    enabled: 0
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Mouse
-      platforms: 
-      mode: 5
-      positive: 324
-      negative: 0
-      lastInput: 0
-    axis: []
-    sticks: []
-    cursors: []
-    action: 20
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Aim Targeted
-    controller: {fileID: 1030415759}
-    enabled: 0
-    toggle: 0
-    isToggled: 0
-    keys: []
-    axis: []
-    sticks: []
-    cursors:
-    - name: Mouse
-      platforms: 
-      mode: 4
-      axisX: 
-      invertX: 0
-      axisY: 
-      invertY: 0
-      sensitivity: 0
-      strength: 0
-      lastInput: {x: 0, y: 0}
-    - name: Windows and Linux Gamepad
-      platforms: 02000000070000000d000000100000001b000000
-      mode: 0
-      axisX: 4th
-      invertX: 0
-      axisY: 5th
-      invertY: 0
-      sensitivity: 0.2
-      strength: 2
-      lastInput: {x: 0, y: 0}
-    - name: Mac OS X Gamepad
-      platforms: 0100000000000000
-      mode: 0
-      axisX: 3rd
-      invertX: 0
-      axisY: 4th
-      invertY: 0
-      sensitivity: 0.2
-      strength: 2
-      lastInput: {x: 0, y: 0}
-    action: 24
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Zoom
-    controller: {fileID: 1030415759}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys: []
-    axis:
-    - name: Mouse
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      axis: Mouse Scroll
-      invert: 0
-      sensitivity: 0.15
-      lastInput: 0
-    sticks: []
-    cursors: []
-    action: 25
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Toggle View
-    controller: {fileID: 1030415759}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Windows Gamepad
-      platforms: 02000000070000001b000000
-      mode: 0
-      positive: 339
-      negative: 0
-      lastInput: 0
-    - name: Linux Gamepad
-      platforms: 0d00000010000000
-      mode: 0
-      positive: 340
-      negative: 0
-      lastInput: 0
-    - name: Mac OS X Gamepad
-      platforms: 0100000000000000
-      mode: 0
-      positive: 342
-      negative: 0
-      lastInput: 0
-    axis: []
-    sticks: []
-    cursors: []
-    action: 26
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Guide
-    controller: {fileID: 1030415759}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Keyboard
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      positive: 308
-      negative: 0
-      lastInput: 0
-    - name: Linux Gamepad
-      platforms: 0d00000010000000
-      mode: 0
-      positive: 344
-      negative: 0
-      lastInput: 0
-    - name: Mac OS X Gamepad
-      platforms: 0100000000000000
-      mode: 0
-      positive: 336
-      negative: 0
-      lastInput: 0
-    axis:
-    - name: Windows Gamepad
-      platforms: 02000000070000001b000000
-      mode: 0
-      axis: 7th
-      invert: 0
-      sensitivity: 0.15
-      lastInput: 0
-    sticks: []
-    cursors: []
-    action: 27
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Menu
-    controller: {fileID: 1030415759}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Keyboard ESCAPE
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      positive: 27
-      negative: 0
-      lastInput: 0
-    - name: Keyboard F10
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      positive: 291
-      negative: 0
-      lastInput: 0
-    - name: Keyboard
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      positive: 109
-      negative: 0
-      lastInput: 0
-    - name: Windows and Linux Gamepad
-      platforms: 02000000070000000d000000100000001b000000
-      mode: 0
-      positive: 337
-      negative: 0
-      lastInput: 0
-    - name: Mac OS X Gamepad
-      platforms: 0100000000000000
-      mode: 0
-      positive: 339
-      negative: 0
-      lastInput: 0
-    axis: []
-    sticks: []
-    cursors: []
-    action: 28
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Statistics
-    controller: {fileID: 1030415759}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys:
-    - name: Keyboard
-      platforms: 02000000070000000d000000100000000100000000000000
-      mode: 4
-      positive: 9
-      negative: 0
-      lastInput: 0
-    - name: Windows and Linux Gamepad
-      platforms: 02000000070000000d000000100000001b000000
-      mode: 0
-      positive: 336
-      negative: 0
-      lastInput: 0
-    - name: Mac OS X Gamepad
-      platforms: 0100000000000000
-      mode: 0
-      positive: 340
-      negative: 0
-      lastInput: 0
-    axis: []
-    sticks: []
-    cursors: []
-    action: 29
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+  actions: []
 --- !u!1 &1036275411
 GameObject:
   m_ObjectHideFlags: 0
@@ -18154,19 +15061,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7c7e128632e77499f3af378f7e4703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: {fileID: 1036275414}
-  pointsOnCircle: 40
-  distanceBetweenPoints: 49
-  pointsAuto: 0
-  radius: 750
-  lineColour: {r: 0, g: 0, b: 0, a: 0}
-  fill: {fileID: 0}
-  fillRender: {fileID: 951102693}
-  fillColour: {r: 0, g: 0, b: 0, a: 0}
-  label: {fileID: 919512357}
-  labelRender: {fileID: 919512358}
-  labelColour: {r: 0, g: 0, b: 0, a: 0}
-  labelOffset: {x: -20, y: -92, z: 0}
 --- !u!120 &1036275414
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -18304,291 +15198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910a449e05d1b854e870dfa481032d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 1036275413}
-  format: 0
-  duration: 0
-  durationCurrent: 0
-  sequence:
-  - name: Start
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 0
-    radiusEnd: 0
-    line:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    displayLabel: 0
-  - name: Run
-    duration: 10
-    durationCurrent: 0
-    radiusStart: 750
-    radiusEnd: 375
-    line:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 16384
-      atime1: 49151
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0.5019608}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0.5019608}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65342
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    displayLabel: 1
-  - name: End
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 375
-    radiusEnd: 0
-    line:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0.5019608}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    displayLabel: 0
-  index: 0
 --- !u!1 &1051288233
 GameObject:
   m_ObjectHideFlags: 0
@@ -18631,11 +15240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea4551cc6485ca438da0a1c53f6129d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1030415757}
-  format: 1
-  profiles:
-  - {fileID: 553079032}
-  - {fileID: 247288123}
 --- !u!1 &1089980354
 GameObject:
   m_ObjectHideFlags: 0
@@ -18679,291 +15283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910a449e05d1b854e870dfa481032d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 1089980357}
-  format: 0
-  duration: 0
-  durationCurrent: 0
-  sequence:
-  - name: Start
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 0
-    radiusEnd: 0
-    line:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    displayLabel: 0
-  - name: Run
-    duration: 10
-    durationCurrent: 0
-    radiusStart: 380
-    radiusEnd: 190
-    line:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 49151
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 4
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 49151
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 4
-    label:
-      serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 0}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 49151
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 4
-    displayLabel: 1
-  - name: End
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 0
-    radiusEnd: 0
-    line:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    displayLabel: 0
-  index: 0
 --- !u!114 &1089980357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18975,19 +15294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7c7e128632e77499f3af378f7e4703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: {fileID: 1089980358}
-  pointsOnCircle: 32
-  distanceBetweenPoints: 10
-  pointsAuto: 0
-  radius: 380
-  lineColour: {r: 0, g: 0, b: 0, a: 0}
-  fill: {fileID: 0}
-  fillRender: {fileID: 0}
-  fillColour: {r: 0, g: 0, b: 0, a: 0}
-  label: {fileID: 1410148999}
-  labelRender: {fileID: 1410149001}
-  labelColour: {r: 0, g: 0, b: 0, a: 0}
-  labelOffset: {x: 0, y: 0, z: 0}
 --- !u!120 &1089980358
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -19155,291 +15461,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910a449e05d1b854e870dfa481032d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 1092525272}
-  format: 0
-  duration: 0
-  durationCurrent: 0
-  sequence:
-  - name: Start
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 250
-    radiusEnd: 250
-    line:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 0}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 32768
-      atime1: 49151
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 0}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 32768
-      atime1: 49151
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    label:
-      serializedVersion: 2
-      key0: {r: 0.66755116, g: 0.52205884, b: 1, a: 0}
-      key1: {r: 0.66755116, g: 0.52205884, b: 1, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 32768
-      atime1: 49151
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    displayLabel: 1
-  - name: Run
-    duration: 10
-    durationCurrent: 0
-    radiusStart: 250
-    radiusEnd: 250
-    line:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 0.66755116, g: 0.52205884, b: 1, a: 1}
-      key1: {r: 0.66755116, g: 0.52205884, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    displayLabel: 1
-  - name: End
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 250
-    radiusEnd: 250
-    line:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 32768
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 32768
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    label:
-      serializedVersion: 2
-      key0: {r: 0.66755116, g: 0.52205884, b: 1, a: 1}
-      key1: {r: 0.66755116, g: 0.52205884, b: 1, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 32768
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    displayLabel: 1
-  index: 0
 --- !u!120 &1092525271
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -19601,19 +15622,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7c7e128632e77499f3af378f7e4703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: {fileID: 1092525271}
-  pointsOnCircle: 64
-  distanceBetweenPoints: 122
-  pointsAuto: 0
-  radius: 250
-  lineColour: {r: 0, g: 0, b: 0, a: 0}
-  fill: {fileID: 0}
-  fillRender: {fileID: 0}
-  fillColour: {r: 0, g: 0, b: 0, a: 0}
-  label: {fileID: 215200085}
-  labelRender: {fileID: 215200087}
-  labelColour: {r: 0, g: 0, b: 0, a: 0}
-  labelOffset: {x: -20, y: 0, z: 0}
 --- !u!1 &1111216936
 GameObject:
   m_ObjectHideFlags: 0
@@ -19625,9 +15633,7 @@ GameObject:
   - component: {fileID: 1111216942}
   - component: {fileID: 1111216941}
   - component: {fileID: 1111216940}
-  - component: {fileID: 1111216939}
-  - component: {fileID: 1111216938}
-  - component: {fileID: 1111216937}
+  - component: {fileID: 1111216944}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -19635,49 +15641,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1111216937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1111216936}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1347817507220a4384f3ff6f7c24546, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveUnitsPerSecond:
-    value: {x: 0, y: 0, z: 10}
-    space: 0
-  rotateDegreesPerSecond:
-    value: {x: 0, y: 0, z: 0}
-    space: 1
-  ignoreTimescale: 0
---- !u!114 &1111216938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1111216936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 246cc59c7a84ea44f87f6b70acfe30c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1030415753}
-  offset: {x: 0, y: 0, z: 750}
---- !u!114 &1111216939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1111216936}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 8ef26cbfa0a70974ebb000ed2dbdcc07, type: 2}
 --- !u!81 &1111216940
 AudioListener:
   m_ObjectHideFlags: 0
@@ -19742,6 +15705,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 180}
+--- !u!114 &1111216944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1111216936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec8f0d9434e8ad44949a19fe3f69cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 2b85bc57a0b21c44bb0bbaf23fb40977, type: 2}
 --- !u!1 &1146865808
 GameObject:
   m_ObjectHideFlags: 0
@@ -19785,19 +15760,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7c7e128632e77499f3af378f7e4703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: {fileID: 1146865811}
-  pointsOnCircle: 24
-  distanceBetweenPoints: 10
-  pointsAuto: 0
-  radius: 200
-  lineColour: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-  fill: {fileID: 739817700}
-  fillRender: {fileID: 0}
-  fillColour: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-  label: {fileID: 648233122}
-  labelRender: {fileID: 648233124}
-  labelColour: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-  labelOffset: {x: 0, y: 0, z: 0}
 --- !u!120 &1146865811
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -19919,291 +15881,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910a449e05d1b854e870dfa481032d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 1146865810}
-  format: 0
-  duration: 0
-  durationCurrent: 0
-  sequence:
-  - name: Start
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 0
-    radiusEnd: 0
-    line:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    displayLabel: 0
-  - name: Run
-    duration: 10
-    durationCurrent: 0
-    radiusStart: 200
-    radiusEnd: 100
-    line:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 16384
-      atime1: 49151
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 16384
-      atime1: 49151
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 0}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 49151
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 4
-    displayLabel: 1
-  - name: End
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 100
-    radiusEnd: 0
-    line:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key1: {r: 0.9117647, g: 0.19442043, b: 0.19442043, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    displayLabel: 0
-  index: 0
 --- !u!1 &1151470805
 GameObject:
   m_ObjectHideFlags: 0
@@ -20327,7 +16004,7 @@ Transform:
   m_Children:
   - {fileID: 1051288234}
   m_Father: {fileID: 1030415753}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1180064164
 GameObject:
@@ -23858,6 +19535,72 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1001 &1257600557
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1030415753}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 3da6ae4139e0ebf46adf4eed8b887561, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3da6ae4139e0ebf46adf4eed8b887561, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3da6ae4139e0ebf46adf4eed8b887561, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3da6ae4139e0ebf46adf4eed8b887561, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3da6ae4139e0ebf46adf4eed8b887561, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3da6ae4139e0ebf46adf4eed8b887561, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3da6ae4139e0ebf46adf4eed8b887561, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3da6ae4139e0ebf46adf4eed8b887561, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3da6ae4139e0ebf46adf4eed8b887561, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3da6ae4139e0ebf46adf4eed8b887561, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3da6ae4139e0ebf46adf4eed8b887561, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3da6ae4139e0ebf46adf4eed8b887561, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 3da6ae4139e0ebf46adf4eed8b887561, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ba08e55b146f7204b86d70b041f0cc11, type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3da6ae4139e0ebf46adf4eed8b887561, type: 3}
+  m_IsPrefabParent: 0
+--- !u!4 &1257600558 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: 3da6ae4139e0ebf46adf4eed8b887561, type: 3}
+  m_PrefabInternal: {fileID: 1257600557}
 --- !u!1 &1326320479
 GameObject:
   m_ObjectHideFlags: 0
@@ -23886,7 +19629,7 @@ Transform:
   - {fileID: 1523189267}
   - {fileID: 267253143}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1327102774
 GameObject:
@@ -24150,291 +19893,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910a449e05d1b854e870dfa481032d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 1381532906}
-  format: 0
-  duration: 0
-  durationCurrent: 0
-  sequence:
-  - name: Start
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 0
-    radiusEnd: 250
-    line:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 0}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 32768
-      atime1: 49151
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 0}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 32768
-      atime1: 49151
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    label:
-      serializedVersion: 2
-      key0: {r: 0.66755116, g: 0.52205884, b: 1, a: 0}
-      key1: {r: 0.66755116, g: 0.52205884, b: 1, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 32768
-      atime1: 49151
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    displayLabel: 1
-  - name: Run
-    duration: 10
-    durationCurrent: 0
-    radiusStart: 250
-    radiusEnd: 250
-    line:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 0.66755116, g: 0.52205884, b: 1, a: 1}
-      key1: {r: 0.66755116, g: 0.52205884, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    displayLabel: 1
-  - name: End
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 250
-    radiusEnd: 0
-    line:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 32768
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 32768
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    label:
-      serializedVersion: 2
-      key0: {r: 0.66755116, g: 0.52205884, b: 1, a: 1}
-      key1: {r: 0.66755116, g: 0.52205884, b: 1, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 32768
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    displayLabel: 1
-  index: 0
 --- !u!114 &1381532906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24446,19 +19904,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7c7e128632e77499f3af378f7e4703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: {fileID: 1381532907}
-  pointsOnCircle: 64
-  distanceBetweenPoints: 122
-  pointsAuto: 0
-  radius: 250
-  lineColour: {r: 0, g: 0, b: 0, a: 0}
-  fill: {fileID: 0}
-  fillRender: {fileID: 0}
-  fillColour: {r: 0, g: 0, b: 0, a: 0}
-  label: {fileID: 1151470806}
-  labelRender: {fileID: 1151470808}
-  labelColour: {r: 0, g: 0, b: 0, a: 0}
-  labelOffset: {x: -20, y: 0, z: 0}
 --- !u!120 &1381532907
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -24749,291 +20194,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910a449e05d1b854e870dfa481032d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 1429122785}
-  format: 0
-  duration: 0
-  durationCurrent: 0
-  sequence:
-  - name: Start
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 0
-    radiusEnd: 100
-    line:
-      serializedVersion: 2
-      key0: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 0}
-      key1: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 1}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 32768
-      atime1: 49151
-      atime2: 65535
-      atime3: 65535
-      atime4: 65535
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 0}
-      key1: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 1}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 32768
-      atime1: 49151
-      atime2: 65535
-      atime3: 65535
-      atime4: 65535
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    label:
-      serializedVersion: 2
-      key0: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 0}
-      key1: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 1}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 32768
-      atime1: 49151
-      atime2: 65535
-      atime3: 65535
-      atime4: 65535
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    displayLabel: 1
-  - name: Run
-    duration: 10
-    durationCurrent: 0
-    radiusStart: 100
-    radiusEnd: 25
-    line:
-      serializedVersion: 2
-      key0: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 1}
-      key1: {r: 0.9123128, g: 0.9191176, b: 0.42576775, a: 1}
-      key2: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 32768
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 3
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 1}
-      key1: {r: 0.9123128, g: 0.9191176, b: 0.42576775, a: 1}
-      key2: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 32768
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 3
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 1}
-      key1: {r: 0.9123128, g: 0.9191176, b: 0.42576775, a: 1}
-      key2: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 32768
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 3
-      m_NumAlphaKeys: 2
-    displayLabel: 1
-  - name: End
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 25
-    radiusEnd: 0
-    line:
-      serializedVersion: 2
-      key0: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 1}
-      key1: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 0.2509804}
-      key2: {r: 0.8014706, g: 0.46169907, b: 0.15322232, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 32768
-      atime3: 65535
-      atime4: 65535
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 1}
-      key1: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 0.2509804}
-      key2: {r: 0.8014706, g: 0.46169907, b: 0.15322232, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 32768
-      atime3: 65535
-      atime4: 65535
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    label:
-      serializedVersion: 2
-      key0: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 1}
-      key1: {r: 0.8014706, g: 0.15322232, b: 0.15322232, a: 0.2509804}
-      key2: {r: 0.8014706, g: 0.46169907, b: 0.15322232, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 32768
-      atime3: 65535
-      atime4: 65535
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    displayLabel: 1
-  index: 0
 --- !u!114 &1429122785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25045,19 +20205,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7c7e128632e77499f3af378f7e4703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: {fileID: 1429122786}
-  pointsOnCircle: 40
-  distanceBetweenPoints: 49
-  pointsAuto: 0
-  radius: 100
-  lineColour: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 1}
-  fill: {fileID: 890221752}
-  fillRender: {fileID: 890221753}
-  fillColour: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 0.2509804}
-  label: {fileID: 1721964455}
-  labelRender: {fileID: 1721964457}
-  labelColour: {r: 0.15322232, g: 0.8014706, b: 0.31863728, a: 1}
-  labelOffset: {x: -20, y: 0, z: 0}
 --- !u!120 &1429122786
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -28830,44 +23977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e7eaa728c4d7c40b6e2de5070ad9e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  postProcessing: {fileID: 1111216942}
-  effect: {fileID: 0}
-  format: 0
-  sequence:
-  - name: Start
-    duration: 0.25
-    durationCurrent: 0
-    radiusStart: 0
-    radiusEnd: 1
-    eventHorizonStart: 1
-    eventHorizonEnd: 0
-    sharpnessStart: 1
-    sharpnessEnd: 1
-    singularityStart: {r: 0, g: 0, b: 0, a: 0}
-    singularityEnd: {r: 0, g: 0, b: 0, a: 0}
-  - name: Run
-    duration: 0.75
-    durationCurrent: 0
-    radiusStart: 1
-    radiusEnd: 1
-    eventHorizonStart: 0
-    eventHorizonEnd: 0
-    sharpnessStart: 1
-    sharpnessEnd: 1
-    singularityStart: {r: 0, g: 0, b: 0, a: 0}
-    singularityEnd: {r: 0, g: 0, b: 0, a: 0}
-  - name: End
-    duration: 0.5
-    durationCurrent: 0
-    radiusStart: 1
-    radiusEnd: 0
-    eventHorizonStart: 0
-    eventHorizonEnd: 1
-    sharpnessStart: 1
-    sharpnessEnd: 1
-    singularityStart: {r: 0, g: 0, b: 0, a: 0}
-    singularityEnd: {r: 0, g: 0, b: 0, a: 0}
-  index: 0
 --- !u!4 &1523189267
 Transform:
   m_ObjectHideFlags: 0
@@ -32501,291 +27610,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910a449e05d1b854e870dfa481032d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 1581557228}
-  format: 0
-  duration: 0
-  durationCurrent: 0
-  sequence:
-  - name: Start
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 0
-    radiusEnd: 250
-    line:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 0}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 32768
-      atime1: 49151
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 0}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 32768
-      atime1: 49151
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    label:
-      serializedVersion: 2
-      key0: {r: 0.66755116, g: 0.52205884, b: 1, a: 0}
-      key1: {r: 0.66755116, g: 0.52205884, b: 1, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 32768
-      atime1: 49151
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    displayLabel: 1
-  - name: Run
-    duration: 10
-    durationCurrent: 0
-    radiusStart: 250
-    radiusEnd: 250
-    line:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 0.66755116, g: 0.52205884, b: 1, a: 1}
-      key1: {r: 0.66755116, g: 0.52205884, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    displayLabel: 1
-  - name: End
-    duration: 5
-    durationCurrent: 0
-    radiusStart: 250
-    radiusEnd: 0
-    line:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 32768
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 32768
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    label:
-      serializedVersion: 2
-      key0: {r: 0.66755116, g: 0.52205884, b: 1, a: 1}
-      key1: {r: 0.66755116, g: 0.52205884, b: 1, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16384
-      atime2: 32768
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-    displayLabel: 1
-  index: 0
 --- !u!114 &1581557228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32797,19 +27621,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7c7e128632e77499f3af378f7e4703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: {fileID: 1581557229}
-  pointsOnCircle: 64
-  distanceBetweenPoints: 122
-  pointsAuto: 0
-  radius: 250
-  lineColour: {r: 0, g: 0, b: 0, a: 0}
-  fill: {fileID: 0}
-  fillRender: {fileID: 0}
-  fillColour: {r: 0, g: 0, b: 0, a: 0}
-  label: {fileID: 1474557781}
-  labelRender: {fileID: 1474557783}
-  labelColour: {r: 0, g: 0, b: 0, a: 0}
-  labelOffset: {x: -20, y: 0, z: 0}
 --- !u!120 &1581557229
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -33406,291 +28217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910a449e05d1b854e870dfa481032d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 1926173649}
-  format: 1
-  duration: 5
-  durationCurrent: 0
-  sequence:
-  - name: Fade In
-    duration: 0.25
-    durationCurrent: 0
-    radiusStart: 1250
-    radiusEnd: 1250
-    line:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 0}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 1}
-      key3: {r: 0, g: 0, b: 0, a: 1}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 65535
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 0}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    displayLabel: 0
-  - name: Stay
-    duration: 0.5
-    durationCurrent: 0
-    radiusStart: 1250
-    radiusEnd: 1250
-    line:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 0.2509804}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 0.2509804}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    displayLabel: 0
-  - name: Fade Out
-    duration: 0.25
-    durationCurrent: 0
-    radiusStart: 1250
-    radiusEnd: 1250
-    line:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    fill:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 0.2509804}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    label:
-      serializedVersion: 2
-      key0: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key1: {r: 0.5019608, g: 0.284, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    displayLabel: 0
-  index: 0
 --- !u!114 &1926173649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33702,19 +28228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7c7e128632e77499f3af378f7e4703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: {fileID: 1926173650}
-  pointsOnCircle: 64
-  distanceBetweenPoints: 122
-  pointsAuto: 0
-  radius: 1250
-  lineColour: {r: 0, g: 0, b: 0, a: 0}
-  fill: {fileID: 913008788}
-  fillRender: {fileID: 913008789}
-  fillColour: {r: 0, g: 0, b: 0, a: 0}
-  label: {fileID: 0}
-  labelRender: {fileID: 0}
-  labelColour: {r: 0, g: 0, b: 0, a: 0}
-  labelOffset: {x: -20, y: 0, z: 0}
 --- !u!120 &1926173650
 LineRenderer:
   m_ObjectHideFlags: 0
