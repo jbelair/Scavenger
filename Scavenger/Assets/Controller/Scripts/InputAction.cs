@@ -95,7 +95,7 @@ public class InputAction
     {
         if (ControllerAction.Actions.ContainsKey(action))
         {
-            ControllerAction.Actions[action].start.Invoke(controller, inputVector2, inputFloat);
+            //ControllerAction.Actions[action].start.Invoke(controller, inputVector2, inputFloat);
         }
         else
         {
@@ -212,7 +212,7 @@ public class InputAction
     {
         if (ControllerAction.Actions.ContainsKey(action))
         {
-            ControllerAction.Actions[action].end.Invoke(controller);
+            //ControllerAction.Actions[action].end.Invoke(controller);
         }
         else
         {

@@ -6,9 +6,12 @@ using UnityEngine.Events;
 [Serializable]
 public class ControllerAction
 {
-    public static Dictionary<string, ControllerAction> Actions;
+    public static Dictionary<string, ControllerAction> Actions = new Dictionary<string, ControllerAction>();
 
     public string action;
-    public UnityEvent<ControllerUEI, Vector2, float> start;
-    public UnityEvent<ControllerUEI> end;
+    public ControllerUEI controller;
+    public UnityEvent start;
+    public UnityEvent end;
+    //public UnityEvent<ControllerUEI, Vector2, float> start;
+    //public UnityEvent<ControllerUEI> end;
 }

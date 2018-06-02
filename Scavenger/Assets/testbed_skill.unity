@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 4548943ad0838364c9ba8284a903fc63, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 334c921dcd83aab478045b78c24115a0, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.08758571, g: 0.07866409, b: 0.14091733, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -627,13 +627,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 167659981}
-  m_LocalRotation: {x: 0, y: 0.7593848, z: 0, w: 0.6506418}
+  m_LocalRotation: {x: 0.8535535, y: -0.1464466, z: 0.35355338, w: 0.35355338}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 523788244}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 98.82, z: 0}
+  m_LocalEulerAnglesHint: {x: 135, y: -45, z: 0}
 --- !u!1 &215200084
 GameObject:
   m_ObjectHideFlags: 0
@@ -4633,6 +4633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  profile: {fileID: 0}
 --- !u!81 &363857222
 AudioListener:
   m_ObjectHideFlags: 0
@@ -14511,10 +14512,10 @@ GameObject:
   - component: {fileID: 1030415754}
   - component: {fileID: 1030415755}
   - component: {fileID: 1030415759}
+  - component: {fileID: 1030415760}
   - component: {fileID: 1030415758}
   - component: {fileID: 1030415757}
   - component: {fileID: 1030415756}
-  - component: {fileID: 1030415760}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -14618,72 +14619,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37995a57a7d68f4ab3807369d6c1d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statistics: {fileID: 1030415759}
+  statistics: {fileID: 0}
   mode: 0
-  actions:
-  - name: Keyboard and Mouse Movement Stick
-    controller: {fileID: 0}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys: []
-    axis: []
-    sticks:
-    - name: Movement Stick
-      platforms: 000000000100000002000000
-      mode: 4
-      up: 119
-      left: 97
-      down: 115
-      right: 100
-      axisX: 
-      invertX: 0
-      axisY: 
-      invertY: 0
-      sensitivity: 0
-      lastInput: {x: 0, y: 0}
-    cursors: []
-    action: 
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Keyboard and Mouse Aiming Cursor
-    controller: {fileID: 0}
-    enabled: 1
-    toggle: 0
-    isToggled: 0
-    keys: []
-    axis: []
-    sticks: []
-    cursors:
-    - name: Aiming Cursor
-      platforms: 000000000100000002000000
-      mode: 4
-      axisX: 
-      invertX: 0
-      axisY: 
-      invertY: 0
-      sensitivity: 0
-      strength: 0
-      lastInput: {x: 0, y: 0}
-    action: 
-    start:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    end:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+  actions: []
 --- !u!114 &1030415757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14695,7 +14633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4737c8a8876de744a8f1ffaaefc8726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statistics: {fileID: 1030415759}
+  statistics: {fileID: 0}
 --- !u!114 &1030415758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14707,7 +14645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef9547dabecdd94db07e479ca7bebb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statistics: {fileID: 1030415759}
+  statistics: {fileID: 0}
   unitySkills: []
   isAlive: 0
 --- !u!114 &1030415759
@@ -14721,287 +14659,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82700e6955cbeb547af85dcd81d0035c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unityStatistics:
-  - name: Player
-    type: 5
-    valueInt: 0
-    valueFloat: 1000
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 1030415752}
-    valueGOArray: []
-  - name: Owner
-    type: 5
-    valueInt: 0
-    valueFloat: 1000
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 1030415752}
-    valueGOArray: []
-  - name: Rigidbody
-    type: 5
-    valueInt: 0
-    valueFloat: 1000
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 1030415752}
-    valueGOArray: []
-  - name: Movement Input
-    type: 3
-    valueInt: 0
-    valueFloat: 1000
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 1030415752}
-    valueGOArray: []
-  - name: Aim Input
-    type: 3
-    valueInt: 0
-    valueFloat: 1000
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 1030415752}
-    valueGOArray: []
-  - name: Hull
-    type: 1
-    valueInt: 0
-    valueFloat: 1000
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Hull Maximum
-    type: 1
-    valueInt: 0
-    valueFloat: 1000
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Hull Recovery
-    type: 1
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Armour
-    type: 1
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Shielding
-    type: 1
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Shielding Maximum
-    type: 1
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Shielding Recovery
-    type: 1
-    valueInt: 0
-    valueFloat: 0
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Acceleration
-    type: 1
-    valueInt: 0
-    valueFloat: 100
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Maximum Speed
-    type: 1
-    valueInt: 0
-    valueFloat: 100
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Maneuverability
-    type: 1
-    valueInt: 0
-    valueFloat: 100
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Radar Range
-    type: 1
-    valueInt: 0
-    valueFloat: 1000000
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Radar Visibility
-    type: 1
-    valueInt: 0
-    valueFloat: 1
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: EMS Range
-    type: 1
-    valueInt: 0
-    valueFloat: 1000
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: EMS Visibility
-    type: 1
-    valueInt: 0
-    valueFloat: 1
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Gravimetrics Range
-    type: 1
-    valueInt: 0
-    valueFloat: 1e+9
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Gravimetrics Visibility
-    type: 1
-    valueInt: 0
-    valueFloat: 100
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Cooldown Recovery
-    type: 1
-    valueInt: 0
-    valueFloat: 1
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Stack Multiplier
-    type: 1
-    valueInt: 0
-    valueFloat: 1
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Stack Recovery Multiplier
-    type: 1
-    valueInt: 0
-    valueFloat: 1
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Subunit Multiplier
-    type: 1
-    valueInt: 0
-    valueFloat: 1
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Projectile Multiplier
-    type: 1
-    valueInt: 0
-    valueFloat: 1
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Projectile Speed Multiplier
-    type: 1
-    valueInt: 0
-    valueFloat: 1
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Effect Multiplier
-    type: 1
-    valueInt: 0
-    valueFloat: 1
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Effect Area Multiplier
-    type: 1
-    valueInt: 0
-    valueFloat: 1
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Effect Duration Multiplier
-    type: 1
-    valueInt: 0
-    valueFloat: 1
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  - name: Effect Strength Multiplier
-    type: 1
-    valueInt: 0
-    valueFloat: 1
-    valueString: 
-    valueV2: {x: 0, y: 0}
-    valueV3: {x: 0, y: 0, z: 0}
-    valueGO: {fileID: 0}
-    valueGOArray: []
-  polling: 1
+  unityStatistics: []
+  polling: 0
   pollingTime: 0.5
   isPolling: 0
   isInitialised: 0
@@ -15633,7 +15292,7 @@ GameObject:
   - component: {fileID: 1111216942}
   - component: {fileID: 1111216941}
   - component: {fileID: 1111216940}
-  - component: {fileID: 1111216944}
+  - component: {fileID: 1111216937}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -15641,20 +15300,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1111216937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1111216936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 0c3ce3cc82c6b224e84d2ec6185c203a, type: 2}
 --- !u!81 &1111216940
 AudioListener:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1111216936}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!124 &1111216941
 Behaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1111216936}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &1111216942
 Camera:
   m_ObjectHideFlags: 0
@@ -15705,18 +15376,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 180}
---- !u!114 &1111216944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1111216936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aec8f0d9434e8ad44949a19fe3f69cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 2b85bc57a0b21c44bb0bbaf23fb40977, type: 2}
 --- !u!1 &1146865808
 GameObject:
   m_ObjectHideFlags: 0
@@ -15991,7 +15650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1154866535
 Transform:
   m_ObjectHideFlags: 0

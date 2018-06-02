@@ -1,36 +1,36 @@
-﻿Shader "Custom/SurfaceVertexColourShader" 
+﻿Shader "Vertex Mapped/Colour/Triplanar Axial Surface" 
 {
 	Properties 
 	{
-		_Col100 ("Tint", Color) = (1,1,1,1)
-		_Tex100 ("Material 1", 2D) = "white" {}
-		[Normal]_Tex100_N("Material 1 Normal", 2D) = "bump" {}
-		_Smooth100("Smoothness", Range(0,1)) = 0.5
-		_Metal100("Metallic", Range(0,1)) = 0.0
+		_Col100 ("1. Tint", Color) = (1,1,1,1)
+		_Smooth100("1. Smoothness", Range(0,1)) = 0.5
+		_Metal100("1. Metallic", Range(0,1)) = 0.0
+		_Tex100 ("1. Material", 2D) = "white" {}
+		[Normal]_Tex100_N("1. Normal", 2D) = "bump" {}
+		
+		_Col75("2. Tint", Color) = (1,1,1,1)
+		_Smooth75("2. Smoothness", Range(0,1)) = 0.5
+		_Metal75("2. Metallic", Range(0,1)) = 0.0
+		_Tex75("2. Material", 2D) = "white" {}
+		[Normal]_Tex75_N("2. Normal", 2D) = "bump" {}
+		
+		_Col50("3. Tint", Color) = (1,1,1,1)
+		_Smooth50("3. Smoothness", Range(0,1)) = 0.5
+		_Metal50("3. Metallic", Range(0,1)) = 0.0
+		_Tex50("3. Material", 2D) = "white" {}
+		[Normal]_Tex50_N("3. Normal", 2D) = "bump" {}
+		
+		_Col25("4. Tint", Color) = (1,1,1,1)
+		_Smooth25("4. Smoothness", Range(0,1)) = 0.5
+		_Metal25("4. Metallic", Range(0,1)) = 0.0
+		_Tex25("4. Material", 2D) = "white" {}
+		[Normal]_Tex25_N("4. Normal", 2D) = "bump" {}
 
-		_Col75("Tint", Color) = (1,1,1,1)
-		_Tex75("Material 2", 2D) = "white" {}
-		[Normal]_Tex75_N("Material 2 Normal", 2D) = "bump" {}
-		_Smooth75("Smoothness", Range(0,1)) = 0.5
-		_Metal75("Metallic", Range(0,1)) = 0.0
-
-		_Col50("Tint", Color) = (1,1,1,1)
-		_Tex50("Material 3", 2D) = "white" {}
-		[Normal]_Tex50_N("Material 3 Normal", 2D) = "bump" {}
-		_Smooth50("Smoothness", Range(0,1)) = 0.5
-		_Metal50("Metallic", Range(0,1)) = 0.0
-
-		_Col25("Tint", Color) = (1,1,1,1)
-		_Tex25("Material 4", 2D) = "white" {}
-		[Normal]_Tex25_N("Material 4 Normal", 2D) = "bump" {}
-		_Smooth25("Smoothness", Range(0,1)) = 0.5
-		_Metal25("Metallic", Range(0,1)) = 0.0
-
-		_Col0("Tint", Color) = (1,1,1,1)
-		_Tex0("Material 5", 2D) = "white" {}
-		[Normal]_Tex0_N("Material 5 Normal", 2D) = "bump" {}
-		_Smooth0("Smoothness", Range(0,1)) = 0.5
-		_Metal0("Metallic", Range(0,1)) = 0.0
+		_Col0("5. Tint", Color) = (1,1,1,1)
+		_Smooth0("5. Smoothness", Range(0,1)) = 0.5
+		_Metal0("5. Metallic", Range(0,1)) = 0.0
+		_Tex0("5. Material", 2D) = "white" {}
+		[Normal]_Tex0_N("5. Normal", 2D) = "bump" {}
 
 		[HDR]_GlowR("Glow 1", Color) = (1,0,0,1)
 		[HDR]_GlowG("Glow 2", Color) = (0,1,0,1)
@@ -101,6 +101,7 @@
 		half _Smooth0;
 		half _Metal0;
 
+		// STANDARD ------------------------------------------------------------------------------------------------------
 		struct Input 
 		{
 			float3 worldPos;
@@ -154,48 +155,87 @@
 			return triW / (triW.x + triW.y + triW.z);
 		}
 
-		TriplanarUV GetTriplanarUV(float3 position, float3 normal) 
+		float2 GetTriplanarUV(float3 position, float3 normal) 
 		{
 			TriplanarUV uv;
-			float3 w = GetTriplanarWeights(normalize(normal));
-			if (w.x > max(w.y, w.z))
-				uv.pos = position.zy;
-			else if (w.y > max(w.x, w.z))
-				uv.pos = position.xz;
-			else if (w.z > max(w.x, w.y))
+			//uv.w = GetTriplanarWeights(normal);
+			//uv.pos = position.zy * uv.w.x + position.xz * uv.w.y + position.xy * uv.w.z;
+			float3 n = abs(normal);
+
+			if (n.z > 0.7)
+			{
+				n.x = 0;
+				n.y = 0;
+				n.z = 1;
 				uv.pos = position.xy;
+			}
+			else if (n.z < -0.7)
+			{
+				n.x = 0;
+				n.y = 0;
+				n.z = -1;
+				uv.pos = -position.xy;
+			}
+			else if (n.x > 0.7)
+			{
+				n.x = 1;
+				n.y = 0;
+				n.z = 0;
+				uv.pos = position.zy;
+			}
+			else if (n.x < -0.7)
+			{
+				n.x = -1;
+				n.y = 0;
+				n.z = 0;
+				uv.pos = -position.zy;
+			}
+			else if (n.y > 0.7)
+			{
+				n.x = 0;
+				n.y = 1;
+				n.z = 0;
+				uv.pos = position.xz;
+			}
+			else if (n.y < -0.7)
+			{
+				n.x = 0;
+				n.y = -1;
+				n.z = 0;
+				uv.pos = -position.xz;
+			}
 			
-			return uv;
+			return uv.pos;
 		}
 
-		fixed4 SampleAtPosition(int type, TriplanarUV uv)
+		fixed4 SampleAtPosition(int type, float2 pos)
 		{
 			if (type == 0)
-				return tex2D(_Tex100, uv.pos * _Tex100_ST.xy + _Tex100_ST.zw) * _Col100;
+				return tex2D(_Tex100, pos * _Tex100_ST.xy + _Tex100_ST.zw) * _Col100;
 			else if (type == 1)
-				return tex2D(_Tex75, uv.pos * _Tex75_ST.xy + _Tex75_ST.zw) * _Col75;
+				return tex2D(_Tex75, pos * _Tex75_ST.xy + _Tex75_ST.zw) * _Col75;
 			else if (type == 2)
-				return tex2D(_Tex50, uv.pos * _Tex50_ST.xy + _Tex50_ST.zw) * _Col50;
+				return tex2D(_Tex50, pos * _Tex50_ST.xy + _Tex50_ST.zw) * _Col50;
 			else if (type == 3)
-				return tex2D(_Tex25, uv.pos * _Tex25_ST.xy + _Tex25_ST.zw) * _Col25;
+				return tex2D(_Tex25, pos * _Tex25_ST.xy + _Tex25_ST.zw) * _Col25;
 			else if (type == 4)
-				return tex2D(_Tex0, uv.pos * _Tex0_ST.xy + _Tex0_ST.zw) * _Col0;
+				return tex2D(_Tex0, pos * _Tex0_ST.xy + _Tex0_ST.zw) * _Col0;
 			else
 				return (1, 1, 1);
 		}
 
-		fixed4 SampleNormalAtPosition(int type, TriplanarUV uv)
+		fixed4 SampleNormalAtPosition(int type, float2 pos)
 		{
 			if (type == 0)
-				return tex2D(_Tex100_N, uv.pos * _Tex100_N_ST.xy + _Tex100_N_ST.zw);
+				return tex2D(_Tex100_N, pos * _Tex100_N_ST.xy + _Tex100_N_ST.zw);
 			else if (type == 1)
-				return tex2D(_Tex75_N, uv.pos * _Tex75_N_ST.xy + _Tex75_N_ST.zw);
+				return tex2D(_Tex75_N, pos * _Tex75_N_ST.xy + _Tex75_N_ST.zw);
 			else if (type == 2)
-				return tex2D(_Tex50_N, uv.pos * _Tex50_N_ST.xy + _Tex50_N_ST.zw);
+				return tex2D(_Tex50_N, pos * _Tex50_N_ST.xy + _Tex50_N_ST.zw);
 			else if (type == 3)
-				return tex2D(_Tex25_N, uv.pos * _Tex25_N_ST.xy + _Tex25_N_ST.zw);
+				return tex2D(_Tex25_N, pos * _Tex25_N_ST.xy + _Tex25_N_ST.zw);
 			else if (type == 4)
-				return tex2D(_Tex0_N, uv.pos * _Tex0_N_ST.xy + _Tex0_N_ST.zw);
+				return tex2D(_Tex0_N, pos * _Tex0_N_ST.xy + _Tex0_N_ST.zw);
 			else
 				return fixed4(1, 1, 1, 1);
 		}
@@ -262,7 +302,8 @@
 		void surf (Input IN, inout SurfaceOutputStandard o) 
 		{
 			float t = Type(IN.colour);
-			TriplanarUV uv = GetTriplanarUV(IN.localPos, IN.normal);
+			//TriplanarUV uv = GetTriplanarUV(IN.localPos, IN.normal);
+			float2 uv = GetTriplanarUV(IN.localPos, IN.normal);
 			fixed4 c = SampleAtPosition(t, uv);///*tex2D (_MainTex, IN.uv_MainTex)*/IN.colour;// *_Color;
 			o.Albedo = c.rgb;
 			o.Normal = UnpackNormal(SampleNormalAtPosition(t, uv));

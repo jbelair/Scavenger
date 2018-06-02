@@ -45,3 +45,8 @@ Scavenger/.vs/Scavenger/v15/Browse.VC.opendb
 Scavenger/.vs/Scavenger/v15/Browse.VC.db
 *.db
 *.cache
+*.lock
+*.ide
+*.ide-shm
+*.ide-wal
+Scavenger/.vs/Scavenger/DesignTimeBuild/.dtbcache

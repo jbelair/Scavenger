@@ -7,6 +7,9 @@ public class PlayerMovementUEI : MonoBehaviour
 {
     public Statistics statistics;
 
+    public Statistic movementInput;
+    public Statistic rigidbody;
+
     // Use this for initialization
     void Start()
     {
@@ -16,9 +19,14 @@ public class PlayerMovementUEI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (movementInput == null)
+        {
+            movementInput = statistics["Movement Input"];
+            rigidbody = statistics["Rigidbody"];
+        }
         // Check if movement input is being supplied
-        Vector2 input = statistics["Movement Input"].Get<Vector2>();
-        Rigidbody2D rigid = statistics["Rigidbody"].Get<Rigidbody2D>();
+        Vector2 input = movementInput.Get<Vector2>();
+        Rigidbody2D rigid = rigidbody.Get<Rigidbody2D>();
 
         if (input.magnitude > 0)
         {
@@ -34,5 +42,10 @@ public class PlayerMovementUEI : MonoBehaviour
                 rigid.velocity = Vector2.MoveTowards(rigid.velocity, Vector2.zero, statistics["Acceleration"].Get<float>() * Time.fixedDeltaTime);
             }
         }
+    }
+
+    public void SetMovement(Vector2 input)
+    {
+        movementInput.Set(input);
     }
 }
