@@ -55,7 +55,7 @@ public class ProjectileMovementUEI : MonoBehaviour
         //startPosition = rigidbody.position;
 
         projectile.statistics["Starting Position"].Set(projectile.statistics["Rigidbody"].Get<Rigidbody2D>().position);
-        projectile.statistics["Relative Velocity"].Set(projectile.statistics["Owner"].Get<PlayerUEI>().statistics["Rigidbody"].Get<Rigidbody2D>().velocity);
+        projectile.statistics["Relative Velocity"].Set(projectile.statistics["Player"].Get<PlayerUEI>().statistics["Rigidbody"].Get<Rigidbody2D>().velocity);
     }
 
     // Update is called once per frame

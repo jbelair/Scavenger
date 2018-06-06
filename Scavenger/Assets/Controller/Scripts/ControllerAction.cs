@@ -10,8 +10,8 @@ public class ControllerAction
 
     public string action;
     public ControllerUEI controller;
-    public UnityEvent start;
-    public UnityEvent end;
+    public InputActionEvent start;
+    public InputActionEvent end;
     //public UnityEvent<ControllerUEI, Vector2, float> start;
     //public UnityEvent<ControllerUEI> end;
 }

@@ -12,6 +12,7 @@ public class StatisticUEI
     public int valueInt;
     public float valueFloat;
     public string valueString;
+    public Color valueColour;
     public Vector2 valueV2;
     public Vector3 valueV3;
     public GameObject valueGO;
@@ -34,6 +35,9 @@ public class StatisticUEI
                 break;
             case Statistic.ValueType.String:
                 valueString = stat.Get<string>();
+                break;
+            case Statistic.ValueType.Colour:
+                valueColour = stat.Get<Color>();
                 break;
             case Statistic.ValueType.Vector2:
                 valueV2 = stat.Get<Vector2>();
@@ -63,6 +67,8 @@ public class StatisticUEI
                 return new Statistic(name, type, valueFloat);
             case Statistic.ValueType.String:
                 return new Statistic(name, type, valueString);
+            case Statistic.ValueType.Colour:
+                return new Statistic(name, type, valueColour);
             case Statistic.ValueType.Vector2:
                 return new Statistic(name, type, valueV2);
             case Statistic.ValueType.Vector3:

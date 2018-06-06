@@ -9,21 +9,24 @@ using UnityEngine;
 [CanEditMultipleObjects]
 public class StatisticUEIEditor : PropertyDrawer
 {
-    public SerializedProperty vName, state, vI, vF, vS, vV2, vV3, vGO, vGOArray, vStat;
+    public SerializedProperty vName, state, vI, vF, vS, vC, vV2, vV3, vGO, vGOArray, vStat;
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
-        return 54;
+        return 60;
     }
 
     public override void OnGUI(Rect position, SerializedProperty prop, GUIContent label)
     {
         vName = prop.FindPropertyRelative("name");
         state = prop.FindPropertyRelative("type");
-        
-        EditorGUI.BeginProperty(position, label, prop);
 
-        position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
+        //EditorGUI.BeginProperty(position, label, prop);
+
+        EditorGUI.BeginProperty(position, GUIContent.none, prop);
+
+        //position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
+        position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), GUIContent.none);
 
         int indent = EditorGUI.indentLevel;
         EditorGUI.indentLevel = 0;
@@ -49,6 +52,10 @@ public class StatisticUEIEditor : PropertyDrawer
             case Statistic.ValueType.String:
                 vS = prop.FindPropertyRelative("valueString");
                 EditorGUI.PropertyField(rField, vS, GUIContent.none);
+                break;
+            case Statistic.ValueType.Colour:
+                vC = prop.FindPropertyRelative("valueColour");
+                EditorGUI.PropertyField(rField, vC, GUIContent.none);
                 break;
             case Statistic.ValueType.Vector2:
                 vV2 = prop.FindPropertyRelative("valueV2");
@@ -77,12 +84,13 @@ public class StatisticUEIEditor : PropertyDrawer
                 EditorGUI.indentLevel -= 1;
                 //EditorGUI.MultiPropertyField(rField, , vGOArray, GUIContent.none);
                 break;
-            //case Statistic.ValueType.Statistic:
-            //    vStat = prop.FindPropertyRelative("valueStatistic");
-            //    EditorGUI.PropertyField(rField, vStat, GUIContent.none);
-            //    break;
+                //case Statistic.ValueType.Statistic:
+                //    vStat = prop.FindPropertyRelative("valueStatistic");
+                //    EditorGUI.PropertyField(rField, vStat, GUIContent.none);
+                //    break;
         }
 
+        EditorGUI.indentLevel = indent;
         EditorGUI.EndProperty();
     }
 }

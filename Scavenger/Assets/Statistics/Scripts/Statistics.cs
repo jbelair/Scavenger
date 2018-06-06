@@ -7,12 +7,13 @@ using UnityEngine;
 
 public class Statistics : MonoBehaviour, IStatistics, IEnumerable<Statistic>
 {
-    public List<StatisticUEI> unityStatistics;
     public bool polling = false;
     public float pollingTime = 0.5f;
     public bool isPolling = false;
     public bool isInitialised = false;
 
+    public List<StatisticUEI> unityStatistics;
+    
     public Dictionary<string, Statistic> statistics = new Dictionary<string, Statistic>();
 
     public Statistic this[string index]
@@ -88,6 +89,9 @@ public class Statistics : MonoBehaviour, IStatistics, IEnumerable<Statistic>
                             case Statistic.ValueType.String:
                                 stat.Value.Set(statistic.valueString);
                                 break;
+                            case Statistic.ValueType.Colour:
+                                stat.Value.Set(statistic.valueColour);
+                                break;
                             case Statistic.ValueType.Vector2:
                                 stat.Value.Set(statistic.valueV2);
                                 break;
@@ -130,9 +134,9 @@ public class Statistics : MonoBehaviour, IStatistics, IEnumerable<Statistic>
                 statistics["Rigidbody"].Set(statistics["Rigidbody"].Get<GameObject>().GetComponentInChildren<Rigidbody2D>());
             }
 
-            if (Has("Owner"))
+            if (Has("Player"))
             {
-                statistics["Owner"].Set(statistics["Owner"].Get<GameObject>().GetComponentInChildren<PlayerUEI>());
+                statistics["Player"].Set(statistics["Player"].Get<GameObject>().GetComponentInChildren<PlayerUEI>());
             }
 
             if (!polling)

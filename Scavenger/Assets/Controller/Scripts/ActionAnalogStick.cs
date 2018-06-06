@@ -31,11 +31,11 @@ public class ActionAnalogStick : ActionInputBase
             if (Input.GetKey(up))
                 input += Vector2.up * iY;
             if (Input.GetKey(left))
-                input += Vector2.left * iX;
+                input += Vector2.right * iX;
             if (Input.GetKey(down))
                 input += Vector2.down * iY;
             if (Input.GetKey(right))
-                input += Vector2.right * iX;
+                input += Vector2.left * iX;
         }
         else if(axisX != "" && axisY != "")
         {
@@ -47,6 +47,9 @@ public class ActionAnalogStick : ActionInputBase
             input = Vector2.zero;
         else
         {
+            if (input.magnitude > 1)
+                input.Normalize();
+
             input = input.normalized * (input.magnitude - sensitivity) / (1f - sensitivity);
         }
 

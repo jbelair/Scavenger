@@ -17,11 +17,22 @@ public class ControllerUEI : MonoBehaviour
     {
         foreach (InputAction action in actions)
         {
-            if (action.start == null)
-                action.start = new UnityEvent();
+            //if (action.start == null)
+            //    action.start = new UnityEvent<string>();
 
-            if (action.end == null)
-                action.end = new UnityEvent();
+            //if (action.end == null)
+            //    action.end = new UnityEvent<string>();
+        }
+
+        if (!statistics.Has("Mouse Position"))
+            statistics["Mouse Position"] = new Statistic("Mouse Position", Statistic.ValueType.Vector2, (Vector2)Input.mousePosition);
+
+        if (!statistics.Has("Mouse World Position"))
+        {
+            Vector3 mouse = Input.mousePosition;
+            mouse.z = -Camera.main.transform.position.z;
+            mouse = Camera.main.ScreenToWorldPoint(mouse);
+            statistics["Mouse World Position"] = new Statistic("Mouse World Position", Statistic.ValueType.Vector3, mouse);
         }
     }
 
@@ -45,5 +56,12 @@ public class ControllerUEI : MonoBehaviour
             action.Update();
             // Check key bindings
         }
+
+        statistics["Mouse Position"].Set((Vector2)Input.mousePosition);
+
+        Vector3 mouse = Input.mousePosition;
+        mouse.z = -Camera.main.transform.position.z;
+        mouse = Camera.main.ScreenToWorldPoint(mouse);
+        statistics["Mouse World Position"].Set(mouse);
     }
 }

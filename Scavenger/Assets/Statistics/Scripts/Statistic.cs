@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Statistic
 {
-    public enum ValueType { Integer, Float, String, Vector2, Vector3, GameObject, GameObjectArray, /*Statistic,*/ Object };
+    public enum ValueType { Integer, Float, String, Colour, Vector2, Vector3, GameObject, GameObjectArray, /*Statistic,*/ Object };
 
     public string name = "";
     public ValueType type;
@@ -38,6 +38,13 @@ public class Statistic
             value = f;
             isDirty = true;
         }
+        else
+        {
+            type = ValueType.Float;
+            value = f;
+            isDirty = true;
+            Debug.Log("Statistic: " + name + " has been switched to a float");
+        }
     }
 
     public void Set(string s)
@@ -45,6 +52,15 @@ public class Statistic
         if (type == ValueType.String)
         {
             value = s;
+            isDirty = true;
+        }
+    }
+
+    public void Set(Color c)
+    {
+        if (type == ValueType.Colour)
+        {
+            value = c;
             isDirty = true;
         }
     }
@@ -57,6 +73,13 @@ public class Statistic
             value = v2;
             isDirty = true;
         }
+        else
+        {
+            type = ValueType.Vector2;
+            value = v2;
+            isDirty = true;
+            Debug.Log("Statistic: " + name + " has been switched to a Vector2");
+        }
     }
 
     public void Set(Vector3 v3)
@@ -65,6 +88,13 @@ public class Statistic
         {
             value = v3;
             isDirty = true;
+        }
+        else
+        {
+            type = ValueType.Vector3;
+            value = v3;
+            isDirty = true;
+            Debug.Log("Statistic: " + name + " has been switched to a Vector3");
         }
     }
 
@@ -178,6 +208,10 @@ public class Statistic
                 if (t == typeof(string))
                     return (T)value;
                 break;
+            case ValueType.Colour:
+                if (t == typeof(Color))
+                    return (T)value;
+                break;
             case ValueType.Vector2:
                 if (t == typeof(Vector2))
                     return (T)value;
@@ -201,6 +235,40 @@ public class Statistic
         return default(T);
     }
 
+    public void Default()
+    {
+        switch(type)
+        {
+            case ValueType.Integer:
+                value = default(int);
+                break;
+            case ValueType.Float:
+                value = default(float);
+                break;
+            case ValueType.String:
+                value = default(string);
+                break;
+            case ValueType.Colour:
+                value = default(Color);
+                break;
+            case ValueType.Vector2:
+                value = default(Vector2);
+                break;
+            case ValueType.Vector3:
+                value = default(Vector3);
+                break;
+            case ValueType.GameObject:
+                value = null;
+                break;
+            case ValueType.GameObjectArray:
+                value = null;
+                break;
+            case ValueType.Object:
+                value = null;
+                break;
+        }
+    }
+
     public static implicit operator int(Statistic stat)
     {
         return stat.Get<int>();
@@ -214,6 +282,11 @@ public class Statistic
     public static implicit operator string(Statistic stat)
     {
         return stat.Get<string>();
+    }
+
+    public static implicit operator Color(Statistic stat)
+    {
+        return stat.Get<Color>();
     }
 
     public static implicit operator Vector2(Statistic stat)

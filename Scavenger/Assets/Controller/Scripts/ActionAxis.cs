@@ -16,7 +16,7 @@ public class ActionAxis : ActionInputBase
     {
         float input = Input.GetAxisRaw(axis) * ((invert) ? -1 : 1);
 
-        if (input < sensitivity)
+        if (Mathf.Abs(0 - input) < sensitivity)
             input = 0;
         else
             input = (input - sensitivity) / (1 - sensitivity);

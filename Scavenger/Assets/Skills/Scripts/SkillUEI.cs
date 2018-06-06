@@ -57,6 +57,13 @@ public class SkillUEI : MonoBehaviour
     public int stacks;
     public int stacksMax;
     public float stackRecovery;
+    public float stackRecoveryCurrent;
+
+    public Statistics statistics;
+    public string statisticInput;
+    private Statistic input;
+    public float lastInput;
+
     public List<SkillSequence> sequences;
 
     // Use this for initialization
@@ -66,6 +73,8 @@ public class SkillUEI : MonoBehaviour
         {
             sequence.Input(true);
         }
+
+        input = statistics[statisticInput];
     }
 
     // Update is called once per frame
@@ -75,6 +84,31 @@ public class SkillUEI : MonoBehaviour
         {
             sequence.Update();
         }
+
+        if (cooldownCurrent >= cooldown)
+        {
+            if (lastInput != input.Get<float>())
+            {
+                if (lastInput == 0)
+                {
+                    // Since last input does not equal current input, we can assume that if last input is no input
+                    // Then current input must be active
+                    StartInput();
+                }
+                else
+                {
+                    // Similarly this is off
+                    EndInput();
+                    cooldownCurrent -= cooldown;
+                }
+            }
+        }
+        else
+        {
+            cooldownCurrent += Time.deltaTime;
+        }
+
+        lastInput = input.Get<float>();
     }
 
     void OnDestroy()
@@ -85,7 +119,7 @@ public class SkillUEI : MonoBehaviour
         }
     }
 
-    public void StartInput(Vector3 input)
+    public void StartInput()
     {
         foreach (SkillSequence sequence in sequences)
         {
@@ -93,7 +127,7 @@ public class SkillUEI : MonoBehaviour
         }
     }
 
-    public void EndInput(Vector3 input)
+    public void EndInput()
     {
         foreach (SkillSequence sequence in sequences)
         {

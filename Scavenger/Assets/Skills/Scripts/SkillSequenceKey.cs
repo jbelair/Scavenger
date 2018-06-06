@@ -71,5 +71,5 @@ public class SkillSequenceKey
     [Tooltip("This is the cooldown override this sequence key will set the skill to have for one activation, if this key is the key that activates.")]
     public float cooldownOverride;
     [Tooltip("This is the array of instantiables this key will create on activation.")]
-    public GameObject[] instantiables;
+    public Instantiable[] instantiables;
 }

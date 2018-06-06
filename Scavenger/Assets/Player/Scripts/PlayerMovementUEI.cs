@@ -7,8 +7,20 @@ public class PlayerMovementUEI : MonoBehaviour
 {
     public Statistics statistics;
 
-    public Statistic movementInput;
-    public Statistic rigidbody;
+    public string statisticMovementInput = "Movement Input";
+    public string statisticRigidbody2D = "Rigidbody";
+    public string statisticAcceleration = "Acceleration";
+    public string statisticMaximumSpeed = "Maximum Speed";
+    public string statisticThrustDelta = "Thrust Delta";
+    public string statisticManeuverability = "Maneuverability";
+
+    private Statistic movementInput, 
+        acceleration,
+        maximumSpeed,
+        thrustDelta,
+        maneuverability;
+
+    public new Rigidbody2D rigidbody;
 
     // Use this for initialization
     void Start()
@@ -21,25 +33,32 @@ public class PlayerMovementUEI : MonoBehaviour
     {
         if (movementInput == null)
         {
-            movementInput = statistics["Movement Input"];
-            rigidbody = statistics["Rigidbody"];
+            movementInput = statistics[statisticMovementInput];
+            rigidbody = statistics[statisticRigidbody2D].Get<Rigidbody2D>();
+            acceleration = statistics[statisticAcceleration];
+            maximumSpeed = statistics[statisticMaximumSpeed];
+            thrustDelta = statistics[statisticThrustDelta];
+            maneuverability = statistics[statisticManeuverability];
         }
         // Check if movement input is being supplied
-        Vector2 input = movementInput.Get<Vector2>();
-        Rigidbody2D rigid = rigidbody.Get<Rigidbody2D>();
+        Vector2 input = movementInput;
 
         if (input.magnitude > 0)
         {
             // Accelerate
-            rigid.velocity = Vector2.MoveTowards(rigid.velocity, input * statistics["Maximum Velocity"].Get<float>() * input.magnitude, statistics["Acceleration"].Get<float>() * Time.fixedDeltaTime);
-            rigid.rotation = Mathf.MoveTowardsAngle(rigid.rotation, Mathf.Atan2(-rigid.velocity.x, rigid.velocity.y) * Mathf.Rad2Deg, statistics["Turn Rate"].Get<float>() * Time.fixedDeltaTime);
+            float inputAngle = Mathf.Atan2(-input.x, input.y) * Mathf.Rad2Deg;
+
+            if (Mathf.Abs(rigidbody.rotation - inputAngle) < thrustDelta)
+                rigidbody.velocity = Vector2.MoveTowards(rigidbody.velocity, new Vector2(-Mathf.Sin(rigidbody.rotation * Mathf.Deg2Rad), Mathf.Cos(rigidbody.rotation * Mathf.Deg2Rad)) * maximumSpeed * input.magnitude, acceleration * Time.fixedDeltaTime);
+
+            rigidbody.rotation = Mathf.MoveTowardsAngle(rigidbody.rotation, inputAngle, maneuverability * Time.fixedDeltaTime);
         }
         else
         {
-            if (rigid.velocity.magnitude > 0)
+            if (rigidbody.velocity.magnitude > 0)
             {
                 // Decelerate
-                rigid.velocity = Vector2.MoveTowards(rigid.velocity, Vector2.zero, statistics["Acceleration"].Get<float>() * Time.fixedDeltaTime);
+                rigidbody.velocity = Vector2.MoveTowards(rigidbody.velocity, Vector2.zero, acceleration * Time.fixedDeltaTime);
             }
         }
     }
