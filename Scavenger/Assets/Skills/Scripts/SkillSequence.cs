@@ -57,21 +57,22 @@ public class SkillSequence
 
     [Tooltip("Defines the name for this skill sequence, this is purely for ease of use.")]
     public string name;
-    [Header("Skill"),Tooltip("This is the skill that owns this sequence, and can either be connected in editor, or left to runtime, where skill will automatically do it if it hasn't been done already.")]
+    [Header("Skill"), Tooltip("This is the skill that owns this sequence, and can either be connected in editor, or left to runtime, where skill will automatically do it if it hasn't been done already.")]
     public SkillUEI skill;
-    [Header("Format"),Tooltip("This is the input format this sequence will respond to, and defines how this skill becomes activated.")]
+    [Header("Format"), Tooltip("This is the input format this sequence will respond to, and defines how this skill becomes activated.")]
     public InputFormat inputFormat;
     [Tooltip("This is the number of times this sequence has been activated, and dicates what skill sequence keys will activate, by their interval number.")]
     public int inputs = 0;
     [Tooltip("This is the format in which this sequence progresses across its duration")]
     public SequenceFormat sequenceFormat;
-    [Header("Sequence"),Tooltip("This is the list of keys the sequence evaluates across.")]
+    [Header("Sequence"), Tooltip("This is the list of keys the sequence evaluates across.")]
     public List<SkillSequenceKey> keys = new List<SkillSequenceKey>();
     public int index = 0;
-    [Header("References"),Tooltip("This is the list of all instantiated objects this sequence is responsible for, in the event of Instant, SequentialCharge, GuaranteedCharge, and Delay.")]
+    [Header("References"), Tooltip("This is the list of all instantiated objects this sequence is responsible for, in the event of Instant, SequentialCharge, GuaranteedCharge, and Delay.")]
     public List<Instantiable> instantiatedObjects = new List<Instantiable>();
-    [Header("State"),Tooltip("This defines if this sequence is currently active or not, though not what behaviour activation performs.")]
+    [Header("State"), Tooltip("This defines if this sequence is currently active or not, though not what behaviour activation performs.")]
     public bool isActivated = false;
+    public bool lastActivated = false;
     public bool isToggled = false;
 
     /// <summary>
@@ -79,7 +80,95 @@ public class SkillSequence
     /// </summary>
     public void Update()
     {
-    
+        SkillSequenceKey active = keys[index];
+
+        if (isActivated)
+            active.durationCurrent += Time.deltaTime;
+
+        switch (active.format)
+        {
+            case SkillSequenceKey.SequenceFormat.Instant:
+                if (lastActivated && !isActivated)
+                {
+                    // They have stopped supplying input
+                    // Instants evaluate the second this is the case
+                    Evaluate();
+                }
+                break;
+            case SkillSequenceKey.SequenceFormat.SequentialCharge:
+                if (lastActivated && !isActivated)
+                {
+                    // They have stopped supplying input
+                    // Sequential Charge evaluate the second this is the case 
+                    Evaluate();
+                }
+                break;
+            case SkillSequenceKey.SequenceFormat.GuaranteedCharge:
+                if (lastActivated && !isActivated)
+                {
+                    Evaluate();
+                }
+                else if (active.durationCurrent >= active.duration)
+                {
+                    Evaluate();
+                }
+                break;
+            case SkillSequenceKey.SequenceFormat.InterruptibleChannel:
+                if (isActivated && !lastActivated)
+                {
+                    Evaluate();
+                }
+                else if (!isActivated && lastActivated)
+                {
+                    End();
+                    isActivated = false;
+                }
+                break;
+            case SkillSequenceKey.SequenceFormat.NonInterruptibleChannel:
+                if (isActivated && !lastActivated)
+                {
+                    Evaluate();
+                }
+
+                if (active.durationCurrent < active.duration)
+                    isActivated = true;
+                else
+                {
+                    End();
+                    isActivated = false;
+                }
+
+                break;
+            case SkillSequenceKey.SequenceFormat.Delay:
+                if (active.durationCurrent > 0)
+                {
+                    // The current key has been activated
+                    if (active.durationCurrent >= active.duration)
+                    {
+                        // The current key has finished its delay
+                        Evaluate();
+                        isActivated = false;
+                    }
+                    else if (!isActivated)
+                        // The current key must continue to its end
+                        isActivated = true;
+                }
+                break;
+            case SkillSequenceKey.SequenceFormat.Maintain:
+                if (active.durationCurrent >= active.duration)
+                {
+                    Evaluate();
+                }
+                break;
+        }
+
+        if (active.durationCurrent > active.duration)
+            index = (index + 1) % keys.Count;
+
+        if (!isActivated)
+            index = 0;
+
+        lastActivated = isActivated;
     }
 
     /// <summary>
@@ -102,7 +191,7 @@ public class SkillSequence
             {
                 // Display Aim assists
                 // And progress across keys
-                isActivated = false;
+                isActivated = true;
             }
             else if (inputFormat == InputFormat.Passive)
             {
@@ -137,35 +226,24 @@ public class SkillSequence
 
         if (isDead)
         {
-            foreach (Instantiable instantiated in instantiatedObjects)
-            {
-                instantiated.Die();
-            }
+            End();
         }
         else
         {
             if (inputFormat == InputFormat.Active)
             {
                 // Stop aim assists
-                // Evaluate()
-                Evaluate();
-                isActivated = true;
+                isActivated = false;
             }
             else if (inputFormat == InputFormat.Passive)
             {
                 isActivated = false;
-                foreach (Instantiable instantiated in instantiatedObjects)
-                {
-                    instantiated.Die();
-                }
+                End();
             }
             else if (inputFormat == InputFormat.ToggleOn || inputFormat == InputFormat.ToggleOff)
             {
                 isToggled = !isToggled;
-                foreach (Instantiable instantiated in instantiatedObjects)
-                {
-                    instantiated.Die();
-                }
+                End();
             }
             else if (inputFormat == InputFormat.MaintainOff)
             {
@@ -176,14 +254,49 @@ public class SkillSequence
 
     public void Evaluate()
     {
-        string log = "Skill: " + skill.name + " has evaluated instantiating:\n";
         foreach (Instantiable instantiable in keys[index].instantiables)
         {
-            GameObject.Instantiate(instantiable, skill.transform.position, skill.transform.rotation);
-            log += instantiable.name + "\n";
+            Instantiable inst = GameObject.Instantiate(instantiable, skill.transform.position, skill.transform.rotation);
+            Statistics instStats = inst.GetComponent<Statistics>();
+            IEnumerable<StatisticUEI> stats = instStats.unityStatistics.Where(stat => stat.name == "Player");
+            PlayerUEI player = skill.statistics["Player"].Get<PlayerUEI>();
+            GameObject playerGO = player.gameObject;
+            foreach (StatisticUEI stat in stats)
+                stat.valueGO = playerGO;
+
+            instStats["Relative Velocity"].Set(instStats["Player"].Get<PlayerUEI>().statistics["Rigidbody"].Get<Rigidbody2D>().velocity);
+
+            Statistic aiming = player.statistics["Aiming"];
+
+            if (aiming.type == Statistic.ValueType.Vector2)
+            {
+                Vector3 aim = aiming.Get<Vector2>();
+                SkillAimingModes.Aim(player.transform, inst.transform, keys[index].aimingFormat, Vector3.zero, aim);
+            }
+            else if (aiming.type == Statistic.ValueType.Vector3)
+            {
+                Vector3 aim = aiming.Get<Vector3>();
+                SkillAimingModes.Aim(player.transform, inst.transform, keys[index].aimingFormat, aim, Vector3.zero);
+            }
         }
 
-        if (inputFormat == InputFormat.Active)
-            isActivated = false;
+        foreach (SkillSequenceKey key in keys)
+        {
+            //key.durationCurrent -= key.duration;
+            key.durationCurrent = 0;
+        }
+
+        //index = 0;
+
+        //if (inputFormat == InputFormat.Active)
+        //    isActivated = false;
+    }
+
+    public void End()
+    {
+        foreach (Instantiable instantiated in instantiatedObjects)
+        {
+            instantiated.Die();
+        }
     }
 }

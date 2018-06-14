@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114597988406117290}
   - component: {fileID: 114598837821616848}
   - component: {fileID: 114318454976775680}
+  - component: {fileID: 114730464791328286}
   m_Layer: 0
   m_Name: ProjectileSlugger
   m_TagString: Untagged
@@ -33,23 +34,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1526000140726690
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4212391686294732}
-  - component: {fileID: 33743769223855066}
-  - component: {fileID: 23987201960225460}
-  m_Layer: 0
-  m_Name: Capsule
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!1 &1553040031092622
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,6 +43,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4767594420111384}
   - component: {fileID: 96742681983960720}
+  - component: {fileID: 114427630323044894}
   m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
@@ -75,6 +60,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4402713462608392}
   - component: {fileID: 108322255427284678}
+  - component: {fileID: 114102490988508766}
+  - component: {fileID: 114354371585928278}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -82,19 +69,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4212391686294732
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1526000140726690}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4228683044011244}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4228683044011244
 Transform:
   m_ObjectHideFlags: 1
@@ -106,7 +80,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4767594420111384}
-  - {fileID: 4212391686294732}
   - {fileID: 4402713462608392}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -122,7 +95,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4228683044011244}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4767594420111384
 Transform:
@@ -137,47 +110,6 @@ Transform:
   m_Father: {fileID: 4228683044011244}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23987201960225460
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1526000140726690}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &33743769223855066
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1526000140726690}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!50 &50476100929123594
 Rigidbody2D:
   serializedVersion: 4
@@ -212,7 +144,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.0000002
+  m_Radius: 2
 --- !u!96 &96742681983960720
 TrailRenderer:
   serializedVersion: 2
@@ -299,7 +231,7 @@ TrailRenderer:
     textureMode: 0
     generateLightingData: 0
   m_MinVertexDistance: 0.01
-  m_Autodestruct: 0
+  m_Autodestruct: 1
 --- !u!108 &108322255427284678
 Light:
   m_ObjectHideFlags: 1
@@ -311,7 +243,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0, g: 0.46206903, b: 1, a: 1}
   m_Intensity: 5
-  m_Range: 20
+  m_Range: 5
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -323,7 +255,7 @@ Light:
     m_NormalBias: 0.4
     m_NearPlane: 0.2
   m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
+  m_DrawHalo: 1
   m_Flare: {fileID: 0}
   m_RenderMode: 0
   m_CullingMask:
@@ -336,6 +268,19 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114102490988508766
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1598838779680294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00246c2d5b992f6458b078fbc0afbcb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TimeOut: 1
+  m_DetachChildren: 0
 --- !u!114 &114318454976775680
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -348,6 +293,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDead: 0
+--- !u!114 &114354371585928278
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1598838779680294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b364e4fce28488c49a3f566848560f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light: {fileID: 108322255427284678}
+  colours:
+    format: 0
+    repetitions: 0
+    interpolation: 1
+    index: 0
+    end:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    array:
+    - name: 
+      duration: 0.5
+      durationCurrent: 0
+      value: {r: 0, g: 0.46206903, b: 1, a: 1}
+    - name: 
+      duration: 0.5
+      durationCurrent: 0
+      value: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &114427630323044894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1553040031092622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00246c2d5b992f6458b078fbc0afbcb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TimeOut: 2
+  m_DetachChildren: 0
 --- !u!114 &114502920962786866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -372,6 +361,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 114502920962786866}
+  statisticPlayer: Player
+  statisticRigidbody: Rigidbody
+  statisticPlayerRigidbody: Rigidbody
+  statisticFormat: Format
+  statisticStartingPosition: Starting Position
+  statisticVelocity: Velocity
+  statisticMaximumVelocity: Maximum Velocity
+  statisticRelativeVelocity: Relative Velocity
+  statisticAcceleration: Acceleration
+  statisticTurnRate: Turn Rate
+  statisticLateralWander: Lateral Wander
+  statisticLateralWanderTime: Lateral Wander Time
+  statisticLateralWanderCurrent: Lateral Wander Current
+  statisticLateralWanderOffset: Lateral Wander Offset
+  statisticLateralWanderRandom: Lateral Wander Random
+  statisticRadialWander: Radial Wander
+  statisticRadialWanderTime: Radial Wander Time
+  statisticRadialWanderCurrent: Radial Wander Current
+  statisticRadialWanderOffset: Radial Wander Offset
+  statisticRadialWanderRandom: Radial Wander Random
+  statisticTarget: Target
   debug: 0
 --- !u!114 &114598837821616848
 MonoBehaviour:
@@ -453,7 +463,7 @@ MonoBehaviour:
   - name: Acceleration
     type: 1
     valueInt: 0
-    valueFloat: 0
+    valueFloat: 50
     valueString: 
     valueColour: {r: 0, g: 0, b: 0, a: 0}
     valueV2: {x: 0, y: 0}
@@ -463,7 +473,7 @@ MonoBehaviour:
   - name: Velocity
     type: 1
     valueInt: 0
-    valueFloat: 10
+    valueFloat: 2000
     valueString: 
     valueColour: {r: 0, g: 0, b: 0, a: 0}
     valueV2: {x: 0, y: 0}
@@ -473,7 +483,17 @@ MonoBehaviour:
   - name: Maximum Velocity
     type: 1
     valueInt: 0
-    valueFloat: 10
+    valueFloat: 2000
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Turn Rate
+    type: 1
+    valueInt: 0
+    valueFloat: 360
     valueString: 
     valueColour: {r: 0, g: 0, b: 0, a: 0}
     valueV2: {x: 0, y: 0}
@@ -523,10 +543,23 @@ MonoBehaviour:
   - name: Lateral Wander Offset
     type: 1
     valueInt: 0
-    valueFloat: 1
+    valueFloat: 0
     valueString: 
     valueColour: {r: 0, g: 0, b: 0, a: 0}
     valueV2: {x: 0, y: 0}
     valueV3: {x: 0, y: 0, z: 0}
     valueGO: {fileID: 0}
     valueGOArray: []
+--- !u!114 &114730464791328286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1218860178108062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00246c2d5b992f6458b078fbc0afbcb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TimeOut: 1
+  m_DetachChildren: 1

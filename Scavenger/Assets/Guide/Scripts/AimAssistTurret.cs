@@ -42,12 +42,15 @@ public class AimAssistTurret : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate ()
     {
-        update++;
+        if (updates > 0)
+        {
+            update++;
 
-        if (update == updates)
-            update -= updates;
-        else
-            return;
+            if (update == updates)
+                update -= updates;
+            else
+                return;
+        }
 
         Vector3 rangeV = new Vector3(0, range.Get<float>());
         aimingLine.startColor = widthGlow.startColor = widthLeftAssist.startColor = widthRightAssist.startColor = radius.startColor = radius.endColor = guideColour;
@@ -65,13 +68,18 @@ public class AimAssistTurret : MonoBehaviour
         if (aiming.type == Statistic.ValueType.Vector2)
         {
             Vector3 aim = aiming.Get<Vector2>();
-            aim = new Vector3(-aim.x, aim.y);
-            transform.up = Vector3.RotateTowards(transform.up, aim, aimingSpeed.Get<float>() * Time.deltaTime, aimingSpeed.Get<float>() * Time.deltaTime);
+            aim = new Vector3(aim.x, aim.y);
+
+            //Vector3 up = transform.up;
+            SkillAimingModes.Aim(player.transform, transform, SkillAimingModes.AimingFormat.Turret, Vector3.zero, aim);
+            //transform.up = Vector3.RotateTowards(up, transform.up, aimingSpeed.Get<float>() * Time.deltaTime, aimingSpeed.Get<float>() * Time.deltaTime);
         }
         else if (aiming.type == Statistic.ValueType.Vector3)
         {
-            Vector3 aim = aiming.Get<Vector3>() - player.transform.position;
-            transform.up = Vector3.RotateTowards(transform.up, aim, aimingSpeed.Get<float>() * Time.deltaTime, aimingSpeed.Get<float>() * Time.deltaTime);
+            Vector3 aim = aiming.Get<Vector3>();
+            //Vector3 up = transform.up;
+            SkillAimingModes.Aim(player.transform, transform, SkillAimingModes.AimingFormat.Turret, aim, Vector2.zero);
+            //transform.up = Vector3.RotateTowards(up, transform.up, aimingSpeed.Get<float>() * Time.deltaTime, aimingSpeed.Get<float>() * Time.deltaTime);
         }
     }
 }

@@ -6,56 +6,86 @@ using UnityEngine;
 public class ProjectileMovementUEI : MonoBehaviour
 {
     public ProjectileUEI projectile;
-    //[Header("Basics"), Tooltip("Owner is the creator of this projectile")]
-    //public GameObject owner;
-    //[Tooltip("Rigidbody is the 2D rigidbody of this projectile.")]
-    //public new Rigidbody2D rigidbody;
-    //[Tooltip("Skill is the current instance of a skill responsible for making this projectile")]
-    //public SkillUEI skill;
-    //public Vector2 startPosition;
-    //[Header("Format"), Tooltip("Format defines what behaviour the projectile will use in game. Check the GDD for descriptions of each, or the enum in the code.")]
-    //public ProjectileMovement.MovementFormat format = ProjectileMovement.MovementFormat.Shot;
-    //[Header("Movement"), Tooltip("Velocity defines the starting speed this projectile will be traveling at.")]
-    //public float velocity = 1000;
-    //[Tooltip("Velocity Max defines the maximum velocity this projectile can achieve.")]
-    //public float velocityMax = 1000;
-    //[Tooltip("Velocity Relative defines the relative velocity of the owner when this projectile was made, which it should inherit.")]
-    //public float velocityRelative = 0;
-    //[Tooltip("Acceleration defines how many metres per second squared will be added to velocity until it reaches velocityMax.")]
-    //public float acceleration = 1000;
-    //[Header("Turnrate"), Tooltip("Turn Rate is used by any behaviours that cause the projectile to change orientation, and acts as a maximum limiter on rotation. In degrees per second")]
-    //public float turnRate = 0;
-    //[Header("Homing"), Tooltip("If the projectile needs to know about a target, because its behaviour needs it, this is what it will use.")]
-    //public Transform target = null;
-    //[Header("Lateral Wander"), Tooltip("Lateral Wander defines what percentage of the acceleration will be applied to make the projectile wander to its left or right locally.")]
-    //public float lateralWander = 0;
-    //[Tooltip("Lateral Wander Time defines how long it takes to add lateral velocity to the ship, defining how rapidly the projectile can wander left and right locally.")]
-    //public float lateralWanderTime = 0;
-    //[Range(0.0f, 1.0f), Tooltip("Lateral Wander Randomness defines the randomness of the duration of each lateral shift.")]
-    //public float lateralWanderRandomness = 0;
-    //[Header("Lateral Wander Debug")]
-    //public Vector2 lateralWanderOffset;
-    //public float lateralWanderCurrent = 0;
-    //[Header("Radial Wander"), Tooltip("Radial Wander defines what maximum rotation in radians can be achieved in a second, causing the projectile to spiral and turn.")]
-    //public float radialWander = 0;
-    //[Tooltip("Radial Wander Time defines how long it takes to transition to the new radians orientation.")]
-    //public float radialWanderTime = 0;
-    //[Range(0.0f, 1.0f), Tooltip("Radial Wander Randomness defines the randomness of the duration of each radial shift.")]
-    //public float radialWanderRandomness = 0;
-    //[Header("Radial Wander Debug")]
-    //public float radialWanderOffset = 0;
-    //public float radialWanderCurrent = 0;
+
+    public string statisticPlayer = "Player";
+    public string statisticRigidbody = "Rigidbody";
+    public string statisticPlayerRigidbody = "Rigidbody";
+    public string statisticFormat = "Format";
+    public string statisticStartingPosition = "Starting Position";
+    public string statisticVelocity = "Velocity";
+    public string statisticMaximumVelocity = "Maximum Velocity";
+    public string statisticRelativeVelocity = "Relative Velocity";
+    public string statisticAcceleration = "Acceleration";
+    public string statisticTurnRate = "Turn Rate";
+    public string statisticLateralWander = "Lateral Wander";
+    public string statisticLateralWanderTime = "Lateral Wander Time";
+    public string statisticLateralWanderCurrent = "Lateral Wander Current";
+    public string statisticLateralWanderOffset = "Lateral Wander Offset";
+    public string statisticLateralWanderRandom = "Lateral Wander Random";
+    public string statisticRadialWander = "Radial Wander";
+    public string statisticRadialWanderTime = "Radial Wander Time";
+    public string statisticRadialWanderCurrent = "Radial Wander Current";
+    public string statisticRadialWanderOffset = "Radial Wander Offset";
+    public string statisticRadialWanderRandom = "Radial Wander Random";
+    public string statisticTarget = "Target";
+
+    new public Statistic rigidbody;
+    public Statistic player,
+        startingPosition,
+        format,
+        velocity,
+        maximumVelocity,
+        relativeVelocity,
+        acceleration,
+        turnRate,
+        lateralWander,
+        lateralWanderTime,
+        lateralWanderCurrent,
+        lateralWanderOffset,
+        lateralWanderRandom,
+        radialWander,
+        radialWanderTime,
+        radialWanderCurrent,
+        radialWanderOffset,
+        radialWanderRandom,
+        target;
 
     public bool debug = false;
 
     // Use this for initialization
     void Start()
     {
-        //rigidbody = projectile.statistics["Rigidbody"].Get<GameObject>().GetComponent<Rigidbody2D>();
-        //startPosition = rigidbody.position;
+        player = projectile.statistics[statisticPlayer];
+        rigidbody = projectile.statistics[statisticRigidbody];
+        format = projectile.statistics[statisticFormat];
+        startingPosition = projectile.statistics[statisticStartingPosition];
+        velocity = projectile.statistics[statisticVelocity];
+        maximumVelocity = projectile.statistics[statisticMaximumVelocity];
+        relativeVelocity = projectile.statistics[statisticRelativeVelocity];
+        acceleration = projectile.statistics[statisticAcceleration];
+        if (projectile.statistics.Has(statisticTurnRate))
+            turnRate = projectile.statistics[statisticTurnRate];
+        if (projectile.statistics.Has(statisticLateralWander))
+        {
+            lateralWander = projectile.statistics[statisticLateralWander];
+            lateralWanderTime = projectile.statistics[statisticLateralWanderTime];
+            lateralWanderCurrent = projectile.statistics[statisticLateralWanderCurrent];
+            lateralWanderOffset = projectile.statistics[statisticLateralWanderOffset];
+            lateralWanderRandom = projectile.statistics[statisticLateralWanderRandom];
+        }
+        if (projectile.statistics.Has(statisticRadialWander))
+        {
+            radialWander = projectile.statistics[statisticRadialWander];
+            radialWanderTime = projectile.statistics[statisticRadialWanderTime];
+            radialWanderCurrent = projectile.statistics[statisticRadialWanderCurrent];
+            radialWanderOffset = projectile.statistics[statisticRadialWanderOffset];
+            radialWanderRandom = projectile.statistics[statisticRadialWanderRandom];
+        }
+        if (projectile.statistics.Has(statisticTarget))
+            target = projectile.statistics[statisticTarget];
 
-        projectile.statistics["Starting Position"].Set(projectile.statistics["Rigidbody"].Get<Rigidbody2D>().position);
-        projectile.statistics["Relative Velocity"].Set(projectile.statistics["Player"].Get<PlayerUEI>().statistics["Rigidbody"].Get<Rigidbody2D>().velocity);
+        startingPosition.Set(rigidbody.Get<Rigidbody2D>().position);
+        relativeVelocity.Set(player.Get<PlayerUEI>().statistics[statisticPlayerRigidbody].Get<Rigidbody2D>().velocity);
     }
 
     // Update is called once per frame

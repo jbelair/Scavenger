@@ -37,7 +37,11 @@ public class ActionAnalogStick : ActionInputBase
             if (Input.GetKey(right))
                 input += Vector2.left * iX;
         }
-        else if(axisX != "" && axisY != "")
+        else if (axisX == axisY && axisX == "Mouse Position")
+        {
+            input = Input.mousePosition - new Vector3(Screen.width / 2, Screen.height / 2, 0);
+        }
+        else if (axisX != "" && axisY != "")
         {
             input += Vector2.right * Input.GetAxis(axisX) * iX;
             input += Vector2.up * Input.GetAxis(axisY) * iY;

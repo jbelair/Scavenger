@@ -48,7 +48,7 @@ public static class ProjectileMovement
 
     public static void Move(ProjectileMovementUEI move)
     {
-        move.projectile.statistics["Rigidbody"].Get<Rigidbody2D>().MovePosition(Movements[(MovementFormat)move.projectile.statistics["Format"].Get<int>()].Invoke(move));
+        move.rigidbody.Get<Rigidbody2D>().MovePosition(Movements[(MovementFormat)move.format.Get<int>()].Invoke(move));
     }
 
     /// <summary>
@@ -57,40 +57,40 @@ public static class ProjectileMovement
     /// <param name="move">The projectile executing Shot movement logic.</param>
     public static Vector2 Shot(ProjectileMovementUEI move)
     {
-        move.projectile.statistics["Velocity"].Set(move.projectile.statistics["Velocity"].Get<float>() + move.projectile.statistics["Acceleration"].Get<float>() * Time.deltaTime);
+        move.velocity.Set(move.velocity.Get<float>() + move.acceleration.Get<float>() * Time.deltaTime);
 
-        if (move.projectile.statistics["Velocity"].Get<float>() > move.projectile.statistics["Maximum Velocity"].Get<float>() + move.projectile.statistics["Relative Velocity"].Get<float>())
-            move.projectile.statistics["Velocity"].Set(move.projectile.statistics["Maximum Velocity"].Get<float>() + move.projectile.statistics["Relative Velocity"].Get<float>());
+        if (move.velocity.Get<float>() > move.maximumVelocity.Get<float>())
+            move.velocity.Set(move.maximumVelocity.Get<float>());
 
-        Rigidbody2D rigid = move.projectile.statistics["Rigidbody"].Get<Rigidbody2D>();
-        Vector2 position = rigid.position + (Vector2)move.transform.up * move.projectile.statistics["Velocity"].Get<float>();
+        Rigidbody2D rigid = move.rigidbody.Get<Rigidbody2D>();
+        Vector2 position = rigid.position + ((Vector2)move.transform.up * move.velocity.Get<float>() + move.relativeVelocity.Get<Vector2>()) * Time.deltaTime;
 
         if (move.projectile.statistics.Has("Lateral Wander"))
         {
-            float lateralWander = move.projectile.statistics["Lateral Wander"].Get<float>();
-            float lateralWanderTime = move.projectile.statistics["Lateral Wander Time"].Get<float>();
-            if (move.projectile.statistics["Lateral Wander Current"].Get<float>() >= lateralWanderTime)
+            float lateralWander = move.lateralWander.Get<float>();
+            float lateralWanderTime = move.lateralWanderTime.Get<float>();
+            if (move.lateralWanderCurrent.Get<float>() >= lateralWanderTime)
             {
-                move.projectile.statistics["Lateral Wander Current"].Set(move.projectile.statistics["Lateral Wander Current"].Get<float>() - lateralWanderTime + UnityEngine.Random.Range(0.0f, lateralWanderTime) * move.projectile.statistics["Lateral Wander Random"].Get<float>());
-                move.projectile.statistics["Lateral Wander Offset"].Set(UnityEngine.Random.Range(-1.0f, 1.0f) * (Vector2)move.transform.right * move.projectile.statistics["Acceleration"].Get<float>() * lateralWander);
+                move.lateralWanderCurrent.Set(move.lateralWanderCurrent.Get<float>() - lateralWanderTime + UnityEngine.Random.Range(0.0f, lateralWanderTime) * move.lateralWanderRandom.Get<float>());
+                move.lateralWanderOffset.Set(UnityEngine.Random.Range(-1.0f, 1.0f) * (Vector2)move.transform.right * move.acceleration.Get<float>() * lateralWander);
             }
 
-            position += move.projectile.statistics["Lateral Wander Offset"].Get<Vector2>() * Time.deltaTime / lateralWanderTime;
-            move.projectile.statistics["Lateral Wander Current"].Set(move.projectile.statistics["Lateral Wander Current"].Get<float>() + Time.deltaTime);
+            position += move.lateralWanderOffset.Get<Vector2>() * Time.deltaTime / lateralWanderTime;
+            move.lateralWanderCurrent.Set(move.lateralWanderCurrent.Get<float>() + Time.deltaTime);
         }
 
         if (move.projectile.statistics.Has("Radial Wander"))
         {
-            float radialWander = move.projectile.statistics["Radial Wander"].Get<float>();
-            float radialWanderTime = move.projectile.statistics["Radial Wander Time"].Get<float>();
-            if (move.projectile.statistics["Radial Wander Current"].Get<float>() >= radialWanderTime)
+            float radialWander = move.radialWander.Get<float>();
+            float radialWanderTime = move.radialWanderTime.Get<float>();
+            if (move.radialWanderCurrent.Get<float>() >= radialWanderTime)
             {
-                move.projectile.statistics["Radial Wander Current"].Set(move.projectile.statistics["Radial Wander Current"].Get<float>() - radialWanderTime + UnityEngine.Random.Range(0.0f, radialWanderTime) * move.projectile.statistics["Radial Wander Random"].Get<float>());
-                move.projectile.statistics["Radial Wander Offset"].Set(UnityEngine.Random.Range(-1.0f, 1.0f) * move.projectile.statistics["Turn Rate"].Get<float>() * radialWander / radialWanderTime);
+                move.radialWanderCurrent.Set(move.radialWanderCurrent.Get<float>() - radialWanderTime + UnityEngine.Random.Range(0.0f, radialWanderTime) * move.radialWanderRandom.Get<float>());
+                move.radialWanderOffset.Set((UnityEngine.Random.Range(-1.0f, 1.0f) * move.turnRate.Get<float>() * radialWander / radialWanderTime) * Mathf.Deg2Rad);
             }
 
-            rigid.MoveRotation(rigid.rotation + move.projectile.statistics["Radial Wander Offset"].Get<float>() * Time.deltaTime);
-            move.projectile.statistics["Radial Wander Current"].Set(move.projectile.statistics["Radial Wander Current"].Get<float>() + Time.deltaTime);
+            rigid.MoveRotation(rigid.rotation + move.radialWanderOffset.Get<float>() * Time.deltaTime);
+            move.radialWanderCurrent.Set(move.radialWanderCurrent.Get<float>() + Time.deltaTime);
         }
 
         return position;
@@ -107,7 +107,7 @@ public static class ProjectileMovement
 
         if (move.projectile.statistics.Has("Target"))
         {
-            delta = move.projectile.statistics["Target"].Get<GameObject>().transform.position - move.transform.position;
+            delta = move.target.Get<GameObject>().transform.position - move.transform.position;
         }
 
         delta.Normalize();
@@ -115,8 +115,8 @@ public static class ProjectileMovement
         // dotR = dot product of delta and projectile's right
         float dotR = Vector2.Dot(move.transform.right, delta);
 
-        Rigidbody2D rigid = move.projectile.statistics["Rigidbody"].Get<Rigidbody2D>();
-        float turnRate = move.projectile.statistics["Turn Rate"].Get<float>();
+        Rigidbody2D rigid = move.rigidbody.Get<Rigidbody2D>();
+        float turnRate = move.turnRate.Get<float>();
         // as dotR approaches 1 the projectile's right side is facing the direction the projectile's forward needs to face
         // as dotR falls below 0 the left side is facing the direction the projectiles forward needs to face
         if (dotR <= 0)
@@ -150,15 +150,15 @@ public static class ProjectileMovement
     public static Vector2 Return(ProjectileMovementUEI move)
     {
         Vector2 position = Shot(move);
-        Vector2 delta = move.projectile.statistics["Owner"].Get<GameObject>().transform.position - move.transform.position;
+        Vector2 delta = move.player.Get<GameObject>().transform.position - move.transform.position;
 
         delta.Normalize();
 
         // dotR = dot product of delta and projectile's right
         float dotR = Vector2.Dot(move.transform.right, delta);
 
-        Rigidbody2D rigid = move.projectile.statistics["Rigidbody"].Get<Rigidbody2D>();
-        float turnRate = move.projectile.statistics["Turn Rate"].Get<float>();
+        Rigidbody2D rigid = move.rigidbody.Get<Rigidbody2D>();
+        float turnRate = move.turnRate.Get<float>();
         // as dotR approaches 1 the projectile's right side is facing the direction the projectile's forward needs to face
         // as dotR falls below 0 the left side is facing the direction the projectiles forward needs to face
         if (dotR <= 0)

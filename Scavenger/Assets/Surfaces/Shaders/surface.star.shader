@@ -3,14 +3,16 @@
 	Properties
 	{
 		_Phase("Atmosphere Phase", Vector) = (0.75,0.825,1,1)
-		_Kelvin("Temperature (K)", Range(1,100000)) = 3000
-		_KelvinRange("Range (K)", Range(1,100000)) = 500
-		_KelvinMax("Maximum (K)", Float) = 100000
+		_Kelvin("Temperature (K)", Range(1,30000)) = 3000
+		_KelvinRange("Range (K)", Range(1,30000)) = 500
+		_KelvinMax("Maximum (K)", Float) = 30000
 		_HDR("Emissive HDR Intensity", Range(1,8)) = 8
 		[NoScaleOffset]_Emissive("Colour Map", 2D) = "white" {}
-		_Spin("Spin", Float) = 0.01
-		_Turbulence("Turbulence", Float) = 0.01
+		_Spin("Spin", Float) = 0.1
+		_Turbulence("Turbulence", Float) = 0.25
 		_Octaves("Turbulence Octaves", Int) = 2
+		_Scale("Turbulence Scales", Vector) = (1,2,8,1)
+		_Speed("Turbulence Speed", Vector) = (1,2,4,1)
 		_Scattering("Gas Scattering", Range(0,1)) = 0.1
 		_Texture("Gas Giant (RGB)", 2D) = "white" {}
 		_Normal("Gas Giant (Normal)", 2D) = "bump" {}
@@ -32,14 +34,13 @@
 		// Physically based Standard lighting model, and enable shadows on all light types
 		#pragma surface surf WrapScattering vertex:vert
 
-		// Use shader model 3.0 target, to get nicer looking lighting
-		#pragma target 4.6
+		#pragma target 4.0
 
 		static const float Y = 500;
 		static const float L = 2000;
 		static const float M = 3000;
 		static const float F = 7500;
-		static const float O = 100000;
+		static const float O = 30000;
 
 		float _Kelvin;
 		float _KelvinRange;
@@ -51,6 +52,8 @@
 		float _Spin;
 		float _Turbulence;
 		int _Octaves;
+		float4 _Scale;
+		float4 _Speed;
 		sampler2D _Texture;
 		fixed4 _Texture_ST;
 		sampler2D _Normal;
@@ -121,7 +124,8 @@
 			k = SampleKelvin(c);
 
 			float kX = k / _KelvinMax;
-			c = lerp(tex1D(_Emissive, (_Kelvin + _KelvinRange) / _KelvinMax), c * tex1D(_Emissive, kX), min(clamp(uv.z,0,1), 1 - uv.w)).rgb * _HDR;
+			//c = lerp(tex1D(_Emissive, (_Kelvin + _KelvinRange) / _KelvinMax), c * tex1D(_Emissive, kX), min(clamp(uv.z,0,1), 1 - uv.w)).rgb * _HDR;
+			c = lerp(tex1D(_Emissive, (_Kelvin + _KelvinRange) / _KelvinMax), c * tex1D(_Emissive, kX), min(saturate(uv.z), 1 - uv.w)).rgb * _HDR;
 
 			return c;
 		}
@@ -156,41 +160,44 @@
 		{
 			UNITY_INITIALIZE_OUTPUT(Input, o);
 			o.localPos = v.vertex.xyz;
-			o.texturePos = float3(v.texcoord.xy, 1 - pow(abs(v.vertex.y), 2));
+			o.texturePos = float3(v.texcoord.xy, 1 - pow(abs(v.vertex.y), 5));
 			o.normal = v.normal;
 		}
 
 		void surf(Input IN, inout SurfaceOutputStandard o)
 		{
-			float4 pD = float4(1 - pow(_Kelvin / _KelvinMax, 0.1), pow(_Kelvin / _KelvinMax, 0.5) * 128, _Kelvin / _KelvinMax * 256, pow(_Kelvin / _KelvinMax, 2) * 512);
+			float k = _Kelvin / _KelvinMax;
+			float kR = (_Kelvin + _KelvinRange) / _KelvinMax;
+			float4 pD = float4(1 - pow(k, 0.1), pow(k, 0.5) * 128, k * 256, pow(k, 2) * 512);
 
 			float3 rgbNoise = float3(0, 0, 0);
 
 			if (_Turbulence > 0)
 			{
-				rgbNoise = float3(snoise4(float4(IN.localPos * 16, _Time.x * _Spin), _Octaves), snoise4(float4(IN.localPos * 8, _Time.x * _Spin), _Octaves), snoise4(float4(IN.localPos * 128, _Time.x * _Spin), _Octaves)) * _Turbulence;
-				rgbNoise.r = cos((rgbNoise.r - 0.5) * 6.2831853);
-				rgbNoise.g = sin((rgbNoise.g - 0.5) * 6.2831853);
-				rgbNoise.b = (rgbNoise.b - 0.5);
+				rgbNoise = float3(abs(snoise4(float4(IN.localPos * _Scale.x, _Time.x * _Speed.x), _Octaves)), abs(snoise4(float4(IN.localPos * _Scale.y, _Time.x * _Speed.y), _Octaves)), abs(snoise4(float4(IN.localPos * _Scale.z, _Time.x * _Speed.z), _Octaves))) * _Turbulence;
+				//rgbNoise.r = cos((rgbNoise.r - 0.5) * 6.2831853);
+				//rgbNoise.g = sin((rgbNoise.g - 0.5) * 6.2831853);
+				//rgbNoise.b = (rgbNoise.b - 0.5);
 			}
 
-			float freznel = saturate(dot(normalize(IN.viewDir), IN.normal));
-			float4 sampleAt = float4(IN.texturePos, lerp(0, pow(freznel, pD.x), pD.x));
+			float freznel = saturate(dot(normalize(ObjSpaceViewDir(float4(IN.viewDir, 1))), IN.normal));
+			float4 sampleAt = float4(IN.texturePos, lerp(0, 1 - freznel, pD.x));
 			sampleAt += float4(rgbNoise.r * rgbNoise.b, rgbNoise.g * rgbNoise.b, 0, 0);
 			sampleAt += float4(_Time.x * _Spin, 0, 0, 0);
 
-			float3 albedo = tex2D(_Texture, sampleAt.xy * _Texture_ST.xy + _Texture_ST.zw);
+			float3 albedo = lerp(tex2D(_Texture, sampleAt.xy * _Texture_ST.xy + _Texture_ST.zw), tex1D(_Emissive, k), pow(k, 0.5));
 			// magnitude of 1,1,1 is √3 ~ 1.732051 (1.7320508...)
 			float3 temperature = lerp(1, dot(albedo, float3(0.33, 0.56, 0.11)) / (8 * 1.732051), 1 - pD.x);
 			// magnitude of 1,1,1 is √3 ~ 1.732051 (1.7320508...)
 			o.Albedo = temperature * lerp((tex1D(_Gasses, length(albedo) / 1.732051) + tex1D(_Gasses, 1) * freznel + tex1D(_Gasses, 1) * IN.texturePos.z) / 2, tex1D(_Gasses, 1), 1 - IN.texturePos.z);
 			o.Emission = SampleAtKelvinEmission(albedo, sampleAt);
-			o.Emission = o.Emission + float3(pD.x, pD.x, pD.x) * o.Albedo * (1 - freznel) * _Scattering;
+			o.Emission = o.Emission + float3(pD.x, pD.x, pD.x) * o.Albedo * (1 - freznel) * _Scattering + tex1D(_Emissive, kR) * (freznel) * _HDR;
 
-			float3 n = lerp(UnpackNormal(tex2D(_Normal, sampleAt.xy * _Normal_ST.xy + _Normal_ST.zw)), UnpackNormal(float4(0.5, 0.5, 1, 1)), max(abs(IN.localPos.y), temperature));
-			n = float3(n.x * _NormalStrength, n.y * _NormalStrength, n.z);
-			n = normalize(n);
-			o.Normal = n;
+			//float3 n = lerp(UnpackNormal(tex2D(_Normal, sampleAt.xy * _Normal_ST.xy + _Normal_ST.zw)), UnpackNormal(float4(0.5, 0.5, 1, 1)), max(abs(IN.localPos.y), temperature));
+			//float3 n = UnpackNormal(tex2D(_Normal, sampleAt.xy * _Normal_ST.xy + _Normal_ST.zw));
+			//n = float3(n.x * _NormalStrength, n.y * _NormalStrength, n.z);
+			//n = normalize(n);
+			//o.Normal = n;
 			//o.Occlusion = tex2D(_Occlusion, sampleAt.xy * _Occlusion_ST.xy + _Occlusion_ST.zw);
 
 			o.Alpha = 1;

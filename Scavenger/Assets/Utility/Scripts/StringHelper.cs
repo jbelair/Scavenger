@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 public static class StringHelper
 {
@@ -59,5 +60,18 @@ public static class StringHelper
     {
         string value = str.Replace(" ", "");
         return value;
+    }
+
+    private static string indexIntToChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    public static string IndexIntToChar(int i)
+    {
+        int wrapAround = Mathf.FloorToInt(i / 26f);
+        int index = i - wrapAround;
+        string ret = indexIntToChar[index].ToString();
+
+        if (wrapAround > 0)
+            ret = indexIntToChar[wrapAround].ToString() + indexIntToChar[index].ToString();
+
+        return ret;
     }
 }

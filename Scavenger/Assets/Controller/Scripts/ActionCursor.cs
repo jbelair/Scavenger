@@ -36,18 +36,19 @@ public class ActionCursor : ActionInputBase
                 input.Normalize();
                 input.Set((Mathf.Abs(input.x) - sensitivity) / (1f - sensitivity) * ((input.x < 0) ? -1f : 1f), (Mathf.Abs(input.y) - sensitivity) / (1f - sensitivity) * ((input.y < 0) ? -1f : 1f), 0);
             }
-
-            //input *= strength;
         }
         else
         {
-            //input = Input.mousePosition;// - new Vector3(Screen.width/2, Screen.height/2);
-            //input.Normalize();
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
             float p = -(Vector3.Dot(ray.origin, Vector3.forward) / Vector3.Dot(ray.direction, Vector3.forward));
-
             input = ray.origin + ray.direction * p;
+
+            //RaycastHit[] hits = Physics.RaycastAll(ray);
+            //foreach (RaycastHit hit in hits)
+            //{
+            //    if (hit.collider.gameObject.name == "World Plane")
+            //        input = hit.point;
+            //}
         }
 
         lastInput = input;

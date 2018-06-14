@@ -9,11 +9,12 @@ public class LightFromStar : MonoBehaviour
     public Light light;
     public Texture2D texture;
 
-    private void Awake()
+    // Use this for initialization
+    void Start ()
     {
         if (!material)
         {
-            material = GetComponentInParent<MeshRenderer>().sharedMaterial;
+            material = GetComponent<MeshRenderer>().sharedMaterial;
             texture = (material.GetTexture("_Emissive") as Texture2D);
         }
 
@@ -23,17 +24,11 @@ public class LightFromStar : MonoBehaviour
         if (!texture)
             texture = (material.GetTexture("_Emissive") as Texture2D);
     }
-
-    // Use this for initialization
-    void Start ()
-    {
-		
-	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        light.color = texture.GetPixelBilinear(((material.GetFloat("_Kelvin") + material.GetFloat("_KelvinRange") / 2) / material.GetFloat("_KelvinMax")), 0);
+        light.color = texture.GetPixelBilinear(((material.GetFloat("_Kelvin") + material.GetFloat("_KelvinRange")) / material.GetFloat("_KelvinMax")), 0);
         light.intensity = new Vector3(light.color.r, light.color.g, light.color.b).magnitude * 8;
 	}
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class AimAssistUEI : MonoBehaviour
 {
     public Statistics player;
-    public SkillUEI.AimingFormat format;
+    public SkillAimingModes.AimingFormat format;
     public GameObject[] profiles;
 
     // Use this for initialization
@@ -24,10 +24,10 @@ public class AimAssistUEI : MonoBehaviour
     {
         switch (format)
         {
-            case SkillUEI.AimingFormat.None:
+            case SkillAimingModes.AimingFormat.None:
                 //transform.position = Vector3.zero;
                 break;
-            case SkillUEI.AimingFormat.Turret:
+            case SkillAimingModes.AimingFormat.Turret:
                 //Vector2 input = player["Aim Input"].Get<Vector2>();
                 //transform.position = input;
                 //transform.position =

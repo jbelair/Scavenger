@@ -110,6 +110,13 @@ public class Statistic
             value = new GameObject[] { go };
             isDirty = true;
         }
+        else
+        {
+            type = ValueType.GameObject;
+            value = go;
+            isDirty = true;
+            Debug.Log("Statistic: " + name + " has been switched to a GameObject");
+        }
     }
 
     public void Set(GameObject[] goArray)

@@ -55,13 +55,15 @@ public class SkillSequenceKey
         /// Delay sequence keys increase their duration so long as the player is alive, and they have received input.
         /// Activation instantiates all game objects on the sequence key that the sequence is currently evaluated to be within.
         /// </summary>
-        Delay
+        Delay,
+        Maintain
     };
 
     [Tooltip("Defines the name for this skill sequence, this is purely for ease of use.")]
     public string name;
     [Header("Format"), Tooltip("This is the sequence format and defines how this sequence key progresses through activation, and input.")]
     public SequenceFormat format;
+    public SkillAimingModes.AimingFormat aimingFormat;
     [Tooltip("On what input in the skill will this be eligible for activation.")]
     public int interval = 0;
     [Tooltip("This is the duration this sequence key takes, and is the contribution to total sequence duration of this key.")]

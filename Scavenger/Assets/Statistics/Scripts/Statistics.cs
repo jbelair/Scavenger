@@ -156,6 +156,8 @@ public class Statistics : MonoBehaviour, IStatistics, IEnumerable<Statistic>
 
     public void Update()
     {
+        Initialise();
+
         if (Application.isEditor)
         {
             if (polling)
