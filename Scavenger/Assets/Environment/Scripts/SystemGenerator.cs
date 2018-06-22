@@ -150,13 +150,11 @@ public class SystemGenerator : MonoBehaviour
             statistics[name + " Kelvin Range"] = new Statistic(name + " Kelvin Range", Statistic.ValueType.Float, kelvinRange);
 
             starPositions.Add(Random.insideUnitCircle * 1000f);
-            statistics[name + " Position"] = new Statistic(name + " Position", Statistic.ValueType.Vector2, starPositions[i]);
 
             contributions[i] = (radius * 10) + (kelvin * 10);
             centerOfMass += starPositions[i] * contributions[i];
             starPositionContributions += contributions[i];
-
-            starPositions[i] -= centerOfMass;
+            
             orbitDistances[i] = statistics["Star " + StringHelper.IndexIntToChar(i) + " Kelvin"] / 20f + 1000f * Mathf.Pow(statistics["Star " + StringHelper.IndexIntToChar(i) + " Kelvin"] / 30000f, 2);
         }
         centerOfMass /= starPositionContributions;
@@ -164,6 +162,10 @@ public class SystemGenerator : MonoBehaviour
         // Get the greatest distance between stars
         for (int i = 0; i < numberOfStars; i++)
         {
+            starPositions[i] -= centerOfMass;
+            string name = "Star " + StringHelper.IndexIntToChar(i);
+            statistics[name + " Position"] = new Statistic(name + " Position", Statistic.ValueType.Vector2, starPositions[i]);
+
             for (int j = i + 1; j < numberOfStars; j++)
             {
                 float distanceBetweenStars = (starPositions[i] - starPositions[j]).magnitude;
@@ -200,21 +202,16 @@ public class SystemGenerator : MonoBehaviour
             // Define a distance from it
             float orbitDistance = orbitDistances[star] * Random.Range(1f, 2f);// + 100f * Mathf.Pow(statistics["Star " + StringHelper.IndexIntToChar(star) + " Kelvin"] / 30000f, 2);
             orbitDistances[star] = orbitDistance;
-            // Make a random point along that distance
+            // Make a random point at that distance around a circle's circumference
             Vector2 position = starPositions[star] + Random.insideUnitCircle.normalized * orbitDistance;
 
             float[] distances = new float[numberOfStars];
-            // Iterate until the planet is not too close to another star
-
+            distances[star] = (starPositions[star] - position).magnitude;
             for (int j = 0; j < numberOfStars; j++)
             {
                 // Calculate the distance between the planet and each star
                 distances[j] = (starPositions[j] - position).magnitude;
-            }
-
-            for (int j = 0; j < numberOfStars; j++)
-            {
-                if ((starPositions[j] - position).magnitude < (starPositions[star] - position).magnitude)
+                if (distances[j] < distances[star])
                     star = j;
             }
 
@@ -266,14 +263,20 @@ public class SystemGenerator : MonoBehaviour
                 }
             }
 
-            if (failed)
-                continue;
+            statistics[name + " Failed"] = new Statistic(name + " Failed", Statistic.ValueType.Integer, 0);
+
+            //if (failed)
+            //{
+            //    Debug.Log("Planet " + (i + 1) + " of " + numberOfPlanets + " has FAILED to generate data");
+            //    statistics[name + " Failed"] = new Statistic(name + " Failed", Statistic.ValueType.Integer, 1);
+            //    continue;
+            //}
 
             float radius = Random.Range(0f, 1f);
             float radiusSkewed = planetPlotRadius.Evaluate(radius);
             statistics[name + " Radius"] = new Statistic(name + " Radius", Statistic.ValueType.Float, radiusSkewed);
             statistics[name + " Kelvin"] = new Statistic(name + " Kelvin", Statistic.ValueType.Float, kelvin);
-            statistics[name + " Position"] = new Statistic(name + " Position", Statistic.ValueType.Vector2, position);
+            statistics[name + " Position"] = new Statistic(name + " Position", Statistic.ValueType.Vector2, position - orbitCenter);
             statistics[name + " Orbit"] = new Statistic(name + " Orbit", Statistic.ValueType.Vector2, orbitCenter);
         }
 
@@ -326,6 +329,10 @@ public class SystemGenerator : MonoBehaviour
             Debug.Log("Generating planet " + (i + 1) + " of " + numberOfPlanets);
 
             string name = "Planet " + StringHelper.IndexIntToChar(i);
+
+            if (statistics[name + " Failed"].Get<int>() == 1)
+                continue;
+
             Vector2 orbitCenter = statistics[name + " Orbit"];
             EnvironmentBasedPlanet planet = Instantiate(planetPrefab, statistics[name + " Position"].Get<Vector2>(), planetPrefab.transform.rotation, transform);
             planet.name = name;
