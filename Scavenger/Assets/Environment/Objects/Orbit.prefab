@@ -54,9 +54,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   line: {fileID: 120912191752124414}
-  pointsOnCircle: 628
+  pointsOnCircle: 128
   distanceBetweenPoints: 1
-  pointsAuto: 1
+  pointsAuto: 0
   radius: 100
 --- !u!114 &114627155893607954
 MonoBehaviour:
@@ -71,11 +71,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   line: {fileID: 120912191752124414}
   minimum:
-    width: 2
-    distance: 200
+    width: 1
+    distance: 100
   maximum:
     width: 10
-    distance: 3000
+    distance: 10000
 --- !u!120 &120912191752124414
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -90,7 +90,7 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: a18db40093608934c9bd89f222074539, type: 2}
+  - {fileID: 2100000, guid: b574853de1a44f343be860830eca49e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -785,8 +785,8 @@ LineRenderer:
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
-    alignment: 0
+    alignment: 1
     textureMode: 0
     generateLightingData: 0
   m_UseWorldSpace: 0
-  m_Loop: 1
+  m_Loop: 0

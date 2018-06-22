@@ -10,7 +10,7 @@
 		[NoScaleOffset]_Emissive("Colour Map", 2D) = "white" {}
 		_Spin("Spin", Float) = 0.1
 		_Turbulence("Turbulence", Float) = 0.25
-		_Octaves("Turbulence Octaves", Int) = 2
+		_Octaves("Turbulence Octaves", Int) = 1
 		_Scale("Turbulence Scales", Vector) = (1,2,8,1)
 		_Speed("Turbulence Speed", Vector) = (1,2,4,1)
 		_Scattering("Gas Scattering", Range(0,1)) = 0.1
@@ -39,7 +39,7 @@
 		static const float Y = 500;
 		static const float L = 2000;
 		static const float M = 3000;
-		static const float F = 7500;
+		static const float F = 6000;
 		static const float O = 30000;
 
 		float _Kelvin;
@@ -160,7 +160,7 @@
 		{
 			UNITY_INITIALIZE_OUTPUT(Input, o);
 			o.localPos = v.vertex.xyz;
-			o.texturePos = float3(v.texcoord.xy, 1 - pow(abs(v.vertex.y), 5));
+			o.texturePos = float3(v.texcoord.xy, 1 - pow(abs(v.vertex.y), 2));
 			o.normal = v.normal;
 		}
 
@@ -183,7 +183,7 @@
 			float freznel = saturate(dot(normalize(ObjSpaceViewDir(float4(IN.viewDir, 1))), IN.normal));
 			float4 sampleAt = float4(IN.texturePos, lerp(0, 1 - freznel, pD.x));
 			sampleAt += float4(rgbNoise.r * rgbNoise.b, rgbNoise.g * rgbNoise.b, 0, 0);
-			sampleAt += float4(_Time.x * _Spin, 0, 0, 0);
+			sampleAt += float4(_Time.x * _Spin * (1 + kR * 4), 0, 0, 0);
 
 			float3 albedo = lerp(tex2D(_Texture, sampleAt.xy * _Texture_ST.xy + _Texture_ST.zw), tex1D(_Emissive, k), pow(k, 0.5));
 			// magnitude of 1,1,1 is √3 ~ 1.732051 (1.7320508...)
