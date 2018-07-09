@@ -6,7 +6,6 @@ using UnityEngine;
 public class LightFromStar : MonoBehaviour
 {
     public float intensity = 0.5f;
-    //public float range = 1000;
     public Material material;
     new public Light light;
     public Texture2D texture;
@@ -31,7 +30,6 @@ public class LightFromStar : MonoBehaviour
 	void Update ()
     {
         light.color = texture.GetPixelBilinear(((material.GetFloat("_Kelvin") + material.GetFloat("_KelvinRange")) / material.GetFloat("_KelvinMax")), 0);
-        light.intensity = intensity * (transform.localScale.x / 2f);// new Vector3(light.color.r, light.color.g, light.color.b).magnitude * intensity;
-        //light.range = range + range * (light.intensity / intensity);
+        light.intensity = intensity * (transform.localScale.x / 2f);
 	}
 }

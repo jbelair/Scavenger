@@ -59,7 +59,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AtmosphereDensity: 1
+    - _AtmosphereDensity: 10
     - _AtmosphereIntensity: 1
     - _AtmosphereRadius: 1.15
     - _BumpScale: 1
@@ -73,7 +73,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _PlanetDensity: 1
+    - _PlanetDensity: 0.15
     - _PlanetRadius: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

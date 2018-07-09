@@ -31,7 +31,8 @@ public class LineRendererCircle : MonoBehaviour
     public void SetCircle()
     {
         if (pointsAuto)
-            pointsOnCircle = Mathf.FloorToInt(2f * Mathf.PI * radius / distanceBetweenPoints); 
+            pointsOnCircle = Mathf.FloorToInt(2f * Mathf.PI * radius / distanceBetweenPoints);
+
         line.positionCount = pointsOnCircle;
 
         float theta = Mathf.PI * 2.0f / pointsOnCircle;

@@ -656,7 +656,7 @@ LineRenderer:
     textureMode: 0
     generateLightingData: 0
   m_UseWorldSpace: 0
-  m_Loop: 1
+  m_Loop: 0
 --- !u!120 &120329187030210470
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -806,7 +806,7 @@ LineRenderer:
     textureMode: 0
     generateLightingData: 0
   m_UseWorldSpace: 0
-  m_Loop: 1
+  m_Loop: 0
 --- !u!120 &120526232268074026
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -956,7 +956,7 @@ LineRenderer:
     textureMode: 0
     generateLightingData: 0
   m_UseWorldSpace: 0
-  m_Loop: 1
+  m_Loop: 0
 --- !u!135 &135599920771995998
 SphereCollider:
   m_ObjectHideFlags: 1

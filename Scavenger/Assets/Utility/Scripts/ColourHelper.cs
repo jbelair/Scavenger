@@ -93,4 +93,29 @@ public static class ColourHelper
 
         return normal.rgb();
     }
+
+    public static Gradient heatMap = new Gradient
+    {
+        alphaKeys = new GradientAlphaKey[]
+        {
+            new GradientAlphaKey(1, 0),
+            new GradientAlphaKey(1, 1)
+        },
+        colorKeys = new GradientColorKey[] 
+        {
+            new GradientColorKey(Color.magenta, 0f),
+            new GradientColorKey(Color.blue, 0.15f),
+            new GradientColorKey(Color.cyan, 0.3f),
+            new GradientColorKey(Color.green, 0.5f),
+            new GradientColorKey(Color.yellow, 0.75f),
+            new GradientColorKey(Color.red, 1f)
+        }
+    };
+    public static Color HeatMap(float kelvin, float low, float high)
+    {
+        float delta = high - low;
+        float position = kelvin - low;
+        float percentage = position / delta;
+        return heatMap.Evaluate(percentage);
+    }
 }

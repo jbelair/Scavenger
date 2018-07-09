@@ -17,14 +17,13 @@ public class SystemGenerator : MonoBehaviour
 
     public bool starsDisplayOrbits = true;
     public bool planetsDisplayOrbits = true;
+    public bool moonsDisplayOrbits = true;
     public AnimationCurve starPlotStars;
     public AnimationCurve starPlotRadius;
-    //public AnimationCurve starPlotMass;
     public AnimationCurve starPlotKelvin;
 
     public AnimationCurve planetPlotPlanets;
     public AnimationCurve planetPlotRadius;
-    public AnimationCurve planetPlotKelvin;
 
     public int hash = 0;
 
@@ -38,6 +37,8 @@ public class SystemGenerator : MonoBehaviour
 
         if (statistics)
         {
+            statistics.Initialise();
+
             if (!generateRandom)
                 Generate();
             else
@@ -53,7 +54,7 @@ public class SystemGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //hash = Hash(statistics["System Coordinates"].Get<Vector2>());
+
     }
 
     IEnumerator GenerateTheatricRandom()
@@ -62,7 +63,8 @@ public class SystemGenerator : MonoBehaviour
         {
             int stars = statistics["Stars"];
             int planets = statistics["Planets"];
-            if ((stopForStars > 0 && stopForStars <= stars) || (stopForPlanets > 0 && stopForPlanets <= planets))
+
+            if ((stopForStars >= 0 && stopForStars <= stars) || (stopForPlanets >= 0 && stopForPlanets <= planets))
             {
                 yield return new WaitForSeconds(stopTiming);
 
@@ -85,14 +87,16 @@ public class SystemGenerator : MonoBehaviour
     {
         Clear();
 
-        statistics["System Coordinates"].Set(Random.insideUnitCircle * 100000000);
+        statistics["System Coordinates"].Set((Vector3)(Random.insideUnitCircle * 1000000).Round());
+
+        Debug.Log("RANDOM\nPosition: " + statistics["System Coordinates"].Get<Vector3>());
 
         Generate();
     }
 
-    public int Hash(Vector2 c)
+    public int Hash(Vector3 c)
     {
-        int h = (int)c.x * 374761393 + (int)c.y * 668265263; //all constants are prime
+        int h = (int)c.x * 374761393 + (int)c.y * 668265263 + (int)c.z * 1800560953; //all constants are prime
         h = (h ^ (h >> 13)) * 1274126177;
         h = h ^ (h >> 16);
         return h;
@@ -100,17 +104,20 @@ public class SystemGenerator : MonoBehaviour
 
     public void Generate()
     {
+        System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
         GenerateEnvironment();
         GenerateGameObjects();
+        stopwatch.Stop();
+        Debug.Log("System Generation -----\nTime: " + stopwatch.ElapsedMilliseconds + "ms");
     }
 
     public void GenerateEnvironment()
     {
-        hash = Hash(statistics["System Coordinates"].Get<Vector2>());
+        hash = Hash(statistics["System Coordinates"].Get<Vector3>());
 
         Random.InitState(hash);
 
-        Debug.Log("System Generation -----\nEnvironment Data Generation Started\nPosition: " + statistics["System Coordinates"] + "\nHash: " + hash);
+        Debug.Log("System Generation -----\nEnvironment Data Generation Started\nPosition: " + statistics["System Coordinates"].Get<Vector2>() + "\nHash: " + hash);
 
         // Stellar Temperature tracks the average temperature of the stellar core (used for approximations of system temperature)
         float stellarTemperature = 0;
@@ -140,21 +147,21 @@ public class SystemGenerator : MonoBehaviour
             float radiusSkewed = starPlotRadius.Evaluate(radius);
             statistics[name + " Radius"] = new Statistic(name + " Radius", Statistic.ValueType.Float, radiusSkewed);
 
-            float kelvin = Random.Range(0f, 1f);
+            float kelvin = (Random.Range(0f, 1f) + radius) / 2f;
             stellarTemperature += kelvin;
 
             float kelvinSkewed = starPlotKelvin.Evaluate(kelvin);
             statistics[name + " Kelvin"] = new Statistic(name + " Kelvin", Statistic.ValueType.Float, kelvinSkewed);
 
-            float kelvinRange = (Random.Range(0, kelvinSkewed) + Random.Range(0, kelvinSkewed) + Random.Range(0, kelvinSkewed)) / 3;
+            float kelvinRange = (Random.Range(0, kelvinSkewed / 2f) + Random.Range(0, kelvinSkewed / 2f) + Random.Range(0, kelvinSkewed / 2f)) / 3;
             statistics[name + " Kelvin Range"] = new Statistic(name + " Kelvin Range", Statistic.ValueType.Float, kelvinRange);
 
             starPositions.Add(Random.insideUnitCircle * 1000f);
 
-            contributions[i] = (radius * 10) + (kelvin * 10);
+            contributions[i] = Mathf.Pow(2, (radius + 1) * 5f) + Mathf.Pow((radius + 1f) * 2f, (kelvin + 1f) * 10f);// (radius * 10) + (kelvin * 10);
             centerOfMass += starPositions[i] * contributions[i];
             starPositionContributions += contributions[i];
-            
+
             orbitDistances[i] = statistics["Star " + StringHelper.IndexIntToChar(i) + " Kelvin"] / 20f + 1000f * Mathf.Pow(statistics["Star " + StringHelper.IndexIntToChar(i) + " Kelvin"] / 30000f, 2);
         }
         centerOfMass /= starPositionContributions;
@@ -184,6 +191,7 @@ public class SystemGenerator : MonoBehaviour
         int numberOfPlanets = Mathf.RoundToInt(planetPlotPlanets.Evaluate(planets));
         statistics["Planets"] = new Statistic("Planets", Statistic.ValueType.Integer, numberOfPlanets);
 
+        float maximumPlanetaryDistance = 0f;
         for (int i = 0; i < numberOfPlanets; i++)
         {
             Debug.Log("Generating planet environment data for " + (i + 1) + " of " + numberOfPlanets);
@@ -206,12 +214,12 @@ public class SystemGenerator : MonoBehaviour
             Vector2 position = starPositions[star] + Random.insideUnitCircle.normalized * orbitDistance;
 
             float[] distances = new float[numberOfStars];
-            distances[star] = (starPositions[star] - position).magnitude;
+            distances[star] = orbitDistance;
             for (int j = 0; j < numberOfStars; j++)
             {
                 // Calculate the distance between the planet and each star
                 distances[j] = (starPositions[j] - position).magnitude;
-                if (distances[j] < distances[star])
+                if (distances[j] / contributions[j] < distances[star] / contributions[star])
                     star = j;
             }
 
@@ -224,8 +232,9 @@ public class SystemGenerator : MonoBehaviour
             for (int j = 0; j < numberOfStars; j++)
             {
                 float starKelvin = statistics["Star " + StringHelper.IndexIntToChar(j) + " Kelvin"];
-                float logKelvin = Mathf.Log10(starKelvin);
-                kelvin += planetPlotKelvin.Evaluate(distances[j] / (250 * Mathf.Pow(logKelvin, 2))) * (starKelvin / (logKelvin / 2));
+                //float logKelvin = Mathf.Log10(starKelvin);
+                float starRadius = EnvironmentRules.StellarRadius(statistics["Star " + StringHelper.IndexIntToChar(j) + " Radius"]);
+                kelvin += EnvironmentRules.PlanetTemperature(starRadius, EnvironmentRules.StellarLuminosity(starRadius, starKelvin), EnvironmentRules.PlanetDistance(distances[j]), 0.3f);//planetPlotKelvin.Evaluate(distances[j] / (250 * Mathf.Pow(logKelvin, 2))) * (starKelvin / (logKelvin / 2));
                 // Weight distances against the greatest distance between stars
                 distances[j] /= greatestDistanceBetweenStars;
                 distances[j] *= distances[j];
@@ -245,7 +254,7 @@ public class SystemGenerator : MonoBehaviour
 
                 orbitCenter /= total;
 
-                position = (position - orbitCenter).normalized * orbitDistance + orbitCenter;
+                //position = (position - orbitCenter).normalized * orbitDistance + orbitCenter;
             }
             else
             {
@@ -263,26 +272,177 @@ public class SystemGenerator : MonoBehaviour
                 }
             }
 
-            statistics[name + " Failed"] = new Statistic(name + " Failed", Statistic.ValueType.Integer, 0);
+            statistics[name + " Failed"] = new Statistic(name + " Failed", Statistic.ValueType.Integer, ((failed) ? 1 : 0));
 
-            //if (failed)
-            //{
-            //    Debug.Log("Planet " + (i + 1) + " of " + numberOfPlanets + " has FAILED to generate data");
-            //    statistics[name + " Failed"] = new Statistic(name + " Failed", Statistic.ValueType.Integer, 1);
-            //    continue;
-            //}
+            Vector2 delta = position - orbitCenter;
+            // I need to find the hottest, and coldest point around the orbit
+            float kelvinLow = 30000;
+            float kelvinHigh = 0;
+            float distance = delta.magnitude;
 
-            float radius = Random.Range(0f, 1f);
-            float radiusSkewed = planetPlotRadius.Evaluate(radius);
-            statistics[name + " Radius"] = new Statistic(name + " Radius", Statistic.ValueType.Float, radiusSkewed);
-            statistics[name + " Kelvin"] = new Statistic(name + " Kelvin", Statistic.ValueType.Float, kelvin);
-            statistics[name + " Position"] = new Statistic(name + " Position", Statistic.ValueType.Vector2, position - orbitCenter);
-            statistics[name + " Orbit"] = new Statistic(name + " Orbit", Statistic.ValueType.Vector2, orbitCenter);
+            for (float k = 0; k < Mathf.PI * 2f; k += Mathf.PI / 32f)
+            {
+                float kelvinCurrent = 0;
+                Vector2 pos = orbitCenter + new Vector2(Mathf.Cos(k), Mathf.Sin(k)) * distance;
+                for (int j = 0; j < numberOfStars; j++)
+                {
+                    string starName = "Star " + StringHelper.IndexIntToChar(j);
+                    float starRadius = EnvironmentRules.StellarRadius(statistics[starName + " Radius"].Get<float>());
+                    float starTemperature = statistics[starName + " Kelvin"].Get<float>();
+                    float stellarDistance = EnvironmentRules.PlanetDistance((statistics[starName + " Position"].Get<Vector2>() - pos).magnitude);
+                    kelvinCurrent += EnvironmentRules.PlanetTemperature(starRadius, EnvironmentRules.StellarLuminosity(starRadius, starTemperature), stellarDistance, 0.3f);
+                }
+
+                if (kelvinCurrent < kelvinLow)
+                    kelvinLow = kelvinCurrent;
+                if (kelvinCurrent > kelvinHigh)
+                    kelvinHigh = kelvinCurrent;
+            }
+
+            maximumPlanetaryDistance = Mathf.Max(distance, maximumPlanetaryDistance);
+
+            statistics[name + " Radius"] =          new Statistic(name + " Radius",         Statistic.ValueType.Float,      0f);
+            statistics[name + " Kelvin"] =          new Statistic(name + " Kelvin",         Statistic.ValueType.Float,      kelvin);
+            statistics[name + " Kelvin Low"] =      new Statistic(name + " Kelvin Low",     Statistic.ValueType.Float,      kelvinLow);
+            statistics[name + " Kelvin High"] =     new Statistic(name + " Kelvin High",    Statistic.ValueType.Float,      kelvinHigh);
+            statistics[name + " Actual Kelvin"] =   new Statistic(name + " Actual Kelvin", Statistic.ValueType.Float, kelvin);
+            statistics[name + " Actual Kelvin Low"] = new Statistic(name + " Actual Kelvin Low", Statistic.ValueType.Float, kelvinLow);
+            statistics[name + " Actual Kelvin High"] = new Statistic(name + " Actual Kelvin High", Statistic.ValueType.Float, kelvinHigh);
+            statistics[name + " Position"] =        new Statistic(name + " Position",       Statistic.ValueType.Vector2,    delta);
+            statistics[name + " Orbit"] =           new Statistic(name + " Orbit",          Statistic.ValueType.Vector2,    orbitCenter);
+            statistics[name + " Orbit Distance"] =  new Statistic(name + " Orbit Distance", Statistic.ValueType.Float,      distance);
+            statistics[name + " Profile"] =         new Statistic(name + " Profile",        Statistic.ValueType.Integer,    Random.Range(0, 1000000));
+            statistics[name + " Surface"] =         new Statistic(name + " Surface",        Statistic.ValueType.Integer,    Random.Range(0, 1000000));
+            statistics[name + " Clouds"] =          new Statistic(name + " Clouds",         Statistic.ValueType.Integer,    Random.Range(0, 1000000));
+            statistics[name + " Atmosphere"] =      new Statistic(name + " Atmosphere",     Statistic.ValueType.Integer,    Random.Range(0, 1000000));
+            statistics[name + " Atmosphere Intensity"] = new Statistic(name + " Atmosphere Intensity", Statistic.ValueType.Float, 0);
+            statistics[name + " Atmosphere Density"] = new Statistic(name + " Atmosphere Density", Statistic.ValueType.Float, 0);
+        }
+
+        int gasGiants = 0;
+        for (int i = 0; i < numberOfPlanets; i++)
+        {
+            string name = "Planet " + StringHelper.IndexIntToChar(i);
+
+            float kelvin = statistics[name + " Kelvin"].Get<float>();
+            float kelvinLow = statistics[name + " Kelvin Low"].Get<float>();
+            float kelvinHigh = statistics[name + " Kelvin High"].Get<float>();
+            float distance = statistics[name + " Orbit Distance"].Get<float>();
+
+            float distanceRatio = distance / maximumPlanetaryDistance * Random.Range(0.8f,1.2f);
+            float radius = planetPlotRadius.Evaluate(distanceRatio);
+            if (kelvinLow < 170f)
+            {
+                gasGiants++;
+                radius *= Mathf.Max(1, 8f / (numberOfStars * gasGiants));
+            }
+            //else
+            //    radius *= 20f / numberOfPlanets;
+
+            float atmoIntensity = (kelvin / 150f) * Mathf.Max(0, 1f - (kelvin / 1500f));
+            float atmoDensity = Mathf.Max(1, (20f - kelvin / 100f) * Mathf.Max(0, 1f - (kelvin / 2000f)) * kelvin / 200f);
+            float kelvinRange = (kelvinHigh - kelvinLow) * (atmoIntensity * atmoDensity);
+            float planetKelvin = kelvin + kelvinRange;
+            float planetKelvinLow = kelvinLow + kelvinRange;
+            float planetKelvinHigh = kelvinHigh + kelvinRange;
+
+            statistics[name + " Radius"].Set(radius);
+            statistics[name + " Actual Kelvin"].Set(planetKelvin);
+            statistics[name + " Actual Kelvin Low"].Set(planetKelvinLow);
+            statistics[name + " Actual Kelvin High"].Set(planetKelvinHigh);
+            statistics[name + " Atmosphere Intensity"].Set(atmoIntensity);
+            statistics[name + " Atmosphere Density"].Set(atmoDensity);
+
+            //float radiusFactor = Mathf.Pow(radius / 4f, 5);
+            int minimum = Mathf.FloorToInt(radius);
+            int maximum = (int)Mathf.Min(32, Mathf.Pow(2 + minimum * 2, 2));
+            int numberOfMoons = Random.Range(minimum, maximum);
+            statistics[name + " Moons"] = new Statistic(name + " Moons", Statistic.ValueType.Integer, numberOfMoons);
+            float distanceLast = radius * 1.5f * Random.Range(1f, 1.5f);
+            for (int j = 0; j < numberOfMoons; j++)
+            {
+                Debug.Log("Generating moon environment data for planet " + (i + 1) + " of " + numberOfPlanets + " moon " + (j + 1) + " of " + numberOfMoons);
+
+                string moonName = name + " Moon " + StringHelper.IndexIntToChar(j);
+                float moonRadius = (radius / numberOfMoons) * Random.Range(0.1f,1f);
+                Vector3 orbit = Random.insideUnitCircle.normalized;
+                float orbitDistance = distanceLast;
+                distanceLast = distanceLast * Random.Range(1.01f, 1.15f) + moonRadius * 2;
+                
+                Vector2 delta = statistics[name + " Position"].Get<Vector2>() + orbit.XY() * orbitDistance;
+                // I need to find the hottest, and coldest point around the orbit
+
+                kelvin = 0;
+                for (int l = 0; l < numberOfStars; l++)
+                {
+                    string starName = "Star " + StringHelper.IndexIntToChar(l);
+                    float starRadius = EnvironmentRules.StellarRadius(statistics[starName + " Radius"].Get<float>());
+                    float starTemperature = statistics[starName + " Kelvin"].Get<float>();
+                    float stellarDistance = EnvironmentRules.PlanetDistance((statistics[starName + " Position"].Get<Vector2>() - delta).magnitude);
+                    kelvin += EnvironmentRules.PlanetTemperature(starRadius, EnvironmentRules.StellarLuminosity(starRadius, starTemperature), stellarDistance, 0.3f);
+                }
+
+                kelvinLow = 30000;
+                kelvinHigh = 0;
+                float sampleDistance = delta.magnitude;
+                Vector2 orbitCenter = statistics[name + " Orbit"].Get<Vector2>();
+                for (float p = 0; p < Mathf.PI * 2f; p += Mathf.PI / 8f)
+                {
+                    Vector2 planetPosition = orbitCenter + new Vector2(Mathf.Cos(p), Mathf.Sin(p)) * distance;
+
+                    for (float m = 0; m < Mathf.PI * 2f; m += Mathf.PI / 8f)
+                    {
+                        float kelvinCurrent = 0;
+
+                        Vector2 moonPosition = planetPosition + new Vector2(Mathf.Cos(m), Mathf.Sin(m)) * orbitDistance;
+                        for (int l = 0; l < numberOfStars; l++)
+                        {
+                            string starName = "Star " + StringHelper.IndexIntToChar(l);
+                            float starRadius = EnvironmentRules.StellarRadius(statistics[starName + " Radius"].Get<float>());
+                            float starTemperature = statistics[starName + " Kelvin"].Get<float>();
+                            float stellarDistance = EnvironmentRules.PlanetDistance((statistics[starName + " Position"].Get<Vector2>() - moonPosition).magnitude);
+                            kelvinCurrent += EnvironmentRules.PlanetTemperature(starRadius, EnvironmentRules.StellarLuminosity(starRadius, starTemperature), stellarDistance, 0.3f);
+                        }
+
+                        if (kelvinCurrent < kelvinLow)
+                            kelvinLow = kelvinCurrent;
+                        if (kelvinCurrent > kelvinHigh)
+                            kelvinHigh = kelvinCurrent;
+
+
+                    }
+                }
+
+                float moonIntensity = (kelvin / 150f) * Mathf.Max(0, 1f - (kelvin / 1500f));
+                float moonDensity = Mathf.Max(1, (20f - kelvin / 100f) * Mathf.Max(0, 1f - (kelvin / 2000f)) * kelvin / 200f);
+                float moonKelvinRange = (kelvinHigh - kelvinLow) * (moonIntensity * moonDensity);
+                float moonKelvin = kelvin + kelvinRange;
+                float moonKelvinLow = kelvinLow + kelvinRange;
+                float moonKelvinHigh = kelvinHigh + kelvinRange;
+
+                statistics[moonName + " Radius"] =          new Statistic(moonName + " Radius",         Statistic.ValueType.Float,      moonRadius);
+                statistics[moonName + " Kelvin"] =          new Statistic(moonName + " Kelvin",         Statistic.ValueType.Float,      kelvin);
+                statistics[moonName + " Kelvin Low"] =      new Statistic(moonName + " Kelvin Low",     Statistic.ValueType.Float,      kelvinLow);
+                statistics[moonName + " Kelvin High"] =     new Statistic(moonName + " Kelvin High",    Statistic.ValueType.Float,      kelvinHigh);
+                statistics[moonName + " Actual Kelvin"] = new Statistic(moonName + " Actual Kelvin", Statistic.ValueType.Float, moonKelvin);
+                statistics[moonName + " Actual Kelvin Low"] = new Statistic(moonName + " Actual Kelvin Low", Statistic.ValueType.Float, moonKelvinLow);
+                statistics[moonName + " Actual Kelvin High"] = new Statistic(moonName + " Actual Kelvin High", Statistic.ValueType.Float, moonKelvinHigh);
+                statistics[moonName + " Orbit"] =           new Statistic(moonName + " Orbit",          Statistic.ValueType.Vector3,    orbit);
+                statistics[moonName + " Orbit Distance"] =  new Statistic(moonName + " Orbit Distance", Statistic.ValueType.Float,      orbitDistance);
+                statistics[moonName + " Profile"] =         new Statistic(moonName + " Profile",        Statistic.ValueType.Integer,    Random.Range(0, 100));
+                statistics[moonName + " Surface"] =         new Statistic(moonName + " Surface",        Statistic.ValueType.Integer,    Random.Range(0, 100));
+                statistics[moonName + " Clouds"] =          new Statistic(moonName + " Clouds",         Statistic.ValueType.Integer,    Random.Range(0, 100));
+                statistics[moonName + " Atmosphere"] =      new Statistic(moonName + " Atmosphere",     Statistic.ValueType.Integer,    Random.Range(0, 100));
+                statistics[moonName + " Atmosphere Intensity"] = new Statistic(moonName + " Atmosphere Intensity", Statistic.ValueType.Float, moonIntensity);
+                statistics[moonName + " Atmosphere Density"] = new Statistic(moonName + " Atmosphere Density", Statistic.ValueType.Float, moonDensity);
+            }
         }
 
         // Statistics Over Time
         if (statistics.Has("Statistics: Generated"))
             statistics["Statistics: Generated"].Set(statistics["Statistics: Generated"].Get<int>() + 1);
+        else
+            statistics["Statistics: Generated"] = new Statistic("Statistics: Generated", Statistic.ValueType.Integer, 1);
 
         int generated = statistics["Statistics: Generated"].Get<int>();
 
@@ -309,17 +469,14 @@ public class SystemGenerator : MonoBehaviour
             star.environment = statistics;
 
             // ORBIT ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            if (starsDisplayOrbits && numberOfStars > 1)
+            if (starsDisplayOrbits && numberOfStars == 2)
             {
-                if (numberOfStars < 3)
-                {
-                    Vector2 delta = star.transform.position;
-                    float atan = Mathf.Atan2(delta.y, delta.x);
-                    LineRendererCircle orbit = Instantiate(orbitPrefab, Vector3.zero, Quaternion.Euler(0, 0, atan * Mathf.Rad2Deg), transform);
-                    orbit.radius = star.transform.position.xy().magnitude;
-                    orbit.line.startColor = ((star.starMaterials[0].GetTexture("_Emissive") as Texture2D).GetPixelBilinear((statistics[name + " Kelvin"].Get<float>() + statistics[name + " Kelvin Range"].Get<float>()) / star.starMaterials[0].GetFloat("_KelvinMax"), 0) * 8).Normalize() * 0.5f;
-                    orbit.line.endColor = Color.clear;
-                }
+                Vector2 delta = star.transform.position;
+                float atan = Mathf.Atan2(delta.y, delta.x);
+                LineRendererCircle orbit = Instantiate(orbitPrefab, Vector3.zero, Quaternion.Euler(0, 0, atan * Mathf.Rad2Deg), transform);
+                orbit.radius = star.transform.position.XY().magnitude;
+                orbit.line.startColor = ((star.starMaterials[0].GetTexture("_Emissive") as Texture2D).GetPixelBilinear((statistics[name + " Kelvin"].Get<float>() + statistics[name + " Kelvin Range"].Get<float>()) / star.starMaterials[0].GetFloat("_KelvinMax"), 0) * 8).Normalize() * 0.5f;
+                orbit.line.endColor = new Color(orbit.line.startColor.r, orbit.line.startColor.g, orbit.line.startColor.b, 0f);
             }
         }
 
@@ -330,8 +487,8 @@ public class SystemGenerator : MonoBehaviour
 
             string name = "Planet " + StringHelper.IndexIntToChar(i);
 
-            if (statistics[name + " Failed"].Get<int>() == 1)
-                continue;
+            //if (statistics[name + " Failed"].Get<int>() == 1)
+            //    continue;
 
             Vector2 orbitCenter = statistics[name + " Orbit"];
             EnvironmentBasedPlanet planet = Instantiate(planetPrefab, statistics[name + " Position"].Get<Vector2>(), planetPrefab.transform.rotation, transform);
@@ -341,23 +498,54 @@ public class SystemGenerator : MonoBehaviour
             // ORBIT ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
             if (planetsDisplayOrbits)
             {
-                Vector2 delta = planet.transform.position.xy() - orbitCenter;
+                Vector2 delta = planet.transform.position.XY() - orbitCenter;
                 float atan = Mathf.Atan2(delta.y, delta.x);
                 LineRendererCircle orbit = Instantiate(orbitPrefab, orbitCenter, Quaternion.Euler(0, 0, atan * Mathf.Rad2Deg), transform);
                 orbit.radius = (delta).magnitude;
-                orbit.line.startColor = Color.green * 0.5f;
-                orbit.line.endColor = Color.clear;
+                orbit.line.startWidth = orbit.line.endWidth = statistics[name + " Radius"].Get<float>();
+                orbit.line.startColor = ColourHelper.HeatMap(statistics[name + " Kelvin"], 150, 500) * 0.5f;
+                orbit.line.endColor = new Color(orbit.line.startColor.r, orbit.line.startColor.g, orbit.line.startColor.b, 0f);
+            }
+
+            // MOONS ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            int numberOfMoons = statistics[name + " Moons"];
+            for (int j = 0; j < numberOfMoons; j++)
+            {
+                Debug.Log("Generating moon of planet " + (i + 1) + " of " + numberOfPlanets + " moon " + (j + 1) + " of " + numberOfMoons);
+
+                string moonName = name + " Moon " + StringHelper.IndexIntToChar(j);
+
+                orbitCenter = planet.transform.position;
+                Vector3 orbitPoint = statistics[moonName + " Orbit"];
+                float distance = statistics[moonName + " Orbit Distance"];
+
+                EnvironmentBasedPlanet moon = Instantiate(planetPrefab, (Vector3)orbitCenter + orbitPoint * distance, planetPrefab.transform.rotation, transform);
+                moon.name = moonName;
+                moon.environment = statistics;
+
+                // ORBIT ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                if (moonsDisplayOrbits)
+                {
+                    float atan = Mathf.Atan2(orbitPoint.y, orbitPoint.x);
+                    LineRendererCircle moonOrbit = Instantiate(orbitPrefab, orbitCenter, Quaternion.Euler(0, 0, atan * Mathf.Rad2Deg), transform);
+                    moonOrbit.radius = distance;
+                    moonOrbit.line.startWidth = moonOrbit.line.endWidth = statistics[moonName + " Radius"].Get<float>();
+                    moonOrbit.line.startColor = ColourHelper.HeatMap(statistics[moonName + " Kelvin"], 150, 500) * 0.5f;
+                    moonOrbit.line.endColor = new Color(moonOrbit.line.startColor.r, moonOrbit.line.startColor.g, moonOrbit.line.startColor.b, 0f);
+                }
             }
         }
 
-        Debug.Log("System Generation\nGame Object Generation Completed");
+        Debug.Log("System Generation -----\nGame Object Generation Completed");
     }
 
     public void Clear()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            Destroy(transform.GetChild(i).gameObject);
+            GameObject child = transform.GetChild(i).gameObject;
+            if (child.activeSelf)
+                Destroy(child);
         }
     }
 }

@@ -65,12 +65,21 @@ public static class StringHelper
     private static string indexIntToChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public static string IndexIntToChar(int i)
     {
-        int wrapAround = Mathf.FloorToInt(i / 26f);
-        int index = i - wrapAround;
-        string ret = indexIntToChar[index].ToString();
+        string ret = "";
 
-        if (wrapAround > 0)
-            ret = indexIntToChar[wrapAround].ToString() + indexIntToChar[index].ToString();
+        int AA = Mathf.FloorToInt(i / 26f);
+        int AAA = Mathf.FloorToInt(AA / 26f);
+        int A = i - (AA * 26);
+
+        if (AA > 0)
+        {
+            if (AA < 26)
+                ret = indexIntToChar[AA - 1].ToString() + indexIntToChar[A].ToString();
+            else
+                ret = indexIntToChar[AAA - 1].ToString() + indexIntToChar[AA - 1].ToString() + indexIntToChar[A].ToString();
+        }
+        else
+            ret = indexIntToChar[A].ToString();
 
         return ret;
     }

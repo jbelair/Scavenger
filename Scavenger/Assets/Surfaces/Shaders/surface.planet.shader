@@ -12,15 +12,15 @@ Shader "Surfaces/Planet" {
 		_MSMain("Main Metallic & Smoothness Map", 2D) = "black" {}
 		[HDR]_EmiMainColour("Main Emission Colour", Color) = (1,1,1,1)
 		_EmiMain("Main Emission Map", 2D) = "black" {}
-		_PoleScale("Poles Scale", Range(0.1,1)) = 0.5
+		_PoleScale("Poles Scale", Range(0,1)) = 0.5
 		_TexPoleN("North Pole Texture", 2D) = "white" {}
 		_NorPoleN("North Pole Normal Map", 2D) = "bump" {}
-		_MSPoleN("North Pole Metallic & Smoothness Map", 2D) = "black" {}
+		_MSPoleN("North Pole Metallic, Smoothness & Alpha Map", 2D) = "black" {}
 		[HDR]_EmiPoleNColour("North Pole Emission Colour", Color) = (1,1,1,1)
 		_EmiPoleN("North Pole Emission Map", 2D) = "black" {}
 		_TexPoleS("South Pole Texture", 2D) = "white" {}
 		_NorPoleS("South Pole Normal Map", 2D) = "bump" {}
-		_MSPoleS("South Pole Metallic & Smoothness Map", 2D) = "black" {}
+		_MSPoleS("South Pole Metallic, Smoothness & Alpha Map", 2D) = "black" {}
 		[HDR]_EmiPoleSColour("South Pole Emission Colour", Color) = (1,1,1,1)
 		_EmiPoleS("South Pole Emission Map", 2D) = "black" {}
 	}
@@ -126,41 +126,41 @@ Shader "Surfaces/Planet" {
 			fixed4 c = 0;
 			fixed4 e = 0;
 			float3 n = 0;
-			float2 ms = 0;
-			if (IN.localPos.y < 0.5 - _PoleScale && IN.localPos.y > -0.5 + _PoleScale)
+			float3 ms = 0;
+			if (IN.localPos.y < 0.8 - _PoleScale && IN.localPos.y > -0.8 + _PoleScale)
 			{
 				c = tex2D(_TexMain, IN.texturePos * _TexMain_ST.xy + _TexMain_ST.zw);
 				e = tex2D(_EmiMain, IN.texturePos * _EmiMain_ST.xy + _EmiMain_ST.zw) * _EmiMainColour;
 				n = UnpackNormal(tex2D(_NorMain, IN.texturePos * _NorMain_ST.xy + _NorMain_ST.zw));
-				ms = tex2D(_MSMain, IN.texturePos * _MSMain_ST.xy + _MSMain_ST.zw).rg;
+				ms = tex2D(_MSMain, IN.texturePos * _MSMain_ST.xy + _MSMain_ST.zw).rgb;
 			}
 			else
 			{
-				float scale = _PoleScale * 1.5;
-				if (IN.localPos.y >= 0.5 - _PoleScale)
+				float scale = _PoleScale * 1;
+				if (IN.localPos.y >= 0.8 - _PoleScale)
 				{
-					c = tex2D(_TexPoleN, ((IN.localPos.xz / scale) + 0.5) * _TexPoleN_ST.xy + _TexPoleN_ST.zw);
-					e = tex2D(_EmiPoleN, ((IN.localPos.xz / scale) + 0.5) * _EmiPoleN_ST.xy + _EmiPoleN_ST.zw) * _EmiPoleNColour;
-					n = UnpackNormal(tex2D(_NorPoleN, ((IN.localPos.xz / scale) + 0.5) * _NorPoleN_ST.xy + _NorPoleN_ST.zw));
-					ms = tex2D(_MSPoleN, ((IN.localPos.xz / scale) + 0.5) * _MSPoleN_ST.xy + _MSPoleN_ST.zw).rg;
+					c = tex2D(_TexPoleN, (IN.localPos.xz / 2 + 0.5) * _TexPoleN_ST.xy + _TexPoleN_ST.zw);
+					e = tex2D(_EmiPoleN, (IN.localPos.xz / 2 + 0.5) * _EmiPoleN_ST.xy + _EmiPoleN_ST.zw) * _EmiPoleNColour;
+					n = UnpackNormal(tex2D(_NorPoleN, IN.localPos.xz * _NorPoleN_ST.xy + _NorPoleN_ST.zw));
+					ms = tex2D(_MSPoleN, (IN.localPos.xz / 2 + 0.5) * _MSPoleN_ST.xy + _MSPoleN_ST.zw).rgb;
 
-					e = lerp(tex2D(_EmiMain, IN.texturePos* _EmiMain_ST.xy + _EmiMain_ST.zw) * _EmiMainColour, e, c.a);
-					n = lerp(UnpackNormal(tex2D(_NorMain, IN.texturePos * _NorMain_ST.xy + _NorMain_ST.zw)), n, c.a);
-					ms = lerp(tex2D(_MSMain, IN.texturePos* _MSMain_ST.xy + _MSMain_ST.zw).rg, ms, c.a);
-					c = lerp(tex2D(_TexMain, IN.texturePos * _TexMain_ST.xy + _TexMain_ST.zw), c, c.a);
-						
+					e = lerp(tex2D(_EmiMain, IN.texturePos * _EmiMain_ST.xy + _EmiMain_ST.zw) * _EmiMainColour, e, ms.b);
+					n = lerp(UnpackNormal(tex2D(_NorMain, IN.texturePos * _NorMain_ST.xy + _NorMain_ST.zw)), n, ms.b);
+					c = lerp(tex2D(_TexMain, IN.texturePos * _TexMain_ST.xy + _TexMain_ST.zw), c, ms.b);
+					ms = lerp(tex2D(_MSMain, IN.texturePos * _MSMain_ST.xy + _MSMain_ST.zw).rgb, ms, ms.b);
 				}
-				else if (IN.localPos.y <= -0.5 + _PoleScale)
+				else if (IN.localPos.y <= -0.8 + _PoleScale)
 				{
-					c = tex2D(_TexPoleS, ((IN.localPos.xz / scale) + 0.5) * _TexPoleS_ST.xy + _TexPoleS_ST.zw);
-					e = tex2D(_EmiPoleS, ((IN.localPos.xz / scale) + 0.5) * _EmiPoleS_ST.xy + _EmiPoleS_ST.zw) * _EmiPoleSColour;
-					n = UnpackNormal(tex2D(_NorPoleS, ((IN.localPos.xz / scale) + 0.5) * _NorPoleS_ST.xy + _NorPoleS_ST.zw));
-					ms = tex2D(_MSPoleS, ((IN.localPos.xz / scale) + 0.5) * _MSPoleS_ST.xy + _MSPoleS_ST.zw).rg;
+					c = tex2D(_TexPoleS, (IN.localPos.xz / 2 + 0.5) * _TexPoleS_ST.xy + _TexPoleS_ST.zw);
+					e = tex2D(_EmiPoleS, (IN.localPos.xz / 2 + 0.5) * _EmiPoleS_ST.xy + _EmiPoleS_ST.zw) * _EmiPoleSColour;
+					n = UnpackNormal(tex2D(_NorPoleS, IN.localPos.xz * _NorPoleS_ST.xy + _NorPoleS_ST.zw));
+					ms = tex2D(_MSPoleS, (IN.localPos.xz / 2 + 0.5) * _MSPoleS_ST.xy + _MSPoleS_ST.zw).rgb;
+					ms = tex2D(_MSPoleS, (IN.localPos.xz / 2 + 0.5) * _MSPoleS_ST.xy + _MSPoleS_ST.zw).rgb;
 
-					e = lerp(tex2D(_EmiMain, IN.texturePos* _EmiMain_ST.xy + _EmiMain_ST.zw) * _EmiMainColour, e, c.a);
-					n = lerp(UnpackNormal(tex2D(_NorMain, IN.texturePos * _NorMain_ST.xy + _NorMain_ST.zw)), n, c.a);
-					ms = lerp(tex2D(_MSMain, IN.texturePos* _MSMain_ST.xy + _MSMain_ST.zw).rg, ms, c.a);
-					c = lerp(tex2D(_TexMain, IN.texturePos * _TexMain_ST.xy + _TexMain_ST.zw), c, c.a);
+					e = lerp(tex2D(_EmiMain, IN.texturePos * _EmiMain_ST.xy + _EmiMain_ST.zw) * _EmiMainColour, e, ms.b);
+					n = lerp(UnpackNormal(tex2D(_NorMain, IN.texturePos * _NorMain_ST.xy + _NorMain_ST.zw)), n, ms.b);
+					c = lerp(tex2D(_TexMain, IN.texturePos * _TexMain_ST.xy + _TexMain_ST.zw), c, ms.b);
+					ms = lerp(tex2D(_MSMain, IN.texturePos * _MSMain_ST.xy + _MSMain_ST.zw).rgb, ms, ms.b);
 				}
 			}
 

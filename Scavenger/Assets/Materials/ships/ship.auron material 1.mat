@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: ship.auron material 1
-  m_Shader: {fileID: 4800000, guid: 5bf0239078d597c4694e0ee4e45b80a3, type: 3}
+  m_Shader: {fileID: 4800000, guid: 202ecead73cea734f8016b8c2d622493, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -134,6 +134,11 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
+    - _Col0: {r: 1, g: 1, b: 1, a: 1}
+    - _Col100: {r: 1, g: 1, b: 1, a: 1}
+    - _Col25: {r: 1, g: 1, b: 1, a: 1}
+    - _Col50: {r: 1, g: 1, b: 1, a: 1}
+    - _Col75: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GlowB: {r: 2.5, g: 1.992647, b: 1.2316177, a: 1}

@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   line: {fileID: 120912191752124414}
-  pointsOnCircle: 96
+  pointsOnCircle: 64
   distanceBetweenPoints: 1
   pointsAuto: 0
   radius: 100
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1723009640850166}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ddba45e1e98af994590ef831ba44525c, type: 3}
   m_Name: 
@@ -741,7 +741,7 @@ LineRenderer:
   - {x: 99.994995, y: -1.0004655, z: 0}
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 3
+    widthMultiplier: 1
     widthCurve:
       serializedVersion: 2
       m_Curve:

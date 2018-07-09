@@ -9,9 +9,9 @@ public class EnvironmentBasedStar : MonoBehaviour
 
     public Statistics environment;
     public Material star;
-    //public LineRendererCircle hot;
-    //public LineRendererCircle warm;
-    //public LineRendererCircle cold;
+    public LineRendererCircle hot;
+    public LineRendererCircle warm;
+    public LineRendererCircle cold;
 
     // Use this for initialization
     void Start()
@@ -23,7 +23,7 @@ public class EnvironmentBasedStar : MonoBehaviour
 
         star.SetFloat("_Kelvin", environment[name + " Kelvin"]);
         star.SetFloat("_KelvinRange", environment[name + " Kelvin Range"]);
-        transform.localScale = Vector3.one * (Mathf.Log(environment[name + " Radius"] * 100f, 10) * 2 + 1);
+        transform.localScale = Vector3.one * (Mathf.Log(environment[name + " Radius"] * 100f, 10) * 4 + 1);
 
         float starKelvin = environment[name + " Kelvin"];
         float logKelvin = Mathf.Log10(starKelvin);
@@ -34,25 +34,26 @@ public class EnvironmentBasedStar : MonoBehaviour
         // Hot is before that
         // And cold is after that
 
-        float kelvin = 0;
-        float distanceGoldilocksStart = 0;
-        while (kelvin < 278f)
-        {
-            kelvin = generator.planetPlotKelvin.Evaluate(distanceGoldilocksStart / (250 * Mathf.Pow(logKelvin, 2))) * (starKelvin / (logKelvin / 2));
-            distanceGoldilocksStart += 50;
-        }
-        float distanceGoldilocksEnds = distanceGoldilocksStart;
-        while (kelvin < 313f)
-        {
-            kelvin = generator.planetPlotKelvin.Evaluate(distanceGoldilocksEnds / (250 * Mathf.Pow(logKelvin, 2))) * (starKelvin / (logKelvin / 2));
-            distanceGoldilocksEnds += 50;
-        }
-        float distanceColdEnds = distanceGoldilocksEnds;
-        while (kelvin > 0)
-        {
-            kelvin = generator.planetPlotKelvin.Evaluate(distanceColdEnds / (250 * Mathf.Pow(logKelvin, 2))) * (starKelvin / (logKelvin / 2));
-            distanceColdEnds += 100;
-        }
+        //float kelvin = 0;
+        //float distanceGoldilocksStart = 0;
+        //kelvin = generator.planetPlotKelvin.Evaluate(distanceGoldilocksStart / (250 * Mathf.Pow(logKelvin, 2))) * (starKelvin / (logKelvin / 2));
+        //while (kelvin > 313f && distanceGoldilocksStart < 10000)
+        //{
+        //    kelvin = generator.planetPlotKelvin.Evaluate(distanceGoldilocksStart / (250 * Mathf.Pow(logKelvin, 2))) * (starKelvin / (logKelvin / 2));
+        //    distanceGoldilocksStart += 50;
+        //}
+        //float distanceGoldilocksEnds = distanceGoldilocksStart;
+        //while (kelvin > 278f && distanceGoldilocksEnds < 100000)
+        //{
+        //    kelvin = generator.planetPlotKelvin.Evaluate(distanceGoldilocksEnds / (250 * Mathf.Pow(logKelvin, 2))) * (starKelvin / (logKelvin / 2));
+        //    distanceGoldilocksEnds += 50;
+        //}
+        //float distanceColdEnds = distanceGoldilocksEnds;
+        //while (kelvin > 0 && distanceColdEnds < 1000000)
+        //{
+        //    kelvin = generator.planetPlotKelvin.Evaluate(distanceColdEnds / (250 * Mathf.Pow(logKelvin, 2))) * (starKelvin / (logKelvin / 2));
+        //    distanceColdEnds += 100;
+        //}
 
         //AnimationCurve curve = new AnimationCurve(new Keyframe[] { new Keyframe(0, 1f), new Keyframe(1f, 1f) });
         //hot.line.startWidth = hot.line.endWidth = distanceGoldilocksStart;

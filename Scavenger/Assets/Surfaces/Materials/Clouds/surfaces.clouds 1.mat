@@ -69,7 +69,7 @@ Material:
     m_Floats:
     - _BumpScale: 1
     - _CloudOctaves: 8
-    - _CloudTurbulence: 0.05
+    - _CloudTurbulence: 0.001
     - _CloudTurbulenceOctaves: 8
     - _Cloudiness: 0.01
     - _Cutoff: 0.5
@@ -93,4 +93,4 @@ Material:
     - _CloudTurbulenceScale: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.8897059, g: 0.9452332, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Phase: {r: 0.75, g: 1, b: 1, a: 1}
+    - _Phase: {r: 2, g: 2, b: 1.5, a: 1}

@@ -125,7 +125,7 @@
 
 			float kX = k / _KelvinMax;
 			//c = lerp(tex1D(_Emissive, (_Kelvin + _KelvinRange) / _KelvinMax), c * tex1D(_Emissive, kX), min(clamp(uv.z,0,1), 1 - uv.w)).rgb * _HDR;
-			c = lerp(tex1D(_Emissive, (_Kelvin + _KelvinRange) / _KelvinMax), c * tex1D(_Emissive, kX), min(saturate(uv.z), 1 - uv.w)).rgb * _HDR;
+			c = lerp(tex1D(_Emissive, (_Kelvin) / _KelvinMax), c * tex1D(_Emissive, kX), min(saturate(uv.z), 1 - uv.w)).rgb * _HDR;
 
 			return c;
 		}
@@ -180,8 +180,8 @@
 				//rgbNoise.b = (rgbNoise.b - 0.5);
 			}
 
-			float freznel = saturate(dot(normalize(ObjSpaceViewDir(float4(IN.viewDir, 1))), IN.normal));
-			float4 sampleAt = float4(IN.texturePos, lerp(0, 1 - freznel, pD.x));
+			float freznel = abs(dot(normalize(ObjSpaceViewDir(float4(IN.viewDir, 1))), IN.normal));
+			float4 sampleAt = float4(IN.texturePos, lerp(0, freznel, pD.x));
 			sampleAt += float4(rgbNoise.r * rgbNoise.b, rgbNoise.g * rgbNoise.b, 0, 0);
 			sampleAt += float4(_Time.x * _Spin * (1 + kR * 4), 0, 0, 0);
 
