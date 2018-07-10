@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class EnvironmentBasedPlanet : MonoBehaviour
 {
@@ -26,17 +27,22 @@ public class EnvironmentBasedPlanet : MonoBehaviour
     public SpriteRenderer spriteCircle;
     public SpriteRenderer spriteIcon;
 
+    public bool isInitialised = false;
+
     // Use this for initialization
     void Start()
     {
-        //transform.localScale = Vector3.one * (Mathf.Log(environment[name + " Radius"] * 100f, 10) + 0.01f);
-        Generate();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (!isInitialised)
+        {//transform.localScale = Vector3.one * (Mathf.Log(environment[name + " Radius"] * 100f, 10) + 0.01f);
+            isInitialised = true;
+            Generate();
+        }
     }
     
     public void Generate()
@@ -87,5 +93,11 @@ public class EnvironmentBasedPlanet : MonoBehaviour
         {
             clouds.sphere.gameObject.SetActive(false);
         }
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        List<ParticleCollisionEvent> particleCollisions = new List<ParticleCollisionEvent>();
+        ParticlePhysicsExtensions.GetCollisionEvents(other.GetComponent<ParticleSystem>(), gameObject, particleCollisions);
     }
 }

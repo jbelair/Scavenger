@@ -76,9 +76,6 @@ Shader "Surfaces/Planet" {
 		float4 _EmiPoleS_ST;
 		float4 _EmiPoleSColour;
 
-		float _TesselationFactor;
-		float _TesselationEdge;
-
 		struct Input {
 			float3 localPos;
 			float2 texturePos;

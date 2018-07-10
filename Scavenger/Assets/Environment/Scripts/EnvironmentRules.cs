@@ -6,12 +6,18 @@ using UnityEngine;
 
 public static class EnvironmentRules
 {
+    public const float G = 6.67408f * 10e-11f;
+
+    public const float MassOfEarth = 5.972f * 10e24f;
+
     public const float StefanBoltzmannConstant = 5.670373f * 10e-8f;
     /// <summary>
     /// The Planet Distance Ratio defines what a single unit of system distance denotes in proper km
     /// This is established based on the distance between the sun and mercury
     /// </summary>
     public const float PlanetDistanceRatio = 57910000 * 2f;// / 1f;
+
+    public const float PlanetMassRatio = MassOfEarth * 0.1f;
 
     /// <summary>
     /// Converts stellar radius from sun radii to km
