@@ -212,7 +212,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 2
   m_Materials:
-  - {fileID: 2100000, guid: 30351abbb4abeb040bfbc33bbbdcbf88, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -349,13 +349,14 @@ MonoBehaviour:
     sphere: {fileID: 23728378658820162}
   spriteCircle: {fileID: 0}
   spriteIcon: {fileID: 0}
+  isInitialised: 0
 --- !u!114 &114467563850857892
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1323757103904700}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e454af9d25ccab45bcf33f091c07eeb, type: 3}
   m_Name: 
@@ -376,7 +377,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1728000360746848}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e454af9d25ccab45bcf33f091c07eeb, type: 3}
   m_Name: 
@@ -397,7 +398,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1859763146422288}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e454af9d25ccab45bcf33f091c07eeb, type: 3}
   m_Name: 
@@ -410,8 +411,8 @@ MonoBehaviour:
   high:
     subdivisions: 3
     cameraDistance: 100
-  triangleCount: 960
-  vertexCount: 346
+  triangleCount: 3840
+  vertexCount: 1342
 --- !u!135 &135997781916440858
 SphereCollider:
   m_ObjectHideFlags: 1

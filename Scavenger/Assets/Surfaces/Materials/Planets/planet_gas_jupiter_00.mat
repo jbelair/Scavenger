@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: planet_gas_jupiter_00
+  m_Shader: {fileID: 4800000, guid: 71a40a7f9f9f92548b7bd855bacf132f, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AtmosphereMap:
+        m_Texture: {fileID: 2800000, guid: 10cb46dc3170ed84ca0c651924b0b05e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emissive:
+        m_Texture: {fileID: 2800000, guid: 32436e9b9cc76774ea18ea47cc1af68a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Gasses:
+        m_Texture: {fileID: 2800000, guid: ba5fff904012a8c41b9ac0210f4a671d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 2800000, guid: f972d764a35b1e843949666d4e992f3b, type: 3}
+        m_Scale: {x: 5, y: 5}
+        m_Offset: {x: 0, y: 0}
+    - _Occlusion:
+        m_Texture: {fileID: 2800000, guid: e35c8d1618ea6e943bfdbfe61f911208, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture:
+        m_Texture: {fileID: 2800000, guid: 137bcf057b126dc4e80d6f730e299884, type: 3}
+        m_Scale: {x: 1, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _TextureF:
+        m_Texture: {fileID: 2800000, guid: 694d1d31726b5f84eae8f44e7eeb9980, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureL:
+        m_Texture: {fileID: 2800000, guid: 881aff64bb970764fbd1c1057ccc49ea, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureM:
+        m_Texture: {fileID: 2800000, guid: 78ae03fd4cb2d924ab450133e2214033, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureO:
+        m_Texture: {fileID: 2800000, guid: 8af963c1fff1d6a4db669d20c0a00e31, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureY:
+        m_Texture: {fileID: 2800000, guid: b5826abefc47ceb49bd7b26598a90fed, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AtmosphereDensity: 2
+    - _AtmosphereIntensity: 1
+    - _AtmosphereRadius: 1.15
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _HDR: 8
+    - _Kelvin: 1
+    - _KelvinMax: 100000
+    - _KelvinRange: 1
+    - _LightSamples: 2
+    - _Metallic: 0
+    - _Mode: 0
+    - _NormalStrength: 0.2
+    - _OcclusionStrength: 1
+    - _Octaves: 1
+    - _Parallax: 0.02
+    - _PlanetDensity: 1
+    - _PlanetRadius: 1
+    - _RayScaleHeight: 1
+    - _Scattering: 0
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _Spin: 0.05
+    - _SrcBlend: 1
+    - _Turbulence: 0.1
+    - _UVSec: 0
+    - _ViewSamples: 2
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Phase: {r: 0.5, g: 1, b: 2, a: 1}
+    - _PlanetCenter: {r: 0, g: 0, b: 0, a: 1}
+    - _PlanetCentre: {r: 0, g: 0, b: 0, a: 1}
+    - _Scale: {r: 1, g: 1, b: 32, a: 1}
+    - _Speed: {r: 1, g: 1, b: 1, a: 1}

@@ -91,7 +91,7 @@ Shader "Effects/Spherical Explosion"
 					i.color.a *= fade;
 					#endif
 
-					i.color.a *= abs(dot(i.viewDir, i.normal));
+					i.color.a *= pow(abs(dot(i.viewDir, i.normal)), 4);
 
 					return 2.0f * i.color * _TintColor * tex2D(_MainTex, i.texcoord);
 				}

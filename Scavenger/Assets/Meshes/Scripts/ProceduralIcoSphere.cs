@@ -48,10 +48,18 @@ public class ProceduralIcoSphere : MonoBehaviour
     private List<Vector3> vertices = new List<Vector3>();
     private List<Vector2> uvs = new List<Vector2>();
 
+    public void Export()
+    {
+
+    }
+
     public void Generate()
     {
-        if (vbos.ContainsKey(subdivisions))
+        if (vbos.ContainsKey(subdivisions) && vbos[subdivisions] != null)
+        {
             GetComponent<MeshFilter>().mesh = mesh = vbos[subdivisions];
+            Debug.Log(gameObject.name + " " + vbos[subdivisions]);
+        }
         else
         {
             GetComponent<MeshFilter>().mesh = mesh = new Mesh();
@@ -183,10 +191,10 @@ public class ProceduralIcoSphere : MonoBehaviour
 
             lastSubdivisions = subdivisions;
 
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             vertexCount = vertices.Count;
             triangleCount = triangles.Count;
-            #endif
+#endif
 
             vbos[subdivisions] = mesh;
         }

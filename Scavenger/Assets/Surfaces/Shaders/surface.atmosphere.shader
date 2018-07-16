@@ -1,8 +1,4 @@
-﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
-Shader "Surfaces/Atmosphere"
+﻿Shader "Surfaces/Atmosphere"
 {
 	Properties
 	{
@@ -14,15 +10,15 @@ Shader "Surfaces/Atmosphere"
 		_PlanetCentre("Planet Centre", Vector) = (0,0,0,1)
 		[NoScaleOffset]_AtmosphereMap("Atmosphere Map", 2D) = "black" {}
 	}
-		SubShader
+	SubShader
 	{
-			Tags{ "RenderType" = "Transparent" "Queue" = "Transparent" }
-			LOD 600
-			Cull Back
-			ZWrite Off
-			Blend One One
+		Tags{ "RenderType" = "Transparent" "Queue" = "Transparent" }
+		LOD 600
+		Cull Back
+		ZWrite Off
+		Blend One One
 
-			CGPROGRAM
+		CGPROGRAM
 		#pragma surface surf WrapScattering vertex:vert
 
 		float _AtmosphereRadius;
