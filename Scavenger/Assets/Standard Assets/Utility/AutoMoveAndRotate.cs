@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UnityStandardAssets.Utility
 {
-    [ExecuteInEditMode]
+    //[ExecuteInEditMode]
     public class AutoMoveAndRotate : MonoBehaviour
     {
         public Vector3andSpace moveUnitsPerSecond;

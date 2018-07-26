@@ -1,0 +1,489 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: planet_00
+  m_Shader: {fileID: 4800000, guid: b901c9428e426cd47af929a7e31ea106, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Elevation_Mask:
+        m_Texture: {fileID: 2800000, guid: 2fff1a68163f88a4c9479080a5a1ea5a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmiMain:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmiPoleN:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmiPoleS:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MSMain:
+        m_Texture: {fileID: 2800000, guid: d739435507adb7742acdfc180e206906, type: 3}
+        m_Scale: {x: 4, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _MSPoleN:
+        m_Texture: {fileID: 2800000, guid: d739435507adb7742acdfc180e206906, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MSPoleS:
+        m_Texture: {fileID: 2800000, guid: d739435507adb7742acdfc180e206906, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NorMain:
+        m_Texture: {fileID: 2800000, guid: ec49a13c3319def43ae83cf38ba16ad9, type: 3}
+        m_Scale: {x: 4, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _NorPoleN:
+        m_Texture: {fileID: 2800000, guid: ec49a13c3319def43ae83cf38ba16ad9, type: 3}
+        m_Scale: {x: 4, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _NorPoleS:
+        m_Texture: {fileID: 2800000, guid: ec49a13c3319def43ae83cf38ba16ad9, type: 3}
+        m_Scale: {x: 4, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Phase:
+        m_Texture: {fileID: 2800000, guid: 6bb915d5a2b72c34a953e07bfa21bcac, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PhaseClouds:
+        m_Texture: {fileID: 2800000, guid: f14d075698b7a20409b8e539d3aada8d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexBackCold:
+        m_Texture: {fileID: 2800000, guid: ec3de3332164a804989df6114f54b0db, type: 3}
+        m_Scale: {x: 8, y: 4}
+        m_Offset: {x: 0, y: 0}
+    - _TexBackCold_MSE:
+        m_Texture: {fileID: 2800000, guid: 93c23738ae3453b4ab06ceb702581b1d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexBackCold_Norm:
+        m_Texture: {fileID: 2800000, guid: 55f56097aa190e74b9a53ce16098024b, type: 3}
+        m_Scale: {x: 8, y: 4}
+        m_Offset: {x: 0, y: 0}
+    - _TexBackHot:
+        m_Texture: {fileID: 2800000, guid: 090fbd0841820a542852c438afcf791c, type: 3}
+        m_Scale: {x: 4, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _TexBackHot_MSE:
+        m_Texture: {fileID: 2800000, guid: 93c23738ae3453b4ab06ceb702581b1d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexBackHot_Norm:
+        m_Texture: {fileID: 2800000, guid: cb417beccc1c91045874e353f0d42d95, type: 3}
+        m_Scale: {x: 8, y: 4}
+        m_Offset: {x: 0, y: 0}
+    - _TexBackWarm:
+        m_Texture: {fileID: 2800000, guid: c6f5edd63dfee7d428ff7a28a28ee34c, type: 3}
+        m_Scale: {x: 8, y: 4}
+        m_Offset: {x: 0, y: 0}
+    - _TexBackWarm_MSE:
+        m_Texture: {fileID: 2800000, guid: 93c23738ae3453b4ab06ceb702581b1d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexBackWarm_Norm:
+        m_Texture: {fileID: 2800000, guid: 652767ec0de128341963e32a922d25de, type: 3}
+        m_Scale: {x: 8, y: 4}
+        m_Offset: {x: 0, y: 0}
+    - _TexCloudsCold:
+        m_Texture: {fileID: 2800000, guid: 47f5be7c742a5c74b90257472831ea3d, type: 3}
+        m_Scale: {x: 4, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _TexCloudsCold_Norm:
+        m_Texture: {fileID: 2800000, guid: f08a095057412e648ac9945bed385a97, type: 3}
+        m_Scale: {x: 16, y: 8}
+        m_Offset: {x: 0, y: 0}
+    - _TexCloudsHot:
+        m_Texture: {fileID: 2800000, guid: 2e9ff3fc4ba55f04a94e8d02e2d59025, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexCloudsHot_Norm:
+        m_Texture: {fileID: 2800000, guid: b18d28262187a7d4793ee0e8b7109652, type: 3}
+        m_Scale: {x: 32, y: 16}
+        m_Offset: {x: 0, y: 0}
+    - _TexCloudsWarm:
+        m_Texture: {fileID: 2800000, guid: 3378f89db93ab6d4981d5b57ef11fd87, type: 3}
+        m_Scale: {x: 8, y: 4}
+        m_Offset: {x: 0, y: 0}
+    - _TexCloudsWarm_Norm:
+        m_Texture: {fileID: 2800000, guid: 49c3f7989dd2f5f47a5b1ef6c6b6a5da, type: 3}
+        m_Scale: {x: 16, y: 8}
+        m_Offset: {x: 0, y: 0}
+    - _TexFrontCold:
+        m_Texture: {fileID: 2800000, guid: 5445becd26520ef44bf01119184a47b4, type: 3}
+        m_Scale: {x: 4, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _TexFrontCold_MSE:
+        m_Texture: {fileID: 2800000, guid: c5f37fd339b70594684894ad88f1f3e4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexFrontCold_Mask:
+        m_Texture: {fileID: 2800000, guid: 91d708f603a4deb41ade31e15c5268f3, type: 3}
+        m_Scale: {x: 6, y: 3}
+        m_Offset: {x: 0, y: 0}
+    - _TexFrontCold_Norm:
+        m_Texture: {fileID: 2800000, guid: 8c00a8b18ba23c347a1fae2755f88863, type: 3}
+        m_Scale: {x: 16, y: 8}
+        m_Offset: {x: 0, y: 0}
+    - _TexFrontHot:
+        m_Texture: {fileID: 2800000, guid: ec3de3332164a804989df6114f54b0db, type: 3}
+        m_Scale: {x: 2, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexFrontHot_MSE:
+        m_Texture: {fileID: 2800000, guid: a152adaaf601ec54aa3f4f8c4c9e0238, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexFrontHot_Mask:
+        m_Texture: {fileID: 2800000, guid: 5d64b7770c7e3954b8224d774f8aeab2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexFrontHot_Norm:
+        m_Texture: {fileID: 2800000, guid: 03d4894f06c337e48bd490b6aa90cbb3, type: 3}
+        m_Scale: {x: 16, y: 8}
+        m_Offset: {x: 0, y: 0}
+    - _TexFrontMask:
+        m_Texture: {fileID: 2800000, guid: 984b378749548014c8ff671a20c2f4f0, type: 3}
+        m_Scale: {x: 2, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexFrontWarm:
+        m_Texture: {fileID: 2800000, guid: 93ea6636b6f4cbf4f83484d01d557156, type: 3}
+        m_Scale: {x: 8, y: 4}
+        m_Offset: {x: 0, y: 0}
+    - _TexFrontWarm_MSE:
+        m_Texture: {fileID: 2800000, guid: 93c23738ae3453b4ab06ceb702581b1d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexFrontWarm_Mask:
+        m_Texture: {fileID: 2800000, guid: ee0775f9397021243a312aeba2d96b9b, type: 3}
+        m_Scale: {x: 5, y: 3}
+        m_Offset: {x: 0, y: 0}
+    - _TexFrontWarm_Norm:
+        m_Texture: {fileID: 2800000, guid: 6b2676d8b6a6c3340a3fbcc0807dcf89, type: 3}
+        m_Scale: {x: 8, y: 4}
+        m_Offset: {x: 0, y: 0}
+    - _TexFront_Mask:
+        m_Texture: {fileID: 2800000, guid: b7b82149fc78ee44897a8fda763c59d4, type: 3}
+        m_Scale: {x: 2, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexMain:
+        m_Texture: {fileID: 2800000, guid: d7b5f3da96a876a4597c241ffa55f71d, type: 3}
+        m_Scale: {x: 4, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _TexMidCold:
+        m_Texture: {fileID: 2800000, guid: aa042f2d28cafb047b023644370989f3, type: 3}
+        m_Scale: {x: 4, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _TexMidCold_MSE:
+        m_Texture: {fileID: 2800000, guid: 03364b7c4515b0348b4490d4f696fb5a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexMidCold_Mask:
+        m_Texture: {fileID: 2800000, guid: ee0775f9397021243a312aeba2d96b9b, type: 3}
+        m_Scale: {x: 8, y: 4}
+        m_Offset: {x: 0, y: 0}
+    - _TexMidCold_Norm:
+        m_Texture: {fileID: 2800000, guid: 841231d866c800e44bf7b6c75482f662, type: 3}
+        m_Scale: {x: 8, y: 4}
+        m_Offset: {x: 0, y: 0}
+    - _TexMidHot:
+        m_Texture: {fileID: 2800000, guid: 91d708f603a4deb41ade31e15c5268f3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexMidHot_MSE:
+        m_Texture: {fileID: 2800000, guid: 93c23738ae3453b4ab06ceb702581b1d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexMidHot_Mask:
+        m_Texture: {fileID: 2800000, guid: ee0775f9397021243a312aeba2d96b9b, type: 3}
+        m_Scale: {x: 8, y: 4}
+        m_Offset: {x: 0, y: 0}
+    - _TexMidHot_Norm:
+        m_Texture: {fileID: 2800000, guid: 22891f97a0f2aa94db9ab76724e2d668, type: 3}
+        m_Scale: {x: 8, y: 4}
+        m_Offset: {x: 0, y: 0}
+    - _TexMidMask:
+        m_Texture: {fileID: 2800000, guid: 373b7300f7a2ba84991ea4881342c1bd, type: 3}
+        m_Scale: {x: 2, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexMidWarm:
+        m_Texture: {fileID: 2800000, guid: ce5e6ab44c9081b4da5b86ed9f35d0ac, type: 3}
+        m_Scale: {x: 4, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _TexMidWarm_MSE:
+        m_Texture: {fileID: 2800000, guid: cdeda855cec09674fa7e8d46da9bcdf5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexMidWarm_Mask:
+        m_Texture: {fileID: 2800000, guid: 2fff1a68163f88a4c9479080a5a1ea5a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexMidWarm_Norm:
+        m_Texture: {fileID: 2800000, guid: bafac61febcd700499f38586fa38eb1b, type: 3}
+        m_Scale: {x: 4, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _TexMid_Mask:
+        m_Texture: {fileID: 2800000, guid: 373b7300f7a2ba84991ea4881342c1bd, type: 3}
+        m_Scale: {x: 4, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _TexPoleCold:
+        m_Texture: {fileID: 2800000, guid: c7eab5f915ff9cb4b8b3acc50d7bca0f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexPoleCold_MSE:
+        m_Texture: {fileID: 2800000, guid: 034f41384648ba049886b230eeba4ee7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexPoleCold_Mask:
+        m_Texture: {fileID: 2800000, guid: ec00104189cd67a4a8e3b8461d7f1098, type: 3}
+        m_Scale: {x: 0.75, y: 0.75}
+        m_Offset: {x: 0, y: 0}
+    - _TexPoleCold_NMask:
+        m_Texture: {fileID: 2800000, guid: ec00104189cd67a4a8e3b8461d7f1098, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexPoleCold_Norm:
+        m_Texture: {fileID: 2800000, guid: e602c2a7b60c56f46adf7066db8ce11a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexPoleCold_SMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexPoleHot:
+        m_Texture: {fileID: 2800000, guid: 85d6bb2c3b88c1947a37e46879bf1f33, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexPoleHot_MSE:
+        m_Texture: {fileID: 2800000, guid: 93c23738ae3453b4ab06ceb702581b1d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexPoleHot_Mask:
+        m_Texture: {fileID: 2800000, guid: ec00104189cd67a4a8e3b8461d7f1098, type: 3}
+        m_Scale: {x: 0.75, y: 0.75}
+        m_Offset: {x: 0, y: 0}
+    - _TexPoleHot_NMask:
+        m_Texture: {fileID: 2800000, guid: ec00104189cd67a4a8e3b8461d7f1098, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 5, y: 5}
+    - _TexPoleHot_Norm:
+        m_Texture: {fileID: 2800000, guid: dd95b88df964f3e498b88640fa74bd78, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexPoleHot_SMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexPoleN:
+        m_Texture: {fileID: 2800000, guid: d7b5f3da96a876a4597c241ffa55f71d, type: 3}
+        m_Scale: {x: 4, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _TexPoleS:
+        m_Texture: {fileID: 2800000, guid: d7b5f3da96a876a4597c241ffa55f71d, type: 3}
+        m_Scale: {x: 4, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _TexPoleWarm:
+        m_Texture: {fileID: 2800000, guid: edc590e469cb4f34c86ec3ba6d7cf3ec, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexPoleWarm_MSE:
+        m_Texture: {fileID: 2800000, guid: 46cc66fc38997bc4d9ef5c4d2a38c862, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexPoleWarm_Mask:
+        m_Texture: {fileID: 2800000, guid: ec00104189cd67a4a8e3b8461d7f1098, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexPoleWarm_NMask:
+        m_Texture: {fileID: 2800000, guid: bae3c64f014367644bc21e1786759eab, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexPoleWarm_Norm:
+        m_Texture: {fileID: 2800000, guid: 77f6e647b0108574ab7bf93ab386fb5a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexPoleWarm_SMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexPole_Mask:
+        m_Texture: {fileID: 2800000, guid: afb452b8bd694ba4cb13543523747e38, type: 3}
+        m_Scale: {x: 0.75, y: 0.75}
+        m_Offset: {x: 0.5, y: 0.5}
+    - _TexPole_North:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexPole_South:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexWaterCold:
+        m_Texture: {fileID: 2800000, guid: 71da9b835012cbb4cb0518867610e407, type: 3}
+        m_Scale: {x: 2, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexWaterCold_MSE:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexWaterCold_Norm:
+        m_Texture: {fileID: 2800000, guid: 8c00a8b18ba23c347a1fae2755f88863, type: 3}
+        m_Scale: {x: 16, y: 8}
+        m_Offset: {x: 0, y: 0}
+    - _TexWaterHot:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 2, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexWaterHot_MSE:
+        m_Texture: {fileID: 2800000, guid: 93c23738ae3453b4ab06ceb702581b1d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexWaterHot_Norm:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexWaterWarm:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 2, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexWaterWarm_MSE:
+        m_Texture: {fileID: 2800000, guid: 89b254878274a4a43bf4cd24507741c1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexWaterWarm_Norm:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _CloudsSlope: 0.1
+    - _CloudsSpeed: 0.01
+    - _CloudsTempScale: 0.1
+    - _CloudsTurbOctaves: 4
+    - _CloudsTurbScale: 1
+    - _CloudsTurbulence: 0.01
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _Elevation: 0.33
+    - _ElevationSlope: 0.05
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Kelvin: 290
+    - _KelvinRange: 50
+    - _Metallic: 0
+    - _Mode: 0
+    - _NorStrength: 0.25
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _PoleScale: 1
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _TexBackCold_NStr: 0.1
+    - _TexBackHot_NStr: 0.1
+    - _TexBackWarm_NStr: 0.1
+    - _TexCloudsCold_NStr: 0.01
+    - _TexCloudsHot_NStr: 0.05
+    - _TexCloudsWarm_NStr: 0.01
+    - _TexFrontCold_NStr: 0.01
+    - _TexFrontHot_NStr: 0.3
+    - _TexFrontWarm_NStr: 0.1
+    - _TexMidCold_NStr: 0.25
+    - _TexMidHot_NStr: 0.3
+    - _TexMidWarm_NStr: 0.3
+    - _TexPoleCold_NStr: 0.1
+    - _TexPoleHot_NStr: 0.1
+    - _TexPoleWarm_NStr: 0.05
+    - _TexWaterCold_NStr: 0.1
+    - _TexWaterHot_NStr: 0.01
+    - _TexWaterWarm_NStr: 0.01
+    - _UVSec: 0
+    - _WaterSpeed: 0.001
+    - _WaterTempScale: 0.01
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmiMainColour: {r: 1, g: 1, b: 1, a: 1}
+    - _EmiPoleNColour: {r: 1, g: 1, b: 1, a: 1}
+    - _EmiPoleSColour: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _KelvinMinMax: {r: 50, g: 290, b: 700, a: 1500}
+    - _Phase: {r: 1, g: 0.825, b: 0.75, a: 0.25}
+    - _PhaseCloud: {r: 0.75, g: 1, b: 1, a: 1}
+    - _PhaseClouds: {r: 0.5, g: 1, b: 0.75, a: 0.42}
+    - _PhaseWater: {r: 1, g: 0.825, b: 0.75, a: 0.33}
+    - _TexBackCold_Emissive: {r: 0, g: 0, b: 0, a: 0}
+    - _TexBackHot_Emissive: {r: 0, g: 0, b: 0, a: 0}
+    - _TexBackWarm_Emissive: {r: 0, g: 0, b: 0, a: 0}
+    - _TexCloudsCold_Colour: {r: 0.89705884, g: 0.9914807, b: 1, a: 1}
+    - _TexCloudsHot_Colour: {r: 0.6791194, g: 0.6911765, b: 0.47264272, a: 1}
+    - _TexCloudsWarm_Colour: {r: 1, g: 1, b: 1, a: 1}
+    - _TexFrontCold_Emissive: {r: 0, g: 0, b: 0, a: 0}
+    - _TexFrontHot_Emissive: {r: 0.10000001, g: 0.042849906, b: 0.027941182, a: 0}
+    - _TexFrontWarm_Emissive: {r: 0, g: 0, b: 0, a: 0}
+    - _TexMidCold_Emissive: {r: 0, g: 0, b: 0, a: 0}
+    - _TexMidHot_Emissive: {r: 0, g: 0, b: 0, a: 0}
+    - _TexMidWarm_Emissive: {r: 0, g: 0, b: 0, a: 0}
+    - _TexPoleCold_Emissive: {r: 0, g: 0, b: 0, a: 0}
+    - _TexPoleHot_Emissive: {r: 0.10000001, g: 0.042849906, b: 0.027941182, a: 0}
+    - _TexPoleWarm_Emissive: {r: 0, g: 0, b: 0, a: 0}
+    - _TexWaterCold_Emissive: {r: 0, g: 0, b: 0, a: 0}
+    - _TexWaterCold_Tint: {r: 1, g: 1, b: 1, a: 1}
+    - _TexWaterHot_Emissive: {r: 0.029682096, g: 0.066176474, b: 0.040504567, a: 0}
+    - _TexWaterHot_Tint: {r: 0.71323526, g: 1, b: 0.92880327, a: 1}
+    - _TexWaterWarm_Emissive: {r: 0, g: 0, b: 0, a: 0}
+    - _TexWaterWarm_Tint: {r: 0.21323532, g: 0.47910762, b: 1, a: 1}

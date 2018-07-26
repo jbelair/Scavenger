@@ -21,7 +21,6 @@ public class EnvironmentBasedPlanet : MonoBehaviour
     public float kelvinHigh = 0;
 
     public Sphere surface;
-    public Sphere clouds;
     public Sphere atmosphere;
 
     public SpriteRenderer spriteCircle;
@@ -80,18 +79,6 @@ public class EnvironmentBasedPlanet : MonoBehaviour
         else
         {
             atmosphere.sphere.gameObject.SetActive(false);
-        }
-
-        if (clouds.surface)
-        {
-            clouds.sphere.sharedMaterial = new Material(clouds.surface);
-            clouds.sphere.sharedMaterial.SetFloat("_Kelvin", kelvin);
-            clouds.sphere.sharedMaterial.SetFloat("_KelvinRange", kelvinRange);
-            clouds.sphere.sharedMaterial.SetFloat("_Intensity", intensity);
-        }
-        else
-        {
-            clouds.sphere.gameObject.SetActive(false);
         }
     }
 

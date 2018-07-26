@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class OrbitAround : MonoBehaviour
 {
+    public enum Axis { x, y, z };
+
     public Transform center;
     public float speed = 1;
+    public float axisOffset;
+    public Axis axis = Axis.z;
 
+    [Header("Diagnostics")]
     public Vector3 goal;
     public float offset;
     public float theta;
@@ -26,6 +31,8 @@ public class OrbitAround : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, goal, speed);
 
         theta += speed * Time.deltaTime * Mathf.PI * 2;
-        goal = center.position + new Vector3(Mathf.Cos(theta), Mathf.Sin(theta), 0) * offset;
+        if (axis == Axis.z)
+            goal = center.position + new Vector3(Mathf.Cos(theta), Mathf.Sin(theta), axisOffset) * offset;
+        //else if (axis == Axis.)
     }
 }

@@ -10,7 +10,6 @@ public class PlanetGenerator : MonoBehaviour
         public string name;
 
         public Material[] surfaces;
-        public Material[] clouds;
         public Material[] atmospheres;
 
         public Material Surface()
@@ -25,22 +24,6 @@ public class PlanetGenerator : MonoBehaviour
         {
             if (surfaces.Length > 0)
                 return surfaces[index % surfaces.Length];
-            else
-                return null;
-        }
-
-        public Material Cloud()
-        {
-            if (clouds.Length > 0)
-                return clouds[Random.Range(0, clouds.Length - 1)];
-            else
-                return null;
-        }
-
-        public Material Cloud(int index)
-        {
-            if (clouds.Length > 0)
-                return clouds[index % clouds.Length];
             else
                 return null;
         }
@@ -66,19 +49,16 @@ public class PlanetGenerator : MonoBehaviour
     public Dictionary<string, PlanetProfile> profilesDictionary = new Dictionary<string, PlanetProfile>();
 
     [Header("Metallic Planets")]
-    public string[] coldMetallicProfiles;
-    public string[] warmMetallicProfiles;
-    public string[] hotMetallicProfiles;
+    public string[] metallicProfiles;
 
     [Header("Mixed Planets")]
-    public string[] coldMixedProfiles;
-    public string[] warmMixedProfiles;
-    public string[] hotMixedProfiles;
+    public string[] mixedProfiles;
 
     [Header("Gasseous Planets")]
-    public string[] coldGasseousProfiles;
-    public string[] warmGasseousProfiles;
-    public string[] hotGasseousProfiles;
+    public string[] gasseousProfiles;
+
+    public float Cold = 270;
+    public float Hot = 320;
 
     [Header("Special Alternatives")]
     public GameObject[] asteroidBelts;
@@ -123,9 +103,9 @@ public class PlanetGenerator : MonoBehaviour
         // B.   Mixed
         // C.   Gasseous
 
-        float kelvin = planet.environment[planet.name + " Kelvin"].Get<float>();
-        float kelvinLow = planet.environment[planet.name + " Kelvin Low"].Get<float>();
-        float kelvinHigh = planet.environment[planet.name + " Kelvin High"].Get<float>();
+        float kelvin = planet.environment[planet.name + " Actual Kelvin"].Get<float>();
+        float kelvinLow = planet.environment[planet.name + " Actual Kelvin Low"].Get<float>();
+        float kelvinHigh = planet.environment[planet.name + " Actual Kelvin High"].Get<float>();
 
         EnvironmentBasedPlanet.Temperature temperature;
         EnvironmentBasedPlanet.Metallicity metallicity;
@@ -152,13 +132,13 @@ public class PlanetGenerator : MonoBehaviour
         }
         else
         {
-            if (kelvinLow >= 280 && kelvinHigh <= 320)
+            if (kelvinLow >= Cold && kelvinHigh <= Hot)
             {
                 temperature = EnvironmentBasedPlanet.Temperature.Warm;
             }
             else
             {
-                if (kelvin < 280)
+                if (kelvin < Cold)
                 {
                     temperature = EnvironmentBasedPlanet.Temperature.Cold;
                 }
@@ -168,7 +148,7 @@ public class PlanetGenerator : MonoBehaviour
                 }
             }
 
-            if (planet.transform.localScale.x > 0.1f)
+            if (planet.transform.localScale.x > 0.5f)
             {
                 metallicity = EnvironmentBasedPlanet.Metallicity.Mixed;
             }
@@ -178,55 +158,21 @@ public class PlanetGenerator : MonoBehaviour
             }
         }
 
-        PlanetProfile profile = GetProfileByName(coldMetallicProfiles[0]);
+        PlanetProfile profile = GetProfileByName(metallicProfiles[0]);
         switch (metallicity)
         {
             case EnvironmentBasedPlanet.Metallicity.Gasseous:
-                switch (temperature)
-                {
-                    case EnvironmentBasedPlanet.Temperature.Cold:
-                        profile = GetProfileByName(coldGasseousProfiles[planet.environment[planet.name + " Profile"] % coldGasseousProfiles.Length]);
-                        break;
-                    case EnvironmentBasedPlanet.Temperature.Warm:
-                        profile = GetProfileByName(warmGasseousProfiles[planet.environment[planet.name + " Profile"] % warmGasseousProfiles.Length]);
-                        break;
-                    case EnvironmentBasedPlanet.Temperature.Hot:
-                        profile = GetProfileByName(hotGasseousProfiles[planet.environment[planet.name + " Profile"] % hotGasseousProfiles.Length]);
-                        break;
-                }
+                profile = GetProfileByName(gasseousProfiles[planet.environment[planet.name + " Profile"] % gasseousProfiles.Length]);
                 break;
             case EnvironmentBasedPlanet.Metallicity.Mixed:
-                switch (temperature)
-                {
-                    case EnvironmentBasedPlanet.Temperature.Cold:
-                        profile = GetProfileByName(coldMixedProfiles[planet.environment[planet.name + " Profile"] % coldMixedProfiles.Length]);
-                        break;
-                    case EnvironmentBasedPlanet.Temperature.Warm:
-                        profile = GetProfileByName(warmMixedProfiles[planet.environment[planet.name + " Profile"] % warmMixedProfiles.Length]);
-                        break;
-                    case EnvironmentBasedPlanet.Temperature.Hot:
-                        profile = GetProfileByName(hotMixedProfiles[planet.environment[planet.name + " Profile"] % hotMixedProfiles.Length]);
-                        break;
-                }
+                profile = GetProfileByName(mixedProfiles[planet.environment[planet.name + " Profile"] % mixedProfiles.Length]);
                 break;
             case EnvironmentBasedPlanet.Metallicity.Metallic:
-                switch (temperature)
-                {
-                    case EnvironmentBasedPlanet.Temperature.Cold:
-                        profile = GetProfileByName(coldMetallicProfiles[planet.environment[planet.name + " Profile"] % coldMetallicProfiles.Length]);
-                        break;
-                    case EnvironmentBasedPlanet.Temperature.Warm:
-                        profile = GetProfileByName(warmMetallicProfiles[planet.environment[planet.name + " Profile"] % warmMetallicProfiles.Length]);
-                        break;
-                    case EnvironmentBasedPlanet.Temperature.Hot:
-                        profile = GetProfileByName(hotMetallicProfiles[planet.environment[planet.name + " Profile"] % hotMetallicProfiles.Length]);
-                        break;
-                }
+                profile = GetProfileByName(metallicProfiles[planet.environment[planet.name + " Profile"] % metallicProfiles.Length]);
                 break;
         }
 
         planet.surface.surface = profile.Surface(planet.environment[planet.name + " Surface"]);
-        planet.clouds.surface = profile.Cloud(planet.environment[planet.name + " Clouds"]);
         planet.atmosphere.surface = profile.Atmosphere(planet.environment[planet.name + " Atmosphere"]);
 
         planet.temperature = temperature;

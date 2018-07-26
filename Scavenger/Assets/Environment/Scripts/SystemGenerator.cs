@@ -24,6 +24,7 @@ public class SystemGenerator : MonoBehaviour
 
     public AnimationCurve planetPlotPlanets;
     public AnimationCurve planetPlotRadius;
+    public AnimationCurve planetPlotMoons;
 
     public int hash = 0;
 
@@ -301,22 +302,24 @@ public class SystemGenerator : MonoBehaviour
 
             maximumPlanetaryDistance = Mathf.Max(distance, maximumPlanetaryDistance);
 
-            statistics[name + " Radius"] =          new Statistic(name + " Radius",         Statistic.ValueType.Float,      0f);
-            statistics[name + " Kelvin"] =          new Statistic(name + " Kelvin",         Statistic.ValueType.Float,      kelvin);
-            statistics[name + " Kelvin Low"] =      new Statistic(name + " Kelvin Low",     Statistic.ValueType.Float,      kelvinLow);
-            statistics[name + " Kelvin High"] =     new Statistic(name + " Kelvin High",    Statistic.ValueType.Float,      kelvinHigh);
-            statistics[name + " Actual Kelvin"] =   new Statistic(name + " Actual Kelvin", Statistic.ValueType.Float, kelvin);
-            statistics[name + " Actual Kelvin Low"] = new Statistic(name + " Actual Kelvin Low", Statistic.ValueType.Float, kelvinLow);
-            statistics[name + " Actual Kelvin High"] = new Statistic(name + " Actual Kelvin High", Statistic.ValueType.Float, kelvinHigh);
-            statistics[name + " Position"] =        new Statistic(name + " Position",       Statistic.ValueType.Vector2,    delta);
-            statistics[name + " Orbit"] =           new Statistic(name + " Orbit",          Statistic.ValueType.Vector2,    orbitCenter);
-            statistics[name + " Orbit Distance"] =  new Statistic(name + " Orbit Distance", Statistic.ValueType.Float,      distance);
-            statistics[name + " Profile"] =         new Statistic(name + " Profile",        Statistic.ValueType.Integer,    Random.Range(0, 1000000));
-            statistics[name + " Surface"] =         new Statistic(name + " Surface",        Statistic.ValueType.Integer,    Random.Range(0, 1000000));
-            statistics[name + " Clouds"] =          new Statistic(name + " Clouds",         Statistic.ValueType.Integer,    Random.Range(0, 1000000));
-            statistics[name + " Atmosphere"] =      new Statistic(name + " Atmosphere",     Statistic.ValueType.Integer,    Random.Range(0, 1000000));
-            statistics[name + " Atmosphere Intensity"] = new Statistic(name + " Atmosphere Intensity", Statistic.ValueType.Float, 0);
-            statistics[name + " Atmosphere Density"] = new Statistic(name + " Atmosphere Density", Statistic.ValueType.Float, 0);
+            GeneratePlanet(name, 0, kelvin, kelvinLow, kelvinHigh, orbitCenter, distance, delta);
+
+            //statistics[name + " Radius"] =                  new Statistic(name + " Radius",                     Statistic.ValueType.Float,      0f);
+            //statistics[name + " Kelvin"] =                  new Statistic(name + " Kelvin",                     Statistic.ValueType.Float,      kelvin);
+            //statistics[name + " Kelvin Low"] =              new Statistic(name + " Kelvin Low",                 Statistic.ValueType.Float,      kelvinLow);
+            //statistics[name + " Kelvin High"] =             new Statistic(name + " Kelvin High",                Statistic.ValueType.Float,      kelvinHigh);
+            //statistics[name + " Actual Kelvin"] =           new Statistic(name + " Actual Kelvin",              Statistic.ValueType.Float,      kelvin);
+            //statistics[name + " Actual Kelvin Low"] =       new Statistic(name + " Actual Kelvin Low",          Statistic.ValueType.Float,      kelvinLow);
+            //statistics[name + " Actual Kelvin High"] =      new Statistic(name + " Actual Kelvin High",         Statistic.ValueType.Float,      kelvinHigh);
+            //statistics[name + " Position"] =                new Statistic(name + " Position",                   Statistic.ValueType.Vector2,    delta);
+            //statistics[name + " Orbit"] =                   new Statistic(name + " Orbit",                      Statistic.ValueType.Vector2,    orbitCenter);
+            //statistics[name + " Orbit Distance"] =          new Statistic(name + " Orbit Distance",             Statistic.ValueType.Float,      distance);
+            //statistics[name + " Profile"] =                 new Statistic(name + " Profile",                    Statistic.ValueType.Integer,    Random.Range(0, 1000000));
+            //statistics[name + " Surface"] =                 new Statistic(name + " Surface",                    Statistic.ValueType.Integer,    Random.Range(0, 1000000));
+            //statistics[name + " Clouds"] =                  new Statistic(name + " Clouds",                     Statistic.ValueType.Integer,    Random.Range(0, 1000000));
+            //statistics[name + " Atmosphere"] =              new Statistic(name + " Atmosphere",                 Statistic.ValueType.Integer,    Random.Range(0, 1000000));
+            //statistics[name + " Atmosphere Intensity"] =    new Statistic(name + " Atmosphere Intensity",       Statistic.ValueType.Float,      0);
+            //statistics[name + " Atmosphere Density"] =      new Statistic(name + " Atmosphere Density",         Statistic.ValueType.Float,      0);
         }
 
         int gasGiants = 0;
@@ -339,37 +342,40 @@ public class SystemGenerator : MonoBehaviour
             //else
             //    radius *= 20f / numberOfPlanets;
 
-            float atmoIntensity = (kelvin / 150f) * Mathf.Max(0, 1f - (kelvin / 1500f));
-            float atmoDensity = Mathf.Max(1, (20f - kelvin / 100f) * Mathf.Max(0, 1f - (kelvin / 2000f)) * kelvin / 200f);
-            float kelvinRange = (kelvinHigh - kelvinLow) * (atmoIntensity * atmoDensity);
-            float planetKelvin = kelvin + kelvinRange;
-            float planetKelvinLow = kelvinLow + kelvinRange;
-            float planetKelvinHigh = kelvinHigh + kelvinRange;
+            UpdatePlanet(name, radius, kelvin, kelvinLow, kelvinHigh);
 
-            statistics[name + " Radius"].Set(radius);
-            statistics[name + " Actual Kelvin"].Set(planetKelvin);
-            statistics[name + " Actual Kelvin Low"].Set(planetKelvinLow);
-            statistics[name + " Actual Kelvin High"].Set(planetKelvinHigh);
-            statistics[name + " Atmosphere Intensity"].Set(atmoIntensity);
-            statistics[name + " Atmosphere Density"].Set(atmoDensity);
+            //float atmoIntensity = (kelvin / 200f) * Mathf.Max(0, 1f - (kelvin / 1500f));
+            //float atmoDensity = Mathf.Max(1, (20f - kelvin / 100f) * Mathf.Max(0, 1f - (kelvin / 2000f)) * kelvin / 200f);
+            //float kelvinRange = (kelvinHigh - kelvinLow) * (atmoIntensity * atmoDensity);
+            //float planetKelvin = kelvin + kelvinRange;
+            //float planetKelvinLow = planetKelvin - kelvinRange;
+            //float planetKelvinHigh = planetKelvin + kelvinRange;
+
+            //statistics[name + " Radius"].Set(radius);
+            //statistics[name + " Actual Kelvin"].Set(planetKelvin);
+            //statistics[name + " Actual Kelvin Low"].Set(planetKelvinLow);
+            //statistics[name + " Actual Kelvin High"].Set(planetKelvinHigh);
+            //statistics[name + " Atmosphere Intensity"].Set(atmoIntensity);
+            //statistics[name + " Atmosphere Density"].Set(atmoDensity);
 
             //float radiusFactor = Mathf.Pow(radius / 4f, 5);
-            int minimum = Mathf.FloorToInt(radius);
-            int maximum = (int)Mathf.Min(32, Mathf.Pow(2 + minimum * 2, 2));
-            int numberOfMoons = Random.Range(minimum, maximum);
+            //int minimum = Mathf.FloorToInt(radius);
+            //int maximum = (int)Mathf.Min(32, Mathf.Pow(2 + minimum * 2, 2));
+            //int numberOfMoons = Random.Range(minimum, maximum);
+            int numberOfMoons = (int)planetPlotMoons.Evaluate(Random.Range(0, 1f) * radius);
             statistics[name + " Moons"] = new Statistic(name + " Moons", Statistic.ValueType.Integer, numberOfMoons);
-            float distanceLast = radius * 1.5f * Random.Range(1f, 1.5f);
+            float distanceLast = radius * 1.5f * Random.Range(1f, 3f);
             for (int j = 0; j < numberOfMoons; j++)
             {
                 Debug.Log("Generating moon environment data for planet " + (i + 1) + " of " + numberOfPlanets + " moon " + (j + 1) + " of " + numberOfMoons);
 
                 string moonName = name + " Moon " + StringHelper.IndexIntToChar(j);
-                float moonRadius = (radius / numberOfMoons) * Random.Range(0.1f,1f);
-                Vector3 orbit = Random.insideUnitCircle.normalized;
+                float moonRadius = (radius / (numberOfMoons + 1)) * Random.Range(0.1f,1f);
+                Vector2 orbit = Random.insideUnitCircle.normalized;
                 float orbitDistance = distanceLast;
-                distanceLast = distanceLast * Random.Range(1.01f, 1.15f) + moonRadius * 2;
+                distanceLast = radius * 1.5f * Random.Range(1f, 3f); //distanceLast * Random.Range(1.01f, 1.15f) + moonRadius * 2;
                 
-                Vector2 delta = statistics[name + " Position"].Get<Vector2>() + orbit.XY() * orbitDistance;
+                Vector2 delta = statistics[name + " Position"].Get<Vector2>() + orbit * orbitDistance;
                 // I need to find the hottest, and coldest point around the orbit
 
                 kelvin = 0;
@@ -408,33 +414,11 @@ public class SystemGenerator : MonoBehaviour
                             kelvinLow = kelvinCurrent;
                         if (kelvinCurrent > kelvinHigh)
                             kelvinHigh = kelvinCurrent;
-
-
                     }
                 }
 
-                float moonIntensity = (kelvin / 150f) * Mathf.Max(0, 1f - (kelvin / 1500f));
-                float moonDensity = Mathf.Max(1, (20f - kelvin / 100f) * Mathf.Max(0, 1f - (kelvin / 2000f)) * kelvin / 200f);
-                float moonKelvinRange = (kelvinHigh - kelvinLow) * (moonIntensity * moonDensity);
-                float moonKelvin = kelvin + kelvinRange;
-                float moonKelvinLow = kelvinLow + kelvinRange;
-                float moonKelvinHigh = kelvinHigh + kelvinRange;
-
-                statistics[moonName + " Radius"] =          new Statistic(moonName + " Radius",         Statistic.ValueType.Float,      moonRadius);
-                statistics[moonName + " Kelvin"] =          new Statistic(moonName + " Kelvin",         Statistic.ValueType.Float,      kelvin);
-                statistics[moonName + " Kelvin Low"] =      new Statistic(moonName + " Kelvin Low",     Statistic.ValueType.Float,      kelvinLow);
-                statistics[moonName + " Kelvin High"] =     new Statistic(moonName + " Kelvin High",    Statistic.ValueType.Float,      kelvinHigh);
-                statistics[moonName + " Actual Kelvin"] = new Statistic(moonName + " Actual Kelvin", Statistic.ValueType.Float, moonKelvin);
-                statistics[moonName + " Actual Kelvin Low"] = new Statistic(moonName + " Actual Kelvin Low", Statistic.ValueType.Float, moonKelvinLow);
-                statistics[moonName + " Actual Kelvin High"] = new Statistic(moonName + " Actual Kelvin High", Statistic.ValueType.Float, moonKelvinHigh);
-                statistics[moonName + " Orbit"] =           new Statistic(moonName + " Orbit",          Statistic.ValueType.Vector3,    orbit);
-                statistics[moonName + " Orbit Distance"] =  new Statistic(moonName + " Orbit Distance", Statistic.ValueType.Float,      orbitDistance);
-                statistics[moonName + " Profile"] =         new Statistic(moonName + " Profile",        Statistic.ValueType.Integer,    Random.Range(0, 100));
-                statistics[moonName + " Surface"] =         new Statistic(moonName + " Surface",        Statistic.ValueType.Integer,    Random.Range(0, 100));
-                statistics[moonName + " Clouds"] =          new Statistic(moonName + " Clouds",         Statistic.ValueType.Integer,    Random.Range(0, 100));
-                statistics[moonName + " Atmosphere"] =      new Statistic(moonName + " Atmosphere",     Statistic.ValueType.Integer,    Random.Range(0, 100));
-                statistics[moonName + " Atmosphere Intensity"] = new Statistic(moonName + " Atmosphere Intensity", Statistic.ValueType.Float, moonIntensity);
-                statistics[moonName + " Atmosphere Density"] = new Statistic(moonName + " Atmosphere Density", Statistic.ValueType.Float, moonDensity);
+                Vector2 position = orbitCenter + orbit * distance;
+                GeneratePlanet(moonName, moonRadius, kelvin, kelvinLow, kelvinHigh, orbit, orbitDistance, position);
             }
         }
 
@@ -516,10 +500,10 @@ public class SystemGenerator : MonoBehaviour
                 string moonName = name + " Moon " + StringHelper.IndexIntToChar(j);
 
                 orbitCenter = planet.transform.position;
-                Vector3 orbitPoint = statistics[moonName + " Orbit"];
+                Vector2 orbitPoint = statistics[moonName + " Orbit"];
                 float distance = statistics[moonName + " Orbit Distance"];
 
-                EnvironmentBasedPlanet moon = Instantiate(planetPrefab, (Vector3)orbitCenter + orbitPoint * distance, planetPrefab.transform.rotation, transform);
+                EnvironmentBasedPlanet moon = Instantiate(planetPrefab, orbitCenter + orbitPoint * distance, planetPrefab.transform.rotation, transform);
                 moon.name = moonName;
                 moon.environment = statistics;
 
@@ -547,5 +531,69 @@ public class SystemGenerator : MonoBehaviour
             if (child.activeSelf)
                 Destroy(child);
         }
+    }
+
+    float AtmosphereIntensity(float kelvin)
+    {
+        return (kelvin / 200f) * Mathf.Max(0, 1f - (kelvin / 1500f));
+    }
+
+    float AtmosphereDensity(float kelvin)
+    {
+        return Mathf.Max(1, (20f - kelvin / 100f) * Mathf.Max(0, 1f - (kelvin / 2000f)));// * kelvin / 200f);
+    }
+
+    float AtmosphericKelvinRange(float kelvinRange, float intensity, float density)
+    {
+        return (kelvinRange / intensity) * density;
+    }
+
+    float AtmosphereKelvin(float kelvin, float kelvinRange, float intensity, float density)
+    {
+        return kelvin + (kelvinRange * intensity) / density;
+    }
+
+    void GeneratePlanet(string name, float radius, float kelvin, float kelvinLow, float kelvinHigh, Vector2 orbit, float orbitDistance, Vector2 position)
+    {
+        float intensity = AtmosphereIntensity(kelvin);
+        float density = AtmosphereDensity(kelvin);
+        float actualKelvinRange = AtmosphericKelvinRange(kelvinHigh - kelvinLow, intensity, density);
+        float actualKelvin = AtmosphereKelvin(kelvin, actualKelvinRange, intensity, density);
+        float actualKelvinLow = actualKelvin - actualKelvinRange;
+        float actualKelvinHigh = actualKelvin + actualKelvinRange;
+
+        statistics[name + " Radius"] = new Statistic(name + " Radius", Statistic.ValueType.Float, radius);
+        statistics[name + " Kelvin"] = new Statistic(name + " Kelvin", Statistic.ValueType.Float, kelvin);
+        statistics[name + " Kelvin Low"] = new Statistic(name + " Kelvin Low", Statistic.ValueType.Float, kelvinLow);
+        statistics[name + " Kelvin High"] = new Statistic(name + " Kelvin High", Statistic.ValueType.Float, kelvinHigh);
+        statistics[name + " Actual Kelvin"] = new Statistic(name + " Actual Kelvin", Statistic.ValueType.Float, actualKelvin);
+        statistics[name + " Actual Kelvin Low"] = new Statistic(name + " Actual Kelvin Low", Statistic.ValueType.Float, actualKelvinLow);
+        statistics[name + " Actual Kelvin High"] = new Statistic(name + " Actual Kelvin High", Statistic.ValueType.Float, actualKelvinHigh);
+        statistics[name + " Orbit"] = new Statistic(name + " Orbit", Statistic.ValueType.Vector2, orbit);
+        statistics[name + " Orbit Distance"] = new Statistic(name + " Orbit Distance", Statistic.ValueType.Float, orbitDistance);
+        statistics[name + " Position"] = new Statistic(name + " Position", Statistic.ValueType.Vector2, position);
+        statistics[name + " Profile"] = new Statistic(name + " Profile", Statistic.ValueType.Integer, Random.Range(0, 1000000));
+        statistics[name + " Surface"] = new Statistic(name + " Surface", Statistic.ValueType.Integer, Random.Range(0, 1000000));
+        statistics[name + " Clouds"] = new Statistic(name + " Clouds", Statistic.ValueType.Integer, Random.Range(0, 1000000));
+        statistics[name + " Atmosphere"] = new Statistic(name + " Atmosphere", Statistic.ValueType.Integer, Random.Range(0, 1000000));
+        statistics[name + " Atmosphere Intensity"] = new Statistic(name + " Atmosphere Intensity", Statistic.ValueType.Float, intensity);
+        statistics[name + " Atmosphere Density"] = new Statistic(name + " Atmosphere Density", Statistic.ValueType.Float, density);
+    }
+
+    void UpdatePlanet(string name, float radius, float kelvin, float kelvinLow, float kelvinHigh)
+    {
+        float intensity = AtmosphereIntensity(kelvin);
+        float density = AtmosphereDensity(kelvin);
+        float actualKelvinRange = AtmosphericKelvinRange(kelvinHigh - kelvinLow, intensity, density);
+        float actualKelvin = AtmosphereKelvin(kelvin, actualKelvinRange, intensity, density);
+        float actualKelvinLow = actualKelvin - actualKelvinRange;
+        float actualKelvinHigh = actualKelvin + actualKelvinRange;
+
+        statistics[name + " Radius"].Set(radius);
+        statistics[name + " Actual Kelvin"].Set(actualKelvin);
+        statistics[name + " Actual Kelvin Low"].Set(actualKelvinLow);
+        statistics[name + " Actual Kelvin High"].Set(actualKelvinHigh);
+        statistics[name + " Atmosphere Intensity"].Set(intensity);
+        statistics[name + " Atmosphere Density"].Set(density);
     }
 }
