@@ -27,6 +27,11 @@ public static class StringHelper
 
                     interpret = RemoveSpaces(interpret);
 
+                    if (interpret.Length > 3 || interpret[1] != ':')
+                    {
+                        value += "!$[*:*]";
+                    }
+
                     value += (char)UnityEngine.Random.Range(interpret[0], interpret[2]);
                 }
                 //else if (command[readIndex] == )

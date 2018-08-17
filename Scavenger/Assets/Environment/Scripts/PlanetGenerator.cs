@@ -132,7 +132,7 @@ public class PlanetGenerator : MonoBehaviour
         }
         else
         {
-            if (kelvinLow >= Cold && kelvinHigh <= Hot)
+            if (kelvin >= Cold && kelvin <= Hot)
             {
                 temperature = EnvironmentBasedPlanet.Temperature.Warm;
             }

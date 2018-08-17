@@ -4,7 +4,7 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: planet_gas_custom_00
   m_Shader: {fileID: 4800000, guid: 71a40a7f9f9f92548b7bd855bacf132f, type: 3}
@@ -111,7 +111,7 @@ Material:
     - _GlossyReflections: 1
     - _HDR: 8
     - _Kelvin: 1
-    - _KelvinMax: 100000
+    - _KelvinMax: 30000
     - _KelvinRange: 1
     - _LightSamples: 2
     - _Metallic: 0
@@ -135,7 +135,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Phase: {r: 1, g: 1.5, b: 2, a: 1}
+    - _Phase: {r: 3, g: 3, b: 4, a: 1}
     - _PlanetCenter: {r: 0, g: 0, b: 0, a: 1}
     - _PlanetCentre: {r: 0, g: 0, b: 0, a: 1}
     - _Scale: {r: 1, g: 2, b: 8, a: 1}

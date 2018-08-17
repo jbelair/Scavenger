@@ -161,6 +161,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114658916054730942, guid: 707cb62f32cc7124ca566c7e412cc6cb,
+        type: 2}
+      propertyPath: unityStatistics.Array.data[9].valueFloat
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114658916054730942, guid: 707cb62f32cc7124ca566c7e412cc6cb,
+        type: 2}
+      propertyPath: unityStatistics.Array.data[10].valueFloat
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 707cb62f32cc7124ca566c7e412cc6cb, type: 2}
   m_IsPrefabParent: 0

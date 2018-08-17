@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class GravityLenseImageEffect : MonoBehaviour
 {
+    public bool occluded = false;
+
     private Shader shader;
     private Material material;
 
@@ -14,7 +16,7 @@ public class GravityLenseImageEffect : MonoBehaviour
     [Range(0,float.MaxValue), Tooltip("Defines the radius of the event horizon, where all lensing is turned to singularity colour.")]
     public float eventHorizon = 0;
     public float sharpness = 0;
-    [ColorUsage(true, true, 0, 8, 1/8, 3), Tooltip("Defines the colour of the event horizon.")]
+    [ColorUsage(true, true), Tooltip("Defines the colour of the event horizon.")]
     public Color singularity;
     [Tooltip("Defines the origin of the gravity lense, in world space.")]
     public Transform origin;
@@ -29,6 +31,19 @@ public class GravityLenseImageEffect : MonoBehaviour
     {
         if (origin && radius > 0)
         {
+            float distance = (origin.position - transform.position).sqrMagnitude;
+            Renderer[] allDrawn = UnityEngine.Object.FindObjectsOfType<Renderer>();
+            foreach (Renderer drawn in allDrawn)
+            {
+                if (drawn.gameObject.activeInHierarchy)
+                {
+                    if ((drawn.transform.position - transform.position).sqrMagnitude <= distance && !drawn.gameObject.tag.Contains("fx.singularityOccluded"))
+                        drawn.gameObject.layer = LayerMask.NameToLayer("Gravity Lense Occlude");
+                    else
+                        drawn.gameObject.layer = LayerMask.NameToLayer("Gravity Lense Occluded");
+                }
+            }
+
             Vector2 pos = new Vector2(Camera.main.WorldToScreenPoint(origin.transform.position).x / Camera.main.pixelWidth, Camera.main.WorldToScreenPoint(origin.transform.position).y / Camera.main.pixelHeight);
 
             material.SetFloat("_Distance", Vector3.Distance(origin.transform.position, transform.position));

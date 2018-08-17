@@ -30,6 +30,6 @@ public class LightFromStar : MonoBehaviour
 	void Update ()
     {
         light.color = texture.GetPixelBilinear(((material.GetFloat("_Kelvin") + material.GetFloat("_KelvinRange")) / material.GetFloat("_KelvinMax")), 0);
-        light.intensity = intensity * (transform.localScale.x / 2f);
+        light.intensity = 1 * Mathf.Log10(transform.localScale.x * 100f);// intensity * (transform.localScale.x / 2f);
 	}
 }

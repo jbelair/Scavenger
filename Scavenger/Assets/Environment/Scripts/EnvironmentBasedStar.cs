@@ -9,6 +9,10 @@ public class EnvironmentBasedStar : MonoBehaviour
 
     public Statistics environment;
     public Material star;
+
+    public float kelvin;
+    public float kelvinRange;
+
     public LineRendererCircle hot;
     public LineRendererCircle warm;
     public LineRendererCircle cold;
@@ -21,14 +25,18 @@ public class EnvironmentBasedStar : MonoBehaviour
             star = GetComponent<MeshRenderer>().sharedMaterial = new Material(starMaterials[Random.Range(0, starMaterials.Length)]);
         }
 
-        star.SetFloat("_Kelvin", environment[name + " Kelvin"]);
-        star.SetFloat("_KelvinRange", environment[name + " Kelvin Range"]);
-        transform.localScale = Vector3.one * (Mathf.Log(environment[name + " Radius"] * 100f, 10) * 4 + 1);
+        kelvin = environment[name + " Kelvin"];
+        kelvinRange = environment[name + " Kelvin Range"];
+
+        star.SetFloat("_Kelvin", kelvin);
+        star.SetFloat("_KelvinRange", kelvinRange);
+        //transform.localScale = Vector3.one * (Mathf.Log(environment[name + " Radius"] * 100f, 10) * 4 + 1);
+        transform.localScale = Vector3.one * environment[name + " Radius"];
 
         float starKelvin = environment[name + " Kelvin"];
         float logKelvin = Mathf.Log10(starKelvin);
 
-        SystemGenerator generator = environment.GetComponent<SystemGenerator>();
+        // SystemGenerator generator = environment.GetComponent<SystemGenerator>();
 
         // Goldilocks zone starts at 5 Celsius and goes to 40 Celsius
         // Hot is before that

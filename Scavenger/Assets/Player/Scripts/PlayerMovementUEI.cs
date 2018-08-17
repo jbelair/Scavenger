@@ -49,7 +49,7 @@ public class PlayerMovementUEI : MonoBehaviour
             float inputAngle = Mathf.Atan2(-input.x, input.y) * Mathf.Rad2Deg;
 
             if (Mathf.Abs(rigidbody.rotation - inputAngle) < thrustDelta)
-                rigidbody.velocity = Vector2.MoveTowards(rigidbody.velocity, new Vector2(-Mathf.Sin(rigidbody.rotation * Mathf.Deg2Rad), Mathf.Cos(rigidbody.rotation * Mathf.Deg2Rad)) * maximumSpeed * input.magnitude, acceleration * Time.fixedDeltaTime);
+                rigidbody.velocity = Vector2.MoveTowards(rigidbody.velocity, new Vector2(-Mathf.Sin(rigidbody.rotation * Mathf.Deg2Rad), Mathf.Cos(rigidbody.rotation * Mathf.Deg2Rad)) * maximumSpeed.Get<float>() * input.magnitude, acceleration * Time.fixedDeltaTime);
 
             rigidbody.rotation = Mathf.MoveTowardsAngle(rigidbody.rotation, inputAngle, maneuverability * Time.fixedDeltaTime);
         }

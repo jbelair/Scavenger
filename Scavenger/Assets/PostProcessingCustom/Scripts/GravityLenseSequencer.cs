@@ -34,6 +34,11 @@ public class GravityLenseSequencer : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        if (!postProcessing)
+            postProcessing = Camera.main;
+
+        postProcessing.depthTextureMode = DepthTextureMode.Depth;
+
         effect = postProcessing.gameObject.AddComponent<GravityLenseImageEffect>();
         effect.origin = transform;
     }

@@ -1,5 +1,6 @@
 ﻿// CREATED BY AIDAN DEARING
 // Contains methods to aid in planet shaders
+
 sampler2D _Elevation_Mask;
 float4 _Elevation_Mask_ST;
 float _Elevation;
@@ -73,10 +74,10 @@ float _KelvinRange;
 
 float coldToWarm(float kelvin)
 {
-	return pow((kelvin - _KelvinMinMax.x) / (_KelvinMinMax.y - _KelvinMinMax.x), 0.75);
+	return /*pow(*/(kelvin - _KelvinMinMax.x) / (_KelvinMinMax.y - _KelvinMinMax.x)/*, 0.75)*/;
 }
 
 float warmToHot(float kelvin)
 {
-	return pow((kelvin - _KelvinMinMax.y) / (_KelvinMinMax.z - _KelvinMinMax.y), 0.75);
+	return /*pow(*/(kelvin - _KelvinMinMax.y) / (_KelvinMinMax.z - _KelvinMinMax.y)/*, 0.75)*/;
 }

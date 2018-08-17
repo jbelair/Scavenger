@@ -4,7 +4,7 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: planet_00
   m_Shader: {fileID: 4800000, guid: b901c9428e426cd47af929a7e31ea106, type: 3}
@@ -35,7 +35,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Elevation_Mask:
-        m_Texture: {fileID: 2800000, guid: 2fff1a68163f88a4c9479080a5a1ea5a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8a751df888190c643b71e0df849265a5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmiMain:
@@ -147,8 +147,8 @@ Material:
         m_Scale: {x: 16, y: 8}
         m_Offset: {x: 0, y: 0}
     - _TexCloudsHot:
-        m_Texture: {fileID: 2800000, guid: 2e9ff3fc4ba55f04a94e8d02e2d59025, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 3378f89db93ab6d4981d5b57ef11fd87, type: 3}
+        m_Scale: {x: 4, y: 4}
         m_Offset: {x: 0, y: 0}
     - _TexCloudsHot_Norm:
         m_Texture: {fileID: 2800000, guid: b18d28262187a7d4793ee0e8b7109652, type: 3}
@@ -304,15 +304,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _TexPoleHot:
         m_Texture: {fileID: 2800000, guid: 85d6bb2c3b88c1947a37e46879bf1f33, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Scale: {x: 0.875, y: 0.875}
+        m_Offset: {x: 0.125, y: 0.125}
     - _TexPoleHot_MSE:
-        m_Texture: {fileID: 2800000, guid: 93c23738ae3453b4ab06ceb702581b1d, type: 3}
+        m_Texture: {fileID: 2800000, guid: fd3a8fbddc3c290459714a6aff5901e5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TexPoleHot_Mask:
         m_Texture: {fileID: 2800000, guid: ec00104189cd67a4a8e3b8461d7f1098, type: 3}
-        m_Scale: {x: 0.75, y: 0.75}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TexPoleHot_NMask:
         m_Texture: {fileID: 2800000, guid: ec00104189cd67a4a8e3b8461d7f1098, type: 3}
@@ -409,20 +409,20 @@ Material:
     m_Floats:
     - _BumpScale: 1
     - _CloudsSlope: 0.1
-    - _CloudsSpeed: 0.01
-    - _CloudsTempScale: 0.1
+    - _CloudsSpeed: 0.001
+    - _CloudsTempScale: 0.01
     - _CloudsTurbOctaves: 4
     - _CloudsTurbScale: 1
     - _CloudsTurbulence: 0.01
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Elevation: 0.33
+    - _Elevation: 0.5
     - _ElevationSlope: 0.05
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Kelvin: 290
+    - _Kelvin: 300
     - _KelvinRange: 50
     - _Metallic: 0
     - _Mode: 0
@@ -430,6 +430,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _PoleScale: 1
+    - _PoleSlope: 0.1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -461,29 +462,29 @@ Material:
     - _EmiPoleNColour: {r: 1, g: 1, b: 1, a: 1}
     - _EmiPoleSColour: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _KelvinMinMax: {r: 50, g: 290, b: 700, a: 1500}
-    - _Phase: {r: 1, g: 0.825, b: 0.75, a: 0.25}
+    - _KelvinMinMax: {r: 200, g: 300, b: 1000, a: 1000}
+    - _Phase: {r: 1, g: 0.825, b: 0.75, a: 0.33}
     - _PhaseCloud: {r: 0.75, g: 1, b: 1, a: 1}
     - _PhaseClouds: {r: 0.5, g: 1, b: 0.75, a: 0.42}
     - _PhaseWater: {r: 1, g: 0.825, b: 0.75, a: 0.33}
     - _TexBackCold_Emissive: {r: 0, g: 0, b: 0, a: 0}
-    - _TexBackHot_Emissive: {r: 0, g: 0, b: 0, a: 0}
+    - _TexBackHot_Emissive: {r: 0.89073944, g: 0.36842102, b: 0.18187873, a: 0}
     - _TexBackWarm_Emissive: {r: 0, g: 0, b: 0, a: 0}
     - _TexCloudsCold_Colour: {r: 0.89705884, g: 0.9914807, b: 1, a: 1}
     - _TexCloudsHot_Colour: {r: 0.6791194, g: 0.6911765, b: 0.47264272, a: 1}
     - _TexCloudsWarm_Colour: {r: 1, g: 1, b: 1, a: 1}
     - _TexFrontCold_Emissive: {r: 0, g: 0, b: 0, a: 0}
-    - _TexFrontHot_Emissive: {r: 0.10000001, g: 0.042849906, b: 0.027941182, a: 0}
+    - _TexFrontHot_Emissive: {r: 2, g: 0.8235294, b: 0.40784314, a: 0}
     - _TexFrontWarm_Emissive: {r: 0, g: 0, b: 0, a: 0}
     - _TexMidCold_Emissive: {r: 0, g: 0, b: 0, a: 0}
-    - _TexMidHot_Emissive: {r: 0, g: 0, b: 0, a: 0}
+    - _TexMidHot_Emissive: {r: 1.0592737, g: 0.43812892, b: 0.21629149, a: 0}
     - _TexMidWarm_Emissive: {r: 0, g: 0, b: 0, a: 0}
     - _TexPoleCold_Emissive: {r: 0, g: 0, b: 0, a: 0}
-    - _TexPoleHot_Emissive: {r: 0.10000001, g: 0.042849906, b: 0.027941182, a: 0}
+    - _TexPoleHot_Emissive: {r: 0.89073944, g: 0.36842102, b: 0.18187873, a: 0}
     - _TexPoleWarm_Emissive: {r: 0, g: 0, b: 0, a: 0}
     - _TexWaterCold_Emissive: {r: 0, g: 0, b: 0, a: 0}
     - _TexWaterCold_Tint: {r: 1, g: 1, b: 1, a: 1}
-    - _TexWaterHot_Emissive: {r: 0.029682096, g: 0.066176474, b: 0.040504567, a: 0}
+    - _TexWaterHot_Emissive: {r: 0.89073944, g: 0.36842102, b: 0.18187873, a: 0}
     - _TexWaterHot_Tint: {r: 0.71323526, g: 1, b: 0.92880327, a: 1}
     - _TexWaterWarm_Emissive: {r: 0, g: 0, b: 0, a: 0}
     - _TexWaterWarm_Tint: {r: 0.21323532, g: 0.47910762, b: 1, a: 1}

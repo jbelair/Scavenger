@@ -5,9 +5,10 @@ using UnityEngine;
 public class ParticleAttractorGravity : MonoBehaviour
 {
     public float G = EnvironmentRules.G;
+    public EnvironmentRules.MassFormat massFormat = EnvironmentRules.MassFormat.Kilograms;
     public float mass = 1;
     public float maximumDistance;
-    public ParticleSystem[] particleSystems;
+    public List<ParticleSystem> particleSystems;
 
     // Use this for initialization
     void Start()
@@ -27,7 +28,7 @@ public class ParticleAttractorGravity : MonoBehaviour
     {
         averageForce = 0;
         int particleCount = 0;
-        float g = G * mass;
+        float g = G * EnvironmentRules.Mass(mass, massFormat);
         foreach (ParticleSystem system in particleSystems)
         {
             ParticleSystem.Particle[] particles = new ParticleSystem.Particle[system.particleCount];
@@ -38,6 +39,7 @@ public class ParticleAttractorGravity : MonoBehaviour
                 Vector3 delta = transform.position - particles[i].position;
                 float distance = delta.magnitude * EnvironmentRules.PlanetDistanceRatio;
                 float f = (g * particles[i].GetCurrentSize(system)) / (distance * distance);
+                f = Mathf.Clamp(f, 0, 10000);
                 averageForce += f;
                 particles[i].velocity += f * delta.normalized * Time.deltaTime;
             }
