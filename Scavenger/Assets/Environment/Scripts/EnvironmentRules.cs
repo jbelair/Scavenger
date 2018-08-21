@@ -28,7 +28,7 @@ public static class EnvironmentRules
     /// The Planet Distance Ratio defines what a single unit of system distance denotes in proper km
     /// This is established based on the distance between the sun and mercury
     /// </summary>
-    public const float PlanetDistanceRatio = 57910000 / 2f;// * 2f;// / 1f;
+    public const float PlanetDistanceRatio = 57910000;// * 2f;// / 1f;
 
     public const float PlanetMassRatio = MassOfEarth * 0.1f;
 
@@ -82,19 +82,21 @@ public static class EnvironmentRules
         return Mathf.Pow((stellarLuminosity * (1 - albedo)) / (16 * Mathf.PI * stellarDistance * stellarDistance * StefanBoltzmannConstant), 1/4f);
     }
 
-    public static float AtmosphereIntensity(float kelvin)
+    public static float AtmosphereIntensity(float radius, float kelvin)
     {
-        return (kelvin / 200f) * Mathf.Max(0, 1f - (kelvin / 1500f));
+        float intensity = (kelvin / 200f) * Mathf.Max(0, 1f - (kelvin / 1500f)) * radius;
+        return intensity;
     }
 
-    public static float AtmosphereDensity(float kelvin)
+    public static float AtmosphereDensity(float radius, float kelvin)
     {
-        return Mathf.Max(1, (20f - kelvin / 100f) * Mathf.Max(0, 1f - (kelvin / 2000f)));// * kelvin / 200f);
+        float density = Mathf.Max(1, (20f - kelvin / 100f) * Mathf.Max(0, 1f - (kelvin / 2000f)) * (1f / radius));
+        return density;
     }
 
     public static float AtmosphericKelvinRange(float kelvinRange, float intensity, float density)
     {
-        return kelvinRange * Mathf.Lerp(0, 10, 1 / density) * intensity;
+        return kelvinRange * (Mathf.Lerp(0, 10, 1 / density) / intensity);
     }
 
     public static float AtmosphereKelvin(float kelvin, float kelvinRange, float intensity, float density)

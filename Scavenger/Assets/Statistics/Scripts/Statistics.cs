@@ -11,6 +11,7 @@ public class Statistics : MonoBehaviour, IStatistics, IEnumerable<Statistic>
     public float pollingTime = 0.5f;
     public bool isPolling = false;
     public bool isInitialised = false;
+    public bool isRunning = true;
 
     public List<StatisticUEI> unityStatistics;
     
@@ -145,6 +146,7 @@ public class Statistics : MonoBehaviour, IStatistics, IEnumerable<Statistic>
                 //unityStatistics = null;
             }
 
+            StartCoroutine(UpdateAtEndOfFrame());
             isInitialised = true;
         }
     }
@@ -175,6 +177,19 @@ public class Statistics : MonoBehaviour, IStatistics, IEnumerable<Statistic>
                     //Debug.Log("Stopping PollUEI");
                     StopCoroutine("PollUEI");
                 }
+            }
+        }
+    }
+    
+    public IEnumerator UpdateAtEndOfFrame()
+    {
+        while(isRunning)
+        {
+            yield return new WaitForEndOfFrame();
+
+            foreach(KeyValuePair<string, Statistic> statistic in statistics)
+            {
+                statistic.Value.isDirty = false;
             }
         }
     }

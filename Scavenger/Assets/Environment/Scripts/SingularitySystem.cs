@@ -39,7 +39,7 @@ public class SingularitySystem : MonoBehaviour, ISystemGeneratorDecorator
         }
 
         string starName = "Star " + StringHelper.IndexIntToChar(largestStar);
-        Destroy(GameObject.Find(starName));
+        Destroy(statistics[starName + " GO"].Get<GameObject>());
 
         string singularityName = "Singularity";
 
@@ -73,13 +73,13 @@ public class SingularitySystem : MonoBehaviour, ISystemGeneratorDecorator
             {
                 if (i != convertedStar)
                 {
-                    Destroy(GameObject.Find(name));
+                    Destroy(statistics[name + " GO"].Get<GameObject>());
                     accretion += statistics[name + " Radius"];
                 }
             }
             else if (distanceFromSingularity < singularity.transform.localScale.x * 500f && i != convertedStar)
             {
-                GameObject foundStar = GameObject.Find(name);
+                GameObject foundStar = statistics[name + " GO"].Get<GameObject>();
                 LineRendererSpiral atmosphereSpiral = Instantiate(atmosphereLeechPrefab, foundStar.transform, false);
                 atmosphereSpiral.center = singularity.transform;
                 //atmosphereSpiral.line.startWidth = singularity.transform.localScale.x * 10f;
@@ -144,7 +144,7 @@ public class SingularitySystem : MonoBehaviour, ISystemGeneratorDecorator
             //accretion += statistics[name + " Radius"] * Mathf.Clamp(1f - (distanceFromSingularity / 10000f), 0f, 1f);
             if (1 == Random.Range(1, (int)distanceFromSingularity / 100))
             {
-                Destroy(GameObject.Find(name));
+                Destroy(statistics[name + " GO"].Get<GameObject>());
                 accretion += statistics[name + " Radius"];
 
                 // MOONS ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -153,7 +153,7 @@ public class SingularitySystem : MonoBehaviour, ISystemGeneratorDecorator
                 {
                     string moonName = name + " Moon " + StringHelper.IndexIntToChar(j);
                     
-                    Destroy(GameObject.Find(moonName));
+                    Destroy(statistics[moonName + " GO"].Get<GameObject>());
                     accretion += statistics[moonName + " Radius"];
                 }
             }
@@ -161,7 +161,7 @@ public class SingularitySystem : MonoBehaviour, ISystemGeneratorDecorator
             {
                 if (distanceFromSingularity < singularity.transform.localScale.x * 1000f)
                 {
-                    GameObject foundPlanet = GameObject.Find(name);
+                    GameObject foundPlanet = statistics[name + " GO"].Get<GameObject>();
                     if (foundPlanet.transform.localScale.x >= 1)
                     {
                         LineRendererSpiral planetLeech = Instantiate(planetLeechPrefab, foundPlanet.transform, false);
@@ -208,7 +208,7 @@ public class SingularitySystem : MonoBehaviour, ISystemGeneratorDecorator
 
                     if (1 == Random.Range(1, (int)distanceFromSingularity / 100))
                     {
-                        Destroy(GameObject.Find(moonName));
+                        Destroy(statistics[moonName + " GO"].Get<GameObject>());
                         accretion += statistics[moonName + " Radius"];
 
 

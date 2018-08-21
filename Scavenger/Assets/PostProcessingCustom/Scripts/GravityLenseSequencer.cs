@@ -15,9 +15,9 @@ public class GravityLenseSequencerKey
     public float eventHorizonEnd;
     public float sharpnessStart;
     public float sharpnessEnd;
-    [ColorUsage(false, true, 0, 8, 1 / 8, 3)]
+    [ColorUsage(false, true)]
     public Color singularityStart;
-    [ColorUsage(false, true, 0, 8, 1 / 8, 3)]
+    [ColorUsage(false, true)]
     public Color singularityEnd;
 }
 

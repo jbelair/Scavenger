@@ -6,9 +6,9 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: planet_00
+  m_Name: planet_hab_00
   m_Shader: {fileID: 4800000, guid: b901c9428e426cd47af929a7e31ea106, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _ENABLEBACK_ON _ENABLEFRONT_ON _ENABLEMID_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -123,7 +123,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TexBackHot_Norm:
-        m_Texture: {fileID: 2800000, guid: cb417beccc1c91045874e353f0d42d95, type: 3}
+        m_Texture: {fileID: 2800000, guid: 55f56097aa190e74b9a53ce16098024b, type: 3}
         m_Scale: {x: 8, y: 4}
         m_Offset: {x: 0, y: 0}
     - _TexBackWarm:
@@ -135,6 +135,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TexBackWarm_Norm:
+        m_Texture: {fileID: 2800000, guid: 55f56097aa190e74b9a53ce16098024b, type: 3}
+        m_Scale: {x: 8, y: 4}
+        m_Offset: {x: 0, y: 0}
+    - _TexBack_Norm:
         m_Texture: {fileID: 2800000, guid: 652767ec0de128341963e32a922d25de, type: 3}
         m_Scale: {x: 8, y: 4}
         m_Offset: {x: 0, y: 0}
@@ -161,6 +165,10 @@ Material:
     - _TexCloudsWarm_Norm:
         m_Texture: {fileID: 2800000, guid: 49c3f7989dd2f5f47a5b1ef6c6b6a5da, type: 3}
         m_Scale: {x: 16, y: 8}
+        m_Offset: {x: 0, y: 0}
+    - _TexClouds_Norm:
+        m_Texture: {fileID: 2800000, guid: 59caf1b0e12b32f4d8239faf4332e156, type: 3}
+        m_Scale: {x: 8, y: 4}
         m_Offset: {x: 0, y: 0}
     - _TexFrontCold:
         m_Texture: {fileID: 2800000, guid: 5445becd26520ef44bf01119184a47b4, type: 3}
@@ -191,7 +199,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TexFrontHot_Norm:
-        m_Texture: {fileID: 2800000, guid: 03d4894f06c337e48bd490b6aa90cbb3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8c00a8b18ba23c347a1fae2755f88863, type: 3}
         m_Scale: {x: 16, y: 8}
         m_Offset: {x: 0, y: 0}
     - _TexFrontMask:
@@ -211,12 +219,16 @@ Material:
         m_Scale: {x: 5, y: 3}
         m_Offset: {x: 0, y: 0}
     - _TexFrontWarm_Norm:
-        m_Texture: {fileID: 2800000, guid: 6b2676d8b6a6c3340a3fbcc0807dcf89, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8c00a8b18ba23c347a1fae2755f88863, type: 3}
         m_Scale: {x: 8, y: 4}
         m_Offset: {x: 0, y: 0}
     - _TexFront_Mask:
         m_Texture: {fileID: 2800000, guid: b7b82149fc78ee44897a8fda763c59d4, type: 3}
         m_Scale: {x: 2, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexFront_Norm:
+        m_Texture: {fileID: 2800000, guid: dd95b88df964f3e498b88640fa74bd78, type: 3}
+        m_Scale: {x: 8, y: 4}
         m_Offset: {x: 0, y: 0}
     - _TexMain:
         m_Texture: {fileID: 2800000, guid: d7b5f3da96a876a4597c241ffa55f71d, type: 3}
@@ -251,7 +263,7 @@ Material:
         m_Scale: {x: 8, y: 4}
         m_Offset: {x: 0, y: 0}
     - _TexMidHot_Norm:
-        m_Texture: {fileID: 2800000, guid: 22891f97a0f2aa94db9ab76724e2d668, type: 3}
+        m_Texture: {fileID: 2800000, guid: 841231d866c800e44bf7b6c75482f662, type: 3}
         m_Scale: {x: 8, y: 4}
         m_Offset: {x: 0, y: 0}
     - _TexMidMask:
@@ -271,12 +283,16 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TexMidWarm_Norm:
-        m_Texture: {fileID: 2800000, guid: bafac61febcd700499f38586fa38eb1b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 841231d866c800e44bf7b6c75482f662, type: 3}
         m_Scale: {x: 4, y: 2}
         m_Offset: {x: 0, y: 0}
     - _TexMid_Mask:
         m_Texture: {fileID: 2800000, guid: 373b7300f7a2ba84991ea4881342c1bd, type: 3}
         m_Scale: {x: 4, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _TexMid_Norm:
+        m_Texture: {fileID: 2800000, guid: 0ead35b2d9812cb4590b481ecc4bdd97, type: 3}
+        m_Scale: {x: 8, y: 4}
         m_Offset: {x: 0, y: 0}
     - _TexPoleCold:
         m_Texture: {fileID: 2800000, guid: c7eab5f915ff9cb4b8b3acc50d7bca0f, type: 3}
@@ -289,7 +305,7 @@ Material:
     - _TexPoleCold_Mask:
         m_Texture: {fileID: 2800000, guid: ec00104189cd67a4a8e3b8461d7f1098, type: 3}
         m_Scale: {x: 0.75, y: 0.75}
-        m_Offset: {x: 0, y: 0}
+        m_Offset: {x: 0.125, y: 0.125}
     - _TexPoleCold_NMask:
         m_Texture: {fileID: 2800000, guid: ec00104189cd67a4a8e3b8461d7f1098, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -304,8 +320,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _TexPoleHot:
         m_Texture: {fileID: 2800000, guid: 85d6bb2c3b88c1947a37e46879bf1f33, type: 3}
-        m_Scale: {x: 0.875, y: 0.875}
-        m_Offset: {x: 0.125, y: 0.125}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _TexPoleHot_MSE:
         m_Texture: {fileID: 2800000, guid: fd3a8fbddc3c290459714a6aff5901e5, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -362,6 +378,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: afb452b8bd694ba4cb13543523747e38, type: 3}
         m_Scale: {x: 0.75, y: 0.75}
         m_Offset: {x: 0.5, y: 0.5}
+    - _TexPole_Norm:
+        m_Texture: {fileID: 2800000, guid: 6ab28a43941746d46872c56e611d3716, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _TexPole_North:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -417,13 +437,19 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Elevation: 0.5
+    - _Elevation: 0.001
     - _ElevationSlope: 0.05
+    - _EnableBack: 1
+    - _EnableClouds: 1
+    - _EnableFront: 1
+    - _EnableMid: 1
+    - _EnablePoles: 1
+    - _EnableWater: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Kelvin: 300
-    - _KelvinRange: 50
+    - _Kelvin: 288
+    - _KelvinRange: 15
     - _Metallic: 0
     - _Mode: 0
     - _NorStrength: 0.25
@@ -462,7 +488,7 @@ Material:
     - _EmiPoleNColour: {r: 1, g: 1, b: 1, a: 1}
     - _EmiPoleSColour: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _KelvinMinMax: {r: 200, g: 300, b: 1000, a: 1000}
+    - _KelvinMinMax: {r: 273, g: 300, b: 500, a: 1000}
     - _Phase: {r: 1, g: 0.825, b: 0.75, a: 0.33}
     - _PhaseCloud: {r: 0.75, g: 1, b: 1, a: 1}
     - _PhaseClouds: {r: 0.5, g: 1, b: 0.75, a: 0.42}

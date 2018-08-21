@@ -57,7 +57,7 @@ public class PlanetGenerator : MonoBehaviour
     [Header("Gasseous Planets")]
     public string[] gasseousProfiles;
 
-    public float Cold = 270;
+    public float Cold = 273;
     public float Hot = 320;
 
     [Header("Special Alternatives")]
@@ -98,19 +98,14 @@ public class PlanetGenerator : MonoBehaviour
 
     public void GeneratePlanet(EnvironmentBasedPlanet planet)
     {
-        // Given the parameters for this planet we need to decide if it is
-        // A.   Metallic
-        // B.   Mixed
-        // C.   Gasseous
-
-        float kelvin = planet.environment[planet.name + " Actual Kelvin"].Get<float>();
-        float kelvinLow = planet.environment[planet.name + " Actual Kelvin Low"].Get<float>();
-        float kelvinHigh = planet.environment[planet.name + " Actual Kelvin High"].Get<float>();
+        float kelvin = planet.environment[planet.statisticName + " Actual Kelvin"].Get<float>();
+        float kelvinLow = planet.environment[planet.statisticName + " Actual Kelvin Low"].Get<float>();
+        float kelvinHigh = planet.environment[planet.statisticName + " Actual Kelvin High"].Get<float>();
 
         EnvironmentBasedPlanet.Temperature temperature;
-        EnvironmentBasedPlanet.Metallicity metallicity;
+        EnvironmentBasedPlanet.Classification classification;
 
-        if (planet.transform.localScale.x >= 2f)
+        if (planet.transform.localScale.x >= (EnvironmentRules.RadiusOfEarth * 2f) / 10000f)
         {
             if (kelvinLow >= 75 && kelvinHigh <= 200)
             {
@@ -128,7 +123,10 @@ public class PlanetGenerator : MonoBehaviour
                 }
             }
 
-            metallicity = EnvironmentBasedPlanet.Metallicity.Gasseous;
+            if (planet.transform.localScale.x >= (EnvironmentRules.RadiusOfEarth * 5f) / 10000f)
+                classification = EnvironmentBasedPlanet.Classification.GasGiant;
+            else
+                classification = EnvironmentBasedPlanet.Classification.GasDwarf;
         }
         else
         {
@@ -148,35 +146,38 @@ public class PlanetGenerator : MonoBehaviour
                 }
             }
 
-            if (planet.transform.localScale.x > 0.5f)
+            if (planet.transform.localScale.x > (EnvironmentRules.RadiusOfEarth * 0.25f) / 10000f)
             {
-                metallicity = EnvironmentBasedPlanet.Metallicity.Mixed;
+                classification = EnvironmentBasedPlanet.Classification.Mixed;
             }
             else
             {
-                metallicity = EnvironmentBasedPlanet.Metallicity.Metallic;
+                classification = EnvironmentBasedPlanet.Classification.Metallic;
             }
         }
 
         PlanetProfile profile = GetProfileByName(metallicProfiles[0]);
-        switch (metallicity)
+        switch (classification)
         {
-            case EnvironmentBasedPlanet.Metallicity.Gasseous:
-                profile = GetProfileByName(gasseousProfiles[planet.environment[planet.name + " Profile"] % gasseousProfiles.Length]);
+            case EnvironmentBasedPlanet.Classification.GasGiant:
+                profile = GetProfileByName(gasseousProfiles[planet.environment[planet.statisticName + " Profile"] % gasseousProfiles.Length]);
                 break;
-            case EnvironmentBasedPlanet.Metallicity.Mixed:
-                profile = GetProfileByName(mixedProfiles[planet.environment[planet.name + " Profile"] % mixedProfiles.Length]);
+            case EnvironmentBasedPlanet.Classification.GasDwarf:
+                profile = GetProfileByName(gasseousProfiles[planet.environment[planet.statisticName + " Profile"] % gasseousProfiles.Length]);
                 break;
-            case EnvironmentBasedPlanet.Metallicity.Metallic:
-                profile = GetProfileByName(metallicProfiles[planet.environment[planet.name + " Profile"] % metallicProfiles.Length]);
+            case EnvironmentBasedPlanet.Classification.Mixed:
+                profile = GetProfileByName(mixedProfiles[planet.environment[planet.statisticName + " Profile"] % mixedProfiles.Length]);
+                break;
+            case EnvironmentBasedPlanet.Classification.Metallic:
+                profile = GetProfileByName(metallicProfiles[planet.environment[planet.statisticName + " Profile"] % metallicProfiles.Length]);
                 break;
         }
 
-        planet.surface.surface = profile.Surface(planet.environment[planet.name + " Surface"]);
-        planet.atmosphere.surface = profile.Atmosphere(planet.environment[planet.name + " Atmosphere"]);
+        planet.surface.surface = profile.Surface(planet.environment[planet.statisticName + " Surface"]);
+        planet.atmosphere.surface = profile.Atmosphere(planet.environment[planet.statisticName + " Atmosphere"]);
 
         planet.temperature = temperature;
-        planet.metallicity = metallicity;
+        planet.classification = classification;
 
         planet.kelvin = kelvin;
         planet.kelvinLow = kelvinLow;

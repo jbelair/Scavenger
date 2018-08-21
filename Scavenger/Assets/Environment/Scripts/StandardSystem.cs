@@ -24,7 +24,8 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
     public float pDStellarTempFraction = 20;
     public float pDStellarTempExponent = 2;
     public AnimationCurve planetPlotPlanets;
-    public AnimationCurve planetPlotRadius;
+    public AnimationCurve planetPlotRadiusDistance;
+    public AnimationCurve planetPlotRadiusKelvin;
     public AnimationCurve planetPlotMoons;
 
     public Statistics statistics;
@@ -219,10 +220,12 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
 
             maximumPlanetaryDistance = Mathf.Max(distance, maximumPlanetaryDistance);
 
+            statistics[name + " Star"] = new Statistic(name + " Star", Statistic.ValueType.Integer, star);
+
             GeneratePlanet(name, 0, kelvin, kelvinLow, kelvinHigh, orbitCenter, distance, delta);
         }
 
-        int gasGiants = 0;
+        //int gasGiants = 0;
         for (int i = 0; i < numberOfPlanets; i++)
         {
             string name = "Planet " + StringHelper.IndexIntToChar(i);
@@ -233,12 +236,8 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
             float distance = statistics[name + " Orbit Distance"].Get<float>();
 
             float distanceRatio = distance / maximumPlanetaryDistance * Random.Range(0.8f, 1.2f);
-            float radius = planetPlotRadius.Evaluate(distanceRatio);
-            if (kelvinLow < 170f)
-            {
-                gasGiants++;
-                radius *= Mathf.Max(1, 8f / (numberOfStars * gasGiants));
-            }
+            float radius = planetPlotRadiusDistance.Evaluate(distanceRatio);
+            radius += planetPlotRadiusKelvin.Evaluate(kelvin / 240f);
             radius *= EnvironmentRules.RadiusOfJupiter / 10000f;
 
             UpdatePlanet(name, radius, kelvin, kelvinLow, kelvinHigh);
@@ -251,7 +250,7 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
                 Debug.Log("Generating moon environment data for planet " + (i + 1) + " of " + numberOfPlanets + " moon " + (j + 1) + " of " + numberOfMoons);
 
                 string moonName = name + " Moon " + StringHelper.IndexIntToChar(j);
-                float moonRadius = (radius / (numberOfMoons + 1)) * Random.Range(0.1f, 1f);
+                float moonRadius = Mathf.Max(0.05f, ((radius * 0.3f) / (numberOfMoons + 1)) * Random.Range(0.1f, 1f));
                 Vector2 orbit = Random.insideUnitCircle.normalized;
                 float orbitDistance = distanceLast;
                 distanceLast = radius * 1.5f * Random.Range(1f, 3f); //distanceLast * Random.Range(1.01f, 1.15f) + moonRadius * 2;
@@ -300,6 +299,7 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
 
                 Vector2 position = orbitCenter + orbit * distance;
                 GeneratePlanet(moonName, moonRadius, kelvin, kelvinLow, kelvinHigh, orbit, orbitDistance, position);
+                UpdatePlanet(moonName, moonRadius, kelvin, kelvinLow, kelvinHigh);
             }
         }
 
@@ -328,6 +328,7 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
             EnvironmentBasedStar star = Instantiate(starPrefab, statistics[name + " Position"].Get<Vector2>(), starPrefab.transform.rotation, transform);
             star.name = name;
             star.environment = statistics;
+            statistics[name + " GO"] = new Statistic(name + " GO", Statistic.ValueType.GameObject, star.gameObject);
 
             // ORBIT ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
             if (starsDisplayOrbits && numberOfStars == 2)
@@ -358,6 +359,7 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
             EnvironmentBasedPlanet planet = Instantiate(planetPrefab, statistics[name + " Position"].Get<Vector2>(), planetPrefab.transform.rotation, transform);
             planet.name = name;
             planet.environment = statistics;
+            statistics[name + " GO"] = new Statistic(name + " GO", Statistic.ValueType.GameObject, planet.gameObject);
 
             // ORBIT ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
             if (planetsDisplayOrbits)
@@ -384,8 +386,11 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
                 float distance = statistics[moonName + " Orbit Distance"];
 
                 EnvironmentBasedPlanet moon = Instantiate(planetPrefab, orbitCenter + orbitPoint * distance, planetPrefab.transform.rotation, transform);
+                moon.isMoon = true;
                 moon.name = moonName;
                 moon.environment = statistics;
+                statistics[moonName + " GO"] = new Statistic(moonName + " GO", Statistic.ValueType.GameObject, moon.gameObject);
+                statistics[moonName + " Planet GO"] = new Statistic(moonName + " Planet GO", Statistic.ValueType.GameObject, planet.gameObject);
 
                 // ORBIT ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
                 if (moonsDisplayOrbits)
@@ -403,8 +408,8 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
 
     void GeneratePlanet(string name, float radius, float kelvin, float kelvinLow, float kelvinHigh, Vector2 orbit, float orbitDistance, Vector2 position)
     {
-        float intensity = EnvironmentRules.AtmosphereIntensity(kelvin);
-        float density = EnvironmentRules.AtmosphereDensity(kelvin);
+        float intensity = EnvironmentRules.AtmosphereIntensity(radius, kelvin);
+        float density = EnvironmentRules.AtmosphereDensity(radius, kelvin);
         float actualKelvinRange = EnvironmentRules.AtmosphericKelvinRange(kelvinHigh - kelvinLow, intensity, density);
         float actualKelvin = EnvironmentRules.AtmosphereKelvin(kelvin, actualKelvinRange, intensity, density);
         float actualKelvinLow = actualKelvin - actualKelvinRange;
@@ -417,25 +422,27 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
         statistics[name + " Actual Kelvin"] = new Statistic(name + " Actual Kelvin", Statistic.ValueType.Float, actualKelvin);
         statistics[name + " Actual Kelvin Low"] = new Statistic(name + " Actual Kelvin Low", Statistic.ValueType.Float, actualKelvinLow);
         statistics[name + " Actual Kelvin High"] = new Statistic(name + " Actual Kelvin High", Statistic.ValueType.Float, actualKelvinHigh);
+        statistics[name + " Water Level"] = new Statistic(name + " Water Level", Statistic.ValueType.Float, 0f);
         statistics[name + " Orbit"] = new Statistic(name + " Orbit", Statistic.ValueType.Vector2, orbit);
         statistics[name + " Orbit Distance"] = new Statistic(name + " Orbit Distance", Statistic.ValueType.Float, orbitDistance);
         statistics[name + " Position"] = new Statistic(name + " Position", Statistic.ValueType.Vector2, position);
         statistics[name + " Profile"] = new Statistic(name + " Profile", Statistic.ValueType.Integer, Random.Range(0, 1000000));
         statistics[name + " Surface"] = new Statistic(name + " Surface", Statistic.ValueType.Integer, Random.Range(0, 1000000));
-        statistics[name + " Clouds"] = new Statistic(name + " Clouds", Statistic.ValueType.Integer, Random.Range(0, 1000000));
         statistics[name + " Atmosphere"] = new Statistic(name + " Atmosphere", Statistic.ValueType.Integer, Random.Range(0, 1000000));
         statistics[name + " Atmosphere Intensity"] = new Statistic(name + " Atmosphere Intensity", Statistic.ValueType.Float, intensity);
         statistics[name + " Atmosphere Density"] = new Statistic(name + " Atmosphere Density", Statistic.ValueType.Float, density);
     }
 
-    void UpdatePlanet(string name, float radius, float kelvin, float kelvinLow, float kelvinHigh)
+    public void UpdatePlanet(string name, float radius, float kelvin, float kelvinLow, float kelvinHigh)
     {
-        float intensity = EnvironmentRules.AtmosphereIntensity(kelvin);
-        float density = EnvironmentRules.AtmosphereDensity(kelvin);
+        float intensity = EnvironmentRules.AtmosphereIntensity(radius, kelvin);
+        float density = EnvironmentRules.AtmosphereDensity(radius, kelvin);
         float actualKelvinRange = EnvironmentRules.AtmosphericKelvinRange(kelvinHigh - kelvinLow, intensity, density);
         float actualKelvin = EnvironmentRules.AtmosphereKelvin(kelvin, actualKelvinRange, intensity, density);
         float actualKelvinLow = actualKelvin - actualKelvinRange;
         float actualKelvinHigh = actualKelvin + actualKelvinRange;
+        float waterLevel = Mathf.Clamp01((radius / (EnvironmentRules.RadiusOfEarth / 5000f)) * Random.Range(0.5f, 2f));
+        waterLevel = Mathf.Clamp01(waterLevel + ((kelvin / 85f) * (1f - kelvin / 240f)) * Random.Range(0.5f, 2f));
 
         statistics[name + " Radius"].Set(radius);
         statistics[name + " Actual Kelvin"].Set(actualKelvin);
@@ -443,6 +450,7 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
         statistics[name + " Actual Kelvin High"].Set(actualKelvinHigh);
         statistics[name + " Atmosphere Intensity"].Set(intensity);
         statistics[name + " Atmosphere Density"].Set(density);
+        statistics[name + " Water Level"].Set(waterLevel);
     }
 
     public void Dungeon()

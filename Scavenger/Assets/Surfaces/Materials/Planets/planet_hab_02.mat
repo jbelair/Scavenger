@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: planet_02
+  m_Name: planet_hab_02
   m_Shader: {fileID: 4800000, guid: b901c9428e426cd47af929a7e31ea106, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -102,6 +102,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 728d754b22f178c4ab00ddd83daef41a, type: 3}
         m_Scale: {x: 8, y: 4}
         m_Offset: {x: 0, y: 0}
+    - _TexBack_Norm:
+        m_Texture: {fileID: 2800000, guid: 6ab28a43941746d46872c56e611d3716, type: 3}
+        m_Scale: {x: 8, y: 4}
+        m_Offset: {x: 0, y: 0}
     - _TexCloudsCold:
         m_Texture: {fileID: 2800000, guid: 3378f89db93ab6d4981d5b57ef11fd87, type: 3}
         m_Scale: {x: 4, y: 1}
@@ -125,6 +129,10 @@ Material:
     - _TexCloudsWarm_Norm:
         m_Texture: {fileID: 2800000, guid: 11a99d8a135b9594c8c51182caa3f544, type: 3}
         m_Scale: {x: 4, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _TexClouds_Norm:
+        m_Texture: {fileID: 2800000, guid: 59caf1b0e12b32f4d8239faf4332e156, type: 3}
+        m_Scale: {x: 8, y: 4}
         m_Offset: {x: 0, y: 0}
     - _TexFrontCold:
         m_Texture: {fileID: 2800000, guid: ee0775f9397021243a312aeba2d96b9b, type: 3}
@@ -174,6 +182,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 3c80b28f795564a479a5cd1671a3ed63, type: 3}
         m_Scale: {x: 16, y: 8}
         m_Offset: {x: 0, y: 0}
+    - _TexFront_Norm:
+        m_Texture: {fileID: 2800000, guid: 4aa84d856c0907141adbf4a7407f11e9, type: 3}
+        m_Scale: {x: 8, y: 4}
+        m_Offset: {x: 0, y: 0}
     - _TexMidCold:
         m_Texture: {fileID: 2800000, guid: bac3fac089493874999960c79084a973, type: 3}
         m_Scale: {x: 8, y: 4}
@@ -221,6 +233,10 @@ Material:
     - _TexMidWarm_Norm:
         m_Texture: {fileID: 2800000, guid: 9825c87d75af88d4fbebb8a724158694, type: 3}
         m_Scale: {x: 16, y: 8}
+        m_Offset: {x: 0, y: 0}
+    - _TexMid_Norm:
+        m_Texture: {fileID: 2800000, guid: 934793c033fd51542811528c3c55f2bd, type: 3}
+        m_Scale: {x: 8, y: 4}
         m_Offset: {x: 0, y: 0}
     - _TexPoleCold:
         m_Texture: {fileID: 2800000, guid: 1066c5af00e26ea4dbd3cb59d52998e5, type: 3}
@@ -270,6 +286,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 8f4ce2eda7109a94a9dfc934f638fdb1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _TexPole_Norm:
+        m_Texture: {fileID: 2800000, guid: b018e4dc982ad974da345b2e0822d4c3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _TexWaterCold:
         m_Texture: {fileID: 2800000, guid: 71da9b835012cbb4cb0518867610e407, type: 3}
         m_Scale: {x: 4, y: 2}
@@ -317,13 +337,19 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Elevation: 0.5
+    - _Elevation: 0.001
     - _ElevationSlope: 0.05
+    - _EnableBack: 1
+    - _EnableClouds: 1
+    - _EnableFront: 1
+    - _EnableMid: 1
+    - _EnablePoles: 1
+    - _EnableWater: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Kelvin: 300
-    - _KelvinRange: 50
+    - _Kelvin: 288
+    - _KelvinRange: 15
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -355,7 +381,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _KelvinMinMax: {r: 200, g: 300, b: 1000, a: 1000}
+    - _KelvinMinMax: {r: 273, g: 300, b: 500, a: 1000}
     - _Phase: {r: 1, g: 0.9, b: 0.75, a: 0.33}
     - _PhaseClouds: {r: 0.5, g: 0.75, b: 0.9, a: 0.42}
     - _PhaseWater: {r: 1, g: 0.9, b: 0.75, a: 0.33}

@@ -8,8 +8,10 @@ public class EnvironmentBasedSingularity : MonoBehaviour
     public GravityLenseSequencer gravityLense;
     public Transform accretionDisk;
     public Transform relativisticJets;
-    public Light light;
+    public new Light light;
     public ParticleAttractorGravity particleAttractor;
+
+    public string statisticName;
 
     public float radius;
     public float accretion;
@@ -18,8 +20,16 @@ public class EnvironmentBasedSingularity : MonoBehaviour
     {
         string star = "Star " + StringHelper.IndexIntToChar(environment["Singularity Star"].Get<int>());
 
+        statisticName = name;
+
         radius = environment[star + " Radius"];
-        accretion = environment[name + " Accretion"];
+        accretion = environment[statisticName + " Accretion"];
+
+        Vector3 position = environment["System Coordinates"].Get<Vector3>();
+        if (position.y > 0)
+            name = position.x + "+" + position.y + "X";
+        else
+            name = position.x + "-" + position.y + "X";
 
         gravityLense.sequence[0].radiusStart = gravityLense.sequence[0].radiusEnd = radius * 2f;
         particleAttractor.mass = gravityLense.sequence[0].eventHorizonStart = gravityLense.sequence[0].eventHorizonEnd = radius * 10f;
