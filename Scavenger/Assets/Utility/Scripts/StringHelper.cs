@@ -88,4 +88,70 @@ public static class StringHelper
 
         return ret;
     }
+
+    public static string RarityIntToString(int i)
+    {
+        int log = Mathf.FloorToInt(Mathf.Clamp(Mathf.Log10(i), 0, 6f));
+        switch(log)
+        {
+            case 0:
+                return "Abundant";
+            case 1:
+                return "Common";
+            case 2:
+                return "Uncommon";
+            case 3:
+                return "Rare";
+            case 4:
+                return "Epic";
+            case 5:
+                return "Legendary";
+            case 6:
+                return "Unique";
+        }
+
+        return "Unknown";
+    }
+
+    public static string RiskIntToString(int risk)
+    {
+        switch(risk)
+        {
+            case 0:
+                return "None";
+            case 1:
+                return "Low";
+            case 2:
+                return "Medium";
+            case 3:
+                return "High";
+            case 4:
+                return "Extreme";
+            case 5:
+                return "Fatal";
+            default:
+                return "Unknown";
+        }
+    }
+
+    //public static string RiskToString(Risk risk)
+    //{
+    //    switch(risk)
+    //    {
+    //        case Risk.None:
+    //            return "!";
+    //        case Risk.Low:
+    //            return "!";
+    //        case Risk.Medium:
+    //            return "!";
+    //        case Risk.High:
+    //            return "!";
+    //        case Risk.Extreme:
+    //            return "!";
+    //        case Risk.Fatal:
+    //            return "!";
+    //    }
+
+    //    return "!";
+    //}
 }

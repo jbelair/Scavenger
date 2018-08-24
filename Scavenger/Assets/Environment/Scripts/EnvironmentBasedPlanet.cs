@@ -7,7 +7,7 @@ public class EnvironmentBasedPlanet : MonoBehaviour
     public class Sphere
     {
         public Material surface;
-        public MeshRenderer sphere;
+        public MeshRenderer[] sphere;
     }
 
     public enum Temperature { Cold, Warm, Hot };
@@ -32,9 +32,6 @@ public class EnvironmentBasedPlanet : MonoBehaviour
 
     public Sphere surface;
     public Sphere atmosphere;
-
-    public SpriteRenderer spriteCircle;
-    public SpriteRenderer spriteIcon;
 
     public bool isInitialised = false;
 
@@ -141,27 +138,39 @@ public class EnvironmentBasedPlanet : MonoBehaviour
 
         if (surface.surface)
         {
-            surface.sphere.sharedMaterial = new Material(surface.surface);
-            surface.sphere.sharedMaterial.SetFloat("_Kelvin", kelvin);
-            surface.sphere.sharedMaterial.SetFloat("_KelvinRange", kelvinRange);
-            surface.sphere.sharedMaterial.SetFloat("_Elevation", elevation);
+            foreach (MeshRenderer renderer in surface.sphere)
+            {
+                renderer.sharedMaterial = new Material(surface.surface);
+                renderer.sharedMaterial.SetFloat("_Kelvin", kelvin);
+                renderer.sharedMaterial.SetFloat("_KelvinRange", kelvinRange);
+                renderer.sharedMaterial.SetFloat("_Elevation", elevation);
+            }
         }
         else
         {
-            surface.sphere.gameObject.SetActive(false);
+            foreach (MeshRenderer renderer in surface.sphere)
+            {
+                renderer.gameObject.SetActive(false);
+            }
         }
 
         if (atmosphere.surface)
         {
-            atmosphere.sphere.sharedMaterial = new Material(atmosphere.surface);
-            atmosphere.sphere.sharedMaterial.SetFloat("_AtmosphereIntensity", intensity);
-            atmosphere.sphere.sharedMaterial.SetFloat("_AtmosphereDensity", density);
-            atmosphere.sphere.sharedMaterial.SetFloat("_Kelvin", kelvin);
-            atmosphere.sphere.sharedMaterial.SetFloat("_KelvinRange", kelvinRange);
+            foreach (MeshRenderer renderer in atmosphere.sphere)
+            {
+                renderer.sharedMaterial = new Material(atmosphere.surface);
+                renderer.sharedMaterial.SetFloat("_AtmosphereIntensity", intensity);
+                renderer.sharedMaterial.SetFloat("_AtmosphereDensity", density);
+                renderer.sharedMaterial.SetFloat("_Kelvin", kelvin);
+                renderer.sharedMaterial.SetFloat("_KelvinRange", kelvinRange);
+            }
         }
         else
         {
-            atmosphere.sphere.gameObject.SetActive(false);
+            foreach (MeshRenderer renderer in atmosphere.sphere)
+            {
+                renderer.gameObject.SetActive(false);
+            }
         }
     }
 

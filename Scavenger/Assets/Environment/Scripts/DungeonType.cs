@@ -5,8 +5,12 @@ using UnityEngine;
 public class DungeonType
 {
     public string name;
-    public DungeonGenerator.Risk risk;
+    [TextArea(3, 10)]public string description;
+    public string category;
+    public string risk;
     public int oneIn;
+    public string target;
+    public string generator;
 
     private class DungeonComparer : IComparer<DungeonType>
     {

@@ -1,0 +1,220 @@
+{
+	"signals":
+	[
+		{
+			"name": "Station",
+			"description" : "The computer is detecting a high mass object in orbit. Signal scans have detected open communications broadcasts, as well as a carrier signal that matches known station configurations. The computer can say with a high degree of probability that this high mass object is peaceful station. Further decoding of modulations to the carrier signal suggest this station is complete, with basic trading services, a hangar, and cloning bays. The computer suggests visiting this station to make a backup of the crew and take advantage of the services on offer.",
+			"category": "Station",
+			"risk" : "None",
+			"oneIn" : 100,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "Station Wreck",
+			"description": "The computer is detecting a high mass object in orbit. High resolution scans however reveal this object to be a debris cloud. After searching the database for known satellites, the computer predicts that this is the debris field of a station, though the computer is unable to determine what happened to have caused its destruction. Without a carrier signal the computer can further speculate that the station is most likely completely inoperable. The computer warns that the debris field is obscuring further scanning and cannot guarantee the safety of the debris.",
+			"category": "Station Wreck",
+			"risk": "Medium",
+			"oneIn": 200,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "Station Construction",
+			"description": "The computer is detecting a high mass object in orbit. Signal scans have detected open communications broadcasts, as well as a carrier signal that matches known station configurations. High resolution scans have detected a cloud of particulate debris, and the computer is prepared to predict that this is a station under construction. Decoding of modulations to the carrier signal suggest this station is at least partially operational. The computer suggests visiting this station to take advantage of its services.",
+			"category": "Station Construction", 
+			"risk": "Low",
+			"oneIn": 500,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "Trading Station",
+			"description": "The computer is detecting a high mass object in orbit. Signal scans have detected open communications broadcasts, as well as a carrier signal that matches known station configurations. The computer is also detecting the traces of frequent interstellar travel around the object and can predict with a high degree of comfort that this station is most likely a trading station. Decoding of modulations to the carrier signal verify this fact. The computer suggests visiting this station to take advantage of its services.",
+			"category": "Station",
+			"risk": "Low",
+			"oneIn": 100,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "Trading Station Wreck",
+			"description": "The computer is detecting a high mass object in orbit. High resolution scans however reveal this object to be a debris cloud. After searching the database for known satellites, the computer predicts that this is the debris of a trading station, though the computer is unable to determine what happened to have caused its destruction. Without a carrier signal the computer can further speculate that the station is most likely completely inoperable. The computer warns that the debris field is obscuring further scanning and cannot guarantee the safety of the debris.",
+			"category": "Station Wreck",
+			"risk": "Medium",
+			"oneIn": 100,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "Trading Station Construction",
+			"description": "The computer is detecting a high mass object in orbit. Signal scans have detected open communications broadcasts, as well as a carrier signal that matches known station configurations. High resolution scans have detected a cloud of particulate debris, and the computer is prepared to predict that this is a station under construction. Decoding modulations to the carrier signal suggest this station is at least partially operational and specialized in trading. The computer suggests visiting this station to take advantage of its services.",
+			"category": "Station Construction",
+			"risk": "Low",
+			"oneIn": 100,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "Military Station",
+			"description": "The computer is detecting a high mass object in orbit. Signal scans have detected encoded communications broadcasts and no carrier signal. High resolution scans show the object to be producing large amounts of energy, though attempts at shielding it are making it difficult for the computer to determine exactly how much. The computer is prepared to predict that this is a military station, but the lack of a carrier signal makes it difficult for the computer to determine the hostility of the station.",
+			"category": "Station",
+			"risk": "Medium",
+			"oneIn": 1000,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "Military Station Wreck",
+			"description": "The computer is detecting a high mass object in orbit. High resolution scans however reveal this object to be a debris cloud. Given the database for known satellites has no information on a satellite at the coordinates of this object the computer is prepared to predict this debris cloud is the remains of a clandestine military station. The computer warns that the debris field is obscuring further scanning and cannot guarantee the safety of the debris.",
+			"category": "Station Wreck",
+			"risk": "Medium",
+			"oneIn": 500,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "Military Station Construction",
+			"description": "The computer is detecting a high mass object in orbit. High resolution scans have detected a cloud of particulate debris, and modelling suggests a high concentration of metals most often found in armouring. The computer is prepared to predict with a high degree of accuracy that this is a military station construction site, though given the lack of a carrier signal or any modulations to it, the computer is unable to identify the alignment of the station.",
+			"category": "Station Construction",
+			"risk": "Medium",
+			"oneIn": 500,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "Trader",
+			"description": "The computer is detecting an object in orbit. Signal scans have detected open communications broadcasts, as well as an active trade carrier signal. Decoding of modulations to the carrier signal suggest this object is an unarmed trading vessel. The computer suggests visiting this trading vessel to take advantage of its services.",
+			"category": "Ship",
+			"risk": "None",
+			"oneIn": 5,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "Escorted Trader",
+			"description": "The computer is detecting a series of objects in orbit. Signal scans have detected open communications broadcasts, as well as an active trade carrier signal, however encoded modulations can be detected on the carrier signal, suggesting this trade signal is also being used to coordinate clandestine activities. The computer is prepared to suggest this is an escorted trading vessel.",
+			"category": "Ships",
+			"risk": "Low",
+			"oneIn": 50,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "Trading Flotilla",
+			"description": "The computer is detecting a series of objects in orbit. Signal scans have detected open communications broadcasts, as well as a series of active trade carrier signals. The computer cannot detect any clandestine communications, and encoded modulations to the carrier signals. The computer predicts this is a flotilla of trading vessels and suggests visiting this trading flotilla to take advantage of their services.",
+			"category": "Ships",
+			"risk": "None",
+			"oneIn": 100,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "Trading Fleet",
+			"description": "The computer is detecting a series of objects in orbit. Signal scans have detected open communications broadcasts, as well as a series of active trade carrier signals. The computer is detecting clandestine communications, and encoded modulations to the carrier signals. The computer is prepared to predict the carrier signals are being used to coordinate escorts. The computer suggests visiting this trading fleet to take advantage of their services but advises caution.",
+			"category": "Ships",
+			"risk": "Medium",
+			"oneIn": 250,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "Shipwreck",
+			"description": "The computer is detecting an object in orbit. High resolution scans have detected a cloud of debris surrounding the object. The computer is prepared to predict that this is a shipwreck. The computer advises caution as it cannot determine the cause of the destruction of this object, and the debris field is obscuring further scanning.",
+			"category": "Shipwreck",
+			"risk": "Low",
+			"oneIn": 5,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "Capital Shipwreck",
+			"description": "The computer is detecting a high mass object in orbit. High resolution scans have detected a cloud of debris surrounding the object, as well the object defies classical configurations for encountered stations. The computer is prepared to predict that this is a capital shipwreck. The computer advises caution as it cannot determine the cause of the destruction of this object, and given it is a capital ship whatever caused its destruction would have to be a high-risk object.",
+			"category": "Shipwreck",
+			"risk": "Medium",
+			"oneIn": 1000,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "Ship Graveyard",
+			"description": "The computer is detecting a series of objects in orbit. High resolution scans have detected a cloud of debris mixed around the objects. The computer is prepared to predict that this is a graveyard of ships, though it cannot detect any weapons systems, or high levels of armouring materials, and can further define this as being a graveyard of non-military ships primarily. The computer advises caution as such a rich deposit of salvageable material is bound to attract competing scavengers.",
+			"category": "Graveyard",
+			"risk": "Medium",
+			"oneIn": 500,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "Battle Graveyard",
+			"description": "The computer is detecting a series of objects in orbit. High resolution scans have detected a cloud of debris mixed around the objects. The computer is prepared to predict that this is a graveyard of ships. The computer is detecting weapons systems, and high levels of armouring materials in the debris. The computer advises caution as such a rich deposit of salvageable material, especially of military origin is bound to attract hostile agents.",
+			"category": "Graveyard",
+			"risk": "High",
+			"oneIn": 1000,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "Asteroid",
+			"description": "The computer is detecting a high mass object in orbit. High resolution scans have detected no cloud of debris and combined with the lack of any communications broadcasts, energy signatures, and high metallic content, the computer predicts this is an asteroid.",
+			"category": "Asteroid",
+			"risk": "Low",
+			"oneIn": 5,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "Asteroid Station",
+			"description": "The computer is detecting a high mass object in orbit. Signal scans have detected open communications broadcasts, as well as weakly encoded communications. High resolution scans have detected high metallic content. The computer is prepared to predict that this object is an asteroid, probably partially hollowed to make room for a station. The computer advises caution as asteroid stations are often founded anarchically away from centralized governments, and the computer cannot guarantee the alignment of this station, however it may have services of use.",
+			"category": "Asteroid Station",
+			"risk": "Low",
+			"oneIn": 10,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "Asteroid Station Wreck",
+			"description": "The computer is detecting a high mass object in orbit. High resolution scans have detected a debris field surrounding this object, and high metallic content, however the scans are also showing potential structures. The computer is prepared to predict that this is the remains of an asteroid with a station built into it. The computer advises caution as the station is destroyed, and often asteroid stations are founded to avoid government, and therefore this station has a high likelihood of having been destroyed by hostile agents.",
+			"category": "Asteroid Station Wreck",
+			"risk": "Medium",
+			"oneIn": 5,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "Asteroid Station Construction",
+			"description": "The computer is detecting a high mass object in orbit. High resolution scans have detected a fine cloud of particulate debris and high metallic content. The computer is prepared to predict that this is an asteroid with an active station construction site on, in, or around it. The computer advises caution as asteroids are often used for stations by agents seeking to avoid government interference, and while this station is sure to have services, the computer cannot guarantee the friendliness of the stations habitants.",
+			"category": "Asteroid Station Construction",
+			"risk": "Low",
+			"oneIn": 25,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "Asteroid Cloud",
+			"description": "The computer is detecting a series of variably massed objects. High resolution scans have detected these objects to be of a variety of shapes, with seemingly random orientations and rotations, and high metallic content. The computer is prepared to predict that this is a cloud of asteroids and advises caution as while there is a high amount of salvageable material, asteroids in asteroid clouds may have highly erratic behaviours.",
+			"category": "Asteroids",
+			"risk": "Medium",
+			"oneIn": 10,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "Battle",
+			"description": "The computer is detecting high energy discharges, and many objects in orbit. Signal scans have detected a high frequency of clandestine communications, with at least 2 different encoding algorithms, and high-resolution scans have detected debris mixed around the objects. The computer is prepared to predict that this is an active conflict between hostile agents. The computer advises caution as this can only be an active conflict.",
+			"category": "Conflict",
+			"risk": "High",
+			"oneIn": 500,
+			"target" : "Any",
+			"generator" : "Standard"
+		},
+		{
+			"name": "",
+			"description": "",
+			"risk": "",
+			"oneIn": 0,
+			"target" : "",
+			"generator" : ""
+		}
+	]
+}

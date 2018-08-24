@@ -8,9 +8,6 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
     public EnvironmentBasedPlanet planetPrefab;
     public LineRendererCircle orbitPrefab;
 
-    public DungeonType[] dungeonTypesDefault;
-    public List<DungeonTypeCategory> dungeonCategories;
-
     public bool starsDisplayOrbits = true;
     public bool planetsDisplayOrbits = true;
     public bool moonsDisplayOrbits = true;
@@ -250,7 +247,7 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
                 Debug.Log("Generating moon environment data for planet " + (i + 1) + " of " + numberOfPlanets + " moon " + (j + 1) + " of " + numberOfMoons);
 
                 string moonName = name + " Moon " + StringHelper.IndexIntToChar(j);
-                float moonRadius = Mathf.Max(0.05f, ((radius * 0.3f) / (numberOfMoons + 1)) * Random.Range(0.1f, 1f));
+                float moonRadius = Mathf.Max(0.1f, ((radius * 0.3f) / (numberOfMoons + 1)) * Random.Range(0.1f, 1f));
                 Vector2 orbit = Random.insideUnitCircle.normalized;
                 float orbitDistance = distanceLast;
                 distanceLast = radius * 1.5f * Random.Range(1f, 3f); //distanceLast * Random.Range(1.01f, 1.15f) + moonRadius * 2;
@@ -369,8 +366,8 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
                 LineRendererCircle orbit = Instantiate(orbitPrefab, orbitCenter, Quaternion.Euler(0, 0, atan * Mathf.Rad2Deg), transform);
                 orbit.radius = (delta).magnitude;
                 orbit.line.startWidth = orbit.line.endWidth = statistics[name + " Radius"].Get<float>();
-                orbit.line.startColor = ColourHelper.HeatMap(statistics[name + " Kelvin"], 150, 500) * 0.5f;
-                orbit.line.endColor = new Color(orbit.line.startColor.r, orbit.line.startColor.g, orbit.line.startColor.b, 0f);
+                //orbit.line.startColor = ColourHelper.HeatMap(statistics[name + " Kelvin"], 150, 500) * 0.5f;
+                //orbit.line.endColor = new Color(orbit.line.startColor.r, orbit.line.startColor.g, orbit.line.startColor.b, 0f);
             }
 
             // MOONS ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -399,8 +396,8 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
                     LineRendererCircle moonOrbit = Instantiate(orbitPrefab, orbitCenter, Quaternion.Euler(0, 0, atan * Mathf.Rad2Deg), transform);
                     moonOrbit.radius = distance;
                     moonOrbit.line.startWidth = moonOrbit.line.endWidth = statistics[moonName + " Radius"].Get<float>();
-                    moonOrbit.line.startColor = ColourHelper.HeatMap(statistics[moonName + " Kelvin"], 150, 500) * 0.5f;
-                    moonOrbit.line.endColor = new Color(moonOrbit.line.startColor.r, moonOrbit.line.startColor.g, moonOrbit.line.startColor.b, 0f);
+                    //moonOrbit.line.startColor = ColourHelper.HeatMap(statistics[moonName + " Kelvin"], 150, 500) * 0.5f;
+                    //moonOrbit.line.endColor = new Color(moonOrbit.line.startColor.r, moonOrbit.line.startColor.g, moonOrbit.line.startColor.b, 0f);
                 }
             }
         }
@@ -460,6 +457,25 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
         // So what that means is lets get all the valid objects for a dungeon to generate on
         DungeonGenerator[] dungeonables = GameObject.FindObjectsOfType<DungeonGenerator>();
 
+        for (int i = 0; i < dungeonables.Length; i++)
+        {
+            dungeonables[i].hash = Random.Range(int.MinValue, int.MaxValue);
+
+            List<DungeonType> eligibleDungeonTypes = new List<DungeonType>();
+
+            eligibleDungeonTypes.AddRange(DungeonLoader.active.dungeons.signals.FindAll(dungeon => dungeon.generator.ToLower().Contains("standard") && 
+                (dungeon.target.ToLower().Contains("any") || dungeon.target.ToLower().Contains(dungeonables[i].dungeonTarget.ToLower()))));
+
+            //DungeonTypeCategory dungeonCategory = dungeonCategories.Find(dungeon => dungeon.name == dungeonables[i].dungeonTarget);
+            //if (dungeonCategory != null)
+            //{
+            //    eligibleDungeonTypes.AddRange(dungeonCategory.dungeons);
+            //}
+
+            dungeonables[i].dungeonType = DungeonType.SelectByChance(eligibleDungeonTypes);
+            dungeonables[i].riskLevel = FloatHelper.RiskStringToFloat(dungeonables[i].dungeonType.risk) * Random.Range(0.5f, 2f);
+        }
+
         int numberOfDungeons = Mathf.Max(1, Random.Range(0, dungeonables.Length));
 
         for (int i = 0; i < numberOfDungeons; i++)
@@ -476,19 +492,6 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
                 continue;
 
             dungeonables[index].generates = true;
-
-            List<DungeonType> eligibleDungeonTypes = new List<DungeonType>();
-
-            eligibleDungeonTypes.AddRange(dungeonTypesDefault);
-
-            DungeonTypeCategory dungeonCategory = dungeonCategories.Find(dungeon => dungeon.name == dungeonables[index].dungeonCategory);
-            if (dungeonCategory != null)
-            {
-                eligibleDungeonTypes.AddRange(dungeonCategory.dungeons);
-            }
-
-            dungeonables[index].dungeonType = DungeonType.SelectByChance(eligibleDungeonTypes);
-            dungeonables[index].riskLevel = (float)dungeonables[index].dungeonType.risk * Random.Range(0.5f,2f);
         }
     }
 }

@@ -12,21 +12,35 @@ public class EnvironmentBasedStar : MonoBehaviour
     public Texture2D blackbodyRamp;
     public new Light light;
 
+    [System.Serializable]
+    public class ParticleSystemContainer
+    {
+        public ParticleSystem system;
+        [Range(1, 10)]
+        public float kelvinRange = 2;
+        public bool invert = false;
+        //[Range(1, 50)]
+        //public float sizeRange = 10;
+    }
+
+    public ParticleSystemContainer[] particleSystems;
+
     public string statisticName;
 
     public float kelvin;
     public float kelvinRange;
-
-    public LineRendererCircle hot;
-    public LineRendererCircle warm;
-    public LineRendererCircle cold;
 
     // Use this for initialization
     void Start()
     {
         if (!star)
         {
-            star = GetComponent<MeshRenderer>().sharedMaterial = new Material(starMaterials[Random.Range(0, starMaterials.Length)]);
+            star = new Material(starMaterials[Random.Range(0, starMaterials.Length)]);
+            MeshRenderer[] meshes = GetComponentsInChildren<MeshRenderer>();//.sharedMaterial 
+            foreach(MeshRenderer mesh in meshes)
+            {
+                mesh.sharedMaterial = star;
+            }
         }
 
         statisticName = name;
@@ -61,8 +75,72 @@ public class EnvironmentBasedStar : MonoBehaviour
     }
 
     // Update is called once per frame
+    public float lastKelvin = 0;
+    public float lastKelvinRange = 0;
+    public float lastKelvinMax = 0;
     void Update()
     {
+        float kelvin = star.GetFloat("_Kelvin");
+        float kelvinRange = star.GetFloat("_KelvinRange");
+        float kelvinMax = star.GetFloat("_KelvinMax");
 
+        if (lastKelvin != kelvin || lastKelvinRange != kelvinRange || lastKelvinMax != kelvinMax)
+        {
+            lastKelvin = kelvin;
+            lastKelvinRange = kelvinRange;
+            lastKelvinMax = kelvinMax;
+
+            light.intensity = Mathf.Log10(EnvironmentRules.StellarLuminosity(transform.localScale.x, kelvin + kelvinRange)) / 4f;
+
+            foreach (ParticleSystemContainer container in particleSystems)
+            {
+                Color colourHigh = blackbodyRamp.GetPixelBilinear(((kelvin + kelvinRange * container.kelvinRange) / kelvinMax), 0);
+                Color colourMedium = light.color = blackbodyRamp.GetPixelBilinear(((kelvin + kelvinRange) / kelvinMax), 0);
+                Color colourLow = blackbodyRamp.GetPixelBilinear(((kelvin / container.kelvinRange) / kelvinMax), 0);
+
+                ParticleSystem.ColorOverLifetimeModule colour = container.system.colorOverLifetime;
+
+                GradientColorKey[] colourKeys;
+                GradientAlphaKey[] alphaKeys;
+
+                if (container.invert)
+                {
+                    colourKeys = new GradientColorKey[]
+                    {
+
+                        new GradientColorKey((colourLow * 8).Normalize(), 1f),
+                        new GradientColorKey((colourMedium * 8).Normalize(), 0.75f),
+                        new GradientColorKey((colourHigh * 8).Normalize(), 0)
+                    };
+
+                    alphaKeys = new GradientAlphaKey[]
+                    {
+                        new GradientAlphaKey(0, 0),
+                        new GradientAlphaKey(Mathf.Pow((kelvin + kelvinRange) / kelvinMax, 0.75f), 1)
+                    };
+                }
+                else
+                {
+                    colourKeys = new GradientColorKey[]
+                    {
+                        new GradientColorKey((colourHigh * 8).Normalize(), 0),
+                        new GradientColorKey((colourMedium * 8).Normalize(), 0.75f),
+                        new GradientColorKey((colourLow * 8).Normalize(), 1f)
+                    };
+
+                    alphaKeys = new GradientAlphaKey[]
+                    {
+                        new GradientAlphaKey(Mathf.Pow((kelvin + kelvinRange) / kelvinMax, 0.75f), 0),
+                        new GradientAlphaKey(0, 1)
+                    };
+                }
+
+                colour.color = new ParticleSystem.MinMaxGradient(new Gradient()
+                {
+                    colorKeys = colourKeys,
+                    alphaKeys = alphaKeys
+                });
+            }
+        }
     }
 }

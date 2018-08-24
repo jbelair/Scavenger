@@ -96,8 +96,7 @@ public class SystemGenerator : MonoBehaviour
     {
         System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
-        hash = Hash(statistics["System Coordinates"].Get<Vector3>());
-        Random.InitState(hash);
+        
         
         foreach (SystemGeneratorDecorator decorator in decorators)
         {
@@ -105,9 +104,15 @@ public class SystemGenerator : MonoBehaviour
 
             if (happens)
             {
+                hash = Hash(statistics["System Coordinates"].Get<Vector3>());
+                Random.InitState(hash);
+
                 decorator.system.Invoke();
                 decorator.star.Invoke();
                 decorator.planet.Invoke();
+
+                Random.InitState(EnvironmentTime.active.time);
+
                 decorator.dungeon.Invoke();
             }
         }

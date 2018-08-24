@@ -8,23 +8,29 @@ public class UITextColourSequencer : MonoBehaviour
 {
     public Text text;
 
-    public ColourSequencer sequence;
+    public bool tint;
+    public Color baseColour;
 
-    void Awake()
-    {
-        if (!text)
-            text = GetComponent<Text>();
-    }
+    public ColourSequencer sequence;
 
     // Use this for initialization
     void Start()
     {
-        text.color = sequence.Start();
+        if (tint)
+        {
+            baseColour = text.color;
+            text.color = baseColour * sequence.Start();
+        }
+        else
+            text.color = sequence.Start();
     }
 
     // Update is called once per frame
     void Update()
     {
-        text.color = sequence.Update();
+        if (tint)
+            text.color = baseColour * sequence.Update();
+        else
+            text.color = sequence.Update();
     }
 }

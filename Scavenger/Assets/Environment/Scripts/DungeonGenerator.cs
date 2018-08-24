@@ -2,25 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//public enum Risk { None, Low, Medium, High, Extreme, Fatal };
+
 public class DungeonGenerator : MonoBehaviour
 {
-    public enum Risk { None, Low, Medium, High, Extreme, Fatal };
+    public static List<GameObject> widgets = new List<GameObject>();
+
     public int hash;
     public bool generates = false;
     public DungeonType dungeonType;
-    public string dungeonCategory;
+    public string dungeonTarget;
     public float riskLevel = 0;
-    public Risk risk;
+    public string risk;
+
+    public CameraNode node;
+    public GameObject widget;
 
     // Use this for initialization
     void Start()
     {
-        
+        if (generates)
+        {
+            node = GetComponentInChildren<CameraNode>();
+            risk = StringHelper.RiskIntToString(Mathf.FloorToInt(riskLevel));
+
+            widget = WidgetGenerator.active.Button(WidgetGenerator.Layer.Back, "Signal", Vector2.zero, Transition, transform);
+            widgets.Add(widget);
+            widget.GetComponent<WidgetSignal>().Set(dungeonType);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        risk = (Risk)Mathf.FloorToInt(riskLevel);
+        
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(widget);
+    }
+
+    public void Transition()
+    {
+        Camera.main.GetComponent<MoveTo>().TransitionFrame(node.transform, 2.5f);
+
+        foreach(GameObject widg in widgets)
+            widg.SetActive(false);
+
+        widget = WidgetGenerator.active.Element(WidgetGenerator.Layer.Mid, "Signal Description");//, new Vector2(1920/2f, 0f));
+        widget.GetComponent<WidgetSignalDescription>().Set(dungeonType);
     }
 }

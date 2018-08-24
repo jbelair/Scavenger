@@ -7,23 +7,30 @@ using UnityEngine.UI;
 public class ImageColourSequencer : MonoBehaviour
 {
     public Image image;
-    public ColourSequencer colours;
 
-    void Awake()
-    {
-        if (!image)
-            image = GetComponent<Image>();
-    }
+    public bool tint = false;
+    public Color baseColour;
+
+    public ColourSequencer colours;
 
     // Use this for initialization
     void Start()
     {
-        image.color = colours.Start();
+        if (image)
+            baseColour = image.color;
+
+        if (tint)
+            image.color = baseColour * colours.Start();
+        else
+            image.color = colours.Start();
     }
 
     // Update is called once per frame
     void Update()
     {
-        image.color = colours.Update();
+        if (tint)
+            image.color = baseColour * colours.Update();
+        else
+            image.color = colours.Update();
     }
 }

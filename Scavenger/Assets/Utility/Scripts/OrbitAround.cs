@@ -19,20 +19,20 @@ public class OrbitAround : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Vector3 delta = center.position - transform.position;
+        Vector3 delta = (center.position - transform.position);
 
         offset = delta.magnitude;
         theta = Mathf.Atan2(delta.y, delta.x) + Mathf.PI;
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         transform.position = Vector3.MoveTowards(transform.position, goal, speed);
 
         theta += speed * Time.deltaTime * Mathf.PI * 2;
         if (axis == Axis.z)
-            goal = center.position + new Vector3(Mathf.Cos(theta), Mathf.Sin(theta), axisOffset) * offset;
+            goal = center.position + new Vector3(Mathf.Cos(theta), Mathf.Sin(theta), axisOffset) * offset * transform.lossyScale.x;
         //else if (axis == Axis.)
     }
 }

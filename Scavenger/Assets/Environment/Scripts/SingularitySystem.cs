@@ -9,8 +9,6 @@ public class SingularitySystem : MonoBehaviour, ISystemGeneratorDecorator
     public LineRendererSpiral atmosphereLeechPrefab;
     public LineRendererSpiral planetLeechPrefab;
 
-    public List<DungeonTypeCategory> dungeonCategories;
-
     public Statistics statistics;
     public EnvironmentBasedSingularity singularity;
 
@@ -226,11 +224,15 @@ public class SingularitySystem : MonoBehaviour, ISystemGeneratorDecorator
 
         for (int i = 0; i < dungeonables.Length; i++)
         {
-            DungeonTypeCategory dungeonCategory = dungeonCategories.Find(dungeon => dungeon.name == dungeonables[i].dungeonCategory);
-            if (dungeonCategory != null && dungeonCategory.dungeons.Length > 0 && 1 == Random.Range(1f,2f))
+            List<DungeonType> dungeonTypes = DungeonLoader.active.dungeons.signals.FindAll(dungeon => dungeon.generator.ToLower().Contains("singularity") &&
+                (dungeon.target.ToLower().Contains("any") || dungeon.target.ToLower().Contains(dungeonables[i].dungeonTarget.ToLower())));
+
+            if (dungeonTypes.Count > 0 && 1 == Random.Range(1f,2f))
             {
-                dungeonables[i].dungeonType = dungeonCategory.dungeons[Random.Range(0, dungeonCategory.dungeons.Length)];
-                dungeonables[i].riskLevel = (float)dungeonables[i].dungeonType.risk * Random.Range(0.5f, 2f);
+                dungeonables[i].dungeonType = DungeonType.SelectByChance(dungeonTypes);
+                dungeonables[i].riskLevel = FloatHelper.RiskStringToFloat(dungeonables[i].dungeonType.risk) * Random.Range(0.5f, 2f);
+                //dungeonables[i].dungeonType = dungeonCategory.dungeons[Random.Range(0, dungeonCategory.dungeons.Length)];
+                //dungeonables[i].riskLevel = FloatHelper.RiskStringToFloat(dungeonables[i].dungeonType.risk) * Random.Range(0.5f, 2f);
             }
 
             dungeonables[i].riskLevel = Mathf.Clamp((dungeonables[i].riskLevel * Random.Range(1f, 2f)), 0, 5);
