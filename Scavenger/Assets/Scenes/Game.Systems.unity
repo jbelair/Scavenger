@@ -1,0 +1,6045 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!29 &1
+OcclusionCullingSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: 0.25
+    backfaceThreshold: 100
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
+--- !u!104 &2
+RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 9
+  m_Fog: 0
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: 0.01
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 0
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 334c921dcd83aab478045b78c24115a0, type: 2}
+  m_HaloStrength: 0.5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
+  m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
+  m_ReflectionIntensity: 1
+  m_CustomReflection: {fileID: 0}
+  m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0.003290526, g: 0.0030626443, b: 0.0024685543, a: 1}
+  m_UseRadianceAmbientProbe: 0
+--- !u!157 &3
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 11
+  m_GIWorkflowMode: 0
+  m_GISettings:
+    serializedVersion: 2
+    m_BounceScale: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1
+    m_TemporalCoherenceThreshold: 1
+    m_EnvironmentLightingMode: 0
+    m_EnableBakedLightmaps: 1
+    m_EnableRealtimeLightmaps: 1
+  m_LightmapEditorSettings:
+    serializedVersion: 10
+    m_Resolution: 2
+    m_BakeResolution: 40
+    m_AtlasSize: 1024
+    m_AO: 0
+    m_AOMaxDistance: 1
+    m_CompAOExponent: 1
+    m_CompAOExponentDirect: 0
+    m_Padding: 2
+    m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
+    m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
+    m_ReflectionCompression: 2
+    m_MixedBakeMode: 2
+    m_BakeBackend: 1
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 500
+    m_PVRBounces: 2
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVRFilteringMode: 1
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 5
+    m_PVRFilteringGaussRadiusAO: 2
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
+  m_LightingDataAsset: {fileID: 0}
+  m_UseShadowmask: 1
+--- !u!196 &4
+NavMeshSettings:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_BuildSettings:
+    serializedVersion: 2
+    agentTypeID: 0
+    agentRadius: 0.5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: 0.4
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    minRegionArea: 2
+    manualCellSize: 0
+    cellSize: 0.16666667
+    manualTileSize: 0
+    tileSize: 256
+    accuratePlacement: 0
+    debug:
+      m_Flags: 0
+  m_NavMeshData: {fileID: 0}
+--- !u!1 &229934768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 229934769}
+  - component: {fileID: 229934774}
+  - component: {fileID: 229934773}
+  - component: {fileID: 229934772}
+  - component: {fileID: 229934771}
+  - component: {fileID: 229934770}
+  m_Layer: 0
+  m_Name: System +1+0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &229934769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 229934768}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1000, y: 0, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_Children: []
+  m_Father: {fileID: 2116586212}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &229934770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 229934768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dcdba7a3336a9b49a6c210350b561df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  singularityPrefab: {fileID: 114039274735669666, guid: 9e4bbc377dbe9c3458b658799e085970,
+    type: 2}
+  atmosphereLeechPrefab: {fileID: 114032621109548510, guid: b39cc254f02bfbf4cb456b323ba8a127,
+    type: 2}
+  planetLeechPrefab: {fileID: 114981333433680714, guid: 6bd700d59d8be934aac34bc5e989a7f6,
+    type: 2}
+  statistics: {fileID: 229934774}
+  singularity: {fileID: 0}
+--- !u!114 &229934771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 229934768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d60582ff35000714e976263753206f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starPrefab: {fileID: 114235406414131618, guid: 91144a46a2ce536489b3d8aabf71cac8,
+    type: 2}
+  planetPrefab: {fileID: 114183782413579774, guid: 77a48959c7c3af24bb0430aca7e607aa,
+    type: 2}
+  orbitPrefab: {fileID: 114428484334938752, guid: 9328eeb80bd715d4bb34a490922d8e11,
+    type: 2}
+  starsDisplayOrbits: 0
+  planetsDisplayOrbits: 0
+  moonsDisplayOrbits: 0
+  starDistance: 5000
+  starPlotStars:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 2
+      inSlope: -0.024282886
+      outSlope: -0.024282886
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.12127662
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  starPlotRadius:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.01
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: -0.33818725
+      outSlope: -0.33818725
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.14893615
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 20
+      inSlope: 127.33971
+      outSlope: 127.33971
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.103655815
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  starPlotKelvin:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 250
+      inSlope: 17650.875
+      outSlope: 17650.875
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.07446808
+    - serializedVersion: 3
+      time: 0.5
+      value: 3000
+      inSlope: 431.4736
+      outSlope: 431.4736
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15531915
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 30000
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  pDistance: 1000
+  pDStellarTempFraction: 20
+  pDStellarTempExponent: 2
+  planetPlotPlanets:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 8
+      inSlope: 0.20137616
+      outSlope: 0.20137616
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11702126
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 16
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotRadiusDistance:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotRadiusKelvin:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotMoons:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 2
+      inSlope: -0.090776995
+      outSlope: -0.090776995
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1297872
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 8
+      inSlope: 34.807602
+      outSlope: 34.807602
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.029787183
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  statistics: {fileID: 229934774}
+--- !u!114 &229934772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 229934768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8880b579f3cad6a4e8a70d1e3dc3562d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hash: 0
+  loadFromEnvironment: 0
+  decorators:
+  - name: Standard
+    trigger: 0
+    oneIn: 1
+    factionName: 
+    system:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 229934771}
+          m_MethodName: System
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    star:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 229934771}
+          m_MethodName: Star
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    planet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 229934771}
+          m_MethodName: Planet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    dungeon:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 229934771}
+          m_MethodName: Dungeon
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    statistics: {fileID: 229934774}
+  - name: Singularity
+    trigger: 1
+    oneIn: 1000
+    factionName: 
+    system:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 229934770}
+          m_MethodName: System
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    star:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 229934770}
+          m_MethodName: Star
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    planet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 229934770}
+          m_MethodName: Planet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    dungeon:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 229934770}
+          m_MethodName: Dungeon
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    statistics: {fileID: 229934774}
+  statistics: {fileID: 229934774}
+--- !u!114 &229934773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 229934768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172cd62e508bb1b4dad869f2c4eb3020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profiles:
+  - name: Habitable World
+    surfaces:
+    - {fileID: 2100000, guid: b313e1cfea8bc674eadf4fffa9ddb749, type: 2}
+    - {fileID: 2100000, guid: af8d5188fa1524540a838d0348c55c11, type: 2}
+    - {fileID: 2100000, guid: 4a724bb21b5d1694cbb99ee3c82c51e1, type: 2}
+    atmospheres:
+    - {fileID: 2100000, guid: 20033e1c4a59b5c40be70434ccfa9a59, type: 2}
+  - name: Jupiter
+    surfaces:
+    - {fileID: 2100000, guid: 6a20c04f99638884aaeceb81154da50b, type: 2}
+    - {fileID: 2100000, guid: a52618dcee20cac4298a4f62ae7e9107, type: 2}
+    - {fileID: 2100000, guid: 22f47f31c6ade004b8af8baee6e6f01f, type: 2}
+    atmospheres: []
+  - name: Saturn
+    surfaces:
+    - {fileID: 2100000, guid: 6139024cad901214fa80b86e7fad0824, type: 2}
+    - {fileID: 2100000, guid: 338d00c88efcec34c976833ac43e6a32, type: 2}
+    - {fileID: 2100000, guid: 5f6f603b94f5b4a4482b721610104723, type: 2}
+    atmospheres: []
+  - name: Uranus
+    surfaces:
+    - {fileID: 2100000, guid: bfe7e1e45833ca94fb5a371f00ef13cd, type: 2}
+    - {fileID: 2100000, guid: 3cf2bdee0a72e1a47990ab6e3f21775b, type: 2}
+    - {fileID: 2100000, guid: 8765796f58abe924aa04a0130158e4bf, type: 2}
+    atmospheres: []
+  - name: Neptune
+    surfaces:
+    - {fileID: 2100000, guid: 1b365ef9baa77ab429eaa91b4260a0bf, type: 2}
+    - {fileID: 2100000, guid: 0e0d3996177bb694aa55fdc121d3be38, type: 2}
+    - {fileID: 2100000, guid: 27c915a45c59bf04685d1ab7e6d2012e, type: 2}
+    atmospheres: []
+  - name: Custom Gas Giant
+    surfaces:
+    - {fileID: 2100000, guid: 6ce4510d038ebe540bf9d7964ae8d7fb, type: 2}
+    atmospheres: []
+  - name: All Gas Giant
+    surfaces:
+    - {fileID: 2100000, guid: 6ce4510d038ebe540bf9d7964ae8d7fb, type: 2}
+    - {fileID: 2100000, guid: 6a20c04f99638884aaeceb81154da50b, type: 2}
+    - {fileID: 2100000, guid: a52618dcee20cac4298a4f62ae7e9107, type: 2}
+    - {fileID: 2100000, guid: 22f47f31c6ade004b8af8baee6e6f01f, type: 2}
+    - {fileID: 2100000, guid: 1b365ef9baa77ab429eaa91b4260a0bf, type: 2}
+    - {fileID: 2100000, guid: 0e0d3996177bb694aa55fdc121d3be38, type: 2}
+    - {fileID: 2100000, guid: 27c915a45c59bf04685d1ab7e6d2012e, type: 2}
+    - {fileID: 2100000, guid: 6139024cad901214fa80b86e7fad0824, type: 2}
+    - {fileID: 2100000, guid: 338d00c88efcec34c976833ac43e6a32, type: 2}
+    - {fileID: 2100000, guid: 5f6f603b94f5b4a4482b721610104723, type: 2}
+    - {fileID: 2100000, guid: bfe7e1e45833ca94fb5a371f00ef13cd, type: 2}
+    - {fileID: 2100000, guid: 3cf2bdee0a72e1a47990ab6e3f21775b, type: 2}
+    - {fileID: 2100000, guid: 8765796f58abe924aa04a0130158e4bf, type: 2}
+    atmospheres: []
+  metallicProfiles:
+  - Metallic World
+  mixedProfiles:
+  - Habitable World
+  gasseousProfiles:
+  - All Gas Giant
+  Cold: 270
+  Hot: 320
+  asteroidBelts: []
+  artefacts: []
+  gasBelts: []
+--- !u!114 &229934774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 229934768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82700e6955cbeb547af85dcd81d0035c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  polling: 0
+  pollingTime: 0.1
+  isPolling: 0
+  isInitialised: 0
+  isRunning: 1
+  unityStatistics:
+  - name: System Coordinates
+    type: 5
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: 1, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Temperature
+    type: 1
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Singularities
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Stars
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Planets
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+--- !u!1 &653584699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 653584700}
+  - component: {fileID: 653584705}
+  - component: {fileID: 653584704}
+  - component: {fileID: 653584703}
+  - component: {fileID: 653584702}
+  - component: {fileID: 653584701}
+  m_Layer: 0
+  m_Name: System +1+1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &653584700
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 653584699}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1000, y: 1000, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_Children: []
+  m_Father: {fileID: 2116586212}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &653584701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 653584699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dcdba7a3336a9b49a6c210350b561df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  singularityPrefab: {fileID: 114039274735669666, guid: 9e4bbc377dbe9c3458b658799e085970,
+    type: 2}
+  atmosphereLeechPrefab: {fileID: 114032621109548510, guid: b39cc254f02bfbf4cb456b323ba8a127,
+    type: 2}
+  planetLeechPrefab: {fileID: 114981333433680714, guid: 6bd700d59d8be934aac34bc5e989a7f6,
+    type: 2}
+  statistics: {fileID: 653584705}
+  singularity: {fileID: 0}
+--- !u!114 &653584702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 653584699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d60582ff35000714e976263753206f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starPrefab: {fileID: 114235406414131618, guid: 91144a46a2ce536489b3d8aabf71cac8,
+    type: 2}
+  planetPrefab: {fileID: 114183782413579774, guid: 77a48959c7c3af24bb0430aca7e607aa,
+    type: 2}
+  orbitPrefab: {fileID: 114428484334938752, guid: 9328eeb80bd715d4bb34a490922d8e11,
+    type: 2}
+  starsDisplayOrbits: 0
+  planetsDisplayOrbits: 0
+  moonsDisplayOrbits: 0
+  starDistance: 5000
+  starPlotStars:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 2
+      inSlope: -0.024282886
+      outSlope: -0.024282886
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.12127662
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  starPlotRadius:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.01
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: -0.33818725
+      outSlope: -0.33818725
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.14893615
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 20
+      inSlope: 127.33971
+      outSlope: 127.33971
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.103655815
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  starPlotKelvin:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 250
+      inSlope: 17650.875
+      outSlope: 17650.875
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.07446808
+    - serializedVersion: 3
+      time: 0.5
+      value: 3000
+      inSlope: 431.4736
+      outSlope: 431.4736
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15531915
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 30000
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  pDistance: 1000
+  pDStellarTempFraction: 20
+  pDStellarTempExponent: 2
+  planetPlotPlanets:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 8
+      inSlope: 0.20137616
+      outSlope: 0.20137616
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11702126
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 16
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotRadiusDistance:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotRadiusKelvin:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotMoons:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 2
+      inSlope: -0.090776995
+      outSlope: -0.090776995
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1297872
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 8
+      inSlope: 34.807602
+      outSlope: 34.807602
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.029787183
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  statistics: {fileID: 653584705}
+--- !u!114 &653584703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 653584699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8880b579f3cad6a4e8a70d1e3dc3562d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hash: 0
+  loadFromEnvironment: 0
+  decorators:
+  - name: Standard
+    trigger: 0
+    oneIn: 1
+    factionName: 
+    system:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 653584702}
+          m_MethodName: System
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    star:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 653584702}
+          m_MethodName: Star
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    planet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 653584702}
+          m_MethodName: Planet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    dungeon:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 653584702}
+          m_MethodName: Dungeon
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    statistics: {fileID: 653584705}
+  - name: Singularity
+    trigger: 1
+    oneIn: 1000
+    factionName: 
+    system:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 653584701}
+          m_MethodName: System
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    star:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 653584701}
+          m_MethodName: Star
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    planet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 653584701}
+          m_MethodName: Planet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    dungeon:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 653584701}
+          m_MethodName: Dungeon
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    statistics: {fileID: 653584705}
+  statistics: {fileID: 653584705}
+--- !u!114 &653584704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 653584699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172cd62e508bb1b4dad869f2c4eb3020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profiles:
+  - name: Habitable World
+    surfaces:
+    - {fileID: 2100000, guid: b313e1cfea8bc674eadf4fffa9ddb749, type: 2}
+    - {fileID: 2100000, guid: af8d5188fa1524540a838d0348c55c11, type: 2}
+    - {fileID: 2100000, guid: 4a724bb21b5d1694cbb99ee3c82c51e1, type: 2}
+    atmospheres:
+    - {fileID: 2100000, guid: 20033e1c4a59b5c40be70434ccfa9a59, type: 2}
+  - name: Jupiter
+    surfaces:
+    - {fileID: 2100000, guid: 6a20c04f99638884aaeceb81154da50b, type: 2}
+    - {fileID: 2100000, guid: a52618dcee20cac4298a4f62ae7e9107, type: 2}
+    - {fileID: 2100000, guid: 22f47f31c6ade004b8af8baee6e6f01f, type: 2}
+    atmospheres: []
+  - name: Saturn
+    surfaces:
+    - {fileID: 2100000, guid: 6139024cad901214fa80b86e7fad0824, type: 2}
+    - {fileID: 2100000, guid: 338d00c88efcec34c976833ac43e6a32, type: 2}
+    - {fileID: 2100000, guid: 5f6f603b94f5b4a4482b721610104723, type: 2}
+    atmospheres: []
+  - name: Uranus
+    surfaces:
+    - {fileID: 2100000, guid: bfe7e1e45833ca94fb5a371f00ef13cd, type: 2}
+    - {fileID: 2100000, guid: 3cf2bdee0a72e1a47990ab6e3f21775b, type: 2}
+    - {fileID: 2100000, guid: 8765796f58abe924aa04a0130158e4bf, type: 2}
+    atmospheres: []
+  - name: Neptune
+    surfaces:
+    - {fileID: 2100000, guid: 1b365ef9baa77ab429eaa91b4260a0bf, type: 2}
+    - {fileID: 2100000, guid: 0e0d3996177bb694aa55fdc121d3be38, type: 2}
+    - {fileID: 2100000, guid: 27c915a45c59bf04685d1ab7e6d2012e, type: 2}
+    atmospheres: []
+  - name: Custom Gas Giant
+    surfaces:
+    - {fileID: 2100000, guid: 6ce4510d038ebe540bf9d7964ae8d7fb, type: 2}
+    atmospheres: []
+  - name: All Gas Giant
+    surfaces:
+    - {fileID: 2100000, guid: 6ce4510d038ebe540bf9d7964ae8d7fb, type: 2}
+    - {fileID: 2100000, guid: 6a20c04f99638884aaeceb81154da50b, type: 2}
+    - {fileID: 2100000, guid: a52618dcee20cac4298a4f62ae7e9107, type: 2}
+    - {fileID: 2100000, guid: 22f47f31c6ade004b8af8baee6e6f01f, type: 2}
+    - {fileID: 2100000, guid: 1b365ef9baa77ab429eaa91b4260a0bf, type: 2}
+    - {fileID: 2100000, guid: 0e0d3996177bb694aa55fdc121d3be38, type: 2}
+    - {fileID: 2100000, guid: 27c915a45c59bf04685d1ab7e6d2012e, type: 2}
+    - {fileID: 2100000, guid: 6139024cad901214fa80b86e7fad0824, type: 2}
+    - {fileID: 2100000, guid: 338d00c88efcec34c976833ac43e6a32, type: 2}
+    - {fileID: 2100000, guid: 5f6f603b94f5b4a4482b721610104723, type: 2}
+    - {fileID: 2100000, guid: bfe7e1e45833ca94fb5a371f00ef13cd, type: 2}
+    - {fileID: 2100000, guid: 3cf2bdee0a72e1a47990ab6e3f21775b, type: 2}
+    - {fileID: 2100000, guid: 8765796f58abe924aa04a0130158e4bf, type: 2}
+    atmospheres: []
+  metallicProfiles:
+  - Metallic World
+  mixedProfiles:
+  - Habitable World
+  gasseousProfiles:
+  - All Gas Giant
+  Cold: 270
+  Hot: 320
+  asteroidBelts: []
+  artefacts: []
+  gasBelts: []
+--- !u!114 &653584705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 653584699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82700e6955cbeb547af85dcd81d0035c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  polling: 0
+  pollingTime: 0.1
+  isPolling: 0
+  isInitialised: 0
+  isRunning: 1
+  unityStatistics:
+  - name: System Coordinates
+    type: 5
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: 1, y: 1, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Temperature
+    type: 1
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Singularities
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Stars
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Planets
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+--- !u!1 &694942975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 694942976}
+  - component: {fileID: 694942979}
+  - component: {fileID: 694942978}
+  - component: {fileID: 694942977}
+  m_Layer: 8
+  m_Name: Plane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &694942976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 694942975}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1735292432}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &694942977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 694942975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff1c1a788b57a1046bcb6a1a8881ba7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: ae4433bb2eefa6a4ca28d797c0ecbf1f, type: 2}
+  scale: {x: -0.001, y: 0.001}
+--- !u!23 &694942978
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 694942975}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 2100000, guid: ae4433bb2eefa6a4ca28d797c0ecbf1f, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &694942979
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 694942975}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &787294244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 787294245}
+  - component: {fileID: 787294247}
+  - component: {fileID: 787294246}
+  m_Layer: 0
+  m_Name: UI Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &787294245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 787294244}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 859563856}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &787294246
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 787294244}
+  m_Enabled: 0
+--- !u!20 &787294247
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 787294244}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 4
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.1
+  far clip plane: 100000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 32
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 0
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!1 &859563855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 859563856}
+  - component: {fileID: 859563860}
+  - component: {fileID: 859563859}
+  - component: {fileID: 859563858}
+  - component: {fileID: 859563857}
+  m_Layer: 0
+  m_Name: Non Singularity Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &859563856
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 859563855}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 787294245}
+  m_Father: {fileID: 1159579936}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &859563857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 859563855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 895ddabfa94927946a20878fbe4e66e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 859563860}
+  supersize: 2
+  captureRate: 0
+  captureCurrent: 0
+--- !u!114 &859563858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 859563855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 0c3ce3cc82c6b224e84d2ec6185c203a, type: 2}
+--- !u!81 &859563859
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 859563855}
+  m_Enabled: 0
+--- !u!20 &859563860
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 859563855}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 4
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.01
+  far clip plane: 100000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 3351
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 0
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!1 &940341224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 940341225}
+  - component: {fileID: 940341230}
+  - component: {fileID: 940341229}
+  - component: {fileID: 940341228}
+  - component: {fileID: 940341227}
+  - component: {fileID: 940341226}
+  m_Layer: 0
+  m_Name: System +0-1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &940341225
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 940341224}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1000, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_Children: []
+  m_Father: {fileID: 2116586212}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &940341226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 940341224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dcdba7a3336a9b49a6c210350b561df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  singularityPrefab: {fileID: 114039274735669666, guid: 9e4bbc377dbe9c3458b658799e085970,
+    type: 2}
+  atmosphereLeechPrefab: {fileID: 114032621109548510, guid: b39cc254f02bfbf4cb456b323ba8a127,
+    type: 2}
+  planetLeechPrefab: {fileID: 114981333433680714, guid: 6bd700d59d8be934aac34bc5e989a7f6,
+    type: 2}
+  statistics: {fileID: 940341230}
+  singularity: {fileID: 0}
+--- !u!114 &940341227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 940341224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d60582ff35000714e976263753206f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starPrefab: {fileID: 114235406414131618, guid: 91144a46a2ce536489b3d8aabf71cac8,
+    type: 2}
+  planetPrefab: {fileID: 114183782413579774, guid: 77a48959c7c3af24bb0430aca7e607aa,
+    type: 2}
+  orbitPrefab: {fileID: 114428484334938752, guid: 9328eeb80bd715d4bb34a490922d8e11,
+    type: 2}
+  starsDisplayOrbits: 0
+  planetsDisplayOrbits: 0
+  moonsDisplayOrbits: 0
+  starDistance: 5000
+  starPlotStars:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 2
+      inSlope: -0.024282886
+      outSlope: -0.024282886
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.12127662
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  starPlotRadius:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.01
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: -0.33818725
+      outSlope: -0.33818725
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.14893615
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 20
+      inSlope: 127.33971
+      outSlope: 127.33971
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.103655815
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  starPlotKelvin:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 250
+      inSlope: 17650.875
+      outSlope: 17650.875
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.07446808
+    - serializedVersion: 3
+      time: 0.5
+      value: 3000
+      inSlope: 431.4736
+      outSlope: 431.4736
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15531915
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 30000
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  pDistance: 1000
+  pDStellarTempFraction: 20
+  pDStellarTempExponent: 2
+  planetPlotPlanets:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 8
+      inSlope: 0.20137616
+      outSlope: 0.20137616
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11702126
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 16
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotRadiusDistance:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotRadiusKelvin:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotMoons:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 2
+      inSlope: -0.090776995
+      outSlope: -0.090776995
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1297872
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 8
+      inSlope: 34.807602
+      outSlope: 34.807602
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.029787183
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  statistics: {fileID: 940341230}
+--- !u!114 &940341228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 940341224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8880b579f3cad6a4e8a70d1e3dc3562d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hash: 0
+  loadFromEnvironment: 0
+  decorators:
+  - name: Standard
+    trigger: 0
+    oneIn: 1
+    factionName: 
+    system:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 940341227}
+          m_MethodName: System
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    star:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 940341227}
+          m_MethodName: Star
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    planet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 940341227}
+          m_MethodName: Planet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    dungeon:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 940341227}
+          m_MethodName: Dungeon
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    statistics: {fileID: 940341230}
+  - name: Singularity
+    trigger: 1
+    oneIn: 1000
+    factionName: 
+    system:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 940341226}
+          m_MethodName: System
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    star:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 940341226}
+          m_MethodName: Star
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    planet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 940341226}
+          m_MethodName: Planet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    dungeon:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 940341226}
+          m_MethodName: Dungeon
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    statistics: {fileID: 940341230}
+  statistics: {fileID: 940341230}
+--- !u!114 &940341229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 940341224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172cd62e508bb1b4dad869f2c4eb3020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profiles:
+  - name: Habitable World
+    surfaces:
+    - {fileID: 2100000, guid: b313e1cfea8bc674eadf4fffa9ddb749, type: 2}
+    - {fileID: 2100000, guid: af8d5188fa1524540a838d0348c55c11, type: 2}
+    - {fileID: 2100000, guid: 4a724bb21b5d1694cbb99ee3c82c51e1, type: 2}
+    atmospheres:
+    - {fileID: 2100000, guid: 20033e1c4a59b5c40be70434ccfa9a59, type: 2}
+  - name: Jupiter
+    surfaces:
+    - {fileID: 2100000, guid: 6a20c04f99638884aaeceb81154da50b, type: 2}
+    - {fileID: 2100000, guid: a52618dcee20cac4298a4f62ae7e9107, type: 2}
+    - {fileID: 2100000, guid: 22f47f31c6ade004b8af8baee6e6f01f, type: 2}
+    atmospheres: []
+  - name: Saturn
+    surfaces:
+    - {fileID: 2100000, guid: 6139024cad901214fa80b86e7fad0824, type: 2}
+    - {fileID: 2100000, guid: 338d00c88efcec34c976833ac43e6a32, type: 2}
+    - {fileID: 2100000, guid: 5f6f603b94f5b4a4482b721610104723, type: 2}
+    atmospheres: []
+  - name: Uranus
+    surfaces:
+    - {fileID: 2100000, guid: bfe7e1e45833ca94fb5a371f00ef13cd, type: 2}
+    - {fileID: 2100000, guid: 3cf2bdee0a72e1a47990ab6e3f21775b, type: 2}
+    - {fileID: 2100000, guid: 8765796f58abe924aa04a0130158e4bf, type: 2}
+    atmospheres: []
+  - name: Neptune
+    surfaces:
+    - {fileID: 2100000, guid: 1b365ef9baa77ab429eaa91b4260a0bf, type: 2}
+    - {fileID: 2100000, guid: 0e0d3996177bb694aa55fdc121d3be38, type: 2}
+    - {fileID: 2100000, guid: 27c915a45c59bf04685d1ab7e6d2012e, type: 2}
+    atmospheres: []
+  - name: Custom Gas Giant
+    surfaces:
+    - {fileID: 2100000, guid: 6ce4510d038ebe540bf9d7964ae8d7fb, type: 2}
+    atmospheres: []
+  - name: All Gas Giant
+    surfaces:
+    - {fileID: 2100000, guid: 6ce4510d038ebe540bf9d7964ae8d7fb, type: 2}
+    - {fileID: 2100000, guid: 6a20c04f99638884aaeceb81154da50b, type: 2}
+    - {fileID: 2100000, guid: a52618dcee20cac4298a4f62ae7e9107, type: 2}
+    - {fileID: 2100000, guid: 22f47f31c6ade004b8af8baee6e6f01f, type: 2}
+    - {fileID: 2100000, guid: 1b365ef9baa77ab429eaa91b4260a0bf, type: 2}
+    - {fileID: 2100000, guid: 0e0d3996177bb694aa55fdc121d3be38, type: 2}
+    - {fileID: 2100000, guid: 27c915a45c59bf04685d1ab7e6d2012e, type: 2}
+    - {fileID: 2100000, guid: 6139024cad901214fa80b86e7fad0824, type: 2}
+    - {fileID: 2100000, guid: 338d00c88efcec34c976833ac43e6a32, type: 2}
+    - {fileID: 2100000, guid: 5f6f603b94f5b4a4482b721610104723, type: 2}
+    - {fileID: 2100000, guid: bfe7e1e45833ca94fb5a371f00ef13cd, type: 2}
+    - {fileID: 2100000, guid: 3cf2bdee0a72e1a47990ab6e3f21775b, type: 2}
+    - {fileID: 2100000, guid: 8765796f58abe924aa04a0130158e4bf, type: 2}
+    atmospheres: []
+  metallicProfiles:
+  - Metallic World
+  mixedProfiles:
+  - Habitable World
+  gasseousProfiles:
+  - All Gas Giant
+  Cold: 270
+  Hot: 320
+  asteroidBelts: []
+  artefacts: []
+  gasBelts: []
+--- !u!114 &940341230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 940341224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82700e6955cbeb547af85dcd81d0035c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  polling: 0
+  pollingTime: 0.1
+  isPolling: 0
+  isInitialised: 0
+  isRunning: 1
+  unityStatistics:
+  - name: System Coordinates
+    type: 5
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: 0, y: -1, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Temperature
+    type: 1
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Singularities
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Stars
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Planets
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+--- !u!1 &1003217345
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1003217346}
+  - component: {fileID: 1003217351}
+  - component: {fileID: 1003217350}
+  - component: {fileID: 1003217349}
+  - component: {fileID: 1003217348}
+  - component: {fileID: 1003217347}
+  m_Layer: 0
+  m_Name: System -1+1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1003217346
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1003217345}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1000, y: 1000, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_Children: []
+  m_Father: {fileID: 2116586212}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1003217347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1003217345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dcdba7a3336a9b49a6c210350b561df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  singularityPrefab: {fileID: 114039274735669666, guid: 9e4bbc377dbe9c3458b658799e085970,
+    type: 2}
+  atmosphereLeechPrefab: {fileID: 114032621109548510, guid: b39cc254f02bfbf4cb456b323ba8a127,
+    type: 2}
+  planetLeechPrefab: {fileID: 114981333433680714, guid: 6bd700d59d8be934aac34bc5e989a7f6,
+    type: 2}
+  statistics: {fileID: 1003217351}
+  singularity: {fileID: 0}
+--- !u!114 &1003217348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1003217345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d60582ff35000714e976263753206f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starPrefab: {fileID: 114235406414131618, guid: 91144a46a2ce536489b3d8aabf71cac8,
+    type: 2}
+  planetPrefab: {fileID: 114183782413579774, guid: 77a48959c7c3af24bb0430aca7e607aa,
+    type: 2}
+  orbitPrefab: {fileID: 114428484334938752, guid: 9328eeb80bd715d4bb34a490922d8e11,
+    type: 2}
+  starsDisplayOrbits: 0
+  planetsDisplayOrbits: 0
+  moonsDisplayOrbits: 0
+  starDistance: 5000
+  starPlotStars:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 2
+      inSlope: -0.024282886
+      outSlope: -0.024282886
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.12127662
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  starPlotRadius:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.01
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: -0.33818725
+      outSlope: -0.33818725
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.14893615
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 20
+      inSlope: 127.33971
+      outSlope: 127.33971
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.103655815
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  starPlotKelvin:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 250
+      inSlope: 17650.875
+      outSlope: 17650.875
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.07446808
+    - serializedVersion: 3
+      time: 0.5
+      value: 3000
+      inSlope: 431.4736
+      outSlope: 431.4736
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15531915
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 30000
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  pDistance: 1000
+  pDStellarTempFraction: 20
+  pDStellarTempExponent: 2
+  planetPlotPlanets:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 8
+      inSlope: 0.20137616
+      outSlope: 0.20137616
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11702126
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 16
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotRadiusDistance:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotRadiusKelvin:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotMoons:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 2
+      inSlope: -0.090776995
+      outSlope: -0.090776995
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1297872
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 8
+      inSlope: 34.807602
+      outSlope: 34.807602
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.029787183
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  statistics: {fileID: 1003217351}
+--- !u!114 &1003217349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1003217345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8880b579f3cad6a4e8a70d1e3dc3562d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hash: 0
+  loadFromEnvironment: 0
+  decorators:
+  - name: Standard
+    trigger: 0
+    oneIn: 1
+    factionName: 
+    system:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1003217348}
+          m_MethodName: System
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    star:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1003217348}
+          m_MethodName: Star
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    planet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1003217348}
+          m_MethodName: Planet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    dungeon:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1003217348}
+          m_MethodName: Dungeon
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    statistics: {fileID: 1003217351}
+  - name: Singularity
+    trigger: 1
+    oneIn: 1000
+    factionName: 
+    system:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1003217347}
+          m_MethodName: System
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    star:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1003217347}
+          m_MethodName: Star
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    planet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1003217347}
+          m_MethodName: Planet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    dungeon:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1003217347}
+          m_MethodName: Dungeon
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    statistics: {fileID: 1003217351}
+  statistics: {fileID: 1003217351}
+--- !u!114 &1003217350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1003217345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172cd62e508bb1b4dad869f2c4eb3020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profiles:
+  - name: Habitable World
+    surfaces:
+    - {fileID: 2100000, guid: b313e1cfea8bc674eadf4fffa9ddb749, type: 2}
+    - {fileID: 2100000, guid: af8d5188fa1524540a838d0348c55c11, type: 2}
+    - {fileID: 2100000, guid: 4a724bb21b5d1694cbb99ee3c82c51e1, type: 2}
+    atmospheres:
+    - {fileID: 2100000, guid: 20033e1c4a59b5c40be70434ccfa9a59, type: 2}
+  - name: Jupiter
+    surfaces:
+    - {fileID: 2100000, guid: 6a20c04f99638884aaeceb81154da50b, type: 2}
+    - {fileID: 2100000, guid: a52618dcee20cac4298a4f62ae7e9107, type: 2}
+    - {fileID: 2100000, guid: 22f47f31c6ade004b8af8baee6e6f01f, type: 2}
+    atmospheres: []
+  - name: Saturn
+    surfaces:
+    - {fileID: 2100000, guid: 6139024cad901214fa80b86e7fad0824, type: 2}
+    - {fileID: 2100000, guid: 338d00c88efcec34c976833ac43e6a32, type: 2}
+    - {fileID: 2100000, guid: 5f6f603b94f5b4a4482b721610104723, type: 2}
+    atmospheres: []
+  - name: Uranus
+    surfaces:
+    - {fileID: 2100000, guid: bfe7e1e45833ca94fb5a371f00ef13cd, type: 2}
+    - {fileID: 2100000, guid: 3cf2bdee0a72e1a47990ab6e3f21775b, type: 2}
+    - {fileID: 2100000, guid: 8765796f58abe924aa04a0130158e4bf, type: 2}
+    atmospheres: []
+  - name: Neptune
+    surfaces:
+    - {fileID: 2100000, guid: 1b365ef9baa77ab429eaa91b4260a0bf, type: 2}
+    - {fileID: 2100000, guid: 0e0d3996177bb694aa55fdc121d3be38, type: 2}
+    - {fileID: 2100000, guid: 27c915a45c59bf04685d1ab7e6d2012e, type: 2}
+    atmospheres: []
+  - name: Custom Gas Giant
+    surfaces:
+    - {fileID: 2100000, guid: 6ce4510d038ebe540bf9d7964ae8d7fb, type: 2}
+    atmospheres: []
+  - name: All Gas Giant
+    surfaces:
+    - {fileID: 2100000, guid: 6ce4510d038ebe540bf9d7964ae8d7fb, type: 2}
+    - {fileID: 2100000, guid: 6a20c04f99638884aaeceb81154da50b, type: 2}
+    - {fileID: 2100000, guid: a52618dcee20cac4298a4f62ae7e9107, type: 2}
+    - {fileID: 2100000, guid: 22f47f31c6ade004b8af8baee6e6f01f, type: 2}
+    - {fileID: 2100000, guid: 1b365ef9baa77ab429eaa91b4260a0bf, type: 2}
+    - {fileID: 2100000, guid: 0e0d3996177bb694aa55fdc121d3be38, type: 2}
+    - {fileID: 2100000, guid: 27c915a45c59bf04685d1ab7e6d2012e, type: 2}
+    - {fileID: 2100000, guid: 6139024cad901214fa80b86e7fad0824, type: 2}
+    - {fileID: 2100000, guid: 338d00c88efcec34c976833ac43e6a32, type: 2}
+    - {fileID: 2100000, guid: 5f6f603b94f5b4a4482b721610104723, type: 2}
+    - {fileID: 2100000, guid: bfe7e1e45833ca94fb5a371f00ef13cd, type: 2}
+    - {fileID: 2100000, guid: 3cf2bdee0a72e1a47990ab6e3f21775b, type: 2}
+    - {fileID: 2100000, guid: 8765796f58abe924aa04a0130158e4bf, type: 2}
+    atmospheres: []
+  metallicProfiles:
+  - Metallic World
+  mixedProfiles:
+  - Habitable World
+  gasseousProfiles:
+  - All Gas Giant
+  Cold: 270
+  Hot: 320
+  asteroidBelts: []
+  artefacts: []
+  gasBelts: []
+--- !u!114 &1003217351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1003217345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82700e6955cbeb547af85dcd81d0035c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  polling: 0
+  pollingTime: 0.1
+  isPolling: 0
+  isInitialised: 0
+  isRunning: 1
+  unityStatistics:
+  - name: System Coordinates
+    type: 5
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: -1, y: 1, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Temperature
+    type: 1
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Singularities
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Stars
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Planets
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+--- !u!1 &1159579931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1159579936}
+  - component: {fileID: 1159579935}
+  - component: {fileID: 1159579934}
+  - component: {fileID: 1159579933}
+  - component: {fileID: 1159579932}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1159579932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1159579931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 418612828def2b84dbcbc9f777901b33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restNode: {fileID: 0}
+  frames: []
+--- !u!81 &1159579933
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1159579931}
+  m_Enabled: 1
+--- !u!124 &1159579934
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1159579931}
+  m_Enabled: 1
+--- !u!20 &1159579935
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1159579931}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_projectionMatrixMode: 1
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.01
+  far clip plane: 100000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 512
+  m_RenderingPath: 3
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 0
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1159579936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1159579931}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -3000}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 859563856}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1187974873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1187974874}
+  - component: {fileID: 1187974879}
+  - component: {fileID: 1187974878}
+  - component: {fileID: 1187974877}
+  - component: {fileID: 1187974876}
+  - component: {fileID: 1187974875}
+  m_Layer: 0
+  m_Name: System +1-1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1187974874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1187974873}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1000, y: -1000, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_Children: []
+  m_Father: {fileID: 2116586212}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1187974875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1187974873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dcdba7a3336a9b49a6c210350b561df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  singularityPrefab: {fileID: 114039274735669666, guid: 9e4bbc377dbe9c3458b658799e085970,
+    type: 2}
+  atmosphereLeechPrefab: {fileID: 114032621109548510, guid: b39cc254f02bfbf4cb456b323ba8a127,
+    type: 2}
+  planetLeechPrefab: {fileID: 114981333433680714, guid: 6bd700d59d8be934aac34bc5e989a7f6,
+    type: 2}
+  statistics: {fileID: 1187974879}
+  singularity: {fileID: 0}
+--- !u!114 &1187974876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1187974873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d60582ff35000714e976263753206f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starPrefab: {fileID: 114235406414131618, guid: 91144a46a2ce536489b3d8aabf71cac8,
+    type: 2}
+  planetPrefab: {fileID: 114183782413579774, guid: 77a48959c7c3af24bb0430aca7e607aa,
+    type: 2}
+  orbitPrefab: {fileID: 114428484334938752, guid: 9328eeb80bd715d4bb34a490922d8e11,
+    type: 2}
+  starsDisplayOrbits: 0
+  planetsDisplayOrbits: 0
+  moonsDisplayOrbits: 0
+  starDistance: 5000
+  starPlotStars:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 2
+      inSlope: -0.024282886
+      outSlope: -0.024282886
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.12127662
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  starPlotRadius:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.01
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: -0.33818725
+      outSlope: -0.33818725
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.14893615
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 20
+      inSlope: 127.33971
+      outSlope: 127.33971
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.103655815
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  starPlotKelvin:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 250
+      inSlope: 17650.875
+      outSlope: 17650.875
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.07446808
+    - serializedVersion: 3
+      time: 0.5
+      value: 3000
+      inSlope: 431.4736
+      outSlope: 431.4736
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15531915
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 30000
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  pDistance: 1000
+  pDStellarTempFraction: 20
+  pDStellarTempExponent: 2
+  planetPlotPlanets:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 8
+      inSlope: 0.20137616
+      outSlope: 0.20137616
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11702126
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 16
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotRadiusDistance:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotRadiusKelvin:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotMoons:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 2
+      inSlope: -0.090776995
+      outSlope: -0.090776995
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1297872
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 8
+      inSlope: 34.807602
+      outSlope: 34.807602
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.029787183
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  statistics: {fileID: 1187974879}
+--- !u!114 &1187974877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1187974873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8880b579f3cad6a4e8a70d1e3dc3562d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hash: 0
+  loadFromEnvironment: 0
+  decorators:
+  - name: Standard
+    trigger: 0
+    oneIn: 1
+    factionName: 
+    system:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1187974876}
+          m_MethodName: System
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    star:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1187974876}
+          m_MethodName: Star
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    planet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1187974876}
+          m_MethodName: Planet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    dungeon:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1187974876}
+          m_MethodName: Dungeon
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    statistics: {fileID: 1187974879}
+  - name: Singularity
+    trigger: 1
+    oneIn: 1000
+    factionName: 
+    system:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1187974875}
+          m_MethodName: System
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    star:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1187974875}
+          m_MethodName: Star
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    planet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1187974875}
+          m_MethodName: Planet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    dungeon:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1187974875}
+          m_MethodName: Dungeon
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    statistics: {fileID: 1187974879}
+  statistics: {fileID: 1187974879}
+--- !u!114 &1187974878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1187974873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172cd62e508bb1b4dad869f2c4eb3020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profiles:
+  - name: Habitable World
+    surfaces:
+    - {fileID: 2100000, guid: b313e1cfea8bc674eadf4fffa9ddb749, type: 2}
+    - {fileID: 2100000, guid: af8d5188fa1524540a838d0348c55c11, type: 2}
+    - {fileID: 2100000, guid: 4a724bb21b5d1694cbb99ee3c82c51e1, type: 2}
+    atmospheres:
+    - {fileID: 2100000, guid: 20033e1c4a59b5c40be70434ccfa9a59, type: 2}
+  - name: Jupiter
+    surfaces:
+    - {fileID: 2100000, guid: 6a20c04f99638884aaeceb81154da50b, type: 2}
+    - {fileID: 2100000, guid: a52618dcee20cac4298a4f62ae7e9107, type: 2}
+    - {fileID: 2100000, guid: 22f47f31c6ade004b8af8baee6e6f01f, type: 2}
+    atmospheres: []
+  - name: Saturn
+    surfaces:
+    - {fileID: 2100000, guid: 6139024cad901214fa80b86e7fad0824, type: 2}
+    - {fileID: 2100000, guid: 338d00c88efcec34c976833ac43e6a32, type: 2}
+    - {fileID: 2100000, guid: 5f6f603b94f5b4a4482b721610104723, type: 2}
+    atmospheres: []
+  - name: Uranus
+    surfaces:
+    - {fileID: 2100000, guid: bfe7e1e45833ca94fb5a371f00ef13cd, type: 2}
+    - {fileID: 2100000, guid: 3cf2bdee0a72e1a47990ab6e3f21775b, type: 2}
+    - {fileID: 2100000, guid: 8765796f58abe924aa04a0130158e4bf, type: 2}
+    atmospheres: []
+  - name: Neptune
+    surfaces:
+    - {fileID: 2100000, guid: 1b365ef9baa77ab429eaa91b4260a0bf, type: 2}
+    - {fileID: 2100000, guid: 0e0d3996177bb694aa55fdc121d3be38, type: 2}
+    - {fileID: 2100000, guid: 27c915a45c59bf04685d1ab7e6d2012e, type: 2}
+    atmospheres: []
+  - name: Custom Gas Giant
+    surfaces:
+    - {fileID: 2100000, guid: 6ce4510d038ebe540bf9d7964ae8d7fb, type: 2}
+    atmospheres: []
+  - name: All Gas Giant
+    surfaces:
+    - {fileID: 2100000, guid: 6ce4510d038ebe540bf9d7964ae8d7fb, type: 2}
+    - {fileID: 2100000, guid: 6a20c04f99638884aaeceb81154da50b, type: 2}
+    - {fileID: 2100000, guid: a52618dcee20cac4298a4f62ae7e9107, type: 2}
+    - {fileID: 2100000, guid: 22f47f31c6ade004b8af8baee6e6f01f, type: 2}
+    - {fileID: 2100000, guid: 1b365ef9baa77ab429eaa91b4260a0bf, type: 2}
+    - {fileID: 2100000, guid: 0e0d3996177bb694aa55fdc121d3be38, type: 2}
+    - {fileID: 2100000, guid: 27c915a45c59bf04685d1ab7e6d2012e, type: 2}
+    - {fileID: 2100000, guid: 6139024cad901214fa80b86e7fad0824, type: 2}
+    - {fileID: 2100000, guid: 338d00c88efcec34c976833ac43e6a32, type: 2}
+    - {fileID: 2100000, guid: 5f6f603b94f5b4a4482b721610104723, type: 2}
+    - {fileID: 2100000, guid: bfe7e1e45833ca94fb5a371f00ef13cd, type: 2}
+    - {fileID: 2100000, guid: 3cf2bdee0a72e1a47990ab6e3f21775b, type: 2}
+    - {fileID: 2100000, guid: 8765796f58abe924aa04a0130158e4bf, type: 2}
+    atmospheres: []
+  metallicProfiles:
+  - Metallic World
+  mixedProfiles:
+  - Habitable World
+  gasseousProfiles:
+  - All Gas Giant
+  Cold: 270
+  Hot: 320
+  asteroidBelts: []
+  artefacts: []
+  gasBelts: []
+--- !u!114 &1187974879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1187974873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82700e6955cbeb547af85dcd81d0035c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  polling: 0
+  pollingTime: 0.1
+  isPolling: 0
+  isInitialised: 0
+  isRunning: 1
+  unityStatistics:
+  - name: System Coordinates
+    type: 5
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: 1, y: -1, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Temperature
+    type: 1
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Singularities
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Stars
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Planets
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+--- !u!1 &1517759375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1517759376}
+  - component: {fileID: 1517759381}
+  - component: {fileID: 1517759380}
+  - component: {fileID: 1517759379}
+  - component: {fileID: 1517759378}
+  - component: {fileID: 1517759377}
+  m_Layer: 0
+  m_Name: System -1+0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1517759376
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1517759375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1000, y: 0, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_Children: []
+  m_Father: {fileID: 2116586212}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1517759377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1517759375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dcdba7a3336a9b49a6c210350b561df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  singularityPrefab: {fileID: 114039274735669666, guid: 9e4bbc377dbe9c3458b658799e085970,
+    type: 2}
+  atmosphereLeechPrefab: {fileID: 114032621109548510, guid: b39cc254f02bfbf4cb456b323ba8a127,
+    type: 2}
+  planetLeechPrefab: {fileID: 114981333433680714, guid: 6bd700d59d8be934aac34bc5e989a7f6,
+    type: 2}
+  statistics: {fileID: 1517759381}
+  singularity: {fileID: 0}
+--- !u!114 &1517759378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1517759375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d60582ff35000714e976263753206f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starPrefab: {fileID: 114235406414131618, guid: 91144a46a2ce536489b3d8aabf71cac8,
+    type: 2}
+  planetPrefab: {fileID: 114183782413579774, guid: 77a48959c7c3af24bb0430aca7e607aa,
+    type: 2}
+  orbitPrefab: {fileID: 114428484334938752, guid: 9328eeb80bd715d4bb34a490922d8e11,
+    type: 2}
+  starsDisplayOrbits: 0
+  planetsDisplayOrbits: 0
+  moonsDisplayOrbits: 0
+  starDistance: 5000
+  starPlotStars:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 2
+      inSlope: -0.024282886
+      outSlope: -0.024282886
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.12127662
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  starPlotRadius:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.01
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: -0.33818725
+      outSlope: -0.33818725
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.14893615
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 20
+      inSlope: 127.33971
+      outSlope: 127.33971
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.103655815
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  starPlotKelvin:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 250
+      inSlope: 17650.875
+      outSlope: 17650.875
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.07446808
+    - serializedVersion: 3
+      time: 0.5
+      value: 3000
+      inSlope: 431.4736
+      outSlope: 431.4736
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15531915
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 30000
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  pDistance: 1000
+  pDStellarTempFraction: 20
+  pDStellarTempExponent: 2
+  planetPlotPlanets:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 8
+      inSlope: 0.20137616
+      outSlope: 0.20137616
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11702126
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 16
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotRadiusDistance:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotRadiusKelvin:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotMoons:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 2
+      inSlope: -0.090776995
+      outSlope: -0.090776995
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1297872
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 8
+      inSlope: 34.807602
+      outSlope: 34.807602
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.029787183
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  statistics: {fileID: 1517759381}
+--- !u!114 &1517759379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1517759375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8880b579f3cad6a4e8a70d1e3dc3562d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hash: 0
+  loadFromEnvironment: 0
+  decorators:
+  - name: Standard
+    trigger: 0
+    oneIn: 1
+    factionName: 
+    system:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1517759378}
+          m_MethodName: System
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    star:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1517759378}
+          m_MethodName: Star
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    planet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1517759378}
+          m_MethodName: Planet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    dungeon:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1517759378}
+          m_MethodName: Dungeon
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    statistics: {fileID: 1517759381}
+  - name: Singularity
+    trigger: 1
+    oneIn: 1000
+    factionName: 
+    system:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1517759377}
+          m_MethodName: System
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    star:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1517759377}
+          m_MethodName: Star
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    planet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1517759377}
+          m_MethodName: Planet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    dungeon:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1517759377}
+          m_MethodName: Dungeon
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    statistics: {fileID: 1517759381}
+  statistics: {fileID: 1517759381}
+--- !u!114 &1517759380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1517759375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172cd62e508bb1b4dad869f2c4eb3020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profiles:
+  - name: Habitable World
+    surfaces:
+    - {fileID: 2100000, guid: b313e1cfea8bc674eadf4fffa9ddb749, type: 2}
+    - {fileID: 2100000, guid: af8d5188fa1524540a838d0348c55c11, type: 2}
+    - {fileID: 2100000, guid: 4a724bb21b5d1694cbb99ee3c82c51e1, type: 2}
+    atmospheres:
+    - {fileID: 2100000, guid: 20033e1c4a59b5c40be70434ccfa9a59, type: 2}
+  - name: Jupiter
+    surfaces:
+    - {fileID: 2100000, guid: 6a20c04f99638884aaeceb81154da50b, type: 2}
+    - {fileID: 2100000, guid: a52618dcee20cac4298a4f62ae7e9107, type: 2}
+    - {fileID: 2100000, guid: 22f47f31c6ade004b8af8baee6e6f01f, type: 2}
+    atmospheres: []
+  - name: Saturn
+    surfaces:
+    - {fileID: 2100000, guid: 6139024cad901214fa80b86e7fad0824, type: 2}
+    - {fileID: 2100000, guid: 338d00c88efcec34c976833ac43e6a32, type: 2}
+    - {fileID: 2100000, guid: 5f6f603b94f5b4a4482b721610104723, type: 2}
+    atmospheres: []
+  - name: Uranus
+    surfaces:
+    - {fileID: 2100000, guid: bfe7e1e45833ca94fb5a371f00ef13cd, type: 2}
+    - {fileID: 2100000, guid: 3cf2bdee0a72e1a47990ab6e3f21775b, type: 2}
+    - {fileID: 2100000, guid: 8765796f58abe924aa04a0130158e4bf, type: 2}
+    atmospheres: []
+  - name: Neptune
+    surfaces:
+    - {fileID: 2100000, guid: 1b365ef9baa77ab429eaa91b4260a0bf, type: 2}
+    - {fileID: 2100000, guid: 0e0d3996177bb694aa55fdc121d3be38, type: 2}
+    - {fileID: 2100000, guid: 27c915a45c59bf04685d1ab7e6d2012e, type: 2}
+    atmospheres: []
+  - name: Custom Gas Giant
+    surfaces:
+    - {fileID: 2100000, guid: 6ce4510d038ebe540bf9d7964ae8d7fb, type: 2}
+    atmospheres: []
+  - name: All Gas Giant
+    surfaces:
+    - {fileID: 2100000, guid: 6ce4510d038ebe540bf9d7964ae8d7fb, type: 2}
+    - {fileID: 2100000, guid: 6a20c04f99638884aaeceb81154da50b, type: 2}
+    - {fileID: 2100000, guid: a52618dcee20cac4298a4f62ae7e9107, type: 2}
+    - {fileID: 2100000, guid: 22f47f31c6ade004b8af8baee6e6f01f, type: 2}
+    - {fileID: 2100000, guid: 1b365ef9baa77ab429eaa91b4260a0bf, type: 2}
+    - {fileID: 2100000, guid: 0e0d3996177bb694aa55fdc121d3be38, type: 2}
+    - {fileID: 2100000, guid: 27c915a45c59bf04685d1ab7e6d2012e, type: 2}
+    - {fileID: 2100000, guid: 6139024cad901214fa80b86e7fad0824, type: 2}
+    - {fileID: 2100000, guid: 338d00c88efcec34c976833ac43e6a32, type: 2}
+    - {fileID: 2100000, guid: 5f6f603b94f5b4a4482b721610104723, type: 2}
+    - {fileID: 2100000, guid: bfe7e1e45833ca94fb5a371f00ef13cd, type: 2}
+    - {fileID: 2100000, guid: 3cf2bdee0a72e1a47990ab6e3f21775b, type: 2}
+    - {fileID: 2100000, guid: 8765796f58abe924aa04a0130158e4bf, type: 2}
+    atmospheres: []
+  metallicProfiles:
+  - Metallic World
+  mixedProfiles:
+  - Habitable World
+  gasseousProfiles:
+  - All Gas Giant
+  Cold: 270
+  Hot: 320
+  asteroidBelts: []
+  artefacts: []
+  gasBelts: []
+--- !u!114 &1517759381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1517759375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82700e6955cbeb547af85dcd81d0035c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  polling: 0
+  pollingTime: 0.1
+  isPolling: 0
+  isInitialised: 0
+  isRunning: 1
+  unityStatistics:
+  - name: System Coordinates
+    type: 5
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: -1, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Temperature
+    type: 1
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Singularities
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Stars
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Planets
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+--- !u!1 &1561220985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1561220986}
+  - component: {fileID: 1561220991}
+  - component: {fileID: 1561220990}
+  - component: {fileID: 1561220989}
+  - component: {fileID: 1561220988}
+  - component: {fileID: 1561220987}
+  m_Layer: 0
+  m_Name: System +0+0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1561220986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1561220985}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_Children: []
+  m_Father: {fileID: 2116586212}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1561220987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1561220985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dcdba7a3336a9b49a6c210350b561df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  singularityPrefab: {fileID: 114039274735669666, guid: 9e4bbc377dbe9c3458b658799e085970,
+    type: 2}
+  atmosphereLeechPrefab: {fileID: 114032621109548510, guid: b39cc254f02bfbf4cb456b323ba8a127,
+    type: 2}
+  planetLeechPrefab: {fileID: 114981333433680714, guid: 6bd700d59d8be934aac34bc5e989a7f6,
+    type: 2}
+  statistics: {fileID: 1561220991}
+  singularity: {fileID: 0}
+--- !u!114 &1561220988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1561220985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d60582ff35000714e976263753206f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starPrefab: {fileID: 114235406414131618, guid: 91144a46a2ce536489b3d8aabf71cac8,
+    type: 2}
+  planetPrefab: {fileID: 114183782413579774, guid: 77a48959c7c3af24bb0430aca7e607aa,
+    type: 2}
+  orbitPrefab: {fileID: 114428484334938752, guid: 9328eeb80bd715d4bb34a490922d8e11,
+    type: 2}
+  starsDisplayOrbits: 0
+  planetsDisplayOrbits: 0
+  moonsDisplayOrbits: 0
+  starDistance: 5000
+  starPlotStars:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 2
+      inSlope: -0.024282886
+      outSlope: -0.024282886
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.12127662
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  starPlotRadius:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.01
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: -0.33818725
+      outSlope: -0.33818725
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.14893615
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 20
+      inSlope: 127.33971
+      outSlope: 127.33971
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.103655815
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  starPlotKelvin:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 250
+      inSlope: 17650.875
+      outSlope: 17650.875
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.07446808
+    - serializedVersion: 3
+      time: 0.5
+      value: 3000
+      inSlope: 431.4736
+      outSlope: 431.4736
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15531915
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 30000
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  pDistance: 1000
+  pDStellarTempFraction: 20
+  pDStellarTempExponent: 2
+  planetPlotPlanets:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 8
+      inSlope: 0.20137616
+      outSlope: 0.20137616
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11702126
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 16
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotRadiusDistance:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotRadiusKelvin:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotMoons:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 2
+      inSlope: -0.090776995
+      outSlope: -0.090776995
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1297872
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 8
+      inSlope: 34.807602
+      outSlope: 34.807602
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.029787183
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  statistics: {fileID: 1561220991}
+--- !u!114 &1561220989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1561220985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8880b579f3cad6a4e8a70d1e3dc3562d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hash: 0
+  loadFromEnvironment: 0
+  decorators:
+  - name: Standard
+    trigger: 0
+    oneIn: 1
+    factionName: 
+    system:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1561220988}
+          m_MethodName: System
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    star:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1561220988}
+          m_MethodName: Star
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    planet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1561220988}
+          m_MethodName: Planet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    dungeon:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1561220988}
+          m_MethodName: Dungeon
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    statistics: {fileID: 1561220991}
+  - name: Singularity
+    trigger: 1
+    oneIn: 1000
+    factionName: 
+    system:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1561220987}
+          m_MethodName: System
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    star:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1561220987}
+          m_MethodName: Star
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    planet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1561220987}
+          m_MethodName: Planet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    dungeon:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1561220987}
+          m_MethodName: Dungeon
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    statistics: {fileID: 1561220991}
+  statistics: {fileID: 1561220991}
+--- !u!114 &1561220990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1561220985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172cd62e508bb1b4dad869f2c4eb3020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profiles:
+  - name: Habitable World
+    surfaces:
+    - {fileID: 2100000, guid: b313e1cfea8bc674eadf4fffa9ddb749, type: 2}
+    - {fileID: 2100000, guid: af8d5188fa1524540a838d0348c55c11, type: 2}
+    - {fileID: 2100000, guid: 4a724bb21b5d1694cbb99ee3c82c51e1, type: 2}
+    atmospheres:
+    - {fileID: 2100000, guid: 20033e1c4a59b5c40be70434ccfa9a59, type: 2}
+  - name: Jupiter
+    surfaces:
+    - {fileID: 2100000, guid: 6a20c04f99638884aaeceb81154da50b, type: 2}
+    - {fileID: 2100000, guid: a52618dcee20cac4298a4f62ae7e9107, type: 2}
+    - {fileID: 2100000, guid: 22f47f31c6ade004b8af8baee6e6f01f, type: 2}
+    atmospheres: []
+  - name: Saturn
+    surfaces:
+    - {fileID: 2100000, guid: 6139024cad901214fa80b86e7fad0824, type: 2}
+    - {fileID: 2100000, guid: 338d00c88efcec34c976833ac43e6a32, type: 2}
+    - {fileID: 2100000, guid: 5f6f603b94f5b4a4482b721610104723, type: 2}
+    atmospheres: []
+  - name: Uranus
+    surfaces:
+    - {fileID: 2100000, guid: bfe7e1e45833ca94fb5a371f00ef13cd, type: 2}
+    - {fileID: 2100000, guid: 3cf2bdee0a72e1a47990ab6e3f21775b, type: 2}
+    - {fileID: 2100000, guid: 8765796f58abe924aa04a0130158e4bf, type: 2}
+    atmospheres: []
+  - name: Neptune
+    surfaces:
+    - {fileID: 2100000, guid: 1b365ef9baa77ab429eaa91b4260a0bf, type: 2}
+    - {fileID: 2100000, guid: 0e0d3996177bb694aa55fdc121d3be38, type: 2}
+    - {fileID: 2100000, guid: 27c915a45c59bf04685d1ab7e6d2012e, type: 2}
+    atmospheres: []
+  - name: Custom Gas Giant
+    surfaces:
+    - {fileID: 2100000, guid: 6ce4510d038ebe540bf9d7964ae8d7fb, type: 2}
+    atmospheres: []
+  - name: All Gas Giant
+    surfaces:
+    - {fileID: 2100000, guid: 6ce4510d038ebe540bf9d7964ae8d7fb, type: 2}
+    - {fileID: 2100000, guid: 6a20c04f99638884aaeceb81154da50b, type: 2}
+    - {fileID: 2100000, guid: a52618dcee20cac4298a4f62ae7e9107, type: 2}
+    - {fileID: 2100000, guid: 22f47f31c6ade004b8af8baee6e6f01f, type: 2}
+    - {fileID: 2100000, guid: 1b365ef9baa77ab429eaa91b4260a0bf, type: 2}
+    - {fileID: 2100000, guid: 0e0d3996177bb694aa55fdc121d3be38, type: 2}
+    - {fileID: 2100000, guid: 27c915a45c59bf04685d1ab7e6d2012e, type: 2}
+    - {fileID: 2100000, guid: 6139024cad901214fa80b86e7fad0824, type: 2}
+    - {fileID: 2100000, guid: 338d00c88efcec34c976833ac43e6a32, type: 2}
+    - {fileID: 2100000, guid: 5f6f603b94f5b4a4482b721610104723, type: 2}
+    - {fileID: 2100000, guid: bfe7e1e45833ca94fb5a371f00ef13cd, type: 2}
+    - {fileID: 2100000, guid: 3cf2bdee0a72e1a47990ab6e3f21775b, type: 2}
+    - {fileID: 2100000, guid: 8765796f58abe924aa04a0130158e4bf, type: 2}
+    atmospheres: []
+  metallicProfiles:
+  - Metallic World
+  mixedProfiles:
+  - Habitable World
+  gasseousProfiles:
+  - All Gas Giant
+  Cold: 270
+  Hot: 320
+  asteroidBelts: []
+  artefacts: []
+  gasBelts: []
+--- !u!114 &1561220991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1561220985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82700e6955cbeb547af85dcd81d0035c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  polling: 0
+  pollingTime: 0.1
+  isPolling: 0
+  isInitialised: 0
+  isRunning: 1
+  unityStatistics:
+  - name: System Coordinates
+    type: 5
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Temperature
+    type: 1
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Singularities
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Stars
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Planets
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+--- !u!1 &1588407447
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1588407448}
+  - component: {fileID: 1588407453}
+  - component: {fileID: 1588407452}
+  - component: {fileID: 1588407451}
+  - component: {fileID: 1588407450}
+  - component: {fileID: 1588407449}
+  m_Layer: 0
+  m_Name: System +0+1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1588407448
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1588407447}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1000, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_Children: []
+  m_Father: {fileID: 2116586212}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1588407449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1588407447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dcdba7a3336a9b49a6c210350b561df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  singularityPrefab: {fileID: 114039274735669666, guid: 9e4bbc377dbe9c3458b658799e085970,
+    type: 2}
+  atmosphereLeechPrefab: {fileID: 114032621109548510, guid: b39cc254f02bfbf4cb456b323ba8a127,
+    type: 2}
+  planetLeechPrefab: {fileID: 114981333433680714, guid: 6bd700d59d8be934aac34bc5e989a7f6,
+    type: 2}
+  statistics: {fileID: 1588407453}
+  singularity: {fileID: 0}
+--- !u!114 &1588407450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1588407447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d60582ff35000714e976263753206f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starPrefab: {fileID: 114235406414131618, guid: 91144a46a2ce536489b3d8aabf71cac8,
+    type: 2}
+  planetPrefab: {fileID: 114183782413579774, guid: 77a48959c7c3af24bb0430aca7e607aa,
+    type: 2}
+  orbitPrefab: {fileID: 114428484334938752, guid: 9328eeb80bd715d4bb34a490922d8e11,
+    type: 2}
+  starsDisplayOrbits: 0
+  planetsDisplayOrbits: 0
+  moonsDisplayOrbits: 0
+  starDistance: 5000
+  starPlotStars:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 2
+      inSlope: -0.024282886
+      outSlope: -0.024282886
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.12127662
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  starPlotRadius:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.01
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: -0.33818725
+      outSlope: -0.33818725
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.14893615
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 20
+      inSlope: 127.33971
+      outSlope: 127.33971
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.103655815
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  starPlotKelvin:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 250
+      inSlope: 17650.875
+      outSlope: 17650.875
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.07446808
+    - serializedVersion: 3
+      time: 0.5
+      value: 3000
+      inSlope: 431.4736
+      outSlope: 431.4736
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15531915
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 30000
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  pDistance: 1000
+  pDStellarTempFraction: 20
+  pDStellarTempExponent: 2
+  planetPlotPlanets:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 8
+      inSlope: 0.20137616
+      outSlope: 0.20137616
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11702126
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 16
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotRadiusDistance:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotRadiusKelvin:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotMoons:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 2
+      inSlope: -0.090776995
+      outSlope: -0.090776995
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1297872
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 8
+      inSlope: 34.807602
+      outSlope: 34.807602
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.029787183
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  statistics: {fileID: 1588407453}
+--- !u!114 &1588407451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1588407447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8880b579f3cad6a4e8a70d1e3dc3562d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hash: 0
+  loadFromEnvironment: 0
+  decorators:
+  - name: Standard
+    trigger: 0
+    oneIn: 1
+    factionName: 
+    system:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1588407450}
+          m_MethodName: System
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    star:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1588407450}
+          m_MethodName: Star
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    planet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1588407450}
+          m_MethodName: Planet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    dungeon:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1588407450}
+          m_MethodName: Dungeon
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    statistics: {fileID: 1588407453}
+  - name: Singularity
+    trigger: 1
+    oneIn: 1000
+    factionName: 
+    system:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1588407449}
+          m_MethodName: System
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    star:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1588407449}
+          m_MethodName: Star
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    planet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1588407449}
+          m_MethodName: Planet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    dungeon:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1588407449}
+          m_MethodName: Dungeon
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    statistics: {fileID: 1588407453}
+  statistics: {fileID: 1588407453}
+--- !u!114 &1588407452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1588407447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172cd62e508bb1b4dad869f2c4eb3020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profiles:
+  - name: Habitable World
+    surfaces:
+    - {fileID: 2100000, guid: b313e1cfea8bc674eadf4fffa9ddb749, type: 2}
+    - {fileID: 2100000, guid: af8d5188fa1524540a838d0348c55c11, type: 2}
+    - {fileID: 2100000, guid: 4a724bb21b5d1694cbb99ee3c82c51e1, type: 2}
+    atmospheres:
+    - {fileID: 2100000, guid: 20033e1c4a59b5c40be70434ccfa9a59, type: 2}
+  - name: Jupiter
+    surfaces:
+    - {fileID: 2100000, guid: 6a20c04f99638884aaeceb81154da50b, type: 2}
+    - {fileID: 2100000, guid: a52618dcee20cac4298a4f62ae7e9107, type: 2}
+    - {fileID: 2100000, guid: 22f47f31c6ade004b8af8baee6e6f01f, type: 2}
+    atmospheres: []
+  - name: Saturn
+    surfaces:
+    - {fileID: 2100000, guid: 6139024cad901214fa80b86e7fad0824, type: 2}
+    - {fileID: 2100000, guid: 338d00c88efcec34c976833ac43e6a32, type: 2}
+    - {fileID: 2100000, guid: 5f6f603b94f5b4a4482b721610104723, type: 2}
+    atmospheres: []
+  - name: Uranus
+    surfaces:
+    - {fileID: 2100000, guid: bfe7e1e45833ca94fb5a371f00ef13cd, type: 2}
+    - {fileID: 2100000, guid: 3cf2bdee0a72e1a47990ab6e3f21775b, type: 2}
+    - {fileID: 2100000, guid: 8765796f58abe924aa04a0130158e4bf, type: 2}
+    atmospheres: []
+  - name: Neptune
+    surfaces:
+    - {fileID: 2100000, guid: 1b365ef9baa77ab429eaa91b4260a0bf, type: 2}
+    - {fileID: 2100000, guid: 0e0d3996177bb694aa55fdc121d3be38, type: 2}
+    - {fileID: 2100000, guid: 27c915a45c59bf04685d1ab7e6d2012e, type: 2}
+    atmospheres: []
+  - name: Custom Gas Giant
+    surfaces:
+    - {fileID: 2100000, guid: 6ce4510d038ebe540bf9d7964ae8d7fb, type: 2}
+    atmospheres: []
+  - name: All Gas Giant
+    surfaces:
+    - {fileID: 2100000, guid: 6ce4510d038ebe540bf9d7964ae8d7fb, type: 2}
+    - {fileID: 2100000, guid: 6a20c04f99638884aaeceb81154da50b, type: 2}
+    - {fileID: 2100000, guid: a52618dcee20cac4298a4f62ae7e9107, type: 2}
+    - {fileID: 2100000, guid: 22f47f31c6ade004b8af8baee6e6f01f, type: 2}
+    - {fileID: 2100000, guid: 1b365ef9baa77ab429eaa91b4260a0bf, type: 2}
+    - {fileID: 2100000, guid: 0e0d3996177bb694aa55fdc121d3be38, type: 2}
+    - {fileID: 2100000, guid: 27c915a45c59bf04685d1ab7e6d2012e, type: 2}
+    - {fileID: 2100000, guid: 6139024cad901214fa80b86e7fad0824, type: 2}
+    - {fileID: 2100000, guid: 338d00c88efcec34c976833ac43e6a32, type: 2}
+    - {fileID: 2100000, guid: 5f6f603b94f5b4a4482b721610104723, type: 2}
+    - {fileID: 2100000, guid: bfe7e1e45833ca94fb5a371f00ef13cd, type: 2}
+    - {fileID: 2100000, guid: 3cf2bdee0a72e1a47990ab6e3f21775b, type: 2}
+    - {fileID: 2100000, guid: 8765796f58abe924aa04a0130158e4bf, type: 2}
+    atmospheres: []
+  metallicProfiles:
+  - Metallic World
+  mixedProfiles:
+  - Habitable World
+  gasseousProfiles:
+  - All Gas Giant
+  Cold: 270
+  Hot: 320
+  asteroidBelts: []
+  artefacts: []
+  gasBelts: []
+--- !u!114 &1588407453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1588407447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82700e6955cbeb547af85dcd81d0035c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  polling: 0
+  pollingTime: 0.1
+  isPolling: 0
+  isInitialised: 0
+  isRunning: 1
+  unityStatistics:
+  - name: System Coordinates
+    type: 5
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: 0, y: 1, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Temperature
+    type: 1
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Singularities
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Stars
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Planets
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+--- !u!1 &1735292429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1735292432}
+  - component: {fileID: 1735292431}
+  - component: {fileID: 1735292430}
+  m_Layer: 8
+  m_Name: World Plane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1735292430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1735292429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e34e61d53e6b9d4a97826ded6dd8524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1159579936}
+  offset: {x: 500, y: 500, z: 3000}
+--- !u!64 &1735292431
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1735292429}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1735292432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1735292429}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 10000, y: 10000, z: 1}
+  m_Children:
+  - {fileID: 694942976}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &1788572587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1788572588}
+  - component: {fileID: 1788572593}
+  - component: {fileID: 1788572592}
+  - component: {fileID: 1788572591}
+  - component: {fileID: 1788572590}
+  - component: {fileID: 1788572589}
+  m_Layer: 0
+  m_Name: System -1-1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1788572588
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1788572587}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1000, y: -1000, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_Children: []
+  m_Father: {fileID: 2116586212}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1788572589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1788572587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dcdba7a3336a9b49a6c210350b561df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  singularityPrefab: {fileID: 114039274735669666, guid: 9e4bbc377dbe9c3458b658799e085970,
+    type: 2}
+  atmosphereLeechPrefab: {fileID: 114032621109548510, guid: b39cc254f02bfbf4cb456b323ba8a127,
+    type: 2}
+  planetLeechPrefab: {fileID: 114981333433680714, guid: 6bd700d59d8be934aac34bc5e989a7f6,
+    type: 2}
+  statistics: {fileID: 1788572593}
+  singularity: {fileID: 0}
+--- !u!114 &1788572590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1788572587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d60582ff35000714e976263753206f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starPrefab: {fileID: 114235406414131618, guid: 91144a46a2ce536489b3d8aabf71cac8,
+    type: 2}
+  planetPrefab: {fileID: 114183782413579774, guid: 77a48959c7c3af24bb0430aca7e607aa,
+    type: 2}
+  orbitPrefab: {fileID: 114428484334938752, guid: 9328eeb80bd715d4bb34a490922d8e11,
+    type: 2}
+  starsDisplayOrbits: 0
+  planetsDisplayOrbits: 0
+  moonsDisplayOrbits: 0
+  starDistance: 5000
+  starPlotStars:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 2
+      inSlope: -0.024282886
+      outSlope: -0.024282886
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.12127662
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  starPlotRadius:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.01
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: -0.33818725
+      outSlope: -0.33818725
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.14893615
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 20
+      inSlope: 127.33971
+      outSlope: 127.33971
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.103655815
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  starPlotKelvin:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 250
+      inSlope: 17650.875
+      outSlope: 17650.875
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.07446808
+    - serializedVersion: 3
+      time: 0.5
+      value: 3000
+      inSlope: 431.4736
+      outSlope: 431.4736
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15531915
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 30000
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  pDistance: 1000
+  pDStellarTempFraction: 20
+  pDStellarTempExponent: 2
+  planetPlotPlanets:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 8
+      inSlope: 0.20137616
+      outSlope: 0.20137616
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11702126
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 16
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotRadiusDistance:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotRadiusKelvin:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  planetPlotMoons:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 2
+      inSlope: -0.090776995
+      outSlope: -0.090776995
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1297872
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 8
+      inSlope: 34.807602
+      outSlope: 34.807602
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.029787183
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  statistics: {fileID: 1788572593}
+--- !u!114 &1788572591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1788572587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8880b579f3cad6a4e8a70d1e3dc3562d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hash: 0
+  loadFromEnvironment: 0
+  decorators:
+  - name: Standard
+    trigger: 0
+    oneIn: 1
+    factionName: 
+    system:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1788572590}
+          m_MethodName: System
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    star:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1788572590}
+          m_MethodName: Star
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    planet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1788572590}
+          m_MethodName: Planet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    dungeon:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1788572590}
+          m_MethodName: Dungeon
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    statistics: {fileID: 1788572593}
+  - name: Singularity
+    trigger: 1
+    oneIn: 1000
+    factionName: 
+    system:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1788572589}
+          m_MethodName: System
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    star:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1788572589}
+          m_MethodName: Star
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    planet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1788572589}
+          m_MethodName: Planet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    dungeon:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1788572589}
+          m_MethodName: Dungeon
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    statistics: {fileID: 1788572593}
+  statistics: {fileID: 1788572593}
+--- !u!114 &1788572592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1788572587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172cd62e508bb1b4dad869f2c4eb3020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profiles:
+  - name: Habitable World
+    surfaces:
+    - {fileID: 2100000, guid: b313e1cfea8bc674eadf4fffa9ddb749, type: 2}
+    - {fileID: 2100000, guid: af8d5188fa1524540a838d0348c55c11, type: 2}
+    - {fileID: 2100000, guid: 4a724bb21b5d1694cbb99ee3c82c51e1, type: 2}
+    atmospheres:
+    - {fileID: 2100000, guid: 20033e1c4a59b5c40be70434ccfa9a59, type: 2}
+  - name: Jupiter
+    surfaces:
+    - {fileID: 2100000, guid: 6a20c04f99638884aaeceb81154da50b, type: 2}
+    - {fileID: 2100000, guid: a52618dcee20cac4298a4f62ae7e9107, type: 2}
+    - {fileID: 2100000, guid: 22f47f31c6ade004b8af8baee6e6f01f, type: 2}
+    atmospheres: []
+  - name: Saturn
+    surfaces:
+    - {fileID: 2100000, guid: 6139024cad901214fa80b86e7fad0824, type: 2}
+    - {fileID: 2100000, guid: 338d00c88efcec34c976833ac43e6a32, type: 2}
+    - {fileID: 2100000, guid: 5f6f603b94f5b4a4482b721610104723, type: 2}
+    atmospheres: []
+  - name: Uranus
+    surfaces:
+    - {fileID: 2100000, guid: bfe7e1e45833ca94fb5a371f00ef13cd, type: 2}
+    - {fileID: 2100000, guid: 3cf2bdee0a72e1a47990ab6e3f21775b, type: 2}
+    - {fileID: 2100000, guid: 8765796f58abe924aa04a0130158e4bf, type: 2}
+    atmospheres: []
+  - name: Neptune
+    surfaces:
+    - {fileID: 2100000, guid: 1b365ef9baa77ab429eaa91b4260a0bf, type: 2}
+    - {fileID: 2100000, guid: 0e0d3996177bb694aa55fdc121d3be38, type: 2}
+    - {fileID: 2100000, guid: 27c915a45c59bf04685d1ab7e6d2012e, type: 2}
+    atmospheres: []
+  - name: Custom Gas Giant
+    surfaces:
+    - {fileID: 2100000, guid: 6ce4510d038ebe540bf9d7964ae8d7fb, type: 2}
+    atmospheres: []
+  - name: All Gas Giant
+    surfaces:
+    - {fileID: 2100000, guid: 6ce4510d038ebe540bf9d7964ae8d7fb, type: 2}
+    - {fileID: 2100000, guid: 6a20c04f99638884aaeceb81154da50b, type: 2}
+    - {fileID: 2100000, guid: a52618dcee20cac4298a4f62ae7e9107, type: 2}
+    - {fileID: 2100000, guid: 22f47f31c6ade004b8af8baee6e6f01f, type: 2}
+    - {fileID: 2100000, guid: 1b365ef9baa77ab429eaa91b4260a0bf, type: 2}
+    - {fileID: 2100000, guid: 0e0d3996177bb694aa55fdc121d3be38, type: 2}
+    - {fileID: 2100000, guid: 27c915a45c59bf04685d1ab7e6d2012e, type: 2}
+    - {fileID: 2100000, guid: 6139024cad901214fa80b86e7fad0824, type: 2}
+    - {fileID: 2100000, guid: 338d00c88efcec34c976833ac43e6a32, type: 2}
+    - {fileID: 2100000, guid: 5f6f603b94f5b4a4482b721610104723, type: 2}
+    - {fileID: 2100000, guid: bfe7e1e45833ca94fb5a371f00ef13cd, type: 2}
+    - {fileID: 2100000, guid: 3cf2bdee0a72e1a47990ab6e3f21775b, type: 2}
+    - {fileID: 2100000, guid: 8765796f58abe924aa04a0130158e4bf, type: 2}
+    atmospheres: []
+  metallicProfiles:
+  - Metallic World
+  mixedProfiles:
+  - Habitable World
+  gasseousProfiles:
+  - All Gas Giant
+  Cold: 270
+  Hot: 320
+  asteroidBelts: []
+  artefacts: []
+  gasBelts: []
+--- !u!114 &1788572593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1788572587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82700e6955cbeb547af85dcd81d0035c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  polling: 0
+  pollingTime: 0.1
+  isPolling: 0
+  isInitialised: 0
+  isRunning: 1
+  unityStatistics:
+  - name: System Coordinates
+    type: 5
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: -1, y: -1, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Temperature
+    type: 1
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Singularities
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Stars
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: Planets
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+--- !u!1 &2116586211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2116586212}
+  - component: {fileID: 2116586213}
+  - component: {fileID: 2116586215}
+  - component: {fileID: 2116586214}
+  m_Layer: 0
+  m_Name: Environment
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2116586212
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2116586211}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1588407448}
+  - {fileID: 1561220986}
+  - {fileID: 940341225}
+  - {fileID: 653584700}
+  - {fileID: 229934769}
+  - {fileID: 1187974874}
+  - {fileID: 1003217346}
+  - {fileID: 1517759376}
+  - {fileID: 1788572588}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2116586213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2116586211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9ddf02ac142ea141ad341da9e0d9129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generateGOStars: 1
+  generateGOPlanets: 0
+  generateGOMoons: 0
+  generateGODungeons: 0
+--- !u!114 &2116586214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2116586211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 673cc8f76c88887419a7f300af100c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  signalsFiles:
+  - {fileID: 4900000, guid: a317bedea17678b40b791fe643ed6533, type: 3}
+  dungeons:
+    signals: []
+--- !u!114 &2116586215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2116586211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c734fd604f8444f86b202ade756435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0
+  minutesToTime: 30
+  timeCounter: 0

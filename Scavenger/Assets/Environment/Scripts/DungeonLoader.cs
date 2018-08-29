@@ -17,10 +17,10 @@ public class DungeonLoader : MonoBehaviour
     public TextAsset[] signalsFiles;
     public DungeonTypeArray dungeons;
 
-    private void Start()
+    private void Awake()
     {
         active = this;
-        //dungeons = JsonUtility.FromJson<DungeonTypeArray>(signalsFile.ToString());
+
         foreach(TextAsset signalsFile in signalsFiles)
         {
             DungeonTypeArray loadedArray = JsonUtility.FromJson<DungeonTypeArray>(signalsFile.ToString());

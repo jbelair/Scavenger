@@ -6,6 +6,45 @@ using UnityEngine;
 
 public static class StringHelper
 {
+    public static string TagParse(string tags)
+    {
+        string[] split = tags.Split(' ');
+
+        string value = "";
+
+        for (int i = 0; i < split.Length; i++)
+        {
+            if (split[i][0] == '$')
+            {
+                if (i != split.Length - 1)
+                    value += CommandParse(split[i]) + " ";
+                else
+                    value += CommandParse(split[i]);
+            }
+            else if (i != split.Length - 1)
+                value += split[i] + " ";
+            else
+                value += split[i];
+        }
+
+        return value;
+    }
+
+    public static string ClearExtraSpaces(string str)
+    {
+        string[] split = str.Split(' ');
+        string ret = "";
+        foreach (string s in split)
+        {
+            if (s != "")
+            {
+                ret += s + " ";
+            }
+        }
+
+        return ret;
+    }
+
     public static string CommandParse(string command)
     {
         string value = "";
@@ -27,19 +66,57 @@ public static class StringHelper
 
                     interpret = RemoveSpaces(interpret);
 
-                    if (interpret.Length > 3 || interpret[1] != ':')
+                    if (interpret.Length > 3 || interpret[1] != '-')
                     {
-                        value += "!$[*:*]";
+                        value += "!$[*-*]";
                     }
 
                     value += (char)UnityEngine.Random.Range(interpret[0], interpret[2]);
                 }
-                //else if (command[readIndex] == )
+                else if (command[readIndex].IsNumber())
+                {
+                    //Debug.Log("Command Parse: " + command);
+                    // $#A:#B[str,str,str]
+                    // $#A:
+                    while (command[readIndex] != ':')
+                    {
+                        interpret += command[readIndex];
+                        readIndex++;
+                    }
+                    // #A
+                    int a = int.Parse(interpret);
+                    interpret = "";
+                    readIndex++;
+                    //:#B[
+                    while (command[readIndex] != '[')
+                    {
+                        interpret += command[readIndex];
+                        readIndex++;
+                    }
+                    // #B
+                    int b = int.Parse(interpret);
+                    interpret = "";
+                    readIndex++;
+                    // [str,str,str]
+                    while (command[readIndex] != ']')
+                    {
+                        interpret += command[readIndex];
+                        readIndex++;
+                    }
+                    string[] split = interpret.Split(',');
+                    for (int i = 0; i < split.Length; i++)
+                    {
+                        if (1 == UnityEngine.Random.Range(0, b / a))
+                        {
+                            value += split[i] + " ";
+                        }
+                    }
+                }
                 else
                 {
                     value += command[readIndex];
                 }
-                
+
                 readIndex++;
             }
         }
@@ -50,11 +127,11 @@ public static class StringHelper
     public static string RemoveTrailingSpaces(string str)
     {
         string value = str;
-        while(value[0] == ' ')
+        while (value[0] == ' ')
         {
             value.Remove(0);
         }
-        while(value[value.Length-1] == ' ')
+        while (value[value.Length - 1] == ' ')
         {
             value.Remove(value.Length - 1);
         }
@@ -92,7 +169,7 @@ public static class StringHelper
     public static string RarityIntToString(int i)
     {
         int log = Mathf.FloorToInt(Mathf.Clamp(Mathf.Log10(i), 0, 6f));
-        switch(log)
+        switch (log)
         {
             case 0:
                 return "Abundant";
@@ -115,7 +192,7 @@ public static class StringHelper
 
     public static string RiskIntToString(int risk)
     {
-        switch(risk)
+        switch (risk)
         {
             case 0:
                 return "None";
@@ -133,25 +210,4 @@ public static class StringHelper
                 return "Unknown";
         }
     }
-
-    //public static string RiskToString(Risk risk)
-    //{
-    //    switch(risk)
-    //    {
-    //        case Risk.None:
-    //            return "!";
-    //        case Risk.Low:
-    //            return "!";
-    //        case Risk.Medium:
-    //            return "!";
-    //        case Risk.High:
-    //            return "!";
-    //        case Risk.Extreme:
-    //            return "!";
-    //        case Risk.Fatal:
-    //            return "!";
-    //    }
-
-    //    return "!";
-    //}
 }

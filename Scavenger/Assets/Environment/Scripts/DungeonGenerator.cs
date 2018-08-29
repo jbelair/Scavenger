@@ -26,7 +26,7 @@ public class DungeonGenerator : MonoBehaviour
             node = GetComponentInChildren<CameraNode>();
             risk = StringHelper.RiskIntToString(Mathf.FloorToInt(riskLevel));
 
-            widget = WidgetGenerator.active.Button(WidgetGenerator.Layer.Back, "Signal", Vector2.zero, Transition, transform);
+            widget = UIManager.active.Button("system navigation", UIManager.Layer.Back, "Signal", Vector2.zero, Transition, transform);
             widgets.Add(widget);
             widget.GetComponent<WidgetSignal>().Set(dungeonType);
         }
@@ -47,10 +47,11 @@ public class DungeonGenerator : MonoBehaviour
     {
         Camera.main.GetComponent<MoveTo>().TransitionFrame(node.transform, 2.5f);
 
-        foreach(GameObject widg in widgets)
-            widg.SetActive(false);
+        //foreach(GameObject widg in widgets)
+        //    widg.SetActive(false);
+        UIManager.active.SwitchScreen("system dungeon");
 
-        widget = WidgetGenerator.active.Element(WidgetGenerator.Layer.Mid, "Signal Description");//, new Vector2(1920/2f, 0f));
+        widget = UIManager.active.Element("system dungeon", UIManager.Layer.Mid, "Signal Description");//, new Vector2(1920/2f, 0f));
         widget.GetComponent<WidgetSignalDescription>().Set(dungeonType);
     }
 }

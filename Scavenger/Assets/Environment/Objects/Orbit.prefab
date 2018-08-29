@@ -71,7 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   line: {fileID: 120912191752124414}
   minimum:
-    width: 0.02
+    width: 0.002
     distance: 1
   maximum:
     width: 200

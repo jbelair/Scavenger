@@ -208,8 +208,6 @@ public class SingularitySystem : MonoBehaviour, ISystemGeneratorDecorator
                     {
                         Destroy(statistics[moonName + " GO"].Get<GameObject>());
                         accretion += statistics[moonName + " Radius"];
-
-
                     }
                 }
             }
@@ -231,6 +229,7 @@ public class SingularitySystem : MonoBehaviour, ISystemGeneratorDecorator
             {
                 dungeonables[i].dungeonType = DungeonType.SelectByChance(dungeonTypes);
                 dungeonables[i].riskLevel = FloatHelper.RiskStringToFloat(dungeonables[i].dungeonType.risk) * Random.Range(0.5f, 2f);
+                dungeonables[i].dungeonType.tags = StringHelper.TagParse(dungeonables[i].dungeonType.tags);
                 //dungeonables[i].dungeonType = dungeonCategory.dungeons[Random.Range(0, dungeonCategory.dungeons.Length)];
                 //dungeonables[i].riskLevel = FloatHelper.RiskStringToFloat(dungeonables[i].dungeonType.risk) * Random.Range(0.5f, 2f);
             }

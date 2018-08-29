@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class SystemGenerator : MonoBehaviour
 {
-    public bool generateRandom = false;
-    public bool generateRandomLoop = false;
-    public float generateTiming = 1.0f;
-    public float stopTiming = 2.0f;
-    public int stopForSingularities = -1;
-    public int stopForStars = -1;
-    public int stopForPlanets = -1;
-
     public int hash = 0;
+    public bool loadFromEnvironment = true;
 
     public SystemGeneratorDecorator[] decorators;
 
@@ -28,15 +21,10 @@ public class SystemGenerator : MonoBehaviour
         {
             statistics.Initialise();
 
-            if (!generateRandom)
-                Generate();
-            else
-            {
-                if (generateRandomLoop)
-                    StartCoroutine(GenerateTheatricRandom());
-                else
-                    GenerateRandom();
-            }
+            if (loadFromEnvironment)
+                statistics["System Coordinates"].Set(Environment.systemCoordinates);
+
+            Generate();
         }
     }
 
@@ -44,44 +32,6 @@ public class SystemGenerator : MonoBehaviour
     void Update()
     {
 
-    }
-
-    IEnumerator GenerateTheatricRandom()
-    {
-        while (generateRandom)
-        {
-            int singularities = statistics["Singularities"];
-            int stars = statistics["Stars"];
-            int planets = statistics["Planets"];
-
-            if ((stopForStars >= 0 && stopForStars <= stars) || (stopForPlanets >= 0 && stopForPlanets <= planets) || (stopForSingularities >= 0 && stopForSingularities <= singularities))
-            {
-                yield return new WaitForSeconds(stopTiming);
-
-                GenerateRandom();
-
-                yield return new WaitForSeconds(generateTiming);
-            }
-            else
-            {
-                GenerateRandom();
-
-                yield return new WaitForSeconds(generateTiming);
-            }
-        }
-
-        yield return null;
-    }
-
-    public void GenerateRandom()
-    {
-        Clear();
-
-        statistics["System Coordinates"].Set((Vector3)(Random.insideUnitCircle * 1000000).Round());
-
-        Debug.Log("RANDOM\nPosition: " + statistics["System Coordinates"].Get<Vector3>());
-
-        Generate();
     }
 
     public int Hash(Vector3 c)
@@ -96,8 +46,6 @@ public class SystemGenerator : MonoBehaviour
     {
         System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
-        
-        
         foreach (SystemGeneratorDecorator decorator in decorators)
         {
             bool happens = decorator.Happens();

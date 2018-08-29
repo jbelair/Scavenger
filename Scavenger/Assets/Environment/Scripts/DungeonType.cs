@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class DungeonType
+public struct DungeonType
 {
     public string name;
     [TextArea(3, 10)]public string description;
@@ -11,6 +11,7 @@ public class DungeonType
     public int oneIn;
     public string target;
     public string generator;
+    public string tags;
 
     private class DungeonComparer : IComparer<DungeonType>
     {

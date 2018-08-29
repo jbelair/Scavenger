@@ -299,30 +299,20 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
                 UpdatePlanet(moonName, moonRadius, kelvin, kelvinLow, kelvinHigh);
             }
         }
-
-        // Statistics Over Time
-        if (statistics.Has("Statistics: Generated"))
-            statistics["Statistics: Generated"].Set(statistics["Statistics: Generated"].Get<int>() + 1);
-        else
-            statistics["Statistics: Generated"] = new Statistic("Statistics: Generated", Statistic.ValueType.Integer, 1);
-
-        int generated = statistics["Statistics: Generated"].Get<int>();
-
-        if (statistics.Has("Statistics: Stars"))
-            statistics["Statistics: Stars"].Set((statistics["Statistics: Stars"].Get<float>() * (generated - 1) + statistics["Stars"].Get<int>()) / generated);
-        else
-            statistics["Statistics: Stars"] = new Statistic("Statistics: Stars", Statistic.ValueType.Float, statistics["Stars"].Get<int>());
     }
 
     public void Star()
     {
+        if (!Environment.generateGOStars)
+            return;
+
         int numberOfStars = statistics["Stars"];
         for (int i = 0; i < numberOfStars; i++)
         {
             Debug.Log("Generating star " + (i + 1) + " of " + numberOfStars);
-
             string name = "Star " + StringHelper.IndexIntToChar(i);
             EnvironmentBasedStar star = Instantiate(starPrefab, statistics[name + " Position"].Get<Vector2>(), starPrefab.transform.rotation, transform);
+            star.transform.localPosition = statistics[name + " Position"].Get<Vector2>();
             star.name = name;
             star.environment = statistics;
             statistics[name + " GO"] = new Statistic(name + " GO", Statistic.ValueType.GameObject, star.gameObject);
@@ -342,6 +332,9 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
 
     public void Planet()
     {
+        if (!Environment.generateGOPlanets)
+            return;
+
         int numberOfPlanets = statistics["Planets"];
         for (int i = 0; i < numberOfPlanets; i++)
         {
@@ -370,34 +363,37 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
                 //orbit.line.endColor = new Color(orbit.line.startColor.r, orbit.line.startColor.g, orbit.line.startColor.b, 0f);
             }
 
-            // MOONS ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            int numberOfMoons = statistics[name + " Moons"];
-            for (int j = 0; j < numberOfMoons; j++)
+            if (Environment.generateGOMoons)
             {
-                Debug.Log("Generating moon of planet " + (i + 1) + " of " + numberOfPlanets + " moon " + (j + 1) + " of " + numberOfMoons);
-
-                string moonName = name + " Moon " + StringHelper.IndexIntToChar(j);
-
-                orbitCenter = planet.transform.position;
-                Vector2 orbitPoint = statistics[moonName + " Orbit"];
-                float distance = statistics[moonName + " Orbit Distance"];
-
-                EnvironmentBasedPlanet moon = Instantiate(planetPrefab, orbitCenter + orbitPoint * distance, planetPrefab.transform.rotation, transform);
-                moon.isMoon = true;
-                moon.name = moonName;
-                moon.environment = statistics;
-                statistics[moonName + " GO"] = new Statistic(moonName + " GO", Statistic.ValueType.GameObject, moon.gameObject);
-                statistics[moonName + " Planet GO"] = new Statistic(moonName + " Planet GO", Statistic.ValueType.GameObject, planet.gameObject);
-
-                // ORBIT ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                if (moonsDisplayOrbits)
+                // MOONS ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                int numberOfMoons = statistics[name + " Moons"];
+                for (int j = 0; j < numberOfMoons; j++)
                 {
-                    float atan = Mathf.Atan2(orbitPoint.y, orbitPoint.x);
-                    LineRendererCircle moonOrbit = Instantiate(orbitPrefab, orbitCenter, Quaternion.Euler(0, 0, atan * Mathf.Rad2Deg), transform);
-                    moonOrbit.radius = distance;
-                    moonOrbit.line.startWidth = moonOrbit.line.endWidth = statistics[moonName + " Radius"].Get<float>();
-                    //moonOrbit.line.startColor = ColourHelper.HeatMap(statistics[moonName + " Kelvin"], 150, 500) * 0.5f;
-                    //moonOrbit.line.endColor = new Color(moonOrbit.line.startColor.r, moonOrbit.line.startColor.g, moonOrbit.line.startColor.b, 0f);
+                    Debug.Log("Generating moon of planet " + (i + 1) + " of " + numberOfPlanets + " moon " + (j + 1) + " of " + numberOfMoons);
+
+                    string moonName = name + " Moon " + StringHelper.IndexIntToChar(j);
+
+                    orbitCenter = planet.transform.position;
+                    Vector2 orbitPoint = statistics[moonName + " Orbit"];
+                    float distance = statistics[moonName + " Orbit Distance"];
+
+                    EnvironmentBasedPlanet moon = Instantiate(planetPrefab, orbitCenter + orbitPoint * distance, planetPrefab.transform.rotation, transform);
+                    moon.isMoon = true;
+                    moon.name = moonName;
+                    moon.environment = statistics;
+                    statistics[moonName + " GO"] = new Statistic(moonName + " GO", Statistic.ValueType.GameObject, moon.gameObject);
+                    statistics[moonName + " Planet GO"] = new Statistic(moonName + " Planet GO", Statistic.ValueType.GameObject, planet.gameObject);
+
+                    // ORBIT ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                    if (moonsDisplayOrbits)
+                    {
+                        float atan = Mathf.Atan2(orbitPoint.y, orbitPoint.x);
+                        LineRendererCircle moonOrbit = Instantiate(orbitPrefab, orbitCenter, Quaternion.Euler(0, 0, atan * Mathf.Rad2Deg), transform);
+                        moonOrbit.radius = distance;
+                        moonOrbit.line.startWidth = moonOrbit.line.endWidth = statistics[moonName + " Radius"].Get<float>();
+                        //moonOrbit.line.startColor = ColourHelper.HeatMap(statistics[moonName + " Kelvin"], 150, 500) * 0.5f;
+                        //moonOrbit.line.endColor = new Color(moonOrbit.line.startColor.r, moonOrbit.line.startColor.g, moonOrbit.line.startColor.b, 0f);
+                    }
                 }
             }
         }
@@ -452,6 +448,9 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
 
     public void Dungeon()
     {
+        if (!Environment.generateGODungeons)
+            return;
+
         // Lets decide on some logic
         // First, lets always make at least one dungeon spawn
         // So what that means is lets get all the valid objects for a dungeon to generate on
@@ -463,17 +462,12 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
 
             List<DungeonType> eligibleDungeonTypes = new List<DungeonType>();
 
-            eligibleDungeonTypes.AddRange(DungeonLoader.active.dungeons.signals.FindAll(dungeon => dungeon.generator.ToLower().Contains("standard") && 
+            eligibleDungeonTypes.AddRange(DungeonLoader.active.dungeons.signals.FindAll(dungeon => dungeon.generator.ToLower().Contains("standard") &&
                 (dungeon.target.ToLower().Contains("any") || dungeon.target.ToLower().Contains(dungeonables[i].dungeonTarget.ToLower()))));
-
-            //DungeonTypeCategory dungeonCategory = dungeonCategories.Find(dungeon => dungeon.name == dungeonables[i].dungeonTarget);
-            //if (dungeonCategory != null)
-            //{
-            //    eligibleDungeonTypes.AddRange(dungeonCategory.dungeons);
-            //}
 
             dungeonables[i].dungeonType = DungeonType.SelectByChance(eligibleDungeonTypes);
             dungeonables[i].riskLevel = FloatHelper.RiskStringToFloat(dungeonables[i].dungeonType.risk) * Random.Range(0.5f, 2f);
+            dungeonables[i].dungeonType.tags = StringHelper.TagParse(dungeonables[i].dungeonType.tags);
         }
 
         int numberOfDungeons = Mathf.Max(1, Random.Range(0, dungeonables.Length));

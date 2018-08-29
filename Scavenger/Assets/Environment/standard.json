@@ -8,7 +8,8 @@
 			"risk" : "None",
 			"oneIn" : 100,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Neutral Station Respawn Repair $1:2[Buy,Sell,Defended,Ship] $1:5[Ships,Debris,Asteroid] $1:10[Asteroids,Conflict] $1:50[Shipwreck,Battle] $1:100[Graveyard]"
 		},
 		{
 			"name": "Station Wreck",
@@ -17,7 +18,8 @@
 			"risk": "Medium",
 			"oneIn": 200,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Neutral Station Debris $1:2[Ship,Asteroid] $1:5[Ships,Asteroids,Conflict] $1:10[Shipwreck,Battle] $1:50[Graveyard,Battle]"
 		},
 		{
 			"name": "Station Construction",
@@ -26,7 +28,8 @@
 			"risk": "Low",
 			"oneIn": 500,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Neutral Station Ship $1:2[Respawn,Repair,Buy,Sell,Defended,Ships] $1:5[Debris] $1:10[Asteroid,Conflict] $1:50[Asteroids,Battle] $1:100[Shipwreck] $1:500[Graveyard]"
 		},
 		{
 			"name": "Trading Station",
@@ -35,7 +38,8 @@
 			"risk": "Low",
 			"oneIn": 100,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Allied Station Buy Defended $1:2[Sell,Ship] $1:5[Ships,Debris] $1:10[Asteroid,Conflict] $1:50[Asteroids,Shipwreck,Battle] $1:100[Graveyard]"
 		},
 		{
 			"name": "Trading Station Wreck",
@@ -44,7 +48,8 @@
 			"risk": "Medium",
 			"oneIn": 100,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Neutral Station Debris $1:2[Ship,Asteroid] $1:5[Ships,Asteroids,Conflict] $1:10[Shipwreck] $1:50[Graveyard,Battle]"
 		},
 		{
 			"name": "Trading Station Construction",
@@ -53,7 +58,8 @@
 			"risk": "Low",
 			"oneIn": 100,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Neutral Station Ship $1:2[Repair,Buy,Sell,Defended,Ships] $1:5[Debris] $1:10[Asteroid,Conflict] $1:50[Asteroids,Battle] $1:100[Shipwreck] $1:500[Graveyard]"
 		},
 		{
 			"name": "Military Station",
@@ -62,7 +68,8 @@
 			"risk": "Medium",
 			"oneIn": 1000,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Neutral Station Defended $1:2[Debris,Ship] $1:5[Ships,Asteroid,Shipwreck,Conflict] $1:10[Graveyard,Battle]"
 		},
 		{
 			"name": "Military Station Wreck",
@@ -71,7 +78,8 @@
 			"risk": "Medium",
 			"oneIn": 500,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Neutral Station Debris $1:2[Defended,Ship,Asteroid,Conflict] $1:5[Ships,Asteroids,Battle] $1:10[Shipwreck] $1:50[Graveyard,Battle]"
 		},
 		{
 			"name": "Military Station Construction",
@@ -80,7 +88,8 @@
 			"risk": "Medium",
 			"oneIn": 500,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Neutral Station Ship $1:2[Repair,Defended,Ships] $1:5[Debris,Conflict] $1:10[Asteroid,Battle] $1:50[Asteroids] $1:100[Shipwreck] $1:500[Graveyard]"
 		},
 		{
 			"name": "Trader",
@@ -89,7 +98,8 @@
 			"risk": "None",
 			"oneIn": 5,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Allied Ship Buy $1:2[Sell,Defended] $1:5[Asteroid] $1:10[Asteroids,Shipwreck,Conflict] $1:50[Graveyard,Battle]"
 		},
 		{
 			"name": "Escorted Trader",
@@ -98,7 +108,8 @@
 			"risk": "Low",
 			"oneIn": 50,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Neutral Ships Defended Buy $1:2[Sell,Debris] $1:5[Shipwreck,Asteroid] $1:10[Graveyard,Asteroids,Conflict] $1:50[Battle]"
 		},
 		{
 			"name": "Trading Flotilla",
@@ -107,7 +118,8 @@
 			"risk": "None",
 			"oneIn": 100,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Allied Ships Buy Sell $1:2[Debris,Asteroid,Shipwreck] $1:5[Graveyard,Asteroids] $1:10[Conflict] $1:50[Battle]"
 		},
 		{
 			"name": "Trading Fleet",
@@ -116,7 +128,8 @@
 			"risk": "Medium",
 			"oneIn": 250,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Neutral Ships Buy Sell Defended $1:2[Debris,Asteroid,Shipwreck] $1:5[Graveyard,Asteroids,Conflict] $1:50[Battle]"
 		},
 		{
 			"name": "Shipwreck",
@@ -125,7 +138,8 @@
 			"risk": "Low",
 			"oneIn": 5,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Neutral Shipwreck Debris $1:2[Ship,Asteroid] $1:5[Ships,Asteroids,Conflict] $1:10[Graveyard,Battle]"
 		},
 		{
 			"name": "Capital Shipwreck",
@@ -134,7 +148,8 @@
 			"risk": "Medium",
 			"oneIn": 1000,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Neutral Shipwreck Debris 1:2[Ship,Asteroid,Defended,Conflict] $1:5[Ships,Asteroids,Graveyard,Battle]"
 		},
 		{
 			"name": "Ship Graveyard",
@@ -143,7 +158,8 @@
 			"risk": "Medium",
 			"oneIn": 500,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Neutral Graveyard Debris $1:2[Ship,Asteroid,Defended] $1:5[Ships,Asteroids,Conflict] $1:10[Battle]"
 		},
 		{
 			"name": "Battle Graveyard",
@@ -152,7 +168,8 @@
 			"risk": "High",
 			"oneIn": 1000,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Neutral Graveyard Debris $1:2[Defended,Ship,Asteroid,Conflict] $1:5[Ships,Asteroids,Battle]"
 		},
 		{
 			"name": "Asteroid",
@@ -161,7 +178,8 @@
 			"risk": "Low",
 			"oneIn": 5,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Neutral Asteroid $1:2[Debris,Shipwreck] $1:5[Asteroids,Graveyard] $1:10[Conflict] $1:50[Battle]"
 		},
 		{
 			"name": "Asteroid Station",
@@ -170,7 +188,8 @@
 			"risk": "Low",
 			"oneIn": 10,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Neutral Asteroid Station Defended $1:2[Debris,Shipwreck,Buy,Sell,Ship] $1:5[Ships,Respawn,Repair,Asteroids] $1:10[Conflict] $1:50[Battle,Graveyard]"
 		},
 		{
 			"name": "Asteroid Station Wreck",
@@ -179,7 +198,8 @@
 			"risk": "Medium",
 			"oneIn": 5,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Neutral Asteroid Station Debris $1:2[Shipwreck,Ship] $1:5[Graveyard,Asteroids,Conflict,Buy] $1:10[Battle]"
 		},
 		{
 			"name": "Asteroid Station Construction",
@@ -188,7 +208,8 @@
 			"risk": "Low",
 			"oneIn": 25,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Neutral Asteroid Station Debris $1:5[Defended,Shipwreck,Ship] $1:10[Graveyard,Asteroids,Conflict,Buy,Sell] $1:20[Respawn,Battle]"
 		},
 		{
 			"name": "Asteroid Cloud",
@@ -197,16 +218,28 @@
 			"risk": "Medium",
 			"oneIn": 10,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Neutral Asteroids Debris $1:5[Ship,Shipwreck,Conflict] $1:10[Graveyard,Ships,Battle]"
+		},
+		{
+			"name": "Conflict",
+			"description": "The computer is detecting high energy discharges, and several objects in orbit. Signal scans have detected a high frequency of clandestine communications, with at least 2 different encoding algorithms, and high-resolution scans have detected debris mixed around the objects. The computer is prepared to predict that this is an active conflict between hostile agents.",
+			"category": "Battle",
+			"risk": "High",
+			"oneIn": 250,
+			"target" : "Any",
+			"generator" : "Standard",
+			"tags" : "Hostile Debris Conflict Ships Defended $1:2[Shipwreck] $1:10[Graveyard]"
 		},
 		{
 			"name": "Battle",
-			"description": "The computer is detecting high energy discharges, and many objects in orbit. Signal scans have detected a high frequency of clandestine communications, with at least 2 different encoding algorithms, and high-resolution scans have detected debris mixed around the objects. The computer is prepared to predict that this is an active conflict between hostile agents. The computer advises caution as this can only be an active conflict.",
-			"category": "Conflict",
+			"description": "The computer is detecting high energy discharges, and many objects in orbit. Signal scans have detected a high frequency of clandestine communications, with at least 2 different encoding algorithms, and high-resolution scans have detected debris mixed around the objects. The computer is prepared to predict that this is an active conflict between hostile agents.",
+			"category": "Battle",
 			"risk": "High",
 			"oneIn": 500,
 			"target" : "Any",
-			"generator" : "Standard"
+			"generator" : "Standard",
+			"tags" : "Hostile Debris Battle Ships Defended $1:2[Shipwreck] $1:5[Graveyard]"
 		},
 		{
 			"name": "",
