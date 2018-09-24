@@ -29,6 +29,7 @@ public class EnvironmentBasedStar : MonoBehaviour
 
     public float kelvin;
     public float kelvinRange;
+    public float luminosity;
 
     // Use this for initialization
     void Start()
@@ -52,20 +53,22 @@ public class EnvironmentBasedStar : MonoBehaviour
         if (!blackbodyRamp)
             blackbodyRamp = (star.GetTexture("_Emissive") as Texture2D);
 
-        light.color = blackbodyRamp.GetPixelBilinear(((kelvin + kelvinRange) / star.GetFloat("_KelvinMax")), 0);
-        light.intensity = Mathf.Log10(EnvironmentRules.StellarLuminosity(transform.localScale.x, kelvin + kelvinRange)) / 4f;
+        luminosity = EnvironmentRules.StellarLuminosity(transform.localScale.x, kelvin + kelvinRange);
+
+        if (light)
+        {
+            light.color = blackbodyRamp.GetPixelBilinear(((kelvin + kelvinRange) / star.GetFloat("_KelvinMax")), 0);
+            light.intensity = Mathf.Log10(luminosity) / 4f;
+        }
 
         Vector3 position = environment["System Coordinates"].Get<Vector3>();
-        if (position.y > 0)
-            name = position.x + "+" + position.y;
-        else
-            name = position.x + "-" + position.y;
+        name = StringHelper.CoordinateName(position);
 
         int numberOfStars = environment["Stars"];
         int brightness = numberOfStars - 1;
         for (int i = 0; i < numberOfStars; i++)
         {
-            if (light.intensity > Mathf.Log10(EnvironmentRules.StellarLuminosity(environment["Star " + StringHelper.IndexIntToChar(i) + " Radius"], (float)environment["Star " + StringHelper.IndexIntToChar(i) + " Kelvin"] + environment["Star " + StringHelper.IndexIntToChar(i) + " Kelvin Range"])) / 4f)
+            if (luminosity > EnvironmentRules.StellarLuminosity(environment["Star " + StringHelper.IndexIntToChar(i) + " Radius"], (float)environment["Star " + StringHelper.IndexIntToChar(i) + " Kelvin"] + environment["Star " + StringHelper.IndexIntToChar(i) + " Kelvin Range"]))
                 brightness--;
         }
         name += " " + StringHelper.IndexIntToChar(brightness);
@@ -90,7 +93,10 @@ public class EnvironmentBasedStar : MonoBehaviour
             lastKelvinRange = kelvinRange;
             lastKelvinMax = kelvinMax;
 
-            light.intensity = Mathf.Log10(EnvironmentRules.StellarLuminosity(transform.localScale.x, kelvin + kelvinRange)) / 4f;
+            luminosity = EnvironmentRules.StellarLuminosity(transform.localScale.x, kelvin + kelvinRange);
+
+            if (light)
+                light.intensity = Mathf.Log10(luminosity) / 4f;
 
             foreach (ParticleSystemContainer container in particleSystems)
             {

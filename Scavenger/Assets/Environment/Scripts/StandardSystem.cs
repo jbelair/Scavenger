@@ -35,14 +35,75 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
 
     public void System()
     {
+        if (Random.Range(1, 3) == 1)
+        {
+            float stars = Random.Range(0f, 1f);
+            int numberOfStars = Mathf.RoundToInt(starPlotStars.Evaluate(stars));
+            statistics["Stars"] = new Statistic("Stars", Statistic.ValueType.Integer, numberOfStars);
+            //Statistic dungeonables = statistics["Dungeonables"] = new Statistic("Dungeonables", Statistic.ValueType.Integer, numberOfStars);
+
+            float planets = Random.Range(0, 1f) / numberOfStars;
+            int numberOfPlanets = Mathf.RoundToInt(planetPlotPlanets.Evaluate(planets));
+            statistics["Planets"] = new Statistic("Planets", Statistic.ValueType.Integer, numberOfPlanets);
+            //dungeonables.Set(dungeonables.Get<int>() + numberOfPlanets);
+
+            for (int i = 0; i < numberOfPlanets; i++)
+            {
+                string planetName = "Planet " + StringHelper.IndexIntToChar(i);
+                int numberOfMoons = (int)planetPlotMoons.Evaluate(Random.Range(0, 1f));
+                statistics[planetName + " Moons"] = new Statistic(planetName + " Moons", Statistic.ValueType.Integer, numberOfMoons);
+                //dungeonables.Set(dungeonables.Get<int>() + numberOfMoons);
+            }
+
+            List<string> dungeonTargets = new List<string>();
+            statistics["Dungeon Targets"] = new Statistic("Dungeon Targets", Statistic.ValueType.Object, dungeonTargets);
+
+            int dungeons = 0;
+            for (int i = 0; i < numberOfStars; i++)
+            {
+                if (Random.Range(1f, numberOfStars) <= 2 && dungeons < Environment.maximumDungeons)
+                {
+                    dungeonTargets.Add("Star " + StringHelper.IndexIntToChar(i));
+                    dungeons++;
+                }
+            }
+
+            for (int i = 0; i < numberOfPlanets; i++)
+            {
+                string planetName = "Planet " + StringHelper.IndexIntToChar(i);
+                if ((Random.Range(1f, numberOfPlanets) <= 2 || dungeons <= 3) && dungeons < Environment.maximumDungeons)
+                {
+                    dungeonTargets.Add(planetName);
+                    dungeons++;
+                }
+
+                int numberOfMoons = statistics[planetName + " Moons"];
+                for (int j = 0; j < numberOfMoons; j++)
+                {
+                    if ((Random.Range(1f, 10) == 1 || dungeons < 5) && dungeons < Environment.maximumDungeons)
+                    {
+                        dungeonTargets.Add(planetName + " Moon " + StringHelper.IndexIntToChar(i));
+                        dungeons++;
+                    }
+                }
+            }
+
+            ListHelper.Shuffle(ref dungeonTargets);
+        }
+        else
+        {
+            statistics["Stars"] = new Statistic("Stars", Statistic.ValueType.Integer, 0);
+            statistics["Planets"] = new Statistic("Planets", Statistic.ValueType.Integer, 0);
+        }
+    }
+
+    public void Stars()
+    {
         // Stellar Temperature tracks the average temperature of the stellar core (used for approximations of system temperature)
         float stellarTemperature = 0;
         float stellarRadius = 0;
 
-        // Stars generates with a heavy weight towards 0.5, this 0-1 value is used in an animation curve to generate the system with correct skewing
-        float stars = Random.Range(0f, 1f);
-        int numberOfStars = Mathf.RoundToInt(starPlotStars.Evaluate(stars));
-        statistics["Stars"] = new Statistic("Stars", Statistic.ValueType.Integer, numberOfStars);
+        int numberOfStars = statistics["Stars"];
 
         // Each star generated has a position that must be offset from the center of mass, this stores those positions
         List<Vector2> starPositions = new List<Vector2>();
@@ -53,17 +114,14 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
         float[] orbitDistances = new float[numberOfStars];
         for (int i = 0; i < numberOfStars; i++)
         {
-            Debug.Log("Generating star environment data for " + (i + 1) + " of " + numberOfStars);
-
             string name = "Star " + StringHelper.IndexIntToChar(i);
-            // Radius is highly likely to be around 0.5
             float radius = Random.Range(0f, 1f);
             stellarRadius += radius;
 
             float radiusSkewed = starPlotRadius.Evaluate(radius) * EnvironmentRules.RadiusOfSun / 10000f;
             statistics[name + " Radius"] = new Statistic(name + " Radius", Statistic.ValueType.Float, radiusSkewed);
 
-            float kelvin = (Random.Range(0f, 1f) + radius) / 2f;
+            float kelvin = Random.Range(0, 1f);
             stellarTemperature += kelvin;
 
             float kelvinSkewed = starPlotKelvin.Evaluate(kelvin);
@@ -77,6 +135,7 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
             contributions[i] = Mathf.Pow(2, (radius + 1) * 5f) + Mathf.Pow((radius + 1f) * 2f, (kelvin + 1f) * 10f);// (radius * 10) + (kelvin * 10);
             centerOfMass += starPositions[i] * contributions[i];
             starPositionContributions += contributions[i];
+            statistics[name + " Contribution"] = new Statistic(name + " Contribution", Statistic.ValueType.Float, contributions[i]);
 
             orbitDistances[i] = radiusSkewed + statistics["Star " + StringHelper.IndexIntToChar(i) + " Kelvin"] / pDStellarTempFraction + pDistance * Mathf.Pow(statistics["Star " + StringHelper.IndexIntToChar(i) + " Kelvin"] / 30000f, pDStellarTempExponent);
         }
@@ -102,16 +161,74 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
         stellarRadius /= numberOfStars;
         stellarTemperature /= numberOfStars;
         statistics["Temperature"] = new Statistic("Temperature", Statistic.ValueType.Float, stellarTemperature);
+        statistics["Radius"] = new Statistic("Radius", Statistic.ValueType.Float, stellarRadius);
+    }
 
-        float planets = Random.Range(0, 1f) / numberOfStars * (1f - Mathf.Pow(Mathf.Abs((stellarTemperature - 0.5f) * 2), 2)) * (1f - Mathf.Pow(Mathf.Abs((stellarRadius - 0.5f) * 2), 2));
-        int numberOfPlanets = Mathf.RoundToInt(planetPlotPlanets.Evaluate(planets));
-        statistics["Planets"] = new Statistic("Planets", Statistic.ValueType.Integer, numberOfPlanets);
+    public void PopulateStars()
+    {
+        int numberOfStars = statistics["Stars"];
+        for (int i = 0; i < numberOfStars; i++)
+        {
+            string name = "Star " + StringHelper.IndexIntToChar(i);
+            EnvironmentBasedStar star = Instantiate(starPrefab, statistics[name + " Position"].Get<Vector2>(), starPrefab.transform.rotation, transform);
+            star.transform.localPosition = statistics[name + " Position"].Get<Vector2>();
+            star.name = name;
+            star.environment = statistics;
+            statistics[name + " GO"] = new Statistic(name + " GO", Statistic.ValueType.GameObject, star.gameObject);
+
+            // ORBIT ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            if (starsDisplayOrbits && numberOfStars == 2)
+            {
+                Vector2 delta = star.transform.position;
+                float atan = Mathf.Atan2(delta.y, delta.x);
+                LineRendererCircle orbit = Instantiate(orbitPrefab, Vector3.zero, Quaternion.Euler(0, 0, atan * Mathf.Rad2Deg), transform);
+                orbit.radius = star.transform.position.XY().magnitude;
+                orbit.line.startColor = ((star.starMaterials[0].GetTexture("_Emissive") as Texture2D).GetPixelBilinear((statistics[name + " Kelvin"].Get<float>() + statistics[name + " Kelvin Range"].Get<float>()) / star.starMaterials[0].GetFloat("_KelvinMax"), 0) * 8).Normalize() * 0.5f;
+                orbit.line.endColor = new Color(orbit.line.startColor.r, orbit.line.startColor.g, orbit.line.startColor.b, 0f);
+            }
+        }
+    }
+
+    public void Planets()
+    {
+        int numberOfStars = statistics["Stars"];
+        int numberOfPlanets = statistics["Planets"];
+        float stellarTemperature = statistics["Temperature"];
+        float stellarRadius = statistics["Radius"];
+
+        float[] orbitDistances = new float[numberOfStars];
+        Vector2[] starPositions = new Vector2[numberOfStars];
+        float[] contributions = new float[numberOfStars];
+
+        for (int i = 0; i < numberOfStars; i++)
+        {
+            string starName = "Star " + StringHelper.IndexIntToChar(i);
+            float radiusSkewed = statistics[starName + " Radius"];
+            orbitDistances[i] = radiusSkewed + statistics[starName + " Kelvin"] / pDStellarTempFraction + pDistance * Mathf.Pow(statistics[starName + " Kelvin"] / 30000f, pDStellarTempExponent);
+            starPositions[i] = statistics[starName + " Position"];
+            contributions[i] = statistics[starName + " Contribution"];
+        }
+
+        // Get the greatest distance between stars
+        float greatestDistanceBetweenStars = 0;
+        Vector2 centerOfMass = statistics["System Center"];
+        for (int i = 0; i < numberOfStars; i++)
+        {
+            starPositions[i] -= centerOfMass;
+            string name = "Star " + StringHelper.IndexIntToChar(i);
+            statistics[name + " Position"] = new Statistic(name + " Position", Statistic.ValueType.Vector2, starPositions[i]);
+
+            for (int j = i + 1; j < numberOfStars; j++)
+            {
+                float distanceBetweenStars = (starPositions[i] - starPositions[j]).magnitude;
+                if (distanceBetweenStars > greatestDistanceBetweenStars)
+                    greatestDistanceBetweenStars = distanceBetweenStars;
+            }
+        }
 
         float maximumPlanetaryDistance = 0f;
         for (int i = 0; i < numberOfPlanets; i++)
         {
-            Debug.Log("Generating planet environment data for " + (i + 1) + " of " + numberOfPlanets);
-
             string name = "Planet " + StringHelper.IndexIntToChar(i);
 
             // Stars can generate quite far apart
@@ -124,7 +241,7 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
             // Pick a star
             int star = Random.Range(0, numberOfStars);
             // Define a distance from it
-            float orbitDistance = orbitDistances[star] * Random.Range(1f, 2f);// + 100f * Mathf.Pow(statistics["Star " + StringHelper.IndexIntToChar(star) + " Kelvin"] / 30000f, 2);
+            float orbitDistance = orbitDistances[star] * Random.Range(1f, 2f);
             orbitDistances[star] = orbitDistance;
             // Make a random point at that distance around a circle's circumference
             Vector2 position = starPositions[star] + Random.insideUnitCircle.normalized * orbitDistance;
@@ -147,9 +264,9 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
             float lowestDistance = 10000f;
             for (int j = 0; j < numberOfStars; j++)
             {
-                float starKelvin = statistics["Star " + StringHelper.IndexIntToChar(j) + " Kelvin"];
-                //float logKelvin = Mathf.Log10(starKelvin);
-                float starRadius = EnvironmentRules.StellarRadius(statistics["Star " + StringHelper.IndexIntToChar(j) + " Radius"]);
+                string starName = "Star " + StringHelper.IndexIntToChar(j);
+                float starKelvin = statistics[starName + " Kelvin"];
+                float starRadius = EnvironmentRules.StellarRadius(statistics[starName + " Radius"]);
                 kelvin += EnvironmentRules.PlanetTemperature(starRadius, EnvironmentRules.StellarLuminosity(starRadius, starKelvin), EnvironmentRules.PlanetDistance(distances[j]), 0.3f);//planetPlotKelvin.Evaluate(distances[j] / (250 * Mathf.Pow(logKelvin, 2))) * (starKelvin / (logKelvin / 2));
                 // Weight distances against the greatest distance between stars
                 distances[j] /= greatestDistanceBetweenStars;
@@ -169,8 +286,6 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
                 }
 
                 orbitCenter /= total;
-
-                //position = (position - orbitCenter).normalized * orbitDistance + orbitCenter;
             }
             else
             {
@@ -181,7 +296,8 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
             for (int j = 0; j < numberOfStars; j++)
             {
                 float orbitOverlap = Mathf.Abs((starPositions[j] - orbitCenter).magnitude - orbitDistance);
-                float minimumDistance = statistics["Star " + StringHelper.IndexIntToChar(j) + " Kelvin"] / pDStellarTempFraction + pDistance * Mathf.Pow(statistics["Star " + StringHelper.IndexIntToChar(j) + " Kelvin"] / 30000f, pDStellarTempExponent);
+                string starName = "Star " + StringHelper.IndexIntToChar(j);
+                float minimumDistance = statistics[starName + " Kelvin"] / pDStellarTempFraction + pDistance * Mathf.Pow(statistics[starName + " Kelvin"] / 30000f, pDStellarTempExponent);
                 if (orbitOverlap < minimumDistance)
                 {
                     failed = true;
@@ -222,7 +338,6 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
             GeneratePlanet(name, 0, kelvin, kelvinLow, kelvinHigh, orbitCenter, distance, delta);
         }
 
-        //int gasGiants = 0;
         for (int i = 0; i < numberOfPlanets; i++)
         {
             string name = "Planet " + StringHelper.IndexIntToChar(i);
@@ -238,24 +353,57 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
             radius *= EnvironmentRules.RadiusOfJupiter / 10000f;
 
             UpdatePlanet(name, radius, kelvin, kelvinLow, kelvinHigh);
+        }
+    }
 
-            int numberOfMoons = (int)planetPlotMoons.Evaluate(Random.Range(0, 1f) * radius);
-            statistics[name + " Moons"] = new Statistic(name + " Moons", Statistic.ValueType.Integer, numberOfMoons);
+    public void PopulatePlanets()
+    {
+        int numberOfPlanets = statistics["Planets"];
+        for (int i = 0; i < numberOfPlanets; i++)
+        {
+            string name = "Planet " + StringHelper.IndexIntToChar(i);
+
+            Vector2 orbitCenter = statistics[name + " Orbit"];
+            EnvironmentBasedPlanet planet = Instantiate(planetPrefab, statistics[name + " Position"].Get<Vector2>(), planetPrefab.transform.rotation, transform);
+            planet.transform.localPosition = statistics[name + " Position"].Get<Vector2>();
+            planet.name = name;
+            planet.environment = statistics;
+            statistics[name + " GO"] = new Statistic(name + " GO", Statistic.ValueType.GameObject, planet.gameObject);
+
+            // ORBIT ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            if (planetsDisplayOrbits)
+            {
+                LineRendererCircle orbit = Instantiate(orbitPrefab, orbitCenter, new Quaternion(), transform);//Quaternion.Euler(0, 0, atan * Mathf.Rad2Deg), transform);
+                orbit.transform.localPosition = orbitCenter;
+                Vector2 delta = planet.transform.position.XY() - orbit.transform.localPosition.XY();
+                orbit.radius = (delta).magnitude;
+                orbit.line.startWidth = orbit.line.endWidth = statistics[name + " Radius"].Get<float>();
+            }
+        }
+    }
+
+    public void Moons()
+    {
+        int numberOfStars = statistics["Stars"];
+        int numberOfPlanets = statistics["Planets"];
+        for (int i = 0; i < numberOfPlanets; i++)
+        {
+            string planetName = "Planet " + StringHelper.IndexIntToChar(i);
+            float radius = statistics[planetName + " Radius"];
+            int numberOfMoons = statistics[planetName + " Moons"];
             float distanceLast = radius * 1.5f * Random.Range(1f, 3f);
             for (int j = 0; j < numberOfMoons; j++)
             {
-                Debug.Log("Generating moon environment data for planet " + (i + 1) + " of " + numberOfPlanets + " moon " + (j + 1) + " of " + numberOfMoons);
-
-                string moonName = name + " Moon " + StringHelper.IndexIntToChar(j);
+                string moonName = planetName + " Moon " + StringHelper.IndexIntToChar(j);
                 float moonRadius = Mathf.Max(0.1f, ((radius * 0.3f) / (numberOfMoons + 1)) * Random.Range(0.1f, 1f));
                 Vector2 orbit = Random.insideUnitCircle.normalized;
                 float orbitDistance = distanceLast;
-                distanceLast = radius * 1.5f * Random.Range(1f, 3f); //distanceLast * Random.Range(1.01f, 1.15f) + moonRadius * 2;
+                distanceLast = radius * 1.5f * Random.Range(1f, 3f);
 
-                Vector2 delta = statistics[name + " Position"].Get<Vector2>() + orbit * orbitDistance;
+                Vector2 delta = statistics[planetName + " Position"].Get<Vector2>() + orbit * orbitDistance;
+
                 // I need to find the hottest, and coldest point around the orbit
-
-                kelvin = 0;
+                float kelvin = 0;
                 for (int l = 0; l < numberOfStars; l++)
                 {
                     string starName = "Star " + StringHelper.IndexIntToChar(l);
@@ -264,11 +412,12 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
                     float stellarDistance = EnvironmentRules.PlanetDistance((statistics[starName + " Position"].Get<Vector2>() - delta).magnitude);
                     kelvin += EnvironmentRules.PlanetTemperature(starRadius, EnvironmentRules.StellarLuminosity(starRadius, starTemperature), stellarDistance, 0.3f);
                 }
-
-                kelvinLow = 30000;
-                kelvinHigh = 0;
+                // I need to find the hottest, and coldest point around the orbit
+                float kelvinLow = 30000;
+                float kelvinHigh = 0;
+                float distance = delta.magnitude;
                 float sampleDistance = delta.magnitude;
-                Vector2 orbitCenter = statistics[name + " Orbit"].Get<Vector2>();
+                Vector2 orbitCenter = statistics[planetName + " Orbit"].Get<Vector2>();
                 for (float p = 0; p < Mathf.PI * 2f; p += Mathf.PI / 8f)
                 {
                     Vector2 planetPosition = orbitCenter + new Vector2(Mathf.Cos(p), Mathf.Sin(p)) * distance;
@@ -301,99 +450,39 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
         }
     }
 
-    public void Star()
+    public void PopulateMoons()
     {
-        if (!Environment.generateGOStars)
-            return;
-
-        int numberOfStars = statistics["Stars"];
-        for (int i = 0; i < numberOfStars; i++)
-        {
-            Debug.Log("Generating star " + (i + 1) + " of " + numberOfStars);
-            string name = "Star " + StringHelper.IndexIntToChar(i);
-            EnvironmentBasedStar star = Instantiate(starPrefab, statistics[name + " Position"].Get<Vector2>(), starPrefab.transform.rotation, transform);
-            star.transform.localPosition = statistics[name + " Position"].Get<Vector2>();
-            star.name = name;
-            star.environment = statistics;
-            statistics[name + " GO"] = new Statistic(name + " GO", Statistic.ValueType.GameObject, star.gameObject);
-
-            // ORBIT ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            if (starsDisplayOrbits && numberOfStars == 2)
-            {
-                Vector2 delta = star.transform.position;
-                float atan = Mathf.Atan2(delta.y, delta.x);
-                LineRendererCircle orbit = Instantiate(orbitPrefab, Vector3.zero, Quaternion.Euler(0, 0, atan * Mathf.Rad2Deg), transform);
-                orbit.radius = star.transform.position.XY().magnitude;
-                orbit.line.startColor = ((star.starMaterials[0].GetTexture("_Emissive") as Texture2D).GetPixelBilinear((statistics[name + " Kelvin"].Get<float>() + statistics[name + " Kelvin Range"].Get<float>()) / star.starMaterials[0].GetFloat("_KelvinMax"), 0) * 8).Normalize() * 0.5f;
-                orbit.line.endColor = new Color(orbit.line.startColor.r, orbit.line.startColor.g, orbit.line.startColor.b, 0f);
-            }
-        }
-    }
-
-    public void Planet()
-    {
-        if (!Environment.generateGOPlanets)
-            return;
-
         int numberOfPlanets = statistics["Planets"];
         for (int i = 0; i < numberOfPlanets; i++)
         {
-            Debug.Log("Generating planet " + (i + 1) + " of " + numberOfPlanets);
-
-            string name = "Planet " + StringHelper.IndexIntToChar(i);
-
-            //if (statistics[name + " Failed"].Get<int>() == 1)
-            //    continue;
-
-            Vector2 orbitCenter = statistics[name + " Orbit"];
-            EnvironmentBasedPlanet planet = Instantiate(planetPrefab, statistics[name + " Position"].Get<Vector2>(), planetPrefab.transform.rotation, transform);
-            planet.name = name;
-            planet.environment = statistics;
-            statistics[name + " GO"] = new Statistic(name + " GO", Statistic.ValueType.GameObject, planet.gameObject);
-
-            // ORBIT ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            if (planetsDisplayOrbits)
+            string planetName = "Planet " + StringHelper.IndexIntToChar(i);
+            GameObject planet = statistics[planetName + " GO"];
+            // MOONS ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            int numberOfMoons = statistics[planetName + " Moons"];
+            for (int j = 0; j < numberOfMoons; j++)
             {
-                Vector2 delta = planet.transform.position.XY() - orbitCenter;
-                float atan = Mathf.Atan2(delta.y, delta.x);
-                LineRendererCircle orbit = Instantiate(orbitPrefab, orbitCenter, Quaternion.Euler(0, 0, atan * Mathf.Rad2Deg), transform);
-                orbit.radius = (delta).magnitude;
-                orbit.line.startWidth = orbit.line.endWidth = statistics[name + " Radius"].Get<float>();
-                //orbit.line.startColor = ColourHelper.HeatMap(statistics[name + " Kelvin"], 150, 500) * 0.5f;
-                //orbit.line.endColor = new Color(orbit.line.startColor.r, orbit.line.startColor.g, orbit.line.startColor.b, 0f);
-            }
+                string moonName = planetName + " Moon " + StringHelper.IndexIntToChar(j);
 
-            if (Environment.generateGOMoons)
-            {
-                // MOONS ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                int numberOfMoons = statistics[name + " Moons"];
-                for (int j = 0; j < numberOfMoons; j++)
+                Vector2 orbitCenter = statistics[planetName + " Position"];
+                Vector2 orbitPoint = statistics[moonName + " Orbit"];
+                float distance = statistics[moonName + " Orbit Distance"];
+
+                EnvironmentBasedPlanet moon = Instantiate(planetPrefab, orbitCenter + orbitPoint * distance, planetPrefab.transform.rotation, transform);
+                moon.transform.localPosition = orbitCenter + orbitPoint * distance;
+                moon.isMoon = true;
+                moon.name = moonName;
+                moon.environment = statistics;
+                statistics[moonName + " GO"] = new Statistic(moonName + " GO", Statistic.ValueType.GameObject, moon.gameObject);
+                statistics[moonName + " Planet GO"] = new Statistic(moonName + " Planet GO", Statistic.ValueType.GameObject, planet.gameObject);
+
+                // ORBIT ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                if (moonsDisplayOrbits)
                 {
-                    Debug.Log("Generating moon of planet " + (i + 1) + " of " + numberOfPlanets + " moon " + (j + 1) + " of " + numberOfMoons);
-
-                    string moonName = name + " Moon " + StringHelper.IndexIntToChar(j);
-
-                    orbitCenter = planet.transform.position;
-                    Vector2 orbitPoint = statistics[moonName + " Orbit"];
-                    float distance = statistics[moonName + " Orbit Distance"];
-
-                    EnvironmentBasedPlanet moon = Instantiate(planetPrefab, orbitCenter + orbitPoint * distance, planetPrefab.transform.rotation, transform);
-                    moon.isMoon = true;
-                    moon.name = moonName;
-                    moon.environment = statistics;
-                    statistics[moonName + " GO"] = new Statistic(moonName + " GO", Statistic.ValueType.GameObject, moon.gameObject);
-                    statistics[moonName + " Planet GO"] = new Statistic(moonName + " Planet GO", Statistic.ValueType.GameObject, planet.gameObject);
-
-                    // ORBIT ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                    if (moonsDisplayOrbits)
-                    {
-                        float atan = Mathf.Atan2(orbitPoint.y, orbitPoint.x);
-                        LineRendererCircle moonOrbit = Instantiate(orbitPrefab, orbitCenter, Quaternion.Euler(0, 0, atan * Mathf.Rad2Deg), transform);
-                        moonOrbit.radius = distance;
-                        moonOrbit.line.startWidth = moonOrbit.line.endWidth = statistics[moonName + " Radius"].Get<float>();
-                        //moonOrbit.line.startColor = ColourHelper.HeatMap(statistics[moonName + " Kelvin"], 150, 500) * 0.5f;
-                        //moonOrbit.line.endColor = new Color(moonOrbit.line.startColor.r, moonOrbit.line.startColor.g, moonOrbit.line.startColor.b, 0f);
-                    }
+                    float atan = Mathf.Atan2(orbitPoint.y, orbitPoint.x);
+                    LineRendererCircle moonOrbit = Instantiate(orbitPrefab, orbitCenter, Quaternion.Euler(0, 0, atan * Mathf.Rad2Deg), transform);
+                    moonOrbit.transform.localPosition = orbitCenter;
+                    moonOrbit.radius = distance;
+                    moonOrbit.line.startWidth = moonOrbit.line.endWidth = statistics[moonName + " Radius"].Get<float>();
                 }
             }
         }
@@ -446,46 +535,52 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
         statistics[name + " Water Level"].Set(waterLevel);
     }
 
-    public void Dungeon()
+    public void Dungeons()
     {
-        if (!Environment.generateGODungeons)
-            return;
+        List<DungeonType> dungeons = new List<DungeonType>();
 
-        // Lets decide on some logic
-        // First, lets always make at least one dungeon spawn
-        // So what that means is lets get all the valid objects for a dungeon to generate on
-        DungeonGenerator[] dungeonables = GameObject.FindObjectsOfType<DungeonGenerator>();
+        statistics["Dungeons"] = new Statistic("Dungeons", Statistic.ValueType.Object, dungeons);
 
-        for (int i = 0; i < dungeonables.Length; i++)
+        foreach (string target in DungeonType.targets)
         {
-            dungeonables[i].hash = Random.Range(int.MinValue, int.MaxValue);
-
-            List<DungeonType> eligibleDungeonTypes = new List<DungeonType>();
-
-            eligibleDungeonTypes.AddRange(DungeonLoader.active.dungeons.signals.FindAll(dungeon => dungeon.generator.ToLower().Contains("standard") &&
-                (dungeon.target.ToLower().Contains("any") || dungeon.target.ToLower().Contains(dungeonables[i].dungeonTarget.ToLower()))));
-
-            dungeonables[i].dungeonType = DungeonType.SelectByChance(eligibleDungeonTypes);
-            dungeonables[i].riskLevel = FloatHelper.RiskStringToFloat(dungeonables[i].dungeonType.risk) * Random.Range(0.5f, 2f);
-            dungeonables[i].dungeonType.tags = StringHelper.TagParse(dungeonables[i].dungeonType.tags);
+            for (int i = 0; i < ((target == "Any") ? 5 : 1); i++)
+            {
+                DungeonType dungeonType = DungeonType.SelectByChance(DungeonLoader.dungeons.signals.FindAll(dungeon => dungeon.target.Contains(target)));
+                dungeonType.tags = StringHelper.TagParse(dungeonType.tags);
+                dungeons.Add(dungeonType);
+            }
         }
 
-        int numberOfDungeons = Mathf.Max(1, Random.Range(0, dungeonables.Length));
+        ListHelper.Shuffle(ref dungeons);
+    }
+
+    public void PopulateDungeons()
+    {
+        List<DungeonGenerator> dungeonables = new List<DungeonGenerator>();
+        dungeonables.AddRange(GameObject.FindObjectsOfType<DungeonGenerator>());
+        List<string> dungeonTargets = statistics["Dungeon Targets"].Get<object>() as List<string>;
+        List<DungeonType> activeDungeons = new List<DungeonType>();
+        statistics["Active Dungeons"] = new Statistic("Active Dungeons", Statistic.ValueType.Object, activeDungeons);
+        int numberOfDungeons = dungeonTargets.Count;
+        List<DungeonType> eligibleDungeonTypes = statistics["Dungeons"].Get<object>() as List<DungeonType>;
 
         for (int i = 0; i < numberOfDungeons; i++)
         {
-            int index = Random.Range(0, dungeonables.Length);
-            int attempts = 0;
-            while (dungeonables[index].generates && attempts < 10)
-            {
-                attempts++;
-                index = Random.Range(0, dungeonables.Length);
-            }
+            DungeonGenerator dungeon = dungeonables.Find(dng => dng.name == dungeonTargets[i]);
 
-            if (attempts >= 10)
+            if (!dungeon)
                 continue;
 
-            dungeonables[index].generates = true;
+            dungeon.hash = Random.Range(int.MinValue, int.MaxValue);
+
+            dungeon.dungeonType = eligibleDungeonTypes.Find(dng => dng.target.Contains("Any") || dng.target.Contains(dungeon.dungeonTarget));
+            //if (dungeon.dungeonType.name == null)
+            //    dungeon.dungeonType = eligibleDungeonTypes.Find(dng => dng.target.Contains("Any"));
+            eligibleDungeonTypes.Remove(dungeon.dungeonType);
+            dungeon.riskLevel = FloatHelper.RiskStringToFloat(dungeon.dungeonType.risk) * Random.Range(0.5f, 2f);
+            dungeon.generates = true;
+
+            activeDungeons.Add(dungeon.dungeonType);
         }
     }
 }

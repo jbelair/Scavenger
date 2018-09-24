@@ -30,6 +30,35 @@ public static class StringHelper
         return value;
     }
 
+    public static string[] TagParseAll(string tags)
+    {
+        List<string> split = new List<string>();
+        split.AddRange(tags.Split(' '));
+
+        for (int i = 0; i < split.Count; i++)
+        {
+            if (split[i][0] == '$')
+            {
+                string skim = "";
+                int readIndex = 0;
+                while (split[i][readIndex] != '[' && readIndex < split[i].Length)
+                {
+                    readIndex++;
+                }
+                readIndex++;
+                while (split[i][readIndex] != ']' && readIndex < split[i].Length)
+                {
+                    skim += split[i][readIndex];
+                    readIndex++;
+                }
+                split.AddRange(skim.Split(','));
+                split.RemoveAt(i);
+            }
+        }
+
+        return split.ToArray();
+    }
+
     public static string ClearExtraSpaces(string str)
     {
         string[] split = str.Split(' ');
@@ -49,10 +78,20 @@ public static class StringHelper
     {
         string value = "";
         int readIndex = 0;
-        if (command[readIndex] == '$')
+        bool commandInterpret = false;
+        while (command.Length > readIndex)
         {
-            readIndex++;
-            while (readIndex < command.Length)
+            if (command[readIndex] == '$')
+            {
+                commandInterpret = true;
+            }
+            else
+            {
+                value += command[readIndex];
+                readIndex++;
+            }
+
+            while (commandInterpret)
             {
                 string interpret = "";
                 if (command[readIndex] == '[')
@@ -72,6 +111,7 @@ public static class StringHelper
                     }
 
                     value += (char)UnityEngine.Random.Range(interpret[0], interpret[2]);
+                    commandInterpret = false;
                 }
                 else if (command[readIndex].IsNumber())
                 {
@@ -111,10 +151,7 @@ public static class StringHelper
                             value += split[i] + " ";
                         }
                     }
-                }
-                else
-                {
-                    value += command[readIndex];
+                    commandInterpret = false;
                 }
 
                 readIndex++;
@@ -144,7 +181,7 @@ public static class StringHelper
         return value;
     }
 
-    private static string indexIntToChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private static readonly string indexIntToChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public static string IndexIntToChar(int i)
     {
         string ret = "";
@@ -180,9 +217,9 @@ public static class StringHelper
             case 3:
                 return "Rare";
             case 4:
-                return "Epic";
-            case 5:
                 return "Legendary";
+            case 5:
+                return "Epic";
             case 6:
                 return "Unique";
         }
@@ -205,9 +242,50 @@ public static class StringHelper
             case 4:
                 return "Extreme";
             case 5:
-                return "Fatal";
+                return "Terminal";
             default:
                 return "Unknown";
         }
+    }
+
+    public static string CoordinateName(Vector3 position)
+    {
+        string name;
+
+        if (position.x >= 0)
+            name = "+" + position.x;
+        else
+            name = position.x.ToString();
+
+        if (position.y >= 0)
+            name = name + "+" + position.y;
+        else
+            name = name + position.y;
+
+        return name;
+    }
+
+    public static string SchemeParse(string text)
+    {
+        string ret = "";
+
+        string[] split = text.Split(' ');
+
+        for(int i = 0; i < split.Length; i++)
+        {
+            if (split[i] == "Distance")
+            {
+                ret += split[i] + " " + RiskIntToString(Mathf.FloorToInt((float.Parse(split[i + 1]) / Environment.jumpRadius) * 5));
+                i++;
+            }
+            else if (i != split.Length - 1)
+            {
+                ret += split[i] + " ";
+            }
+            else
+                ret += split[i];
+        }
+
+        return ret;
     }
 }

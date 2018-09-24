@@ -1,0 +1,45 @@
+{
+	"signals":
+	[
+		{
+			"name": "Asteroid Cloud",
+			"description": "The computer is detecting a series of variably massed objects. High resolution scans have detected these objects to be of a variety of shapes, with seemingly random orientations and rotations, and high metallic content. The computer is prepared to predict that this is a cloud of asteroids and advises caution as while there is a high amount of salvageable material, asteroids in asteroid clouds may have highly erratic behaviours.",
+			"category": "Asteroids",
+			"risk": "Medium",
+			"oneIn": 10,
+			"target" : "Asteroids",
+			"generator" : "Standard",
+			"tags" : "Neutral Asteroids Debris $1:50[Ship,Shipwreck,Conflict] $1:100[Graveyard,Ships,Battle]"
+		},
+		{
+			"name": "Asteroid Station in Asteroid Cloud",
+			"description": "The computer is detecting a high mass object in orbit. Signal scans have detected open communications broadcasts, as well as weakly encoded communications. High resolution scans have detected high metallic content. The computer is prepared to predict that this object is an asteroid, probably partially hollowed to make room for a station. The computer advises caution as asteroid stations are often founded anarchically away from centralized governments, and the computer cannot guarantee the alignment of this station, however it may have services of use.",
+			"category": "Asteroid Station",
+			"risk": "Low",
+			"oneIn": 1000,
+			"target" : "Asteroids",
+			"generator" : "Standard",
+			"tags" : "Neutral Asteroids Station Defended $1:20[Debris,Shipwreck,Buy,Sell,Ship] $1:50[Ships] $1:100[Conflict] $1:500[Battle,Graveyard] $1:1000[Respawn,Repair]"
+		},
+		{
+			"name": "Asteroid Station Wreck in Asteroid Cloud",
+			"description": "The computer is detecting a high mass object in orbit. High resolution scans have detected a debris field surrounding this object, and high metallic content, however the scans are also showing potential structures. The computer is prepared to predict that this is the remains of an asteroid with a station built into it. The computer advises caution as the station is destroyed, and often asteroid stations are founded to avoid government, and therefore this station has a high likelihood of having been destroyed by hostile agents.",
+			"category": "Asteroid Station Wreck",
+			"risk": "Medium",
+			"oneIn": 5000,
+			"target" : "Asteroids",
+			"generator" : "Standard",
+			"tags" : "Neutral Asteroids Station Debris $1:20[Shipwreck,Ship] $1:50[Graveyard,Conflict,Buy] $1:100[Battle]"
+		},
+		{
+			"name": "Asteroid Station Construction in Asteroid Cloud",
+			"description": "The computer is detecting a high mass object in orbit. High resolution scans have detected a fine cloud of particulate debris and high metallic content. The computer is prepared to predict that this is an asteroid with an active station construction site on, in, or around it. The computer advises caution as asteroids are often used for stations by agents seeking to avoid government interference, and while this station is sure to have services, the computer cannot guarantee the friendliness of the stations habitants.",
+			"category": "Asteroid Station Construction",
+			"risk": "Low",
+			"oneIn": 2500,
+			"target" : "Asteroids",
+			"generator" : "Standard",
+			"tags" : "Neutral Asteroids Station Debris $1:50[Defended,Shipwreck,Ship] $1:100[Graveyard,Conflict,Buy,Sell] $1:200[Battle] $1:1000[Repair]"
+		}
+	]
+}

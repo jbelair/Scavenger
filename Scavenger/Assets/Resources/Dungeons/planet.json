@@ -1,0 +1,55 @@
+{
+	"signals" : 
+	[
+		{
+			"name": "Orbiting Debris",
+			"description": "The computer is detecting a low mass object in orbit of the planet. High resolution scans have identified a debris field. The high density of the debris field makes it difficult to detect any other presences in proximity to the debris, but scanners are detecting nothing in the surrounding space. The computer is prepared to predict that this debris field is most likely unoccupied but could have been made to look intentionally so.",
+			"category": "Debris",
+			"risk": "Low",
+			"oneIn": 10,
+			"target": "Planet",
+			"generator": "Standard",
+			"tags": "Neutral Debris $1:2[Ship] $1:5[Shipwreck,Ships] $1:20[Conflict] $1:50[Graveyard,Battle]"
+		},
+		{
+			"name": "Minor Collision Event",
+			"description" :"",
+			"category": "Collision",
+			"risk": "Low",
+			"oneIn": 100,
+			"target": "Planet",
+			"generator": "Standard",
+			"tags": "Neutral Debris Asteroids Collision $1:5[Shipwreck,Ship] $1:10[Ships,Conflict] $1:20[Graveyard,Battle]"
+		},
+		{
+			"name": "Major Collision Event",
+			"description" :"",
+			"category": "Collision",
+			"risk": "Medium",
+			"oneIn": 1000,
+			"target": "Planet",
+			"generator": "Standard",
+			"tags": "Neutral Debris Asteroids Collision $1:2[Shipwreck,Ship] $1:5[Ships,Conflict] $1:10[Graveyard,Battle]"
+		},
+		{
+			"name": "Catastrophic Collision Event",
+			"description" :"",
+			"category": "Collision",
+			"risk": "High",
+			"oneIn": 10000,
+			"target": "Planet",
+			"generator": "Standard",
+			"tags": "Neutral Debris Asteroids Collision $1:2[Shipwreck,Ship] $1:5[Ships,Conflict] $1:10[Graveyard,Battle]"
+		},
+		{
+			"name": "Terraforming Station",
+			"description": "The computer is detecting a high mass object in orbit of the planet. High resolution scans have identified an extensive array of docking bays, and a space elevator, with active cable shuttles in transit to and from the surface of the planet. As well scans of surrounding space have discovered at least 1 slush asteroid with thrusters on a collision course with the atmosphere. The frequent shuttles traveling to and from the station have a variety of chemical signatures in keeping with a terraforming project. The computer suggests visiting the station as it is almost certain to have some services of use.",
+			"category": "Terraforming Station",
+			"risk": "None",
+			"oneIn": 10000,
+			"target": "Planet",
+			"generator": "Standard",
+			"tags": "Allied Station Repair Buy Ships $1:2[Sell,Defended]"
+		}
+	]
+}

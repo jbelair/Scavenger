@@ -6,7 +6,12 @@ using System.Text;
 public interface ISystemGeneratorDecorator
 {
     void System();
-    void Star();
-    void Planet();
-    void Dungeon();
+    void Stars();
+    void PopulateStars();
+    void Planets();
+    void PopulatePlanets();
+    void Moons();
+    void PopulateMoons();
+    void Dungeons();
+    void PopulateDungeons();
 }

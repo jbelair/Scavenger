@@ -18,7 +18,9 @@ public class WidgetSignal : MonoBehaviour
     public ImageContainer[] rarityImages;
     public ImageContainer[] riskImages;
     public Image[] iconImages;
-    public TextMeshProUGUI text;
+    public TextMeshProUGUI label;
+    public TextMeshProUGUI rarityLabel;
+    public TextMeshProUGUI riskLabel;
     public WidgetSignalTags tags;
 
     // Use this for initialization
@@ -42,10 +44,19 @@ public class WidgetSignal : MonoBehaviour
             icon.sprite = WidgetScheme.active.Scheme(type.category).symbol;
         }
 
-        if (text)
+        if (label)
         {
-            text.text = type.name;
-            //text.color = rarityScheme.colour;
+            label.text = type.name;
+        }
+
+        if (rarityLabel)
+        {
+            rarityLabel.text = "Rarity " + StringHelper.RarityIntToString(type.oneIn);
+        }
+
+        if (riskLabel)
+        {
+            riskLabel.text = "Risk " + type.risk.ToString();
         }
 
         if (tags)

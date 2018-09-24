@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114906688612764908}
   - component: {fileID: 114508709984684326}
   - component: {fileID: 114737782802896642}
+  - component: {fileID: 114517854077821772}
   m_Layer: 0
   m_Name: cameranode
   m_TagString: Untagged
@@ -1034,6 +1035,22 @@ MonoBehaviour:
   goal: {x: 0, y: 0, z: 0}
   offset: 0
   theta: 0
+--- !u!114 &114517854077821772
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1009124528176530}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd65630335035a44b89fd699f1b95c4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalPosition: {x: 0, y: 0, z: 0}
+  lookAtParent: 1
+  nearestStars: 1
+  stars: []
+  transforms: []
 --- !u!114 &114737782802896642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1063,6 +1080,7 @@ MonoBehaviour:
   dungeonType:
     name: 
     description: 
+    goTarget: 
     category: 
     risk: 
     oneIn: 0

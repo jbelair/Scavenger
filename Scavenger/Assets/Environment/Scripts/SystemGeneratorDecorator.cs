@@ -18,9 +18,14 @@ public class SystemGeneratorDecorator
 
     [Header("System Generation Callbacks")]
     public UnityEvent system;
-    public UnityEvent star;
-    public UnityEvent planet;
-    public UnityEvent dungeon;
+    public UnityEvent stars;
+    public UnityEvent populateStars;
+    public UnityEvent planets;
+    public UnityEvent populatePlanets;
+    public UnityEvent moons;
+    public UnityEvent populateMoons;
+    public UnityEvent dungeons;
+    public UnityEvent populateDungeons;
 
     public Statistics statistics;
 

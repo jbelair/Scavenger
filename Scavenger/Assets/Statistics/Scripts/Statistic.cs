@@ -12,7 +12,7 @@ public class Statistic
     public ValueType type;
     public bool isDirty = false;
     private object value;
-    private List<StatisticModifier> modifiers = new List<StatisticModifier>();
+    private readonly List<StatisticModifier> modifiers = new List<StatisticModifier>();
 
     public Statistic(string name, ValueType type, object value)
     {

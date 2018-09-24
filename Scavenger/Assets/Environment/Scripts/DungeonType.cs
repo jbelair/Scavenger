@@ -4,8 +4,13 @@ using UnityEngine;
 [System.Serializable]
 public struct DungeonType
 {
+    public static string[] categories;
+    public static string[] targets;
+    public static string[] allTags;
+
     public string name;
     [TextArea(3, 10)]public string description;
+    public string goTarget;
     public string category;
     public string risk;
     public int oneIn;
@@ -83,5 +88,18 @@ public struct DungeonType
         }
         else
             throw new System.Exception("Attempted to select a dungeon by chance but passed an empty list of dungeons");
+    }
+
+    public DungeonType(DungeonType clone)
+    {
+        name = clone.name;
+        description = clone.description;
+        goTarget = clone.goTarget;
+        category = clone.category;
+        risk = clone.risk;
+        oneIn = clone.oneIn;
+        target = clone.target;
+        generator = clone.generator;
+        tags = clone.tags;
     }
 }

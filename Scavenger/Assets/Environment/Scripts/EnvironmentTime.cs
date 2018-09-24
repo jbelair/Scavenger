@@ -15,17 +15,24 @@ public class EnvironmentTime : MonoBehaviour
     private void Awake()
     {
         active = this;
+        time = Environment.environmentTime;
+        Environment.environmentTimeSpeed = 1f/(minutesToTime * 60);
+        timeCounter = Environment.environmentTimeCounter;
     }
 
     private void Update()
     {
-        timeCounter += Time.deltaTime;
+        timeCounter += Time.deltaTime * Environment.environmentTimeSpeed;
 
-        if (timeCounter >= minutesToTime * 60)
+        if (timeCounter >= 1)
         {
-            timeCounter -= minutesToTime * 60;
+            timeCounter -= 1;
+
             time++;
         }
+
+        Environment.environmentTimeCounter = timeCounter;
+        Environment.environmentTime = time;
     }
 
     private void OnDestroy()

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SystemGenerator : MonoBehaviour
 {
     public int hash = 0;
-    public bool loadFromEnvironment = true;
+    public bool generatesFromEnvironment = true;
 
     public SystemGeneratorDecorator[] decorators;
 
@@ -21,17 +21,13 @@ public class SystemGenerator : MonoBehaviour
         {
             statistics.Initialise();
 
-            if (loadFromEnvironment)
+            if (generatesFromEnvironment)
                 statistics["System Coordinates"].Set(Environment.systemCoordinates);
 
-            Generate();
+            StartCoroutine(Generate());
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-
+        name = StringHelper.CoordinateName(statistics["System Coordinates"]);
     }
 
     public int Hash(Vector3 c)
@@ -42,7 +38,7 @@ public class SystemGenerator : MonoBehaviour
         return h;
     }
 
-    public void Generate()
+    public IEnumerator Generate()
     {
         System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
@@ -56,17 +52,115 @@ public class SystemGenerator : MonoBehaviour
                 Random.InitState(hash);
 
                 decorator.system.Invoke();
-                decorator.star.Invoke();
-                decorator.planet.Invoke();
+            }
+        }
 
-                Random.InitState(EnvironmentTime.active.time);
+        foreach (SystemGeneratorDecorator decorator in decorators)
+        {
+            bool happens = decorator.Happens();
 
-                decorator.dungeon.Invoke();
+            if (happens)
+            {
+                if (Environment.generateStars)
+                    decorator.stars.Invoke();
+
+                //yield return new WaitForEndOfFrame();
+            }
+        }
+
+        foreach (SystemGeneratorDecorator decorator in decorators)
+        {
+            bool happens = decorator.Happens();
+
+            if (happens)
+            {
+                if (Environment.populateStars)
+                    decorator.populateStars.Invoke();
+
+                yield return new WaitForSeconds(0.5f);
+            }
+        }
+
+        foreach (SystemGeneratorDecorator decorator in decorators)
+        {
+            bool happens = decorator.Happens();
+
+            if (happens)
+            {
+                if (Environment.generatePlanets)
+                    decorator.planets.Invoke();
+
+                //yield return new WaitForEndOfFrame();
+            }
+        }
+
+        foreach (SystemGeneratorDecorator decorator in decorators)
+        {
+            bool happens = decorator.Happens();
+
+            if (happens)
+            {
+                if (Environment.populatePlanets)
+                    decorator.populatePlanets.Invoke();
+
+                yield return new WaitForSeconds(0.5f);
+            }
+        }
+
+        foreach (SystemGeneratorDecorator decorator in decorators)
+        {
+            bool happens = decorator.Happens();
+
+            if (happens)
+            {
+                if (Environment.generateMoons)
+                    decorator.moons.Invoke();
+
+                //yield return new WaitForEndOfFrame();
+            }
+        }
+
+        foreach (SystemGeneratorDecorator decorator in decorators)
+        {
+            bool happens = decorator.Happens();
+
+            if (happens)
+            {
+                if (Environment.populateMoons)
+                    decorator.populateMoons.Invoke();
+
+                yield return new WaitForSeconds(0.5f);
+            }
+        }
+
+        foreach (SystemGeneratorDecorator decorator in decorators)
+        {
+            bool happens = decorator.Happens();
+
+            if (happens)
+            {
+                hash = Hash(statistics["System Coordinates"].Get<Vector3>() + new Vector3(0, 0, EnvironmentTime.active.time));
+                Random.InitState(hash);
+                if (Environment.generateDungeons)
+                    decorator.dungeons.Invoke();
+            }
+        }
+
+        foreach (SystemGeneratorDecorator decorator in decorators)
+        {
+            bool happens = decorator.Happens();
+
+            if (happens)
+            {
+                if (Environment.populateDungeons)
+                    decorator.populateDungeons.Invoke();
             }
         }
 
         stopwatch.Stop();
         Debug.Log("System Generation -----\nTime: " + stopwatch.ElapsedMilliseconds + "ms");
+
+        yield return null;
     }
 
     public void Clear()

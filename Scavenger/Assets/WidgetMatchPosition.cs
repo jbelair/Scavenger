@@ -21,7 +21,10 @@ public class WidgetMatchPosition : MonoBehaviour
 
     void CanvasUpdate()
     {
-        self.position = target.position + offset.Multiply(target.localScale);
+        if (target)
+            self.position = target.position + offset.Multiply(target.localScale);
+        else
+            Destroy(gameObject);
     }
 
     private void OnDestroy()

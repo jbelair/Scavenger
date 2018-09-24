@@ -22,7 +22,7 @@ public static class FloatHelper
             case "fatal":
                 return 5;
             default:
-                return 0;
+                return -1;
         }
     }
 }

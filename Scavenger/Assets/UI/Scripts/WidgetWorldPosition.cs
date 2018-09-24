@@ -14,7 +14,7 @@ public class WidgetWorldPosition : MonoBehaviour
     public bool preventOverlap = false;
     public float distance = 128f;
     public float speed = 0.1f;
-    public float screenEdge = 128f;
+    public Vector4 screenEdge = new Vector4(0, 96f, 0, 0);
     public Vector2 position;
     public Vector2 positionVelocity;
 
@@ -67,7 +67,8 @@ public class WidgetWorldPosition : MonoBehaviour
                     pos = pos + delta.normalized * distance;
                 }
 
-                pos = new Vector3(Mathf.Clamp(pos.x, screenEdge, Screen.width - screenEdge), Mathf.Clamp(pos.y, screenEdge, Screen.height - screenEdge), 0);
+                if (screenEdge.magnitude > 0)
+                    pos = new Vector3(Mathf.Clamp(pos.x, screenEdge.x, Screen.width - screenEdge.z), Mathf.Clamp(pos.y, screenEdge.y, Screen.height - screenEdge.w), 0);
             }
 
             position = pos.XY();

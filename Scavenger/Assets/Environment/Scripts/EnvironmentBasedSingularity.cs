@@ -26,10 +26,7 @@ public class EnvironmentBasedSingularity : MonoBehaviour
         accretion = environment[statisticName + " Accretion"];
 
         Vector3 position = environment["System Coordinates"].Get<Vector3>();
-        if (position.y > 0)
-            name = position.x + "+" + position.y + "X";
-        else
-            name = position.x + "-" + position.y + "X";
+        name = "X" + StringHelper.CoordinateName(position);
 
         gravityLense.sequence[0].radiusStart = gravityLense.sequence[0].radiusEnd = radius * 2f;
         particleAttractor.mass = gravityLense.sequence[0].eventHorizonStart = gravityLense.sequence[0].eventHorizonEnd = radius * 10f;

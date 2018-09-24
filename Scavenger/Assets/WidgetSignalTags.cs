@@ -7,19 +7,24 @@ public class WidgetSignalTags : MonoBehaviour
     public WidgetSignalTag tagPrefab;
 
     public DungeonType type;
-    float radius = 48;
+    public float radius = 48;
+    public int tags = 8;
 
     public void Set(DungeonType type)
     {
         this.type = type;
 
-        string[] split = type.tags.Split(' ');
+        List<string> split = new List<string>
+        {
+            "Rarity " + StringHelper.RarityIntToString(type.oneIn)
+        };
+        split.AddRange(type.tags.Split(' '));
 
         int i = 1;
-        float theta = (Mathf.PI * 2) / 8f;
+        float theta = (Mathf.PI * 2f) / tags;
         foreach (string tag in split)
         {
-            if (tag != "" && tag != type.category && i < 8 && WidgetScheme.active.Scheme(tag).colour != Color.white)
+            if (tag != "" && tag != type.category && i < tags)// && WidgetScheme.active.Scheme(tag).colour != Color.white)
             {
                 WidgetSignalTag tagInst = Instantiate(tagPrefab, transform);
                 tagInst.GetComponent<RectTransform>().localPosition = new Vector2(Mathf.Cos(theta * i) * radius, Mathf.Sin(theta * i) * radius);
