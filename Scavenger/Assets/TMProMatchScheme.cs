@@ -26,7 +26,7 @@ public class TMProMatchScheme : MonoBehaviour
             if (scheme != newScheme)
             {
                 scheme = newScheme;
-                text.color = WidgetScheme.active.Scheme(scheme).colour;
+                text.color = WidgetScheme.Scheme(scheme).colour;
             }
             yield return new WaitForSeconds(pollingUpdate);
         }

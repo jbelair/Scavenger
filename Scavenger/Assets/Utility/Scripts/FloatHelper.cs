@@ -7,19 +7,19 @@ public static class FloatHelper
 {
     public static float RiskStringToFloat(string risk)
     {
-        switch(risk.ToLower())
+        switch(risk)
         {
-            case "none":
+            case "risk_none":
                 return 0;
-            case "low":
+            case "risk_low":
                 return 1;
-            case "medium":
+            case "risk_medium":
                 return 2;
-            case "high":
+            case "risk_high":
                 return 3;
-            case "extreme":
+            case "risk_extreme":
                 return 4;
-            case "fatal":
+            case "risk_fatal":
                 return 5;
             default:
                 return -1;

@@ -13,9 +13,10 @@ public class WidgetSignalTag : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        WidgetScheme.SchemeContainer scheme = WidgetScheme.active.Scheme(tag);
+        WidgetScheme.SchemeContainer scheme = WidgetScheme.Scheme(tag);
+
         if (label)
-            label.text = scheme.name;
+            label.text = Literals.literals[Environment.language][scheme.name];
 
         if (icon)
         {

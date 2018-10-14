@@ -2,44 +2,44 @@
 	"signals":
 	[
 		{
-			"name": "Asteroid",
-			"description": "The computer is detecting a high mass object in orbit. High resolution scans have detected no cloud of debris and combined with the lack of any communications broadcasts, energy signatures, and high metallic content, the computer predicts this is an asteroid.",
-			"category": "Asteroid",
-			"risk": "Low",
+			"name": "signals_asteroid",
+			"description": "signals_asteroid_desc",
+			"category": "tag_asteroid",
+			"risk": "risk_low",
 			"oneIn": 5,
 			"target" : "Asteroid",
 			"generator" : "Standard",
-			"tags" : "Neutral Asteroid $1:20[Debris,Shipwreck] $1:50[Asteroids,Graveyard] $1:100[Conflict] $1:500[Battle]"
+			"tags" : "tag_neutral tag_asteroid $1:20[tag_debris,tag_shipwreck] $1:50[tag_asteroids,tag_graveyard] $1:100[tag_conflict] $1:500[tag_battle]"
 		},
 		{
-			"name": "Asteroid Station",
-			"description": "The computer is detecting a high mass object in orbit. Signal scans have detected open communications broadcasts, as well as weakly encoded communications. High resolution scans have detected high metallic content. The computer is prepared to predict that this object is an asteroid, probably partially hollowed to make room for a station. The computer advises caution as asteroid stations are often founded anarchically away from centralized governments, and the computer cannot guarantee the alignment of this station, however it may have services of use.",
-			"category": "Asteroid Station",
-			"risk": "Low",
+			"name": "signals_asteroid_station",
+			"description": "signals_asteroid_station_desc",
+			"category": "tag_asteroid tag_station",
+			"risk": "risk_low",
 			"oneIn": 100,
 			"target" : "Asteroid",
 			"generator" : "Standard",
-			"tags" : "Neutral Asteroid Station Defended $1:20[Debris,Shipwreck,Buy,Sell,Ship] $1:50[Ships] $1:100[Conflict] $1:500[Battle,Graveyard] $1:1000[Respawn,Repair]"
+			"tags" : "tag_neutral tag_asteroid tag_station tag_defended $1:20[tag_debris,tag_shipwreck,tag_buy,tag_sell,tag_ship] $1:50[tag_ships] $1:100[tag_conflict] $1:500[tag_battle,tag_graveyard] $1:1000[tag_respawn,tag_repair]"
 		},
 		{
-			"name": "Asteroid Station Wreck",
-			"description": "The computer is detecting a high mass object in orbit. High resolution scans have detected a debris field surrounding this object, and high metallic content, however the scans are also showing potential structures. The computer is prepared to predict that this is the remains of an asteroid with a station built into it. The computer advises caution as the station is destroyed, and often asteroid stations are founded to avoid government, and therefore this station has a high likelihood of having been destroyed by hostile agents.",
-			"category": "Asteroid Station Wreck",
-			"risk": "Medium",
+			"name": "signals_asteroid_station_wreck",
+			"description": "signals_asteroid_station_wreck_desc",
+			"category": "tag_asteroid tag_station Wreck",
+			"risk": "risk_medium",
 			"oneIn": 500,
 			"target" : "Asteroid",
 			"generator" : "Standard",
-			"tags" : "Neutral Asteroid Station Debris $1:20[Shipwreck,Ship] $1:50[Graveyard,Conflict,Buy] $1:100[Battle]"
+			"tags" : "tag_neutral tag_asteroid tag_station tag_debris $1:20[tag_shipwreck,tag_ship] $1:50[tag_graveyard,tag_conflict,tag_buy] $1:100[tag_battle]"
 		},
 		{
-			"name": "Asteroid Station Construction",
-			"description": "The computer is detecting a high mass object in orbit. High resolution scans have detected a fine cloud of particulate debris and high metallic content. The computer is prepared to predict that this is an asteroid with an active station construction site on, in, or around it. The computer advises caution as asteroids are often used for stations by agents seeking to avoid government interference, and while this station is sure to have services, the computer cannot guarantee the friendliness of the stations habitants.",
-			"category": "Asteroid Station Construction",
-			"risk": "Low",
+			"name": "signals_asteroid_station_construction",
+			"description": "signals_asteroid_station_construction_desc",
+			"category": "tag_asteroid tag_station Construction",
+			"risk": "risk_low",
 			"oneIn": 250,
 			"target" : "Asteroid",
 			"generator" : "Standard",
-			"tags" : "Neutral Asteroid Station Debris $1:50[Defended,Shipwreck,Ship] $1:100[Graveyard,Conflict,Buy,Sell] $1:200[Battle] $1:1000[Repair]"
+			"tags" : "tag_neutral tag_asteroid tag_station tag_debris $1:50[tag_defended,tag_shipwreck,tag_ship] $1:100[tag_graveyard,tag_conflict,tag_buy,tag_sell] $1:200[tag_battle] $1:1000[tag_repair]"
 		}
 	]
 }

@@ -1,0 +1,77 @@
+{
+	"literals":
+	[
+		{
+			"key": "distance",
+			"value": "Distance"
+		},
+		{
+			"key": "unreachable",
+			"value": "Unreachable"
+		},
+		{
+			"key": "rarity",
+			"value": "Rarity"
+		},
+		{
+			"key": "rarity_abundant",
+			"value": "Abundant"
+		},
+		{
+			"key": "rarity_common",
+			"value": "Common"
+		},
+		{
+			"key": "rarity_uncommon",
+			"value": "Uncommon"
+		},
+		{
+			"key": "rarity_rare",
+			"value": "Rare"
+		},
+		{
+			"key": "rarity_legendary",
+			"value": "Legendary"
+		},
+		{
+			"key": "rarity_epic",
+			"value": "Epic"
+		},
+		{
+			"key": "rarity_unique",
+			"value": "Unique"
+		},
+		{
+			"key": "risk",
+			"value": "Risk"
+		},
+		{
+			"key": "risk_none",
+			"value": "No Risk"
+		},
+		{
+			"key": "risk_low",
+			"value": "Low Risk"
+		},
+		{
+			"key": "risk_medium",
+			"value": "Medium Risk"
+		},
+		{
+			"key": "risk_high",
+			"value": "High Risk"
+		},
+		{
+			"key": "risk_extreme",
+			"value": "Extreme Risk"
+		},
+		{
+			"key": "risk_terminal",
+			"value": "Fatal Risk"
+		},
+		{
+			"key": "risk_unknown",
+			"value": "Unknown Risk"
+		}
+	]
+}

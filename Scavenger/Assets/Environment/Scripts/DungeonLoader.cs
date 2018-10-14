@@ -53,7 +53,7 @@ public class DungeonLoader : MonoBehaviour
                     string[] split = StringHelper.TagParseAll(type.tags);
                     foreach(string tag in split)
                     {
-                        if (!tags.Contains(tag))
+                        if (!tags.Contains(tag) && tag[0] != '$')
                             tags.Add(tag);
                     }
                 }

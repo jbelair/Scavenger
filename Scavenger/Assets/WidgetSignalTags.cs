@@ -16,7 +16,7 @@ public class WidgetSignalTags : MonoBehaviour
 
         List<string> split = new List<string>
         {
-            "Rarity " + StringHelper.RarityIntToString(type.oneIn)
+            StringHelper.RarityIntToString(type.oneIn)
         };
         split.AddRange(type.tags.Split(' '));
 

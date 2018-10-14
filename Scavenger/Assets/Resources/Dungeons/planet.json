@@ -2,54 +2,54 @@
 	"signals" : 
 	[
 		{
-			"name": "Orbiting Debris",
-			"description": "The computer is detecting a low mass object in orbit of the planet. High resolution scans have identified a debris field. The high density of the debris field makes it difficult to detect any other presences in proximity to the debris, but scanners are detecting nothing in the surrounding space. The computer is prepared to predict that this debris field is most likely unoccupied but could have been made to look intentionally so.",
-			"category": "Debris",
-			"risk": "Low",
+			"name": "signals_planet_orbitingdebris",
+			"description": "signals_planet_orbitingdebris_desc",
+			"category": "tag_debris",
+			"risk": "risk_low",
 			"oneIn": 10,
 			"target": "Planet",
 			"generator": "Standard",
-			"tags": "Neutral Debris $1:2[Ship] $1:5[Shipwreck,Ships] $1:20[Conflict] $1:50[Graveyard,Battle]"
+			"tags": "tag_neutral tag_debris $1:2[tag_ship] $1:5[tag_shipwreck,tag_ships] $1:20[tag_conflict] $1:50[tag_graveyard,tag_battle]"
 		},
 		{
-			"name": "Minor Collision Event",
-			"description" :"",
-			"category": "Collision",
-			"risk": "Low",
+			"name": "signals_planet_collisionevent_minor",
+			"description" :"signals_planet_collisionevent_minor_desc",
+			"category": "tag_collision",
+			"risk": "risk_low",
 			"oneIn": 100,
 			"target": "Planet",
 			"generator": "Standard",
-			"tags": "Neutral Debris Asteroids Collision $1:5[Shipwreck,Ship] $1:10[Ships,Conflict] $1:20[Graveyard,Battle]"
+			"tags": "tag_neutral tag_debris tag_asteroids tag_collision $1:5[tag_shipwreck,tag_ship] $1:10[tag_ships,tag_conflict] $1:20[tag_graveyard,tag_battle]"
 		},
 		{
-			"name": "Major Collision Event",
-			"description" :"",
-			"category": "Collision",
-			"risk": "Medium",
+			"name": "signals_planet_collisionevent_major",
+			"description" :"signals_planet_collisionevent_major_desc",
+			"category": "tag_collision",
+			"risk": "risk_medium",
 			"oneIn": 1000,
 			"target": "Planet",
 			"generator": "Standard",
-			"tags": "Neutral Debris Asteroids Collision $1:2[Shipwreck,Ship] $1:5[Ships,Conflict] $1:10[Graveyard,Battle]"
+			"tags": "tag_neutral tag_debris tag_asteroids tag_collision $1:2[tag_shipwreck,tag_ship] $1:5[tag_ships,tag_conflict] $1:10[tag_graveyard,tag_battle]"
 		},
 		{
-			"name": "Catastrophic Collision Event",
-			"description" :"",
-			"category": "Collision",
-			"risk": "High",
+			"name": "signals_planet_collisionevent_catastrophic",
+			"description" :"signals_planet_collisionevent_catastrophic_desc",
+			"category": "tag_collision",
+			"risk": "risk_high",
 			"oneIn": 10000,
 			"target": "Planet",
 			"generator": "Standard",
-			"tags": "Neutral Debris Asteroids Collision $1:2[Shipwreck,Ship] $1:5[Ships,Conflict] $1:10[Graveyard,Battle]"
+			"tags": "tag_neutral tag_debris tag_asteroids tag_collision $1:2[tag_shipwreck,tag_ship] $1:5[tag_ships,tag_conflict] $1:10[tag_graveyard,tag_battle]"
 		},
 		{
-			"name": "Terraforming Station",
-			"description": "The computer is detecting a high mass object in orbit of the planet. High resolution scans have identified an extensive array of docking bays, and a space elevator, with active cable shuttles in transit to and from the surface of the planet. As well scans of surrounding space have discovered at least 1 slush asteroid with thrusters on a collision course with the atmosphere. The frequent shuttles traveling to and from the station have a variety of chemical signatures in keeping with a terraforming project. The computer suggests visiting the station as it is almost certain to have some services of use.",
-			"category": "Terraforming Station",
-			"risk": "None",
+			"name": "signals_planet_station_terraforming",
+			"description": "signals_planet_station_terraforming_desc",
+			"category": "tag_station_terraforming",
+			"risk": "risk_none",
 			"oneIn": 10000,
 			"target": "Planet",
 			"generator": "Standard",
-			"tags": "Allied Station Repair Buy Ships $1:2[Sell,Defended]"
+			"tags": "tag_allied tag_station tag_repair tag_buy tag_ships $1:2[tag_sell,tag_defended]"
 		}
 	]
 }

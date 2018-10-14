@@ -87,6 +87,24 @@ public class UIManager : MonoBehaviour
         return widget;
     }
 
+    public void AddScreen(string screen)
+    {
+        foreach (UIScreen scrn in screens)
+        {
+            if (scrn.name == screen)
+                scrn.gameObject.SetActive(true);
+        }
+    }
+
+    public void RemoveScreen(string screen)
+    {
+        foreach (UIScreen scrn in screens)
+        {
+            if (scrn.name == screen)
+                scrn.gameObject.SetActive(false);
+        }
+    }
+
     public void SwitchScreen(string screen)
     {
         foreach (UIScreen scrn in screens)

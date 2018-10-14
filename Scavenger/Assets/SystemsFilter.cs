@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class SystemsFilter : MonoBehaviour
 {
-    public enum Filter { None, DistanceAsRarity, DistanceAsRisk, RarityAsRarity, RarityAsRisk, RiskAsRarity, RiskAsRisk };
+    public static List<string> Filters = new List<string>();
 
     public static SystemsFilter active;
-    public static Filter lastFilter = Filter.None; // TODO this needs to load from last game state
+    public static string lastFilter = ""; // TODO this needs to load from last game state
     public static string lastFilterTags = "";
 
-    public Filter filter = Filter.DistanceAsRarity;
+    public string filter = "";
     public string filterTags = "";
 
     // Use this for initialization
     void Start()
     {
-        if (lastFilter != Filter.None)
+        if (PlayerPrefs.HasKey("filter"))
+            filter = PlayerPrefs.GetString("filter", "Distance");
+
+        if (PlayerPrefs.HasKey("filter tags"))
+            filterTags = PlayerPrefs.GetString("filter tags", "");
+
+        if (lastFilter != "")
             filter = lastFilter;
 
         if (lastFilterTags != "")
@@ -27,27 +33,7 @@ public class SystemsFilter : MonoBehaviour
 
     public void Set(string set)
     {
-        switch(set)
-        {
-            case "Distance Rarity":
-                filter = Filter.DistanceAsRarity;
-                break;
-            case "Distance Risk":
-                filter = Filter.DistanceAsRisk;
-                break;
-            case "Rarity":
-                filter = Filter.RarityAsRarity;
-                break;
-            case "Rarity Risk":
-                filter = Filter.RarityAsRisk;
-                break;
-            case "Risk Rarity":
-                filter = Filter.RiskAsRarity;
-                break;
-            case "Risk":
-                filter = Filter.RiskAsRisk;
-                break;
-        }
+        filter = set;
     }
 
     public void SetTags(string set)
@@ -59,5 +45,9 @@ public class SystemsFilter : MonoBehaviour
     private void OnDestroy()
     {
         lastFilter = filter;
+        lastFilterTags = filterTags;
+
+        PlayerPrefs.SetString("filter", filter);
+        PlayerPrefs.SetString("filter tags", filterTags);
     }
 }

@@ -31,7 +31,7 @@ public class WidgetJumpFuelBar : MonoBehaviour
         barConsumptionMask.fillAmount = (Environment.jumpFuelMax - Environment.jumpFuel + Environment.jumpDistance) / Environment.jumpFuelMax;
         barEmptyMask.fillAmount = (Environment.jumpFuelMax - Environment.jumpFuel) / Environment.jumpFuelMax;
 
-        barConsumptionText.color = barConsumption.color = WidgetScheme.active.Scheme("Risk " + StringHelper.RiskIntToString(Mathf.RoundToInt(Environment.jumpDistance / Environment.jumpRadius * 5f))).colour;
-        barEmptyText.color = barEmpty.color = WidgetScheme.active.Scheme("Risk " + StringHelper.RiskIntToString(Mathf.RoundToInt((1f - Environment.jumpFuel / Environment.jumpFuelMax) * 5f))).colour * new Color(0.25f,0.25f,0.25f,1);
+        barConsumptionText.color = barConsumption.color = WidgetScheme.Scheme(StringHelper.RiskIntToString(Mathf.RoundToInt(Environment.jumpDistance / Environment.jumpRadius * 5f))).colour;
+        barEmptyText.color = barEmpty.color = WidgetScheme.Scheme(StringHelper.RiskIntToString(Mathf.RoundToInt((1f - Environment.jumpFuel / Environment.jumpFuelMax) * 5f))).colour * new Color(0.25f,0.25f,0.25f,1);
     }
 }

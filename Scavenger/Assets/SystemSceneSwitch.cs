@@ -27,8 +27,9 @@ public class SystemSceneSwitch : MonoBehaviour
         {
             Vector3 position = environment["System Coordinates"];
             Environment.jumpFuel = Environment.jumpFuel - Environment.jumpDistance;
-            Environment.selectedCoordinates = Environment.systemCoordinates = environment["System Coordinates"];
+            Environment.selectedCoordinates = Environment.systemCoordinates = position;
             Environment.jumpDistance = 0;
+            //SystemsGenerator.active.Regenerate();
             SceneManager.LoadScene("Game.Load", LoadSceneMode.Single);
             Environment.sceneName = "Game.System";
         }

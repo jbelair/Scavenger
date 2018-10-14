@@ -18,9 +18,12 @@ public class WidgetSystem : MonoBehaviour
     public float cycle = 1;
     public float cycleCurrent = 1;
     public WidgetSystemTags tags;
-    public SystemsFilter.Filter lastFilter = SystemsFilter.Filter.None;
+    public string lastFilter = "";
+    public bool lastActive = false;
+    public float radius = 256f;
 
     public float distance;
+    public float distanceFromCursor;
 
     public bool initialised = false;
 
@@ -28,6 +31,7 @@ public class WidgetSystem : MonoBehaviour
     public float pollingUpdate;
 
     public List<DungeonType> activeDungeons = new List<DungeonType>();
+    public Color colour;
 
     public void Set(Statistics environment)
     {
@@ -66,12 +70,33 @@ public class WidgetSystem : MonoBehaviour
         //    transform.localScale = Vector3.one;
     }
 
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
+
+    void Die()
+    {
+        polling = false;
+        StopAllCoroutines();
+    }
+
     IEnumerator Poll()
     {
         while (polling)
         {
-            Vector3 position = environment["System Coordinates"];
+            if (!environment.gameObject)// || SystemsGenerator.active.systems.ContainsKey(environment["System Coordinates"]))
+            {
+                polling = false;
+                break;
+            }
 
+            Vector3 position = environment["System Coordinates"];
+            Vector3 pos;
+            if (SystemsGenerator.active.systems.ContainsKey(position))
+                pos = Camera.main.WorldToScreenPoint(SystemsGenerator.active.systems[position].transform.position);
+
+            distanceFromCursor = 1;// - Mathf.Clamp01(Vector2.Distance(pos, Input.mousePosition) / radius);
             distance = Mathf.Round((position - Environment.systemCoordinates).magnitude * 10f) / 10f;
 
             if (!initialised)
@@ -155,81 +180,40 @@ public class WidgetSystem : MonoBehaviour
 
                 tags.Set(activeDungeons);
 
-                label.text = StringHelper.CoordinateName(position);
-                distanceLabel.text = "Distance " + distance;
-                rarityLabel.text = "Rarity " + StringHelper.RarityIntToString(rarity);
-                riskLabel.text = "Risk " + StringHelper.RiskIntToString(Mathf.FloorToInt(risk));
+                label.text = StringHelper.CoordinateName(environment["System Coordinates"]);
+                if (distance <= Environment.jumpRadius)
+                {
+                    distanceLabel.text = Literals.literals[Environment.language]["distance"] + " " + distance;
+                    distanceLabel.color = WidgetScheme.Scheme("Distance " + StringHelper.RiskIntToString(Mathf.FloorToInt((distance / Environment.jumpRadius) * 5)).Replace("risk_", "")).colour;
+                }
+                else
+                {
+                    distanceLabel.text = Literals.literals[Environment.language]["unreachable"];
+                    distanceLabel.color = WidgetScheme.Scheme("Disabled").colour;//WidgetScheme.Scheme("Distance " + StringHelper.RiskIntToString(Mathf.FloorToInt((distance / Environment.jumpRadius) * 5)).Replace("risk_", "")).colour;
+                }
+                rarityLabel.text = Literals.literals[Environment.language][StringHelper.RarityIntToString(rarity)];
+                rarityLabel.color = WidgetScheme.Scheme(StringHelper.RarityIntToString(rarity)).colour;
+                riskLabel.text = Literals.literals[Environment.language][StringHelper.RiskIntToString(Mathf.FloorToInt(risk))];
+                riskLabel.color = WidgetScheme.Scheme(StringHelper.RiskIntToString(Mathf.FloorToInt(risk))).colour;
 
                 initialised = true;
-            }
-
-            float jumpRange = Mathf.Min(Environment.jumpFuel, Environment.jumpRadius);
-
-            if (lastFilter != SystemsFilter.active.filter)
-            {
-                WidgetScheme.SchemeContainer scheme = WidgetScheme.active.Scheme("Default");
-                if (SystemsFilter.active.filter == SystemsFilter.Filter.DistanceAsRarity || SystemsFilter.active.filter == SystemsFilter.Filter.DistanceAsRisk)
-                {
-                    int value = 0;
-
-                    if (SystemsFilter.active.filter == SystemsFilter.Filter.DistanceAsRarity)
-                        value = Mathf.FloorToInt(Mathf.Pow(10, (position - Environment.systemCoordinates).magnitude / jumpRange * 6f + 0.5f));
-                    else
-                        value = Mathf.FloorToInt((position - Environment.systemCoordinates).magnitude / jumpRange * 5f + 0.5f);
-
-                    if (distance <= jumpRange)
-                    {
-                        if (SystemsFilter.active.filter == SystemsFilter.Filter.DistanceAsRarity)
-                            scheme = WidgetScheme.active.Scheme("Rarity " + StringHelper.RarityIntToString(value));
-                        else
-                            scheme = WidgetScheme.active.Scheme("Risk " + StringHelper.RiskIntToString(value));
-                    }
-                    else
-                    {
-                        if (SystemsFilter.active.filter == SystemsFilter.Filter.DistanceAsRarity)
-                            scheme = WidgetScheme.active.Scheme("Rarity Abundant");
-                        else
-                            scheme = WidgetScheme.active.Scheme("Risk None");
-                    }
-                }
-                else if (SystemsFilter.active.filter == SystemsFilter.Filter.RarityAsRarity || SystemsFilter.active.filter == SystemsFilter.Filter.RarityAsRisk)
-                {
-                    int rarity = environment["Average Rarity"];
-
-                    if (SystemsFilter.active.filter == SystemsFilter.Filter.RarityAsRarity)
-                        scheme = WidgetScheme.active.Scheme("Rarity " + StringHelper.RarityIntToString(rarity));
-                    else
-                        scheme = WidgetScheme.active.Scheme("Risk " + StringHelper.RiskIntToString(Mathf.FloorToInt(Mathf.Log10(rarity))));
-                }
-                else if (SystemsFilter.active.filter == SystemsFilter.Filter.RiskAsRarity || SystemsFilter.active.filter == SystemsFilter.Filter.RiskAsRisk)
-                {
-                    float risk = environment["Average Risk"];
-
-                    if (SystemsFilter.active.filter == SystemsFilter.Filter.RiskAsRarity)
-                        scheme = WidgetScheme.active.Scheme("Rarity " + StringHelper.RarityIntToString(Mathf.FloorToInt(Mathf.Pow(10, risk))));
-                    else
-                        scheme = WidgetScheme.active.Scheme("Risk " + StringHelper.RiskIntToString(Mathf.FloorToInt(risk)));
-                }
-
-                foreach (Image image in images)
-                {
-                    image.color = scheme.colour;
-                }
-
-                lastFilter = SystemsFilter.active.filter;
             }
 
             bool active = false;
             if (SystemsFilter.active.filterTags != "")
             {
-                string[] tagSplit = SystemsFilter.active.filterTags.Split(' ');
+                string[] tagSplit = SystemsFilter.active.filterTags.Split(new string[] { ", " }, System.StringSplitOptions.RemoveEmptyEntries);
                 foreach (DungeonType dungeon in activeDungeons)
                 {
+                    if (dungeon.name == null || dungeon.description == null || dungeon.category == null || dungeon.risk == null || dungeon.target == null || dungeon.generator == null || dungeon.tags == null)
+                        continue;
+
                     int contains = 0;
                     foreach (string tag in tagSplit)
                     {
-                        if (dungeon.tags.Contains(tag))
-                            contains++;
+                        if (Literals.iLiterals[Environment.language].ContainsKey(tag))
+                            if (dungeon.tags.Contains(Literals.iLiterals[Environment.language][tag]))
+                                contains++;
                     }
 
                     if (contains == tagSplit.Length)
@@ -241,36 +225,104 @@ public class WidgetSystem : MonoBehaviour
                 active = true;
             }
 
-            if (tags.tags.Count > 0)
+            float jumpRange = Mathf.Min(Environment.jumpFuel, Environment.jumpRadius);
+
+            if (lastFilter != SystemsFilter.active.filter || lastActive != active)
             {
-                if (cycleCurrent >= cycle)
+                WidgetScheme.SchemeContainer scheme = WidgetScheme.Scheme("Default");
+                if (SystemsFilter.active.filter.Contains("Distance"))
                 {
-                    cycleCurrent -= cycle;
-                    cycleIndex = (cycleIndex + 1) % tags.tags.Count;
-                    
-                    WidgetScheme.SchemeContainer scheme = WidgetScheme.active.Scheme(tags.tags[cycleIndex]);
-                    tag.sprite = scheme.symbol;
-                    if (active)
-                        tag.color = scheme.colour;
+                    int value = 0;
+
+                    if (SystemsFilter.active.filter.Contains("Rarity"))
+                        value = Mathf.FloorToInt(Mathf.Pow(10, (position - Environment.systemCoordinates).magnitude / jumpRange * 6f + 0.5f));
                     else
-                        tag.color = WidgetScheme.active.Scheme("Disabled").colour;
+                        value = Mathf.FloorToInt((position - Environment.systemCoordinates).magnitude / jumpRange * 5f + 0.5f);
+
+                    if (distance <= jumpRange)
+                    {
+                        if (SystemsFilter.active.filter.Contains("Rarity"))
+                            scheme = WidgetScheme.Scheme(StringHelper.RarityIntToString(value));
+                        else
+                            scheme = WidgetScheme.Scheme(StringHelper.RiskIntToString(value));
+                    }
+                    else
+                    {
+                        if (SystemsFilter.active.filter.Contains("Rarity"))
+                            scheme = WidgetScheme.Scheme("rarity_abundant");
+                        else
+                            scheme = WidgetScheme.Scheme("risk_none");
+                    }
                 }
-                cycleCurrent += Time.deltaTime;
-            }
-            else
-            {
-                WidgetScheme.SchemeContainer scheme = WidgetScheme.active.Scheme("Transparent");
-                tag.sprite = scheme.symbol;
-                tag.color = scheme.colour;
+                else if (SystemsFilter.active.filter.Contains("Rarity"))
+                {
+                    int rarity = environment["Average Rarity"];
+
+                    if (!SystemsFilter.active.filter.Contains("Risk"))
+                        scheme = WidgetScheme.Scheme(StringHelper.RarityIntToString(rarity));
+                    else
+                        scheme = WidgetScheme.Scheme(StringHelper.RiskIntToString(Mathf.FloorToInt(Mathf.Log10(rarity))));
+                }
+                else if (SystemsFilter.active.filter.Contains("Risk"))
+                {
+                    float risk = environment["Average Risk"];
+
+                    if (SystemsFilter.active.filter.Contains("Rarity"))
+                        scheme = WidgetScheme.Scheme(StringHelper.RarityIntToString(Mathf.FloorToInt(Mathf.Pow(10, risk))));
+                    else
+                        scheme = WidgetScheme.Scheme(StringHelper.RiskIntToString(Mathf.FloorToInt(risk)));
+                }
+
+                foreach (Image image in images)
+                {
+                    image.color = scheme.colour;
+                    if (!active)
+                        image.color = (image.color + WidgetScheme.Scheme("Disabled").colour) / 2;
+                }
+
+                lastFilter = SystemsFilter.active.filter;
             }
 
-            foreach (Image image in images)
+            if (tag)
             {
-                if (active)
-                    image.color = new Color(image.color.r, image.color.g, image.color.b, 1);
+                if (tags.tags.Count > 0)
+                {
+                    if (cycleCurrent >= cycle)
+                    {
+                        cycleCurrent -= cycle;
+                        cycleIndex = (cycleIndex + 1) % tags.tags.Count;
+
+                        WidgetScheme.SchemeContainer tagScheme = WidgetScheme.Scheme(tags.tags[cycleIndex]);
+                        tag.sprite = tagScheme.symbol;
+                        if (active)
+                            tag.color = tagScheme.colour;
+                        else
+                            tag.color = (tagScheme.colour + WidgetScheme.Scheme("Disabled").colour) / 2;
+                    }
+                    cycleCurrent += Time.deltaTime;
+                }
                 else
-                    image.color = WidgetScheme.active.Scheme("Disabled").colour;
+                {
+                    WidgetScheme.SchemeContainer tagScheme = WidgetScheme.Scheme("Transparent");
+                    tag.sprite = tagScheme.symbol;
+                    tag.color = tagScheme.colour;
+                }
             }
+
+            //foreach (Image image in images)
+            //{
+            //    if (active)
+            //        image.color = new Color(image.color.r, image.color.g, image.color.b, distanceFromCursor);
+            //    else
+            //    {
+            //        image.color = WidgetScheme.Scheme("Disabled").colour;
+            //        image.color = new Color(image.color.r, image.color.g, image.color.b, distanceFromCursor);
+            //    }
+
+            //    colour = image.color;
+            //}
+
+            lastActive = active;
 
             yield return new WaitForSeconds(pollingUpdate);
         }

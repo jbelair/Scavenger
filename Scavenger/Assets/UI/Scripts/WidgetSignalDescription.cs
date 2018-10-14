@@ -17,7 +17,7 @@ public class WidgetSignalDescription : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        WidgetScheme.SchemeContainer rarityScheme = WidgetScheme.active.Scheme("Rarity " + StringHelper.RarityIntToString(type.oneIn));
+        WidgetScheme.SchemeContainer rarityScheme = WidgetScheme.Scheme("Rarity " + StringHelper.RarityIntToString(type.oneIn));
 
         //if (background)
         //{
@@ -26,19 +26,19 @@ public class WidgetSignalDescription : MonoBehaviour
 
         if (textName)
         {
-            textName.text = type.name;
+            textName.text = Literals.literals[Environment.language][type.name];
             //textName.color = rarityScheme.colour;
         }
 
         if (textDescription)
         {
-            textDescription.text = "Risk: " + type.risk.ToString() + "\n" + "Rarity: " + StringHelper.RarityIntToString(type.oneIn) + "\n" + type.description;
+            textDescription.text = Literals.literals[Environment.language][type.risk] + "\n" + Literals.literals[Environment.language][StringHelper.RarityIntToString(type.oneIn)] + "\n" + Literals.literals[Environment.language][type.description];
             //textDescription.color = rarityScheme.colour;
         }
 
         if (engage)
         {
-            WidgetScheme.SchemeContainer riskScheme = WidgetScheme.active.Scheme("Risk " + type.risk.ToString());
+            WidgetScheme.SchemeContainer riskScheme = WidgetScheme.Scheme(type.risk);
             //engage.color = riskScheme.colour;// * Color.gray;
         }
 

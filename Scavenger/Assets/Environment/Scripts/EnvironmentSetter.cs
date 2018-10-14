@@ -15,7 +15,17 @@ public class EnvironmentSetter : MonoBehaviour
     public bool generateDungeons = true;
     public bool populateDungeons = true;
 
-    public void Awake()
+    void Awake()
+    {
+        Set();
+    }
+
+    void Start()
+    {
+        Set();
+    }
+
+    public void Set()
     {
         Environment.generateStars = generateStars;
         Environment.populateStars = populateStars;

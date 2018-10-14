@@ -2,254 +2,254 @@
 	"signals":
 	[
 		{
-			"name": "Station",
-			"description" : "The computer is detecting a high mass object in orbit. Signal scans have detected open communications broadcasts, as well as a carrier signal that matches known station configurations. The computer can say with a high degree of probability that this high mass object is peaceful station. Further decoding of modulations to the carrier signal suggest this station is complete, with basic trading services, a hangar, and cloning bays. The computer suggests visiting this station to make a backup of the crew and take advantage of the services on offer.",
-			"category": "Station",
-			"risk" : "None",
+			"name": "signals_any_station",
+			"description" : "signals_any_station_desc",
+			"category": "tag_station",
+			"risk" : "risk_none",
 			"oneIn" : 500,
 			"target" : "Any",
 			"generator" : "Standard",
-			"tags" : "Neutral Station Respawn Repair $1:20[Buy,Sell,Defended,Ship] $1:50[Ships,Debris,Asteroid] $1:100[Asteroids,Conflict] $1:500[Shipwreck,Battle] $1:1000[Graveyard]"
+			"tags" : "tag_neutral tag_station tag_respawn tag_repair $1:20[tag_buy,tag_sell,tag_defended,tag_ship] $1:50[tag_ships,tag_debris,tag_asteroid] $1:100[tag_asteroids,tag_conflict] $1:500[tag_shipwreck,tag_battle] $1:1000[tag_graveyard]"
 		},
 		{
-			"name": "Station Wreck",
-			"description": "The computer is detecting a high mass object in orbit. High resolution scans however reveal this object to be a debris cloud. After searching the database for known satellites, the computer predicts that this is the debris field of a station, though the computer is unable to determine what happened to have caused its destruction. Without a carrier signal the computer can further speculate that the station is most likely completely inoperable. The computer warns that the debris field is obscuring further scanning and cannot guarantee the safety of the debris.",
-			"category": "Station Wreck",
-			"risk": "Medium",
+			"name": "signals_any_station_wreck",
+			"description": "signals_any_station_wreck_desc",
+			"category": "tag_station_wreck",
+			"risk": "risk_medium",
 			"oneIn": 1000,
 			"target" : "Any",
 			"generator" : "Standard",
-			"tags" : "Neutral Station Debris $1:20[Ship,Asteroid] $1:50[Ships,Asteroids,Conflict] $1:100[Shipwreck,Battle] $1:500[Graveyard,Battle]"
+			"tags" : "tag_neutral tag_station tag_debris $1:20[tag_ship,tag_asteroid] $1:50[tag_ships,tag_asteroids,tag_conflict] $1:100[tag_shipwreck,tag_battle] $1:500[tag_graveyard,tag_battle]"
 		},
 		{
-			"name": "Station Construction",
-			"description": "The computer is detecting a high mass object in orbit. Signal scans have detected open communications broadcasts, as well as a carrier signal that matches known station configurations. High resolution scans have detected a cloud of particulate debris, and the computer is prepared to predict that this is a station under construction. Decoding of modulations to the carrier signal suggest this station is at least partially operational. The computer suggests visiting this station to take advantage of its services.",
-			"category": "Station Construction", 
-			"risk": "Low",
+			"name": "signals_any_station_construction",
+			"description": "signals_any_station_construction_desc",
+			"category": "tag_station_construction", 
+			"risk": "risk_low",
 			"oneIn": 1000,
 			"target" : "Any",
 			"generator" : "Standard",
-			"tags" : "Neutral Station Ship $1:20[Buy,Sell,Defended,Ships] $1:50[Debris] $1:100[Asteroid,Conflict] $1:500[Respawn,Repair,Asteroids,Battle] $1:1000[Shipwreck] $1:5000[Graveyard]"
+			"tags" : "tag_neutral tag_station tag_ship $1:20[tag_buy,tag_sell,tag_defended,tag_ships] $1:50[tag_debris] $1:100[tag_asteroid,tag_conflict] $1:500[tag_respawn,tag_repair,tag_asteroids,tag_battle] $1:1000[tag_shipwreck] $1:5000[tag_graveyard]"
 		},
 		{
-			"name": "Trading Station",
-			"description": "The computer is detecting a high mass object in orbit. Signal scans have detected open communications broadcasts, as well as a carrier signal that matches known station configurations. The computer is also detecting the traces of frequent interstellar travel around the object and can predict with a high degree of comfort that this station is most likely a trading station. Decoding of modulations to the carrier signal verify this fact. The computer suggests visiting this station to take advantage of its services.",
-			"category": "Station",
-			"risk": "Low",
+			"name": "signals_any_station_trading",
+			"description": "signals_any_station_trading_desc",
+			"category": "tag_station",
+			"risk": "risk_low",
 			"oneIn": 500,
 			"target" : "Any",
 			"generator" : "Standard",
-			"tags" : "Allied Station Buy Defended $1:20[Sell,Ship] $1:50[Ships,Debris] $1:100[Asteroid,Conflict] $1:500[Asteroids,Shipwreck,Battle] $1:1000[Graveyard]"
+			"tags" : "tag_allied tag_station tag_buy tag_defended $1:20[tag_sell,tag_ship] $1:50[tag_ships,tag_debris] $1:100[tag_asteroid,tag_conflict] $1:500[tag_asteroids,tag_shipwreck,tag_battle] $1:1000[tag_graveyard]"
 		},
 		{
-			"name": "Trading Station Wreck",
-			"description": "The computer is detecting a high mass object in orbit. High resolution scans however reveal this object to be a debris cloud. After searching the database for known satellites, the computer predicts that this is the debris of a trading station, though the computer is unable to determine what happened to have caused its destruction. Without a carrier signal the computer can further speculate that the station is most likely completely inoperable. The computer warns that the debris field is obscuring further scanning and cannot guarantee the safety of the debris.",
-			"category": "Station Wreck",
-			"risk": "Medium",
+			"name": "signals_any_station_trading_wreck",
+			"description": "signals_any_station_trading_wreck_desc",
+			"category": "tag_station_wreck",
+			"risk": "risk_medium",
 			"oneIn": 500,
 			"target" : "Any",
 			"generator" : "Standard",
-			"tags" : "Neutral Station Debris $1:20[Ship,Asteroid] $1:50[Ships,Asteroids,Conflict] $1:100[Shipwreck] $1:500[Graveyard,Battle]"
+			"tags" : "tag_neutral tag_station tag_debris $1:20[tag_ship,tag_asteroid] $1:50[tag_ships,tag_asteroids,tag_conflict] $1:100[tag_shipwreck] $1:500[tag_graveyard,tag_battle]"
 		},
 		{
-			"name": "Trading Station Construction",
-			"description": "The computer is detecting a high mass object in orbit. Signal scans have detected open communications broadcasts, as well as a carrier signal that matches known station configurations. High resolution scans have detected a cloud of particulate debris, and the computer is prepared to predict that this is a station under construction. Decoding modulations to the carrier signal suggest this station is at least partially operational and specialized in trading. The computer suggests visiting this station to take advantage of its services.",
-			"category": "Station Construction",
-			"risk": "Low",
+			"name": "signals_any_station_trading_construction",
+			"description": "signals_any_station_trading_construction_desc",
+			"category": "tag_station_construction",
+			"risk": "risk_low",
 			"oneIn": 500,
 			"target" : "Any",
 			"generator" : "Standard",
-			"tags" : "Neutral Station Ship $1:20[Repair,Buy,Sell,Defended,Ships] $1:50[Debris] $1:100[Asteroid,Conflict] $1:500[Asteroids,Battle] $1:1000[Shipwreck] $1:5000[Graveyard]"
+			"tags" : "tag_neutral tag_station tag_ship $1:20[tag_repair,tag_buy,tag_sell,tag_defended,tag_ships] $1:50[tag_debris] $1:100[tag_asteroid,tag_conflict] $1:500[tag_asteroids,tag_battle] $1:1000[tag_shipwreck] $1:5000[tag_graveyard]"
 		},
 		{
-			"name": "Military Station",
-			"description": "The computer is detecting a high mass object in orbit. Signal scans have detected encoded communications broadcasts and no carrier signal. High resolution scans show the object to be producing large amounts of energy, though attempts at shielding it are making it difficult for the computer to determine exactly how much. The computer is prepared to predict that this is a military station, but the lack of a carrier signal makes it difficult for the computer to determine the hostility of the station.",
-			"category": "Station",
-			"risk": "Medium",
+			"name": "signals_any_station_military",
+			"description": "signals_any_station_military_desc",
+			"category": "tag_station",
+			"risk": "risk_medium",
 			"oneIn": 1000,
 			"target" : "Any",
 			"generator" : "Standard",
-			"tags" : "Neutral Station Defended $1:20[Debris,Ship] $1:50[Ships,Asteroid,Shipwreck,Conflict] $1:100[Graveyard,Battle]"
+			"tags" : "tag_neutral tag_station tag_defended $1:20[tag_debris,tag_ship] $1:50[tag_ships,tag_asteroid,tag_shipwreck,tag_conflict] $1:100[tag_graveyard,tag_battle]"
 		},
 		{
-			"name": "Military Station Wreck",
-			"description": "The computer is detecting a high mass object in orbit. High resolution scans however reveal this object to be a debris cloud. Given the database for known satellites has no information on a satellite at the coordinates of this object the computer is prepared to predict this debris cloud is the remains of a clandestine military station. The computer warns that the debris field is obscuring further scanning and cannot guarantee the safety of the debris.",
-			"category": "Station Wreck",
-			"risk": "Medium",
+			"name": "signals_any_station_military_wreck",
+			"description": "signals_any_station_military_wreck_desc",
+			"category": "tag_station_wreck",
+			"risk": "risk_medium",
 			"oneIn": 500,
 			"target" : "Any",
 			"generator" : "Standard",
-			"tags" : "Neutral Station Debris $1:20[Defended,Ship,Asteroid,Conflict] $1:50[Ships,Asteroids,Battle] $1:100[Shipwreck] $1:500[Graveyard,Battle]"
+			"tags" : "tag_neutral tag_station tag_debris $1:20[tag_defended,tag_ship,tag_asteroid,tag_conflict] $1:50[tag_ships,tag_asteroids,tag_battle] $1:100[tag_shipwreck] $1:500[tag_graveyard,tag_battle]"
 		},
 		{
-			"name": "Military Station Construction",
-			"description": "The computer is detecting a high mass object in orbit. High resolution scans have detected a cloud of particulate debris, and modelling suggests a high concentration of metals most often found in armouring. The computer is prepared to predict with a high degree of accuracy that this is a military station construction site, though given the lack of a carrier signal or any modulations to it, the computer is unable to identify the alignment of the station.",
-			"category": "Station Construction",
-			"risk": "Medium",
+			"name": "signals_any_station_military_construction",
+			"description": "signals_any_station_military_construction_desc",
+			"category": "tag_station_construction",
+			"risk": "risk_medium",
 			"oneIn": 500,
 			"target" : "Any",
 			"generator" : "Standard",
-			"tags" : "Neutral Station Ship $1:20[Repair,Defended,Ships] $1:50[Debris,Conflict] $1:100[Asteroid,Battle] $1:500[Asteroids] $1:1000[Shipwreck] $1:5000[Graveyard]"
+			"tags" : "tag_neutral tag_station tag_ship $1:20[tag_repair,tag_defended,tag_ships] $1:50[tag_debris,tag_conflict] $1:100[tag_asteroid,tag_battle] $1:500[tag_asteroids] $1:1000[tag_shipwreck] $1:5000[tag_graveyard]"
 		},
 		{
-			"name": "Trader",
-			"description": "The computer is detecting an object in orbit. Signal scans have detected open communications broadcasts, as well as an active trade carrier signal. Decoding of modulations to the carrier signal suggest this object is an unarmed trading vessel. The computer suggests visiting this trading vessel to take advantage of its services.",
-			"category": "Ship",
-			"risk": "None",
+			"name": "signals_any_trader",
+			"description": "signals_any_trader_desc",
+			"category": "tag_ship",
+			"risk": "risk_none",
 			"oneIn": 50,
 			"target" : "Any",
 			"generator" : "Standard",
-			"tags" : "Allied Ship Buy $1:20[Sell,Defended] $1:50[Asteroid] $1:100[Asteroids,Shipwreck,Conflict] $1:500[Graveyard,Battle]"
+			"tags" : "tag_allied tag_ship tag_buy $1:20[tag_sell,tag_defended] $1:50[tag_asteroid] $1:100[tag_asteroids,tag_shipwreck,tag_conflict] $1:500[tag_graveyard,tag_battle]"
 		},
 		{
-			"name": "Escorted Trader",
-			"description": "The computer is detecting a series of objects in orbit. Signal scans have detected open communications broadcasts, as well as an active trade carrier signal, however encoded modulations can be detected on the carrier signal, suggesting this trade signal is also being used to coordinate clandestine activities. The computer is prepared to suggest this is an escorted trading vessel.",
-			"category": "Ships",
-			"risk": "Low",
+			"name": "signals_any_trader_escorted",
+			"description": "signals_any_trader_escorted_desc",
+			"category": "tag_ships",
+			"risk": "risk_low",
 			"oneIn": 250,
 			"target" : "Any",
 			"generator" : "Standard",
-			"tags" : "Neutral Ships Defended Buy $1:20[Sell,Debris] $1:50[Shipwreck,Asteroid] $1:100[Graveyard,Asteroids,Conflict] $1:500[Battle]"
+			"tags" : "tag_neutral tag_ships tag_defended tag_buy $1:20[tag_sell,tag_debris] $1:50[tag_shipwreck,tag_asteroid] $1:100[tag_graveyard,tag_asteroids,tag_conflict] $1:500[tag_battle]"
 		},
 		{
-			"name": "Trading Flotilla",
-			"description": "The computer is detecting a series of objects in orbit. Signal scans have detected open communications broadcasts, as well as a series of active trade carrier signals. The computer cannot detect any clandestine communications, and encoded modulations to the carrier signals. The computer predicts this is a flotilla of trading vessels and suggests visiting this trading flotilla to take advantage of their services.",
-			"category": "Ships",
-			"risk": "None",
+			"name": "signals_any_trader_flotilla",
+			"description": "signals_any_trader_flotilla_desc",
+			"category": "tag_ships",
+			"risk": "risk_none",
 			"oneIn": 500,
 			"target" : "Any",
 			"generator" : "Standard",
-			"tags" : "Allied Ships Buy Sell $1:20[Debris,Asteroid,Shipwreck] $1:50[Graveyard,Asteroids] $1:100[Conflict] $1:500[Battle]"
+			"tags" : "tag_allied tag_ships tag_buy tag_sell $1:20[tag_debris,tag_asteroid,tag_shipwreck] $1:50[tag_graveyard,tag_asteroids] $1:100[tag_conflict] $1:500[tag_battle]"
 		},
 		{
-			"name": "Trading Fleet",
-			"description": "The computer is detecting a series of objects in orbit. Signal scans have detected open communications broadcasts, as well as a series of active trade carrier signals. The computer is detecting clandestine communications, and encoded modulations to the carrier signals. The computer is prepared to predict the carrier signals are being used to coordinate escorts. The computer suggests visiting this trading fleet to take advantage of their services but advises caution.",
-			"category": "Ships",
-			"risk": "Medium",
+			"name": "signals_any_trader_fleet",
+			"description": "signals_any_trader_fleet_desc",
+			"category": "tag_ships",
+			"risk": "risk_medium",
 			"oneIn": 1000,
 			"target" : "Any",
 			"generator" : "Standard",
-			"tags" : "Neutral Ships Buy Sell Defended $1:20[Debris,Asteroid,Shipwreck] $1:50[Graveyard,Asteroids,Conflict] $1:50[Battle]"
+			"tags" : "tag_neutral tag_ships tag_buy tag_sell tag_defended $1:20[tag_debris,tag_asteroid,tag_shipwreck] $1:50[tag_graveyard,tag_asteroids,tag_conflict] $1:50[tag_battle]"
 		},
 		{
-			"name": "Shipwreck",
-			"description": "The computer is detecting an object in orbit. High resolution scans have detected a cloud of debris surrounding the object. The computer is prepared to predict that this is a shipwreck. The computer advises caution as it cannot determine the cause of the destruction of this object, and the debris field is obscuring further scanning.",
-			"category": "Shipwreck",
-			"risk": "Low",
+			"name": "signals_any_shipwreck",
+			"description": "signals_any_shipwreck_desc",
+			"category": "tag_shipwreck",
+			"risk": "risk_low",
 			"oneIn": 50,
 			"target" : "Any",
 			"generator" : "Standard",
-			"tags" : "Neutral Shipwreck Debris $1:20[Ship,Asteroid] $1:50[Ships,Asteroids,Conflict] $1:100[Battle]"
+			"tags" : "tag_neutral tag_shipwreck tag_debris $1:20[tag_ship,tag_asteroid] $1:50[tag_ships,tag_asteroids,tag_conflict] $1:100[tag_battle]"
 		},
 		{
-			"name": "Capital Shipwreck",
-			"description": "The computer is detecting a high mass object in orbit. High resolution scans have detected a cloud of debris surrounding the object, as well the object defies classical configurations for encountered stations. The computer is prepared to predict that this is a capital shipwreck. The computer advises caution as it cannot determine the cause of the destruction of this object, and given it is a capital ship whatever caused its destruction would have to be a high-risk object.",
-			"category": "Shipwreck",
-			"risk": "Medium",
+			"name": "signals_any_shipwreck_capital",
+			"description": "signals_any_shipwreck_capital_desc",
+			"category": "tag_shipwreck",
+			"risk": "risk_medium",
 			"oneIn": 1000,
 			"target" : "Any",
 			"generator" : "Standard",
-			"tags" : "Neutral Shipwreck Debris $1:20[Ship,Asteroid,Defended,Conflict] $1:50[Ships,Asteroids,Graveyard,Battle]"
+			"tags" : "tag_neutral tag_shipwreck tag_debris $1:20[tag_ship,tag_asteroid,tag_defended,tag_conflict] $1:50[tag_ships,tag_asteroids,tag_graveyard,tag_battle]"
 		},
 		{
-			"name": "Ship Graveyard",
-			"description": "The computer is detecting a series of objects in orbit. High resolution scans have detected a cloud of debris mixed around the objects. The computer is prepared to predict that this is a graveyard of ships, though it cannot detect any weapons systems, or high levels of armouring materials, and can further define this as being a graveyard of non-military ships primarily. The computer advises caution as such a rich deposit of salvageable material is bound to attract competing scavengers.",
-			"category": "Graveyard",
-			"risk": "Medium",
+			"name": "signals_any_graveyard",
+			"description": "signals_any_graveyard_desc",
+			"category": "tag_graveyard",
+			"risk": "risk_medium",
 			"oneIn": 500,
 			"target" : "Any",
 			"generator" : "Standard",
-			"tags" : "Neutral Graveyard Debris $1:20[Ship,Asteroid,Defended] $1:50[Ships,Asteroids,Conflict] $1:100[Battle]"
+			"tags" : "tag_neutral tag_graveyard tag_debris $1:20[tag_ship,tag_asteroid,tag_defended] $1:50[tag_ships,tag_asteroids,tag_conflict] $1:100[tag_battle]"
 		},
 		{
-			"name": "Battle Graveyard",
-			"description": "The computer is detecting a series of objects in orbit. High resolution scans have detected a cloud of debris mixed around the objects. The computer is prepared to predict that this is a graveyard of ships. The computer is detecting weapons systems, and high levels of armouring materials in the debris. The computer advises caution as such a rich deposit of salvageable material, especially of military origin is bound to attract hostile agents.",
-			"category": "Graveyard",
-			"risk": "High",
+			"name": "signals_any_graveyard_battle",
+			"description": "signals_any_graveyard_battle_desc",
+			"category": "tag_graveyard",
+			"risk": "risk_high",
 			"oneIn": 1000,
 			"target" : "Any",
 			"generator" : "Standard",
-			"tags" : "Neutral Graveyard Debris $1:20[Defended,Ship,Asteroid,Conflict] $1:50[Ships,Asteroids,Battle]"
+			"tags" : "tag_neutral tag_graveyard tag_debris $1:20[tag_defended,tag_ship,tag_asteroid,tag_conflict] $1:50[tag_ships,tag_asteroids,tag_battle]"
 		},
 		{
-			"name": "Conflict",
-			"description": "The computer is detecting high energy discharges, and several objects in orbit. Signal scans have detected a high frequency of clandestine communications, with at least 2 different encodings, and high-resolution scans have detected debris mixed around the objects. The computer is prepared to predict that this is an active conflict between hostile agents.",
-			"category": "Conflict",
-			"risk": "High",
+			"name": "signals_any_conflict",
+			"description": "signals_any_conflict_desc",
+			"category": "tag_conflict",
+			"risk": "risk_high",
 			"oneIn": 250,
 			"target" : "Any",
 			"generator" : "Standard",
-			"tags" : "Hostile Debris Conflict Ships Defended $1:20[Shipwreck] $1:100[Graveyard]"
+			"tags" : "tag_hostile tag_debris tag_conflict tag_ships tag_defended $1:20[tag_shipwreck] $1:100[tag_graveyard]"
 		},
 		{
-			"name": "Battle",
-			"description": "The computer is detecting high energy discharges, and many objects in orbit. Signal scans have detected a high frequency of clandestine communications, with at least 2 different encoding algorithms, and high-resolution scans have detected debris mixed around the objects. The computer is prepared to predict that this is an active battle between hostile agents.",
-			"category": "Battle",
-			"risk": "High",
+			"name": "signals_any_battle",
+			"description": "signals_any_battle_desc",
+			"category": "tag_battle",
+			"risk": "risk_high",
 			"oneIn": 500,
 			"target" : "Any",
 			"generator" : "Standard",
-			"tags" : "Hostile Debris Battle Ships Defended $1:2[Shipwreck] $1:10[Graveyard]"
+			"tags" : "tag_hostile tag_debris tag_battle tag_ships tag_defended $1:2[tag_shipwreck] $1:10[tag_graveyard]"
 		},
 		{
-			"name": "Trace Signature",
-			"description": "The computer is detecting a trace signature. Without further information the computer is unable to predict what this trace signature amounts to, or its importance.",
-			"category": "Trace",
-			"risk": "Unknown",
+			"name": "signals_any_trace",
+			"description": "signals_any_trace_desc",
+			"category": "tag_trace",
+			"risk": "risk_unknown",
 			"oneIn": 5,
 			"target": "Any",
 			"generator": "Standard",
-			"tags": "Neutral Trace Unknown"
+			"tags": "tag_neutral tag_trace tag_unknown"
 		},
 		{
-			"name": "Distress Signal",
-			"description": "The computer is detecting a distress signal. High resolution scans have revealed a debris cloud surrounding the source of the distress signal obscuring further detection. The computer advises caution as false distress signals are a known strategy of criminals, and real distress signals often warn of a threat.",
-			"category": "Distress",
-			"risk": "Unknown",
+			"name": "signals_any_distress",
+			"description": "signals_any_distress_desc",
+			"category": "tag_distress",
+			"risk": "risk_unknown",
 			"oneIn": 25,
 			"target": "Any",
 			"generator": "Standard",
-			"tags": "Neutral Distress Debris Unknown"
+			"tags": "tag_neutral tag_distress tag_debris tag_unknown"
 		},
 		{
-			"name": "Debris Field",
-			"description": "The computer is detecting a large low mass object. High resolution scans have revealed this object to in fact be a large field of variably sized debris, further scanning is futile as the debris field obscures scanning attempts. The computer is unable to predict beyond debris what this region of space contains.",
-			"category": "Debris",
-			"risk": "Unknown",
+			"name": "signals_any_debris",
+			"description": "signals_any_debris_desc",
+			"category": "tag_debris",
+			"risk": "risk_unknown",
 			"oneIn": 5,
 			"target": "Any",
 			"generator": "Standard",
-			"tags": "Neutral Debris Unknown"
+			"tags": "tag_neutral tag_debris tag_unknown"
 		},
 		{
-			"name": "Inactive Probe",
-			"description": "The computer is detecting a small object. High resolution scans have revealed this object to be a probe of some form. The lack of communications signals, and heat signatures leads the computer to believe that the probe is inactive and has been for long enough to have cooled to background levels. The computer advises caution as the probe may reasonable be operating in a low power mode, using only passive sensors, in other words, it could be a trap.",
-			"category": "Inactive Probe",
-			"risk": "Unknown",
+			"name": "signals_any_probe_inactive",
+			"description": "signals_any_probe_inactive_desc",
+			"category": "tag_probe_inactive",
+			"risk": "risk_unknown",
 			"oneIn": 5,
 			"target": "Any",
 			"generator": "Standard",
-			"tags": "Neutral Probe Unknown"
+			"tags": "tag_neutral tag_probe tag_unknown"
 		},
 		{
-			"name": "Active Probe",
-			"description": "The computer is detecting a small object. High resolution scans have revealed this object to be a probe. Signals scans have detected a regular emission of communications signals from the probe. The computer is unable to determine the exact nature of the probe, or its specific capabilities, beyond that it can broadcast signals vast distances in space. The computer advises caution as there are too many unknowns to guarantee safety.",
-			"category": "Active Probe",
-			"risk": "Unknown",
+			"name": "signals_any_probe_active",
+			"description": "signals_any_probe_active_desc",
+			"category": "tag_probe_active",
+			"risk": "risk_unknown",
 			"oneIn": 25,
 			"target": "Any",
 			"generator": "Standard",
-			"tags": "Neutral Probe Unknown"
+			"tags": "tag_neutral tag_probe tag_unknown"
 		},
 		{
-			"name": "Anomaly",
-			"description": "The computer is detecting an anomaly. High resolution scans have revealed no detectable object, yet signal scans, and other scanning passes are detecting a variety of nonconforming signals. The computer is unable to predict what could be causing scanner signatures of this nature. The computer advises caution as the conditions of this signature are completely unknown.",
-			"category": "Anomaly",
-			"risk": "Unknown",
+			"name": "signals_any_anomaly",
+			"description": "signals_any_anomaly_desc",
+			"category": "tag_anomaly",
+			"risk": "risk_unknown",
 			"oneIn": 50,
 			"target": "Any",
 			"generator": "Standard",
-			"tags": "Neutral Anomaly Unknown"
+			"tags": "tag_neutral tag_anomaly tag_unknown"
 		}
 	]
 }

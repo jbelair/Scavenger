@@ -26,8 +26,8 @@ public class WidgetSignal : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        WidgetScheme.SchemeContainer rarityScheme = WidgetScheme.active.Scheme("Rarity " + StringHelper.RarityIntToString(type.oneIn));
-        WidgetScheme.SchemeContainer riskScheme = WidgetScheme.active.Scheme("Risk " + type.risk.ToString());
+        WidgetScheme.SchemeContainer rarityScheme = WidgetScheme.Scheme(StringHelper.RarityIntToString(type.oneIn));
+        WidgetScheme.SchemeContainer riskScheme = WidgetScheme.Scheme(type.risk);
 
         foreach(ImageContainer rarity in rarityImages)
         {
@@ -41,22 +41,22 @@ public class WidgetSignal : MonoBehaviour
 
         foreach (Image icon in iconImages)
         {
-            icon.sprite = WidgetScheme.active.Scheme(type.category).symbol;
+            icon.sprite = WidgetScheme.Scheme(type.category).symbol;
         }
 
         if (label)
         {
-            label.text = type.name;
+            label.text = Literals.literals[Environment.language][type.name];
         }
 
         if (rarityLabel)
         {
-            rarityLabel.text = "Rarity " + StringHelper.RarityIntToString(type.oneIn);
+            rarityLabel.text = Literals.literals[Environment.language][StringHelper.RarityIntToString(type.oneIn)];
         }
 
         if (riskLabel)
         {
-            riskLabel.text = "Risk " + type.risk.ToString();
+            riskLabel.text = Literals.literals[Environment.language][type.risk];
         }
 
         if (tags)

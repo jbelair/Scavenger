@@ -35,7 +35,10 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
 
     public void System()
     {
-        if (Random.Range(1, 3) == 1)
+        List<string> dungeonTargets = new List<string>();
+        statistics["Dungeon Targets"] = new Statistic("Dungeon Targets", Statistic.ValueType.Object, dungeonTargets);
+
+        if (Random.Range(0, 4) == 1)
         {
             float stars = Random.Range(0f, 1f);
             int numberOfStars = Mathf.RoundToInt(starPlotStars.Evaluate(stars));
@@ -54,9 +57,6 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
                 statistics[planetName + " Moons"] = new Statistic(planetName + " Moons", Statistic.ValueType.Integer, numberOfMoons);
                 //dungeonables.Set(dungeonables.Get<int>() + numberOfMoons);
             }
-
-            List<string> dungeonTargets = new List<string>();
-            statistics["Dungeon Targets"] = new Statistic("Dungeon Targets", Statistic.ValueType.Object, dungeonTargets);
 
             int dungeons = 0;
             for (int i = 0; i < numberOfStars; i++)

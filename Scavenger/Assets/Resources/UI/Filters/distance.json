@@ -1,0 +1,7 @@
+{
+	"target": "Systems",
+	"name": "Distance",
+	"filter": "Distance Rarity",
+	"selected": "Filter Distance Rarity",
+	"deselected": "Filter Distance Rarity Deselected"
+}

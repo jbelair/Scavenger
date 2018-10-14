@@ -6,6 +6,101 @@ using UnityEngine;
 
 public static class StringHelper
 {
+    public static string ClosestMatch(string[] comparisons, string str)
+    {
+        if (comparisons.Length < 1)
+            return str;
+
+        float[] scores = new float[comparisons.Length];
+        float lowestScore = float.MaxValue;
+        int index = 0;
+        for (int i = comparisons.Length - 1; i >= 0; i--)
+        {
+            if (comparisons[i].Contains(str))
+            {
+                scores[i] += Mathf.Max(comparisons[i].Length, str.Length) / Mathf.Min(comparisons[i].Length, str.Length);
+                if (scores[i] <= lowestScore)
+                {
+                    lowestScore = scores[i];
+                    index = i;
+                }
+                continue;
+            }
+
+            for(int j = 0; j < str.Length; j++)
+            {
+                if (j < comparisons[i].Length)
+                {
+                    scores[i] += comparisons[i][j] - str[j];
+                }
+                if (scores[i] <= lowestScore)
+                {
+                    lowestScore = scores[i];
+                    index = i;
+                }
+            }
+        }
+
+        return comparisons[index];
+    }
+
+    public static string[] ClosestMatches(string[] comparisons, string str)
+    {
+        if (comparisons.Length < 1)
+            return new string[] { str };
+
+        List<string> sorted = new List<string>();
+        List<float> scores = new List<float>();
+        float highestScore = 0;
+        for (int i = comparisons.Length - 1; i >= 0; i--)
+        {
+            float score = comparisons[i].Length;
+
+            for (int j = 0; j < str.Length; j++)
+            {
+                if (j < comparisons[i].Length)
+                {
+                    // Character Delta Heuristic
+                    // This calculates a score for each character j in str as its difference from each character j in comparisons[i]
+                    // Since this checks j in str against j in comparisons[i] this checks for direct word matches, and displays recommendations in alphabetical order from most matching to least
+                    score += Mathf.Abs(comparisons[i][j] - str[j]);
+                    
+                    // Character Match Heuristic
+                    // This checks every character of comparisons[i] against the character j in str
+                    // Since this checks all characters in comparisons[i] the character j in str this checks for common letters, and dislays recommendations ordered by number of repetitions of similar characters
+                    //for (int k = j; k < comparisons[i].Length; k++)
+                    //{
+                    //    score += Mathf.Max(0, Mathf.Abs(comparisons[i][k] - str[j]) - k);
+                    //}
+                }
+                else
+                    break;
+            }
+
+            highestScore = Mathf.Max(score, highestScore);
+
+            if (score < highestScore)
+            {
+                for (int j = 0; j < scores.Count; j++)
+                {
+                    if (score < scores[j])
+                    {
+                        scores.Insert(j, score);
+                        sorted.Insert(j, comparisons[i]);
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                scores.Add(score);
+                sorted.Add(comparisons[i]);
+            }
+        }
+
+        return sorted.ToArray();
+    }
+
     public static string TagParse(string tags)
     {
         string[] split = tags.Split(' ');
@@ -209,22 +304,22 @@ public static class StringHelper
         switch (log)
         {
             case 0:
-                return "Abundant";
+                return "rarity_abundant";
             case 1:
-                return "Common";
+                return "rarity_common";
             case 2:
-                return "Uncommon";
+                return "rarity_uncommon";
             case 3:
-                return "Rare";
+                return "rarity_rare";
             case 4:
-                return "Legendary";
+                return "rarity_legendary";
             case 5:
-                return "Epic";
+                return "rarity_epic";
             case 6:
-                return "Unique";
+                return "rarity_unique";
         }
 
-        return "Unknown";
+        return "rarity_unknown";
     }
 
     public static string RiskIntToString(int risk)
@@ -232,19 +327,19 @@ public static class StringHelper
         switch (risk)
         {
             case 0:
-                return "None";
+                return "risk_none";
             case 1:
-                return "Low";
+                return "risk_low";
             case 2:
-                return "Medium";
+                return "risk_medium";
             case 3:
-                return "High";
+                return "risk_high";
             case 4:
-                return "Extreme";
+                return "risk_extreme";
             case 5:
-                return "Terminal";
+                return "risk_terminal";
             default:
-                return "Unknown";
+                return "risk_unknown";
         }
     }
 
@@ -275,7 +370,7 @@ public static class StringHelper
         {
             if (split[i] == "Distance")
             {
-                ret += split[i] + " " + RiskIntToString(Mathf.FloorToInt((float.Parse(split[i + 1]) / Environment.jumpRadius) * 5));
+                ret += split[i] + " " + RiskIntToString(Mathf.FloorToInt((float.Parse(split[i + 1]) / Environment.jumpRadius) * 5)).Replace("risk_", "");
                 i++;
             }
             else if (i != split.Length - 1)

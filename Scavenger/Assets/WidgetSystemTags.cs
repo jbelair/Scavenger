@@ -16,23 +16,26 @@ public class WidgetSystemTags : MonoBehaviour
         float theta = (Mathf.PI * 2) / 8f;
         foreach (DungeonType type in types)
         {
+            if (type.name == null || type.description == null || type.category == null || type.risk == null || type.target == null || type.generator == null || type.tags == null)
+                continue;
+
             List<string> split = new List<string>
             {
-                "Rarity " + StringHelper.RarityIntToString(type.oneIn)
+                StringHelper.RarityIntToString(type.oneIn)
             };
             split.AddRange(type.tags.Split(' '));
             
             foreach (string tag in split)
             {
-                Color colour = WidgetScheme.active.Scheme(tag).colour;
+                Color colour = WidgetScheme.Scheme(tag).colour;
                 if (tag != "" 
                     && tag != type.category
                     && i < 5 
                     && colour != Color.white 
-                    && colour != WidgetScheme.active.Scheme("Rarity Abundant").colour 
-                    && colour != WidgetScheme.active.Scheme("Rarity Common").colour 
-                    && colour != WidgetScheme.active.Scheme("Rarity Uncommon").colour
-                    && colour != WidgetScheme.active.Scheme("Rarity Rare").colour
+                    && colour != WidgetScheme.Scheme("rarity_abundant").colour 
+                    && colour != WidgetScheme.Scheme("rarity_common").colour 
+                    && colour != WidgetScheme.Scheme("rarity_uncommon").colour
+                    && colour != WidgetScheme.Scheme("rarity_rare").colour
                     //&& (tag == "Respawn"
                     //|| tag == "Repair"
                     //|| tag == "Conflict")

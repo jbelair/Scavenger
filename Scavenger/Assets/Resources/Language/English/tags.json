@@ -1,0 +1,173 @@
+{
+	"literals" : 
+	[
+		{
+			"key": "tag_station",
+			"value": "Station"
+		},
+		{
+			"key": "tag_station_wreck",
+			"value": "Station Wreck"
+		},
+		{
+			"key": "tag_station_construction",
+			"value": "Station Construction"
+		},
+		{
+			"key": "tag_station_terraforming",
+			"value": "Terraforming Station"
+		},
+		{
+			"key": "tag_ship",
+			"value": "Ship"
+		},
+		{
+			"key": "tag_shipwreck",
+			"value": "Shipwreck"
+		},
+		{
+			"key": "tag_ships",
+			"value": "Ships"
+		},
+		{
+			"key": "tag_graveyard",
+			"value": "Graveyard"
+		},
+		{
+			"key": "tag_debris",
+			"value": "Debris"
+		},
+		{
+			"key": "tag_asteroid",
+			"value": "Asteroid"
+		},
+		{
+			"key": "tag_asteroid_station",
+			"value": "Asteroid Station"
+		},
+		{
+			"key": "tag_asteroid_station_wreck",
+			"value": "Asteroid Station Wreck"
+		},
+		{
+			"key": "tag_asteroid_station_construction",
+			"value": "Asteroid Station Construction"
+		},
+		{
+			"key": "tag_asteroids",
+			"value": "Asteroids"
+		},
+		{
+			"key": "tag_conflict",
+			"value": "Conflict"
+		},
+		{
+			"key": "tag_battle",
+			"value": "Battle"
+		},
+		{
+			"key": "tag_starfish",
+			"value": "Starfish"
+		},
+		{
+			"key": "tag_starfishes",
+			"value": "Starfishes"
+		},
+		{
+			"key": "tag_starfish_matriarch",
+			"value": "Starfish Matriarch"
+		},
+		{
+			"key": "tag_allied",
+			"value": "Allied"
+		},
+		{
+			"key": "tag_neutral",
+			"value": "Neutral"
+		},
+		{
+			"key": "tag_hostile",
+			"value": "Hostile"
+		},
+		{
+			"key": "tag_plasma",
+			"value": "Plasma"
+		},
+		{
+			"key": "tag_ejection_plasma",
+			"value": "Plasma Ejection"
+		},
+		{
+			"key": "tag_unknown",
+			"value": "Unknown"
+		},
+		{
+			"key": "tag_ejection",
+			"value": "Ejection"
+		},
+		{
+			"key": "tag_trace",
+			"value": "Trace"
+		},
+		{
+			"key": "tag_anomaly",
+			"value": "Anomaly"
+		},
+		{
+			"key": "tag_distress",
+			"value": "Distress Signal"
+		},
+		{
+			"key": "tag_probe",
+			"value": "Probe"
+		},
+		{
+			"key": "tag_probe_inactive",
+			"value": "Inactive Probe"
+		},
+		{
+			"key": "tag_probe_active",
+			"value": "Active Probe"
+		},
+		{
+			"key": "tag_defended",
+			"value": "Defended"
+		},
+		{
+			"key": "tag_sunglider",
+			"value": "Sunglider"
+		},
+		{
+			"key": "tag_sungliders",
+			"value": "Sungliders"
+		},
+		{
+			"key": "tag_array_solar",
+			"value": "Solar Array"
+		},
+		{
+			"key": "tag_array_solar_bank",
+			"value": "Solar Array Field"
+		},
+		{
+			"key": "tag_repair",
+			"value": "Repair"
+		},
+		{
+			"key": "tag_respawn",
+			"value": "Respawn"
+		},
+		{
+			"key": "tag_buy",
+			"value": "Buy"
+		},
+		{
+			"key": "tag_sell",
+			"value": "Sell"
+		},
+		{
+			"key": "tag_collision",
+			"value": "Collision"
+		}
+	]
+}

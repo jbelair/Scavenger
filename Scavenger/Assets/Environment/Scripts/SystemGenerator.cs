@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SystemGenerator : MonoBehaviour
 {
+    public EnvironmentSetter setter;
+
     public int hash = 0;
     public bool generatesFromEnvironment = true;
 
@@ -28,9 +30,11 @@ public class SystemGenerator : MonoBehaviour
         }
 
         name = StringHelper.CoordinateName(statistics["System Coordinates"]);
+
+        setter = GetComponent<EnvironmentSetter>();
     }
 
-    public int Hash(Vector3 c)
+    public static int Hash(Vector3 c)
     {
         int h = (int)c.x * 374761393 + (int)c.y * 668265263 + (int)c.z * 1800560953; //all constants are prime
         h = (h ^ (h >> 13)) * 1274126177;
@@ -41,6 +45,9 @@ public class SystemGenerator : MonoBehaviour
     public IEnumerator Generate()
     {
         System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
+
+        if (setter)
+            setter.Set();
 
         foreach (SystemGeneratorDecorator decorator in decorators)
         {
@@ -75,9 +82,11 @@ public class SystemGenerator : MonoBehaviour
             if (happens)
             {
                 if (Environment.populateStars)
+                {
                     decorator.populateStars.Invoke();
 
-                yield return new WaitForSeconds(0.5f);
+                    //yield return new WaitForSeconds(0.5f);
+                }
             }
         }
 
@@ -101,9 +110,11 @@ public class SystemGenerator : MonoBehaviour
             if (happens)
             {
                 if (Environment.populatePlanets)
+                {
                     decorator.populatePlanets.Invoke();
 
-                yield return new WaitForSeconds(0.5f);
+                    //yield return new WaitForSeconds(0.5f);
+                }
             }
         }
 
@@ -127,9 +138,11 @@ public class SystemGenerator : MonoBehaviour
             if (happens)
             {
                 if (Environment.populateMoons)
+                {
                     decorator.populateMoons.Invoke();
 
-                yield return new WaitForSeconds(0.5f);
+                    //yield return new WaitForSeconds(0.5f);
+                }
             }
         }
 

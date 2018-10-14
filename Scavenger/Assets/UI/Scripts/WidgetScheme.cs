@@ -18,10 +18,15 @@ public class WidgetScheme : MonoBehaviour
     public List<SchemeContainer> schemes;
     public bool forceLoad = false;
 
-    public SchemeContainer Scheme(string name)
+    public static SchemeContainer Scheme(string name)
     {
-        return schemes.Find(scheme => scheme.name == name);
+        return active.schemes.Find(scheme => scheme.name == name);
     }
+
+    //public SchemeContainer Scheme(string name)
+    //{
+    //    return schemes.Find(scheme => scheme.name == name);
+    //}
 
     public void Awake()
     {

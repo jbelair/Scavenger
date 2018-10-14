@@ -49,7 +49,9 @@ public class DungeonGenerator : MonoBehaviour
 
         //foreach(GameObject widg in widgets)
         //    widg.SetActive(false);
-        UIManager.active.SwitchScreen("system dungeon");
+        UIManager.active.AddScreen("system dungeon");
+        UIManager.active.RemoveScreen("system navigation");
+        UIManager.active.RemoveScreen("systems navigation");
 
         widget = UIManager.active.Element("system dungeon", UIManager.Layer.Mid, "Signal Description");//, new Vector2(1920/2f, 0f));
         widget.GetComponent<WidgetSignalDescription>().Set(dungeonType);

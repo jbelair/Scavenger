@@ -1,0 +1,7 @@
+{
+	"target": "Systems",
+	"name": "Rarity",
+	"filter": "Rarity",
+	"selected": "Filter Rarity",
+	"deselected": "Filter Rarity Deselected"
+}

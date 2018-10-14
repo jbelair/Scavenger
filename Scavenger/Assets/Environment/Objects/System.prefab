@@ -9,21 +9,24 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1088166467132342}
+  m_RootGameObject: {fileID: 1998193590211014}
   m_IsPrefabAsset: 1
---- !u!1 &1088166467132342
+--- !u!1 &1998193590211014
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4889349221116922}
-  - component: {fileID: 114171437038102250}
-  - component: {fileID: 114511206211447182}
-  - component: {fileID: 114959867322311610}
-  - component: {fileID: 114904090526274278}
-  - component: {fileID: 114331744417557568}
+  - component: {fileID: 4007960045124874}
+  - component: {fileID: 114361361643626356}
+  - component: {fileID: 114539297102538622}
+  - component: {fileID: 114699647196576130}
+  - component: {fileID: 114010544577000286}
+  - component: {fileID: 114112990365324256}
+  - component: {fileID: 114976867908059592}
+  - component: {fileID: 114973033846902322}
+  - component: {fileID: 114133747268232878}
   m_Layer: 0
   m_Name: System
   m_TagString: Untagged
@@ -31,25 +34,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4889349221116922
+--- !u!4 &4007960045124874
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1088166467132342}
+  m_GameObject: {fileID: 1998193590211014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114171437038102250
+--- !u!114 &114010544577000286
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1088166467132342}
+  m_GameObject: {fileID: 1998193590211014}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82700e6955cbeb547af85dcd81d0035c, type: 3}
@@ -68,6 +71,66 @@ MonoBehaviour:
     valueString: 
     valueColour: {r: 0, g: 0, b: 0, a: 0}
     valueV2: {x: 0, y: 0}
+    valueV3: {x: -985738, y: -2824, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: 'Statistics: Generated'
+    type: 0
+    valueInt: 0
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: 'Statistics: Stars'
+    type: 1
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: 'Statistics: Star Temperature'
+    type: 1
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: 'Statistics: Star Radius'
+    type: 1
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: 'Statistics: Planets'
+    type: 1
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  - name: 'Statistics: Planet Radius'
+    type: 1
+    valueInt: 3
+    valueFloat: 0
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 11, y: 11}
     valueV3: {x: 0, y: 0, z: 0}
     valueGO: {fileID: 0}
     valueGOArray: []
@@ -111,363 +174,155 @@ MonoBehaviour:
     valueV3: {x: 0, y: 0, z: 0}
     valueGO: {fileID: 0}
     valueGOArray: []
---- !u!114 &114331744417557568
+--- !u!114 &114112990365324256
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1088166467132342}
+  m_GameObject: {fileID: 1998193590211014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df0c7405c2067dd4bad38a0934146bfb, type: 3}
+  m_Script: {fileID: 11500000, guid: 172cd62e508bb1b4dad869f2c4eb3020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  environment: {fileID: 114171437038102250}
-  widget: {fileID: 1747843023006116, guid: 202e25b909657384d82de822955641be, type: 2}
---- !u!114 &114511206211447182
+  profiles:
+  - name: Habitable World
+    surfaces:
+    - {fileID: 2100000, guid: b313e1cfea8bc674eadf4fffa9ddb749, type: 2}
+    - {fileID: 2100000, guid: af8d5188fa1524540a838d0348c55c11, type: 2}
+    - {fileID: 2100000, guid: 4a724bb21b5d1694cbb99ee3c82c51e1, type: 2}
+    atmospheres:
+    - {fileID: 2100000, guid: 20033e1c4a59b5c40be70434ccfa9a59, type: 2}
+  - name: Jupiter
+    surfaces:
+    - {fileID: 2100000, guid: 6a20c04f99638884aaeceb81154da50b, type: 2}
+    - {fileID: 2100000, guid: a52618dcee20cac4298a4f62ae7e9107, type: 2}
+    - {fileID: 2100000, guid: 22f47f31c6ade004b8af8baee6e6f01f, type: 2}
+    atmospheres: []
+  - name: Saturn
+    surfaces:
+    - {fileID: 2100000, guid: 6139024cad901214fa80b86e7fad0824, type: 2}
+    - {fileID: 2100000, guid: 338d00c88efcec34c976833ac43e6a32, type: 2}
+    - {fileID: 2100000, guid: 5f6f603b94f5b4a4482b721610104723, type: 2}
+    atmospheres: []
+  - name: Uranus
+    surfaces:
+    - {fileID: 2100000, guid: bfe7e1e45833ca94fb5a371f00ef13cd, type: 2}
+    - {fileID: 2100000, guid: 3cf2bdee0a72e1a47990ab6e3f21775b, type: 2}
+    - {fileID: 2100000, guid: 8765796f58abe924aa04a0130158e4bf, type: 2}
+    atmospheres: []
+  - name: Neptune
+    surfaces:
+    - {fileID: 2100000, guid: 1b365ef9baa77ab429eaa91b4260a0bf, type: 2}
+    - {fileID: 2100000, guid: 0e0d3996177bb694aa55fdc121d3be38, type: 2}
+    - {fileID: 2100000, guid: 27c915a45c59bf04685d1ab7e6d2012e, type: 2}
+    atmospheres: []
+  - name: Custom Gas Giant
+    surfaces:
+    - {fileID: 2100000, guid: 6ce4510d038ebe540bf9d7964ae8d7fb, type: 2}
+    atmospheres: []
+  - name: All Gas Giant
+    surfaces:
+    - {fileID: 2100000, guid: 6ce4510d038ebe540bf9d7964ae8d7fb, type: 2}
+    - {fileID: 2100000, guid: 6a20c04f99638884aaeceb81154da50b, type: 2}
+    - {fileID: 2100000, guid: a52618dcee20cac4298a4f62ae7e9107, type: 2}
+    - {fileID: 2100000, guid: 22f47f31c6ade004b8af8baee6e6f01f, type: 2}
+    - {fileID: 2100000, guid: 1b365ef9baa77ab429eaa91b4260a0bf, type: 2}
+    - {fileID: 2100000, guid: 0e0d3996177bb694aa55fdc121d3be38, type: 2}
+    - {fileID: 2100000, guid: 27c915a45c59bf04685d1ab7e6d2012e, type: 2}
+    - {fileID: 2100000, guid: 6139024cad901214fa80b86e7fad0824, type: 2}
+    - {fileID: 2100000, guid: 338d00c88efcec34c976833ac43e6a32, type: 2}
+    - {fileID: 2100000, guid: 5f6f603b94f5b4a4482b721610104723, type: 2}
+    - {fileID: 2100000, guid: bfe7e1e45833ca94fb5a371f00ef13cd, type: 2}
+    - {fileID: 2100000, guid: 3cf2bdee0a72e1a47990ab6e3f21775b, type: 2}
+    - {fileID: 2100000, guid: 8765796f58abe924aa04a0130158e4bf, type: 2}
+    atmospheres: []
+  metallicProfiles:
+  - Metallic World
+  mixedProfiles:
+  - Habitable World
+  gasseousProfiles:
+  - All Gas Giant
+  Cold: 270
+  Hot: 320
+  asteroidBelts: []
+  artefacts: []
+  gasBelts: []
+--- !u!114 &114133747268232878
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1088166467132342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8880b579f3cad6a4e8a70d1e3dc3562d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hash: 0
-  generatesFromEnvironment: 0
-  decorators:
-  - name: Standard
-    trigger: 0
-    oneIn: 1
-    factionName: 
-    system:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114959867322311610}
-          m_MethodName: System
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    stars:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114959867322311610}
-          m_MethodName: Stars
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    populateStars:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114959867322311610}
-          m_MethodName: PopulateStars
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    planets:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114959867322311610}
-          m_MethodName: Planets
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    populatePlanets:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114959867322311610}
-          m_MethodName: PopulatePlanets
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    moons:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114959867322311610}
-          m_MethodName: Moons
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    populateMoons:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114959867322311610}
-          m_MethodName: PopulateMoons
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    dungeons:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114959867322311610}
-          m_MethodName: Dungeons
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    populateDungeons:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114959867322311610}
-          m_MethodName: PopulateDungeons
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    statistics: {fileID: 114171437038102250}
-  - name: Singularity
-    trigger: 1
-    oneIn: 2147483647
-    factionName: 
-    system:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114904090526274278}
-          m_MethodName: System
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    stars:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114904090526274278}
-          m_MethodName: Stars
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    populateStars:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114904090526274278}
-          m_MethodName: PopulateStars
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    planets:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114904090526274278}
-          m_MethodName: Planets
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    populatePlanets:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114904090526274278}
-          m_MethodName: PopulatePlanets
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    moons:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114904090526274278}
-          m_MethodName: Moons
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    populateMoons:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114904090526274278}
-          m_MethodName: PopulateMoons
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    dungeons:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114904090526274278}
-          m_MethodName: Dungeons
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    populateDungeons:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114904090526274278}
-          m_MethodName: PopulateDungeons
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    statistics: {fileID: 114171437038102250}
-  statistics: {fileID: 114171437038102250}
---- !u!114 &114904090526274278
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1088166467132342}
+  m_GameObject: {fileID: 1998193590211014}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9dcdba7a3336a9b49a6c210350b561df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  singularityPrefab: {fileID: 114407500010142378, guid: 4f10793f74b2c0249b38dcad92fa3ad2,
+  singularityPrefab: {fileID: 114039274735669666, guid: 9e4bbc377dbe9c3458b658799e085970,
     type: 2}
   atmosphereLeechPrefab: {fileID: 114032621109548510, guid: b39cc254f02bfbf4cb456b323ba8a127,
     type: 2}
   planetLeechPrefab: {fileID: 114981333433680714, guid: 6bd700d59d8be934aac34bc5e989a7f6,
     type: 2}
-  statistics: {fileID: 114171437038102250}
+  statistics: {fileID: 114010544577000286}
   singularity: {fileID: 0}
---- !u!114 &114959867322311610
+--- !u!114 &114361361643626356
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1088166467132342}
+  m_GameObject: {fileID: 1998193590211014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 673cc8f76c88887419a7f300af100c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114539297102538622
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1998193590211014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9ddf02ac142ea141ad341da9e0d9129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generateStars: 1
+  populateStars: 1
+  generatePlanets: 1
+  populatePlanets: 1
+  generateMoons: 1
+  populateMoons: 1
+  generateDungeons: 1
+  populateDungeons: 1
+--- !u!114 &114699647196576130
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1998193590211014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c734fd604f8444f86b202ade756435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0
+  minutesToTime: 30
+  timeCounter: 0
+--- !u!114 &114973033846902322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1998193590211014}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d60582ff35000714e976263753206f9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starPrefab: {fileID: 114813173675649578, guid: d2c92357370518a4bad429c5485e7958,
+  starPrefab: {fileID: 114235406414131618, guid: 91144a46a2ce536489b3d8aabf71cac8,
     type: 2}
   planetPrefab: {fileID: 114183782413579774, guid: 77a48959c7c3af24bb0430aca7e607aa,
     type: 2}
@@ -711,4 +566,318 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  statistics: {fileID: 114171437038102250}
+  statistics: {fileID: 114010544577000286}
+--- !u!114 &114976867908059592
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1998193590211014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8880b579f3cad6a4e8a70d1e3dc3562d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setter: {fileID: 0}
+  hash: 0
+  generatesFromEnvironment: 1
+  decorators:
+  - name: Standard
+    trigger: 0
+    oneIn: 1
+    factionName: 
+    system:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114973033846902322}
+          m_MethodName: System
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    stars:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114973033846902322}
+          m_MethodName: Stars
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    populateStars:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114973033846902322}
+          m_MethodName: PopulateStars
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    planets:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114973033846902322}
+          m_MethodName: Planets
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    populatePlanets:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114973033846902322}
+          m_MethodName: PopulatePlanets
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    moons:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114973033846902322}
+          m_MethodName: Moons
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    populateMoons:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114973033846902322}
+          m_MethodName: PopulateMoons
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    dungeons:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114973033846902322}
+          m_MethodName: Dungeons
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    populateDungeons:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114973033846902322}
+          m_MethodName: PopulateDungeons
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    statistics: {fileID: 114010544577000286}
+  - name: Singularity
+    trigger: 1
+    oneIn: 2147483647
+    factionName: 
+    system:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114133747268232878}
+          m_MethodName: System
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    stars:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114133747268232878}
+          m_MethodName: Stars
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    populateStars:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114133747268232878}
+          m_MethodName: PopulateStars
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    planets:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114133747268232878}
+          m_MethodName: Planets
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    populatePlanets:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114133747268232878}
+          m_MethodName: PopulatePlanets
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    moons:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114133747268232878}
+          m_MethodName: Moons
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    populateMoons:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114133747268232878}
+          m_MethodName: PopulateMoons
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    dungeons:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114133747268232878}
+          m_MethodName: Dungeons
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    populateDungeons:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114133747268232878}
+          m_MethodName: PopulateDungeons
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    statistics: {fileID: 114010544577000286}
+  statistics: {fileID: 114010544577000286}
