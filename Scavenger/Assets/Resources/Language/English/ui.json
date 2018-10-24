@@ -1,0 +1,117 @@
+{
+	"literals":
+	[
+		{
+			"key": "menu_menu",
+			"value": "MENU"
+		},
+		{
+			"key": "menu_menu_min",
+			"value": "MNU"
+		},
+		{
+			"key": "menu_back",
+			"value": "BACK"
+		},
+		{
+			"key": "menu_back_min",
+			"value": "BCK"
+		},
+		{
+			"key": "menu_play",
+			"value": "PLAY"
+		},
+		{
+			"key": "menu_play_min",
+			"value": "PLY"
+		},
+		{
+			"key": "menu_play_new",
+			"value": "NEW"
+		},
+		{
+			"key": "menu_play_new_min",
+			"value": "NEW"
+		},
+		{
+			"key": "menu_play_load",
+			"value": "LOAD"
+		},
+		{
+			"key": "menu_play_load_min",
+			"value": "LOD"
+		},
+		{
+			"key": "menu_progress",
+			"value": "PROGRESS"
+		},
+		{
+			"key": "menu_progress_min",
+			"value": "PRO"
+		},
+		{
+			"key": "menu_progress_ships",
+			"value": "SHIPS"
+		},
+		{
+			"key": "menu_progress_ships_min",
+			"value": "SHP"
+		},
+		{
+			"key": "menu_progress_skills",
+			"value": "SKILLS"
+		},
+		{
+			"key": "menu_progress_skills_min",
+			"value": "SKL"
+		},
+		{
+			"key": "menu_options",
+			"value": "OPTIONS"
+		},
+		{
+			"key": "menu_options_min",
+			"value": "OPT"
+		},
+		{
+			"key": "menu_options_general",
+			"value": "GENERAL"
+		},
+		{
+			"key": "menu_options_general_min",
+			"value": "GEN"
+		},
+		{
+			"key": "menu_options_audio",
+			"value": "AUDIO"
+		},
+		{
+			"key": "menu_options_audio_min",
+			"value": "AUD"
+		},
+		{
+			"key": "menu_options_video",
+			"value": "VIDEO"
+		},
+		{
+			"key": "menu_options_video_min",
+			"value": "VID"
+		},
+		{
+			"key": "menu_options_controls",
+			"value": "CONTROLS"
+		},
+		{
+			"key": "menu_options_controls_min",
+			"value": "CON"
+		},
+		{
+			"key": "menu_exit",
+			"value": "EXIT"
+		},
+		{
+			"key": "menu_exit_min",
+			"value": "EXT"
+		}
+	]
+}

@@ -22,7 +22,7 @@ public class SystemSelect : MonoBehaviour
 
     void Transition()
     {
-        if (Environment.jumpFuel >= Environment.jumpDistance)
+        if (Environment.jumpFuel >= Environment.jumpDistance && Environment.jumpDistance <= Environment.jumpRadius)
         {
             if (!systems)
                 systems = SystemsGenerator.active;

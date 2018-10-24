@@ -33,7 +33,8 @@ public class WidgetSearch : MonoBehaviour
 
         for(int i = DungeonType.allTags.Length - 1; i >= 0; i--)
         {
-            tags[i] = Literals.literals[Environment.language][DungeonType.allTags[i]];
+            string str = PlayerPrefs.GetString("language");
+            tags[i] = Literals.literals[PlayerPrefs.GetString("language")][DungeonType.allTags[i]];
         }
 
         if (field.text != startText && split.Length > 0)

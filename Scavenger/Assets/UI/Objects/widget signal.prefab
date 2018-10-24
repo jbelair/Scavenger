@@ -252,7 +252,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1058232280141802}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3c944bbd8f236d4994d9bc084866e28, type: 3}
   m_Name: 
@@ -797,6 +797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7dfb78b81c8564a83af68f5c9c0de9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  format: 0
   target: {fileID: 0}
   canvas: {fileID: 0}
   rectTransform: {fileID: 0}
@@ -807,6 +808,10 @@ MonoBehaviour:
   screenEdge: {x: 32, y: 32, z: 32, w: 96}
   position: {x: 0, y: 0}
   positionVelocity: {x: 0, y: 0}
+  defaultEnables: 
+  children: []
+  pos: {x: 0, y: 0, z: 0}
+  viewPos: {x: 0, y: 0, z: 0}
 --- !u!114 &114644193571005828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -948,7 +953,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1657691690615762}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3c944bbd8f236d4994d9bc084866e28, type: 3}
   m_Name: 

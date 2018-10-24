@@ -7,6 +7,7 @@ public class WidgetMatchPosition : MonoBehaviour
     public RectTransform target;
     public Vector3 offset;
     public RectTransform self;
+    public bool deparent = true;
 
     // Use this for initialization
     void Start()
@@ -15,7 +16,9 @@ public class WidgetMatchPosition : MonoBehaviour
 
         self = transform as RectTransform;
 
-        transform.parent = UIManager.active.canvas.transform;
+        if (deparent)
+            transform.parent = UIManager.active.canvas.transform;
+
         self.position = target.position;
     }
 

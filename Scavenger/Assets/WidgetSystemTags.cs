@@ -6,13 +6,15 @@ public class WidgetSystemTags : MonoBehaviour
 {
     public WidgetSignalTag tagPrefab;
 
+    public int startIndex = 1;
+    public int endIndex = 5;
     public float radius = 22;
     public List<string> tags;
 
     public void Set(List<DungeonType> types)
     {
         tags = new List<string>();
-        int i = 1;
+        int i = startIndex;
         float theta = (Mathf.PI * 2) / 8f;
         foreach (DungeonType type in types)
         {
@@ -23,22 +25,19 @@ public class WidgetSystemTags : MonoBehaviour
             {
                 StringHelper.RarityIntToString(type.oneIn)
             };
-            split.AddRange(type.tags.Split(' '));
+            split.AddRange(type.tags.Split(new string[] { " ", ", ", "," }, System.StringSplitOptions.RemoveEmptyEntries));
             
             foreach (string tag in split)
             {
                 Color colour = WidgetScheme.Scheme(tag).colour;
                 if (tag != "" 
                     && tag != type.category
-                    && i < 5 
+                    && i < endIndex
                     && colour != Color.white 
                     && colour != WidgetScheme.Scheme("rarity_abundant").colour 
                     && colour != WidgetScheme.Scheme("rarity_common").colour 
                     && colour != WidgetScheme.Scheme("rarity_uncommon").colour
                     && colour != WidgetScheme.Scheme("rarity_rare").colour
-                    //&& (tag == "Respawn"
-                    //|| tag == "Repair"
-                    //|| tag == "Conflict")
                     && !tags.Contains(tag))
                 {
                     WidgetSignalTag tagInst = Instantiate(tagPrefab, transform);

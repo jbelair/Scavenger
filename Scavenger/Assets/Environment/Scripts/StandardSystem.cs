@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,14 +39,14 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
         List<string> dungeonTargets = new List<string>();
         statistics["Dungeon Targets"] = new Statistic("Dungeon Targets", Statistic.ValueType.Object, dungeonTargets);
 
-        if (Random.Range(0, 4) == 1)
+        if (UnityEngine.Random.Range(0, 4) == 1)
         {
-            float stars = Random.Range(0f, 1f);
+            float stars = UnityEngine.Random.Range(0f, 1f);
             int numberOfStars = Mathf.RoundToInt(starPlotStars.Evaluate(stars));
             statistics["Stars"] = new Statistic("Stars", Statistic.ValueType.Integer, numberOfStars);
             //Statistic dungeonables = statistics["Dungeonables"] = new Statistic("Dungeonables", Statistic.ValueType.Integer, numberOfStars);
 
-            float planets = Random.Range(0, 1f) / numberOfStars;
+            float planets = UnityEngine.Random.Range(0, 1f) / numberOfStars;
             int numberOfPlanets = Mathf.RoundToInt(planetPlotPlanets.Evaluate(planets));
             statistics["Planets"] = new Statistic("Planets", Statistic.ValueType.Integer, numberOfPlanets);
             //dungeonables.Set(dungeonables.Get<int>() + numberOfPlanets);
@@ -53,7 +54,7 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
             for (int i = 0; i < numberOfPlanets; i++)
             {
                 string planetName = "Planet " + StringHelper.IndexIntToChar(i);
-                int numberOfMoons = (int)planetPlotMoons.Evaluate(Random.Range(0, 1f));
+                int numberOfMoons = (int)planetPlotMoons.Evaluate(UnityEngine.Random.Range(0, 1f));
                 statistics[planetName + " Moons"] = new Statistic(planetName + " Moons", Statistic.ValueType.Integer, numberOfMoons);
                 //dungeonables.Set(dungeonables.Get<int>() + numberOfMoons);
             }
@@ -61,7 +62,7 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
             int dungeons = 0;
             for (int i = 0; i < numberOfStars; i++)
             {
-                if (Random.Range(1f, numberOfStars) <= 2 && dungeons < Environment.maximumDungeons)
+                if (UnityEngine.Random.Range(1f, numberOfStars) <= 2 && dungeons < Environment.maximumDungeons)
                 {
                     dungeonTargets.Add("Star " + StringHelper.IndexIntToChar(i));
                     dungeons++;
@@ -71,7 +72,7 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
             for (int i = 0; i < numberOfPlanets; i++)
             {
                 string planetName = "Planet " + StringHelper.IndexIntToChar(i);
-                if ((Random.Range(1f, numberOfPlanets) <= 2 || dungeons <= 3) && dungeons < Environment.maximumDungeons)
+                if ((UnityEngine.Random.Range(1f, numberOfPlanets) <= 2 || dungeons <= 3) && dungeons < Environment.maximumDungeons)
                 {
                     dungeonTargets.Add(planetName);
                     dungeons++;
@@ -80,7 +81,7 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
                 int numberOfMoons = statistics[planetName + " Moons"];
                 for (int j = 0; j < numberOfMoons; j++)
                 {
-                    if ((Random.Range(1f, 10) == 1 || dungeons < 5) && dungeons < Environment.maximumDungeons)
+                    if ((UnityEngine.Random.Range(1f, 10) == 1 || dungeons < 5) && dungeons < Environment.maximumDungeons)
                     {
                         dungeonTargets.Add(planetName + " Moon " + StringHelper.IndexIntToChar(i));
                         dungeons++;
@@ -88,7 +89,7 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
                 }
             }
 
-            ListHelper.Shuffle(ref dungeonTargets);
+            dungeonTargets.Shuffle();
         }
         else
         {
@@ -115,22 +116,22 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
         for (int i = 0; i < numberOfStars; i++)
         {
             string name = "Star " + StringHelper.IndexIntToChar(i);
-            float radius = Random.Range(0f, 1f);
+            float radius = UnityEngine.Random.Range(0f, 1f);
             stellarRadius += radius;
 
             float radiusSkewed = starPlotRadius.Evaluate(radius) * EnvironmentRules.RadiusOfSun / 10000f;
             statistics[name + " Radius"] = new Statistic(name + " Radius", Statistic.ValueType.Float, radiusSkewed);
 
-            float kelvin = Random.Range(0, 1f);
+            float kelvin = UnityEngine.Random.Range(0, 1f);
             stellarTemperature += kelvin;
 
             float kelvinSkewed = starPlotKelvin.Evaluate(kelvin);
             statistics[name + " Kelvin"] = new Statistic(name + " Kelvin", Statistic.ValueType.Float, kelvinSkewed);
 
-            float kelvinRange = (Random.Range(0, kelvinSkewed / 2f) + Random.Range(0, kelvinSkewed / 2f) + Random.Range(0, kelvinSkewed / 2f)) / 3;
+            float kelvinRange = (UnityEngine.Random.Range(0, kelvinSkewed / 2f) + UnityEngine.Random.Range(0, kelvinSkewed / 2f) + UnityEngine.Random.Range(0, kelvinSkewed / 2f)) / 3;
             statistics[name + " Kelvin Range"] = new Statistic(name + " Kelvin Range", Statistic.ValueType.Float, kelvinRange);
 
-            starPositions.Add(Random.insideUnitCircle * starDistance);
+            starPositions.Add(UnityEngine.Random.insideUnitCircle * starDistance);
 
             contributions[i] = Mathf.Pow(2, (radius + 1) * 5f) + Mathf.Pow((radius + 1f) * 2f, (kelvin + 1f) * 10f);// (radius * 10) + (kelvin * 10);
             centerOfMass += starPositions[i] * contributions[i];
@@ -239,12 +240,12 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
             // Then orbit
 
             // Pick a star
-            int star = Random.Range(0, numberOfStars);
+            int star = UnityEngine.Random.Range(0, numberOfStars);
             // Define a distance from it
-            float orbitDistance = orbitDistances[star] * Random.Range(1f, 2f);
+            float orbitDistance = orbitDistances[star] * UnityEngine.Random.Range(1f, 2f);
             orbitDistances[star] = orbitDistance;
             // Make a random point at that distance around a circle's circumference
-            Vector2 position = starPositions[star] + Random.insideUnitCircle.normalized * orbitDistance;
+            Vector2 position = starPositions[star] + UnityEngine.Random.insideUnitCircle.normalized * orbitDistance;
 
             float[] distances = new float[numberOfStars];
             distances[star] = orbitDistance;
@@ -347,7 +348,7 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
             float kelvinHigh = statistics[name + " Kelvin High"].Get<float>();
             float distance = statistics[name + " Orbit Distance"].Get<float>();
 
-            float distanceRatio = distance / maximumPlanetaryDistance * Random.Range(0.8f, 1.2f);
+            float distanceRatio = distance / maximumPlanetaryDistance * UnityEngine.Random.Range(0.8f, 1.2f);
             float radius = planetPlotRadiusDistance.Evaluate(distanceRatio);
             radius += planetPlotRadiusKelvin.Evaluate(kelvin / 240f);
             radius *= EnvironmentRules.RadiusOfJupiter / 10000f;
@@ -391,14 +392,14 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
             string planetName = "Planet " + StringHelper.IndexIntToChar(i);
             float radius = statistics[planetName + " Radius"];
             int numberOfMoons = statistics[planetName + " Moons"];
-            float distanceLast = radius * 1.5f * Random.Range(1f, 3f);
+            float distanceLast = radius * 1.5f * UnityEngine.Random.Range(1f, 3f);
             for (int j = 0; j < numberOfMoons; j++)
             {
                 string moonName = planetName + " Moon " + StringHelper.IndexIntToChar(j);
-                float moonRadius = Mathf.Max(0.1f, ((radius * 0.3f) / (numberOfMoons + 1)) * Random.Range(0.1f, 1f));
-                Vector2 orbit = Random.insideUnitCircle.normalized;
+                float moonRadius = Mathf.Max(0.1f, ((radius * 0.3f) / (numberOfMoons + 1)) * UnityEngine.Random.Range(0.1f, 1f));
+                Vector2 orbit = UnityEngine.Random.insideUnitCircle.normalized;
                 float orbitDistance = distanceLast;
-                distanceLast = radius * 1.5f * Random.Range(1f, 3f);
+                distanceLast = radius * 1.5f * UnityEngine.Random.Range(1f, 3f);
 
                 Vector2 delta = statistics[planetName + " Position"].Get<Vector2>() + orbit * orbitDistance;
 
@@ -508,9 +509,9 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
         statistics[name + " Orbit"] = new Statistic(name + " Orbit", Statistic.ValueType.Vector2, orbit);
         statistics[name + " Orbit Distance"] = new Statistic(name + " Orbit Distance", Statistic.ValueType.Float, orbitDistance);
         statistics[name + " Position"] = new Statistic(name + " Position", Statistic.ValueType.Vector2, position);
-        statistics[name + " Profile"] = new Statistic(name + " Profile", Statistic.ValueType.Integer, Random.Range(0, 1000000));
-        statistics[name + " Surface"] = new Statistic(name + " Surface", Statistic.ValueType.Integer, Random.Range(0, 1000000));
-        statistics[name + " Atmosphere"] = new Statistic(name + " Atmosphere", Statistic.ValueType.Integer, Random.Range(0, 1000000));
+        statistics[name + " Profile"] = new Statistic(name + " Profile", Statistic.ValueType.Integer, UnityEngine.Random.Range(0, 1000000));
+        statistics[name + " Surface"] = new Statistic(name + " Surface", Statistic.ValueType.Integer, UnityEngine.Random.Range(0, 1000000));
+        statistics[name + " Atmosphere"] = new Statistic(name + " Atmosphere", Statistic.ValueType.Integer, UnityEngine.Random.Range(0, 1000000));
         statistics[name + " Atmosphere Intensity"] = new Statistic(name + " Atmosphere Intensity", Statistic.ValueType.Float, intensity);
         statistics[name + " Atmosphere Density"] = new Statistic(name + " Atmosphere Density", Statistic.ValueType.Float, density);
     }
@@ -523,8 +524,8 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
         float actualKelvin = EnvironmentRules.AtmosphereKelvin(kelvin, actualKelvinRange, intensity, density);
         float actualKelvinLow = actualKelvin - actualKelvinRange;
         float actualKelvinHigh = actualKelvin + actualKelvinRange;
-        float waterLevel = Mathf.Clamp01((radius / (EnvironmentRules.RadiusOfEarth / 5000f)) * Random.Range(0.5f, 2f));
-        waterLevel = Mathf.Clamp01(waterLevel + ((kelvin / 85f) * (1f - kelvin / 240f)) * Random.Range(0.5f, 2f));
+        float waterLevel = Mathf.Clamp01((radius / (EnvironmentRules.RadiusOfEarth / 5000f)) * UnityEngine.Random.Range(0.5f, 2f));
+        waterLevel = Mathf.Clamp01(waterLevel + ((kelvin / 85f) * (1f - kelvin / 240f)) * UnityEngine.Random.Range(0.5f, 2f));
 
         statistics[name + " Radius"].Set(radius);
         statistics[name + " Actual Kelvin"].Set(actualKelvin);
@@ -551,7 +552,7 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
             }
         }
 
-        ListHelper.Shuffle(ref dungeons);
+        dungeons.Shuffle();
     }
 
     public void PopulateDungeons()
@@ -571,16 +572,32 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
             if (!dungeon)
                 continue;
 
-            dungeon.hash = Random.Range(int.MinValue, int.MaxValue);
+            dungeon.hash = UnityEngine.Random.Range(int.MinValue, int.MaxValue);
 
-            dungeon.dungeonType = eligibleDungeonTypes.Find(dng => dng.target.Contains("Any") || dng.target.Contains(dungeon.dungeonTarget));
+            dungeon.dungeonType = eligibleDungeonTypes.Find(dng => dng.target.Contains("Any") || Contains(dng.target, dungeon.dungeonTarget));
             //if (dungeon.dungeonType.name == null)
             //    dungeon.dungeonType = eligibleDungeonTypes.Find(dng => dng.target.Contains("Any"));
             eligibleDungeonTypes.Remove(dungeon.dungeonType);
-            dungeon.riskLevel = FloatHelper.RiskStringToFloat(dungeon.dungeonType.risk) * Random.Range(0.5f, 2f);
+            dungeon.riskLevel = FloatHelper.RiskStringToFloat(dungeon.dungeonType.risk) * UnityEngine.Random.Range(0.5f, 2f);
             dungeon.generates = true;
 
             activeDungeons.Add(dungeon.dungeonType);
         }
+    }
+
+    bool Contains(string target, string targets)
+    {
+        int contains = 0;
+        string[] split = targets.Split(new string[] { " ", ", ", "," }, StringSplitOptions.RemoveEmptyEntries);
+
+        foreach (string str in split)
+        {
+            if (target.Contains(str))
+            {
+                contains++;
+            }
+        }
+
+        return contains == split.Length;
     }
 }

@@ -26,13 +26,13 @@ public class WidgetSignalDescription : MonoBehaviour
 
         if (textName)
         {
-            textName.text = Literals.literals[Environment.language][type.name];
+            textName.text = Literals.literals[PlayerPrefs.GetString("language")][type.name];
             //textName.color = rarityScheme.colour;
         }
 
         if (textDescription)
         {
-            textDescription.text = Literals.literals[Environment.language][type.risk] + "\n" + Literals.literals[Environment.language][StringHelper.RarityIntToString(type.oneIn)] + "\n" + Literals.literals[Environment.language][type.description];
+            textDescription.text = Literals.literals[PlayerPrefs.GetString("language")][type.risk] + "\n" + Literals.literals[PlayerPrefs.GetString("language")][StringHelper.RarityIntToString(type.oneIn)] + "\n" + Literals.literals[PlayerPrefs.GetString("language")][type.description];
             //textDescription.color = rarityScheme.colour;
         }
 

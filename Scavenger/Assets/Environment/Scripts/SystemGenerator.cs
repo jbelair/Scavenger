@@ -152,7 +152,7 @@ public class SystemGenerator : MonoBehaviour
 
             if (happens)
             {
-                hash = Hash(statistics["System Coordinates"].Get<Vector3>() + new Vector3(0, 0, EnvironmentTime.active.time));
+                //hash = Hash(statistics["System Coordinates"].Get<Vector3>() + new Vector3(0, 0, EnvironmentTime.active.time));
                 Random.InitState(hash);
                 if (Environment.generateDungeons)
                     decorator.dungeons.Invoke();

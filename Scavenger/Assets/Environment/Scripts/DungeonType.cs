@@ -18,6 +18,22 @@ public struct DungeonType
     public string generator;
     public string tags;
 
+    public static implicit operator string(DungeonType dungeon)
+    {
+        string str = "";
+
+        if (dungeon.name != null)
+        {
+            str += "<color=#ffffff>" + Literals.literals[PlayerPrefs.GetString("language")][dungeon.name] + "\t";
+            string risk = Literals.literals[PlayerPrefs.GetString("language")][dungeon.risk];
+            str += "<color=#" + WidgetScheme.Scheme(dungeon.risk).colour.Hexidecimal() + ">" + risk + "\t";
+            string rarity = StringHelper.RarityIntToString(dungeon.oneIn);
+            str += "<color=#" + WidgetScheme.Scheme(rarity).colour.Hexidecimal() + ">" + Literals.literals[PlayerPrefs.GetString("language")][rarity] + "\t";
+        }
+
+        return str;
+    }
+
     private class DungeonComparer : IComparer<DungeonType>
     {
         public int Compare(DungeonType x, DungeonType y)
@@ -51,7 +67,7 @@ public struct DungeonType
 
             for (int i = 0; i < dungeons.Count; i++)
             {
-                int score = (1 == Random.Range(1, dungeons[i].oneIn)) ? dungeons[i].oneIn : 0;
+                int score = (0 == Random.Range(0, dungeons[i].oneIn)) ? dungeons[i].oneIn : 0;
 
                 if (dungeons[i].oneIn < highestProbability)
                 {

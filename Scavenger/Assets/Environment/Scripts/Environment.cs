@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public static class Environment
 {
-    public static string language = Literals.defaultLanguage;
     public static int environmentTime = 0;
     public static float environmentTimeSpeed = 1/30f;
     public static float environmentTimeCounter = 0;
@@ -15,8 +14,8 @@ public static class Environment
     public static float maximumDungeons = 5;
     public static float scanRadius = 15;
     public static float jumpRadius = 5;
-    public static float jumpFuel = 15;
-    public static float jumpFuelMax = 15;
+    public static float jumpFuel = 1000;
+    public static float jumpFuelMax = 1000;
     public static float jumpDistance = 0;
     
     public static Vector3 systemCoordinates;

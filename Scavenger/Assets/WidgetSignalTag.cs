@@ -16,7 +16,7 @@ public class WidgetSignalTag : MonoBehaviour
         WidgetScheme.SchemeContainer scheme = WidgetScheme.Scheme(tag);
 
         if (label)
-            label.text = Literals.literals[Environment.language][scheme.name];
+            label.text = Literals.literals[PlayerPrefs.GetString("language")][scheme.name];
 
         if (icon)
         {

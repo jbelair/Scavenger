@@ -46,17 +46,19 @@ public class WidgetSignal : MonoBehaviour
 
         if (label)
         {
-            label.text = Literals.literals[Environment.language][type.name];
+            label.text = Literals.literals[PlayerPrefs.GetString("language")][type.name];
         }
 
         if (rarityLabel)
         {
-            rarityLabel.text = Literals.literals[Environment.language][StringHelper.RarityIntToString(type.oneIn)];
+            rarityLabel.text = Literals.literals[PlayerPrefs.GetString("language")][StringHelper.RarityIntToString(type.oneIn)];
+            rarityLabel.color = rarityScheme.colour;
         }
 
         if (riskLabel)
         {
-            riskLabel.text = Literals.literals[Environment.language][type.risk];
+            riskLabel.text = Literals.literals[PlayerPrefs.GetString("language")][type.risk];
+            riskLabel.color = riskScheme.colour;
         }
 
         if (tags)
