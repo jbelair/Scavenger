@@ -1,0 +1,569 @@
+{
+    "definitions": [
+        {
+            "name": "default",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "disabled",
+            "colour": "80808080",
+            "symbol": ""
+        },
+        {
+            "name": "transparent",
+            "colour": "FFFFFF00",
+            "symbol": ""
+        },
+        {
+            "name": "rarity_abundant",
+            "colour": "BFBFBFFF",
+            "symbol": ""
+        },
+        {
+            "name": "rarity_common",
+            "colour": "2083FFFF",
+            "symbol": ""
+        },
+        {
+            "name": "rarity_uncommon",
+            "colour": "20FFEAFF",
+            "symbol": ""
+        },
+        {
+            "name": "rarity_rare",
+            "colour": "83FF52FF",
+            "symbol": ""
+        },
+        {
+            "name": "rarity_legendary",
+            "colour": "FFB852FF",
+            "symbol": ""
+        },
+        {
+            "name": "rarity_epic",
+            "colour": "FF3852FF",
+            "symbol": ""
+        },
+        {
+            "name": "rarity_unique",
+            "colour": "FF20B5FF",
+            "symbol": ""
+        },
+        {
+            "name": "rarity_unknown",
+            "colour": "DA20FFFF",
+            "symbol": ""
+        },
+        {
+            "name": "menu_0",
+            "colour": "404040FF",
+            "symbol": ""
+        },
+        {
+            "name": "menu_1",
+            "colour": "1862BFFF",
+            "symbol": ""
+        },
+        {
+            "name": "menu_2",
+            "colour": "18BFB0FF",
+            "symbol": ""
+        },
+        {
+            "name": "menu_3",
+            "colour": "62BF3DFF",
+            "symbol": ""
+        },
+        {
+            "name": "menu_4",
+            "colour": "BF8A3DFF",
+            "symbol": ""
+        },
+        {
+            "name": "menu_5",
+            "colour": "BF2A3EFF",
+            "symbol": ""
+        },
+        {
+            "name": "menu_6",
+            "colour": "BF1888FF",
+            "symbol": ""
+        },
+        {
+            "name": "menu_7",
+            "colour": "A418BFFF",
+            "symbol": ""
+        },
+        {
+            "name": "risk_none",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "risk_low",
+            "colour": "83FF52FF",
+            "symbol": ""
+        },
+        {
+            "name": "risk_medium",
+            "colour": "C1DB52FF",
+            "symbol": ""
+        },
+        {
+            "name": "risk_high",
+            "colour": "FFB852FF",
+            "symbol": ""
+        },
+        {
+            "name": "risk_extreme",
+            "colour": "FF7752FF",
+            "symbol": ""
+        },
+        {
+            "name": "risk_terminal",
+            "colour": "FF3852FF",
+            "symbol": ""
+        },
+        {
+            "name": "risk_unknown",
+            "colour": "B820FFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_station",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_station_wreck",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_station_construction",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_station_terraforming",
+            "colour": "83FF52FF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_ship",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_shipwreck",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_ships",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_graveyard",
+            "colour": "FFB852FF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_debris",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_asteroid",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_asteroid_station",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_asteroid_station_wreck",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_asteroid_station_construction",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_asteroids",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_conflict",
+            "colour": "B820FFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_battle",
+            "colour": "B820FFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_starfish",
+            "colour": "B820FFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_starfishes",
+            "colour": "B820FFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_starfish_matriarch",
+            "colour": "B820FFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_allied",
+            "colour": "83FF52FF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_neutral",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_hostile",
+            "colour": "FF3852FF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_plasma",
+            "colour": "B820FFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_ejection_plasma",
+            "colour": "B820FFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_unknown",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_ejection",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_trace",
+            "colour": "20FFEAFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_anomaly",
+            "colour": "2083FFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_distress",
+            "colour": "FF3852FF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_probe",
+            "colour": "20FFEAFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_probe_inactive",
+            "colour": "BFBFBFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_probe_active",
+            "colour": "B820FFFF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_defended",
+            "colour": "FFB852FF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_sunglider",
+            "colour": "FFB852FF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_sungliders",
+            "colour": "FFB852FF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_array_solar",
+            "colour": "FFB852FF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_array_solar_bank",
+            "colour": "FFB852FF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_repair",
+            "colour": "FF3852FF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_respawn",
+            "colour": "FF3852FF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_buy",
+            "colour": "83FF52FF",
+            "symbol": ""
+        },
+        {
+            "name": "tag_sell",
+            "colour": "83FF52FF",
+            "symbol": ""
+        },
+        {
+            "name": "distance_none",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "distance_low",
+            "colour": "F1D3FFFF",
+            "symbol": ""
+        },
+        {
+            "name": "distance_medium",
+            "colour": "E3A6FFFF",
+            "symbol": ""
+        },
+        {
+            "name": "distance_high",
+            "colour": "D57AFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "distance_extreme",
+            "colour": "C64EFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "distance_terminal",
+            "colour": "B820FFFF",
+            "symbol": ""
+        },
+        {
+            "name": "filter_distance_rarity",
+            "colour": "B820FFFF",
+            "symbol": ""
+        },
+        {
+            "name": "filter_distance_rarity_deselected",
+            "colour": "B820FFFF",
+            "symbol": ""
+        },
+        {
+            "name": "filter_distance_risk",
+            "colour": "FF20B5FF",
+            "symbol": ""
+        },
+        {
+            "name": "filter_rarity",
+            "colour": "83FF52FF",
+            "symbol": ""
+        },
+        {
+            "name": "filter_rarity_deselected",
+            "colour": "83FF52FF",
+            "symbol": ""
+        },
+        {
+            "name": "filter_rarity_risk",
+            "colour": "83FF52FF",
+            "symbol": ""
+        },
+        {
+            "name": "filter_risk_rarity",
+            "colour": "FF3852FF",
+            "symbol": ""
+        },
+        {
+            "name": "filter_risk",
+            "colour": "FF7752FF",
+            "symbol": ""
+        },
+        {
+            "name": "filter_risk_deselected",
+            "colour": "FF7752FF",
+            "symbol": ""
+        },
+        {
+            "name": "stat_salvage",
+            "colour": "BFBFBFFF",
+            "symbol": "signal_debris"
+        },
+        {
+            "name": "stat_jump_fuel",
+            "colour": "DA20FFFF",
+            "symbol": "signal_plasma"
+        },
+        {
+            "name": "stat_jump_range",
+            "colour": "83FF52FF",
+            "symbol": "stat_jump_range"
+        },
+        {
+            "name": "stat_jump_view",
+            "colour": "DA20FFFF",
+            "symbol": "stat_jump_view"
+        },
+        {
+            "name": "stat_hull_max",
+            "colour": "FF3852FF",
+            "symbol": "stat_hull"
+        },
+        {
+            "name": "stat_hull_reg",
+            "colour": "FF3852FF",
+            "symbol": "stat_hull"
+        },
+        {
+            "name": "stat_hull_delay",
+            "colour": "FF3852FF",
+            "symbol": "stat_hull"
+        },
+        {
+            "name": "stat_armour_max",
+            "colour": "FFB852FF",
+            "symbol": "stat_armour"
+        },
+        {
+            "name": "stat_armour_reg",
+            "colour": "FFB852FF",
+            "symbol": "stat_armour"
+        },
+        {
+            "name": "stat_armour_delay",
+            "colour": "FFB852FF",
+            "symbol": "stat_armour"
+        },
+        {
+            "name": "stat_shield_max",
+            "colour": "20FFEAFF",
+            "symbol": "stat_shield"
+        },
+        {
+            "name": "stat_shield_reg",
+            "colour": "20FFEAFF",
+            "symbol": "stat_shield"
+        },
+        {
+            "name": "stat_shield_delay",
+            "colour": "20FFEAFF",
+            "symbol": "stat_shield"
+        },
+        {
+            "name": "stat_speed",
+            "colour": "DA20FFFF",
+            "symbol": "stat_speed"
+        },
+        {
+            "name": "stat_acc",
+            "colour": "DA20FFFF",
+            "symbol": "stat_acc"
+        },
+        {
+            "name": "stat_turn",
+            "colour": "DA20FFFF",
+            "symbol": "stat_turn"
+        },
+        {
+            "name": "stat_radar_range",
+            "colour": "83FF52FF",
+            "symbol": "stat_radar_range"
+        },
+        {
+            "name": "stat_mult_cd_reg",
+            "colour": "2083FFFF",
+            "symbol": "stat_mult_cd_reg"
+        },
+        {
+            "name": "stat_mult_stack",
+            "colour": "FFB852FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_stack_reg",
+            "colour": "FFB852FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_subunit",
+            "colour": "FF20B5FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_proj",
+            "colour": "83FF52FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_proj_speed",
+            "colour": "83FF52FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_proj_acc",
+            "colour": "83FF52FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_proj_turn",
+            "colour": "83FF52FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_proj_size",
+            "colour": "83FF52FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_proj_range",
+            "colour": "83FF52FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_effect_str",
+            "colour": "FF3852FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_effect_dur",
+            "colour": "FF3852FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_effect_stack",
+            "colour": "FF3852FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_effect_size",
+            "colour": "FF3852FF",
+            "symbol": "stat_mult_default"
+        }
+    ]
+}

@@ -5,6 +5,8 @@ public static class Literals
 {
     public static Dictionary<string, Dictionary<string, string>> literals;
     public static Dictionary<string, Dictionary<string, string>> iLiterals;// = new Dictionary<string, Dictionary<string, string>>();
+    public static Dictionary<string, string> active;
+    public static Dictionary<string, string> iActive;
 
     public static string defaultLanguage = "";
 

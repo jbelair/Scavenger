@@ -33,8 +33,11 @@
 		[Normal]_Tex0_N("5. Normal", 2D) = "bump" {}
 
 		[HDR]_GlowR("Glow 1", Color) = (1,0,0,1)
+		_GlowR_Freznel("Glow 1 Edge -> Solid -> Core", Range(-1,1)) = 0
 		[HDR]_GlowG("Glow 2", Color) = (0,1,0,1)
+		_GlowG_Freznel("Glow 1 Edge -> Solid -> Core", Range(-1,1)) = 0
 		[HDR]_GlowB("Glow 3", Color) = (0,0,1,1)
+		_GlowB_Freznel("Glow 1 Edge -> Solid -> Core", Range(-1,1)) = 0
 	}
 	SubShader
 	{
@@ -104,16 +107,20 @@
 		// STANDARD ------------------------------------------------------------------------------------------------------
 		struct Input 
 		{
+			float3 viewDir;
 			float3 worldPos;
 			float3 localPos;
-			float3 normal;
+			float4 normal;
 			fixed4 colour : COLOR;
 			//fixed info;
 		};
 
 		fixed4 _GlowR;
+		float _GlowR_Freznel;
 		fixed4 _GlowG;
+		float _GlowG_Freznel;
 		fixed4 _GlowB;
+		float _GlowB_Freznel;
 
 		int Type(fixed3 colour)
 		{
@@ -272,14 +279,14 @@
 				o.Smoothness = 1;
 		}
 
-		void SampleGlow(inout SurfaceOutputStandard o, int type)
+		void SampleGlow(inout SurfaceOutputStandard o, int type, float freznel)
 		{
 			if (type == 5)
-				o.Emission = _GlowR;
+				o.Emission = _GlowR * (1 - abs(_GlowR_Freznel)) + _GlowR * (saturate((1 - abs(freznel)) * -_GlowR_Freznel) + saturate(abs(freznel) * _GlowR_Freznel));
 			else if (type == 6)
-				o.Emission = _GlowG;
+				o.Emission = _GlowG * (1 - abs(_GlowG_Freznel)) + _GlowG * (saturate((1 - abs(freznel)) * -_GlowG_Freznel) + saturate(freznel * _GlowG_Freznel));
 			else if (type == 7)
-				o.Emission = _GlowB;
+				o.Emission = _GlowB * (1 - abs(_GlowB_Freznel)) + _GlowB * (saturate((1 - abs(freznel)) * -_GlowB_Freznel) + saturate(freznel * _GlowB_Freznel));
 		}
 
 		// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
@@ -296,18 +303,19 @@
 			//o.info = Type(o.colour);
 			o.localPos = v.vertex.xyz;
 			
-			o.normal = v.normal.xyz;
+			o.normal.xyz = v.normal.xyz;
+			o.normal.w = dot(normalize(ObjSpaceViewDir(v.vertex)), o.normal.xyz);
 		}
 
 		void surf (Input IN, inout SurfaceOutputStandard o) 
 		{
 			float t = Type(IN.colour);
 			//TriplanarUV uv = GetTriplanarUV(IN.localPos, IN.normal);
-			float2 uv = GetTriplanarUV(IN.localPos, IN.normal);
+			float2 uv = GetTriplanarUV(IN.localPos, IN.normal.xyz);
 			fixed4 c = SampleAtPosition(t, uv);///*tex2D (_MainTex, IN.uv_MainTex)*/IN.colour;// *_Color;
 			o.Albedo = c.rgb;
 			o.Normal = UnpackNormal(SampleNormalAtPosition(t, uv));
-			SampleGlow(o, t);
+			SampleGlow(o, t, IN.normal.w);
 			SampleMetallic(o, t);
 			SampleSmoothness(o, t);		
 		}

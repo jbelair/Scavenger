@@ -22,8 +22,7 @@ public class LiteralsLoader : MonoBehaviour
 
             if (lang.defaultLanguage)
             {
-                Literals.defaultLanguage = lang.name;
-                PlayerPrefs.SetString("language", lang.name);
+                Active(lang.name);
             }
 
             if (firstLanguage == "")
@@ -34,8 +33,15 @@ public class LiteralsLoader : MonoBehaviour
 
         if (Literals.defaultLanguage == "")
         {
-            Literals.defaultLanguage = firstLanguage;
-            PlayerPrefs.SetString("language", firstLanguage);
+            Active(firstLanguage);
         };
+    }
+
+    public void Active(string lang)
+    {
+        Literals.defaultLanguage = lang;
+        PlayerPrefs.SetString("language", lang);
+        Literals.active = Literals.literals[lang];
+        Literals.iActive = Literals.iLiterals[lang];
     }
 }

@@ -6,6 +6,29 @@ using UnityEngine;
 
 public static class StringHelper
 {
+    public static string Units(string units)
+    {
+        switch(units)
+        {
+            case "persecond":
+                return "/s";
+            case "seconds":
+                return "s";
+            case "metrespersecond":
+                return "m/s";
+            case "metrespersecond2":
+                return "m/s<sup>2</sup>";
+            case "degreespersecond":
+                return "°/s";
+            case "kilometres":
+                return "km";
+            case "multiplier":
+                return "x";
+            default:
+                return units;
+        }
+    }
+
     public static string ClosestMatch(string[] comparisons, string str)
     {
         if (comparisons.Length < 1)

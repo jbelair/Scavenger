@@ -24,11 +24,11 @@ public struct DungeonType
 
         if (dungeon.name != null)
         {
-            str += "<color=#ffffff>" + Literals.literals[PlayerPrefs.GetString("language")][dungeon.name] + "\t";
-            string risk = Literals.literals[PlayerPrefs.GetString("language")][dungeon.risk];
-            str += "<color=#" + WidgetScheme.Scheme(dungeon.risk).colour.Hexidecimal() + ">" + risk + "\t";
+            str += "<color=#ffffff>" + Literals.active[dungeon.name] + "\t";
+            string risk = Literals.active[dungeon.risk];
+            str += "<color=#" + Schemes.Scheme(dungeon.risk).colour.Hexidecimal() + ">" + risk + "\t";
             string rarity = StringHelper.RarityIntToString(dungeon.oneIn);
-            str += "<color=#" + WidgetScheme.Scheme(rarity).colour.Hexidecimal() + ">" + Literals.literals[PlayerPrefs.GetString("language")][rarity] + "\t";
+            str += "<color=#" + Schemes.Scheme(rarity).colour.Hexidecimal() + ">" + Literals.active[rarity] + "\t";
         }
 
         return str;

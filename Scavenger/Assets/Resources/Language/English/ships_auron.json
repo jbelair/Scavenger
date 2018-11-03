@@ -1,0 +1,37 @@
+{
+	"literals":
+	[
+		{
+			"key": "ship_auron_fighter_light",
+			"value": "Intrepid"
+		},
+		{
+			"key": "ship_auron_fighter_light_desc",
+			"value": ""
+		},
+		{
+			"key": "ship_auron_fighter_heavy",
+			"value": "Resolute"
+		},
+		{
+			"key": "ship_auron_fighter_heavy_desc",
+			"value": ""
+		},
+		{
+			"key": "ship_auron_fighter_specialist",
+			"value": "Audacious"
+		},
+		{
+			"key": "ship_auron_fighter_specialist_desc",
+			"value": ""
+		},
+		{
+			"key": "ship_auron_cruiser_specialist",
+			"value": "Gallant"
+		},
+		{
+			"key": "ship_auron_cruiser_specialist_desc",
+			"value": "The Gallant is usually a rare sight, restricted only to space with Nim activity. The Gallant is a cruiser sized specialist that offers powerful bonuses to cooldown recovery, subunits, projectile speed, projectile range, and a very powerful bonus to effect durations. The Gallant is a low hull cruiser, but it makes up for this weakness in low delays before repairing, and having continuously regenerating shields."
+		}
+	]
+}

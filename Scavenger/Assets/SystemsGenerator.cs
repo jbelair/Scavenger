@@ -76,9 +76,9 @@ public class SystemsGenerator : MonoBehaviour
                 jumpLine.startColor = jumpRadius.color;
 
                 if (SystemsFilter.active.filter.Contains("Rarity"))
-                    jumpLine.endColor = WidgetScheme.Scheme("Rarity " + StringHelper.RarityIntToString(value)).colour;
+                    jumpLine.endColor = Schemes.Scheme("Rarity " + StringHelper.RarityIntToString(value)).colour;
                 else
-                    jumpLine.endColor = WidgetScheme.Scheme("Risk " + StringHelper.RiskIntToString(value)).colour;
+                    jumpLine.endColor = Schemes.Scheme("Risk " + StringHelper.RiskIntToString(value)).colour;
             }
             else
             {
@@ -97,9 +97,9 @@ public class SystemsGenerator : MonoBehaviour
             float rarity = systems[Environment.selectedCoordinates]["Average Rarity"].Get<int>();
 
             if (SystemsFilter.active.filter.Contains("Rarity"))
-                jumpLine.endColor = WidgetScheme.Scheme("Rarity " + StringHelper.RarityIntToString((int)rarity)).colour;
+                jumpLine.endColor = Schemes.Scheme("Rarity " + StringHelper.RarityIntToString((int)rarity)).colour;
             else
-                jumpLine.endColor = WidgetScheme.Scheme("Risk " + StringHelper.RiskIntToString(Mathf.FloorToInt(Mathf.Log10(rarity)))).colour;
+                jumpLine.endColor = Schemes.Scheme("Risk " + StringHelper.RiskIntToString(Mathf.FloorToInt(Mathf.Log10(rarity)))).colour;
         }
         else if (SystemsFilter.active.filter.Contains("Risk"))
         {
@@ -109,9 +109,9 @@ public class SystemsGenerator : MonoBehaviour
             float risk = systems[Environment.selectedCoordinates]["Average Risk"].Get<float>();
 
             if (SystemsFilter.active.filter.Contains("Rarity"))
-                jumpLine.endColor = WidgetScheme.Scheme("Rarity " + StringHelper.RarityIntToString(Mathf.FloorToInt(Mathf.Pow(10, risk)))).colour;
+                jumpLine.endColor = Schemes.Scheme("Rarity " + StringHelper.RarityIntToString(Mathf.FloorToInt(Mathf.Pow(10, risk)))).colour;
             else
-                jumpLine.endColor = WidgetScheme.Scheme("Risk " + StringHelper.RiskIntToString(Mathf.FloorToInt(risk))).colour;
+                jumpLine.endColor = Schemes.Scheme("Risk " + StringHelper.RiskIntToString(Mathf.FloorToInt(risk))).colour;
         }
 
         //jumpLine.startColor.A(0.5f);

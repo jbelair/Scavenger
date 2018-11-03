@@ -1,0 +1,141 @@
+{
+	"literals":
+	[
+		{
+			"key": "stat_salvage",
+			"value": "Salvage"
+		},
+		{
+			"key": "stat_jump_fuel",
+			"value": "Jump Fuel"
+		},
+		{
+			"key": "stat_jump_range",
+			"value": "Jump Range"
+		},
+		{
+			"key": "stat_jump_view",
+			"value": "View Range"
+		},
+		{
+			"key": "stat_hull",
+			"value": "Hull"
+		},
+		{
+			"key": "stat_hull_max",
+			"value": "Hull Maximum"
+		},
+		{
+			"key": "stat_hull_reg",
+			"value": "Hull Repair"
+		},
+		{
+			"key": "stat_hull_delay",
+			"value": "Repair Delay"
+		},
+		{
+			"key": "stat_armour",
+			"value": "Armour"
+		},
+		{
+			"key": "stat_armour_max",
+			"value": "Armour Maximum"
+		},
+		{
+			"key": "stat_armour_reg",
+			"value": "Armour Recovery"
+		},
+		{
+			"key": "stat_armour_delay",
+			"value": "Recovery Delay"
+		},
+		{
+			"key": "stat_shield",
+			"value": "Shield"
+		},
+		{
+			"key": "stat_shield_max",
+			"value": "Shield Maximum"
+		},
+		{
+			"key": "stat_shield_reg",
+			"value": "Shield Generation"
+		},
+		{
+			"key": "stat_shield_delay",
+			"value": "Generation Delay"
+		},
+		{
+			"key": "stat_speed",
+			"value": "Speed"
+		},
+		{
+			"key": "stat_acc",
+			"value": "Acceleration"
+		},
+		{
+			"key": "stat_turn",
+			"value": "Turnrate"
+		},
+		{
+			"key": "stat_radar_range",
+			"value": "Radar Range"
+		},
+		{
+			"key": "stat_mult_cd_reg",
+			"value": "Cooldown Recovery"
+		},
+		{
+			"key": "stat_mult_stack",
+			"value": "Stacks"
+		},
+		{
+			"key": "stat_mult_stack_reg",
+			"value": "Stack Recovery"
+		},
+		{
+			"key": "stat_mult_subunit",
+			"value": "Subunits"
+		},
+		{
+			"key": "stat_mult_proj",
+			"value": "Projectiles"
+		},
+		{
+			"key": "stat_mult_proj_speed",
+			"value": "Projectile Speed"
+		},
+		{
+			"key": "stat_mult_proj_acc",
+			"value": "Projectile Acceleration"
+		},
+		{
+			"key": "stat_mult_proj_turn",
+			"value": "Projectile Turnrate"
+		},
+		{
+			"key": "stat_mult_proj_size",
+			"value": "Projectile Size"
+		},
+		{
+			"key": "stat_mult_proj_range",
+			"value": "Projectile Range"
+		},
+		{
+			"key": "stat_mult_effect_str",
+			"value": "Effect Strength"
+		},
+		{
+			"key": "stat_mult_effect_dur",
+			"value": "Effect Duration"
+		},
+		{
+			"key": "stat_mult_effect_stack",
+			"value": "Effect Stack"
+		},
+		{
+			"key": "stat_mult_effect_size",
+			"value": "Effect Size"
+		}
+	]
+}

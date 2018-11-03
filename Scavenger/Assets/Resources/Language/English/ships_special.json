@@ -1,0 +1,21 @@
+{
+	"literals":
+	[
+		{
+			"key": "ship_special_odyssey",
+			"value": "Odyssey"
+		},
+		{
+			"key": "ship_special_odyssey_desc",
+			"value": "The Odyssey is a legacy vessel very rarely seen nowadays. Though the size of a destroyer, and classified as a cruiser, the Odyssey's sophisticated onboard AI offers substantial benefits in a wide variety of areas. The Odyssey was primarily utilised by explorers in the old days, its AI filling the role of general expert, aiding the crew in as many ways as possible."
+		},
+		{
+			"key": "ship_special_trekker",
+			"value": "Trekker"
+		},
+		{
+			"key": "ship_special_trekker_desc",
+			"value": "The Trekker is far from its home, which their captain, a particularly stern woman, says is a planet called Earth. The computer cannot find any planets with the known name 'Earth'. The computer can however find a very large collection of entries in which the Trekker survives circumstances that seemed insurmountable."
+		}
+	]
+}
