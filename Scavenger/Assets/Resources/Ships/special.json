@@ -4,7 +4,7 @@
 		{
 			"name":"ship_special_odyssey",
 			"description":"ship_special_odyssey_desc",
-			"model":"Ships/Models/ship_special_odyssey",
+			"model":"Ships/Models/ship_special_aso_ody",
 			"material": "ship_special_odyssey",
 			"risk":"risk_none",
 			"oneIn":10000,
@@ -12,7 +12,7 @@
 			"statistics":
 			[
 				{"name":"stat_jump_fuel","value":10,"unit":""},
-				{"name":"stat_jump_range","value":1,"unit":""},
+				{"name":"stat_jump_range","value":2,"unit":""},
 				{"name":"stat_jump_view","value":10,"unit":""},
 				{"name":"stat_hull","value":10000,"unit":""},
 				{"name":"stat_hull_max","value":10000,"unit":""},
@@ -50,7 +50,7 @@
 		{
 			"name":"ship_special_trekker",
 			"description":"ship_special_trekker_desc",
-			"model":"Ships/Models/ship_special_trekker",
+			"model":"Ships/Models/ship_special_st_voy",
 			"material": "ship_special_trekker",
 			"risk":"risk_terminal",
 			"oneIn":10000,

@@ -16,44 +16,54 @@
             "symbol": ""
         },
         {
-            "name": "rarity_abundant",
-            "colour": "BFBFBFFF",
+            "name": "transparent_black",
+            "colour": "00000000",
             "symbol": ""
         },
         {
-            "name": "rarity_common",
-            "colour": "2083FFFF",
-            "symbol": ""
-        },
-        {
-            "name": "rarity_uncommon",
-            "colour": "20FFEAFF",
-            "symbol": ""
-        },
-        {
-            "name": "rarity_rare",
-            "colour": "83FF52FF",
-            "symbol": ""
-        },
-        {
-            "name": "rarity_legendary",
-            "colour": "FFB852FF",
-            "symbol": ""
-        },
-        {
-            "name": "rarity_epic",
+            "name": "negative",
             "colour": "FF3852FF",
             "symbol": ""
         },
         {
-            "name": "rarity_unique",
-            "colour": "FF20B5FF",
-            "symbol": ""
+            "name": "rarity_abundant",
+            "colour": "BFBFBFFF",
+            "symbol": "rarity_0_abundant"
         },
         {
-            "name": "rarity_unknown",
+            "name": "rarity_common",
+            "colour": "2083FFFF",
+            "symbol": "rarity_1_common"
+        },
+        {
+            "name": "rarity_uncommon",
+            "colour": "20FFEAFF",
+            "symbol": "rarity_2_uncommon"
+        },
+        {
+            "name": "rarity_rare",
+            "colour": "83FF52FF",
+            "symbol": "rarity_3_rare"
+        },
+        {
+            "name": "rarity_legendary",
+            "colour": "FFB852FF",
+            "symbol": "rarity_4_legendary"
+        },
+        {
+            "name": "rarity_epic",
+            "colour": "FF3852FF",
+            "symbol": "rarity_5_epic"
+        },
+        {
+            "name": "rarity_immortal",
+            "colour": "FF20B5FF",
+            "symbol": "rarity_6_immortal"
+        },
+        {
+            "name": "rarity_unique",
             "colour": "DA20FFFF",
-            "symbol": ""
+            "symbol": "rarity_7_unique"
         },
         {
             "name": "menu_0",
@@ -133,207 +143,207 @@
         {
             "name": "tag_station",
             "colour": "FFFFFFFF",
-            "symbol": ""
+            "symbol": "signal_station"
         },
         {
             "name": "tag_station_wreck",
             "colour": "FFFFFFFF",
-            "symbol": ""
+            "symbol": "signal_station_wreck"
         },
         {
             "name": "tag_station_construction",
             "colour": "FFFFFFFF",
-            "symbol": ""
+            "symbol": "signal_station_construction"
         },
         {
             "name": "tag_station_terraforming",
             "colour": "83FF52FF",
-            "symbol": ""
+            "symbol": "signal_station"
         },
         {
             "name": "tag_ship",
             "colour": "FFFFFFFF",
-            "symbol": ""
+            "symbol": "signal_ship"
         },
         {
             "name": "tag_shipwreck",
             "colour": "FFFFFFFF",
-            "symbol": ""
+            "symbol": "signal_shipwreck"
         },
         {
             "name": "tag_ships",
             "colour": "FFFFFFFF",
-            "symbol": ""
+            "symbol": "signal_ships"
         },
         {
             "name": "tag_graveyard",
             "colour": "FFB852FF",
-            "symbol": ""
+            "symbol": "signal_graveyard"
         },
         {
             "name": "tag_debris",
             "colour": "FFFFFFFF",
-            "symbol": ""
+            "symbol": "signal_debris"
         },
         {
             "name": "tag_asteroid",
             "colour": "FFFFFFFF",
-            "symbol": ""
+            "symbol": "signal_asteroid"
         },
         {
             "name": "tag_asteroid_station",
             "colour": "FFFFFFFF",
-            "symbol": ""
+            "symbol": "signal_asteroid_station"
         },
         {
             "name": "tag_asteroid_station_wreck",
             "colour": "FFFFFFFF",
-            "symbol": ""
+            "symbol": "signal_asteroid_station_wreck"
         },
         {
             "name": "tag_asteroid_station_construction",
             "colour": "FFFFFFFF",
-            "symbol": ""
+            "symbol": "signal_asteroid_station_construction"
         },
         {
             "name": "tag_asteroids",
             "colour": "FFFFFFFF",
-            "symbol": ""
+            "symbol": "signal_asteroids"
         },
         {
             "name": "tag_conflict",
             "colour": "B820FFFF",
-            "symbol": ""
+            "symbol": "signal_conflict"
         },
         {
             "name": "tag_battle",
             "colour": "B820FFFF",
-            "symbol": ""
+            "symbol": "signal_battle"
         },
         {
             "name": "tag_starfish",
             "colour": "B820FFFF",
-            "symbol": ""
+            "symbol": "signal_starfish"
         },
         {
             "name": "tag_starfishes",
             "colour": "B820FFFF",
-            "symbol": ""
+            "symbol": "signal_starfishes"
         },
         {
             "name": "tag_starfish_matriarch",
             "colour": "B820FFFF",
-            "symbol": ""
+            "symbol": "signal_starfish_matriarch"
         },
         {
             "name": "tag_allied",
             "colour": "83FF52FF",
-            "symbol": ""
+            "symbol": "signal_allied"
         },
         {
             "name": "tag_neutral",
             "colour": "FFFFFFFF",
-            "symbol": ""
+            "symbol": "signal_neutral"
         },
         {
             "name": "tag_hostile",
             "colour": "FF3852FF",
-            "symbol": ""
+            "symbol": "signal_hostile"
         },
         {
             "name": "tag_plasma",
             "colour": "B820FFFF",
-            "symbol": ""
+            "symbol": "signal_plasma"
         },
         {
             "name": "tag_ejection_plasma",
             "colour": "B820FFFF",
-            "symbol": ""
+            "symbol": "signal_plasma"
         },
         {
             "name": "tag_unknown",
             "colour": "FFFFFFFF",
-            "symbol": ""
+            "symbol": "signal_unknown"
         },
         {
             "name": "tag_ejection",
             "colour": "FFFFFFFF",
-            "symbol": ""
+            "symbol": "signal_ejection"
         },
         {
             "name": "tag_trace",
             "colour": "20FFEAFF",
-            "symbol": ""
+            "symbol": "signal_trace"
         },
         {
             "name": "tag_anomaly",
             "colour": "2083FFFF",
-            "symbol": ""
+            "symbol": "signal_anomaly"
         },
         {
             "name": "tag_distress",
             "colour": "FF3852FF",
-            "symbol": ""
+            "symbol": "signal_distress"
         },
         {
             "name": "tag_probe",
             "colour": "20FFEAFF",
-            "symbol": ""
+            "symbol": "signal_probe"
         },
         {
             "name": "tag_probe_inactive",
             "colour": "BFBFBFFF",
-            "symbol": ""
+            "symbol": "signal_probe"
         },
         {
             "name": "tag_probe_active",
             "colour": "B820FFFF",
-            "symbol": ""
+            "symbol": "signal_probe"
         },
         {
             "name": "tag_defended",
             "colour": "FFB852FF",
-            "symbol": ""
+            "symbol": "signal_defended"
         },
         {
             "name": "tag_sunglider",
             "colour": "FFB852FF",
-            "symbol": ""
+            "symbol": "signal_ship"
         },
         {
             "name": "tag_sungliders",
             "colour": "FFB852FF",
-            "symbol": ""
+            "symbol": "signal_ships"
         },
         {
             "name": "tag_array_solar",
             "colour": "FFB852FF",
-            "symbol": ""
+            "symbol": "signal_solararray"
         },
         {
             "name": "tag_array_solar_bank",
             "colour": "FFB852FF",
-            "symbol": ""
+            "symbol": "signal_solararrays"
         },
         {
             "name": "tag_repair",
             "colour": "FF3852FF",
-            "symbol": ""
+            "symbol": "signal_repair"
         },
         {
             "name": "tag_respawn",
             "colour": "FF3852FF",
-            "symbol": ""
+            "symbol": "signal_respawn"
         },
         {
             "name": "tag_buy",
             "colour": "83FF52FF",
-            "symbol": ""
+            "symbol": "signal_buy"
         },
         {
             "name": "tag_sell",
             "colour": "83FF52FF",
-            "symbol": ""
+            "symbol": "signal_sell"
         },
         {
             "name": "distance_none",

@@ -55,28 +55,28 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Tex0:
-        m_Texture: {fileID: 2800000, guid: a566247531e372d4b82c0e276363c938, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: c6df0ba80ec34a64da9c9452fea975a4, type: 3}
+        m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
     - _Tex0_N:
-        m_Texture: {fileID: 2800000, guid: 4de837a630e20a441a70215bf1ed4ad7, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 0e7a44681a765384dab02fc66976e965, type: 3}
+        m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
     - _Tex100:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Tex100_N:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 2c247254d45a55347b29dedafb84fe68, type: 3}
+        m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
     - _Tex25:
-        m_Texture: {fileID: 2800000, guid: b3eb7c798db19a2468d67265e2d9bfe8, type: 3}
-        m_Scale: {x: 5, y: 5}
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _Tex25_N:
-        m_Texture: {fileID: 2800000, guid: 35d38ca824ecf4448b5df03c07045460, type: 3}
-        m_Scale: {x: 5, y: 5}
+        m_Texture: {fileID: 2800000, guid: 0e7a44681a765384dab02fc66976e965, type: 3}
+        m_Scale: {x: 20, y: 20}
         m_Offset: {x: 0, y: 0}
     - _Tex50:
         m_Texture: {fileID: 2800000, guid: 0c949c5781addbd4f8b5403ea35b7897, type: 3}
@@ -87,12 +87,12 @@ Material:
         m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _Tex75:
-        m_Texture: {fileID: 2800000, guid: a566247531e372d4b82c0e276363c938, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: b29e90606b8662640b80e76261004e59, type: 3}
+        m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
     - _Tex75_N:
-        m_Texture: {fileID: 2800000, guid: 4de837a630e20a441a70215bf1ed4ad7, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 2c247254d45a55347b29dedafb84fe68, type: 3}
+        m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
@@ -102,9 +102,9 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GlowB_Freznel: 0
-    - _GlowG_Freznel: 0
-    - _GlowR_Freznel: 1
+    - _GlowB_Freznel: 1
+    - _GlowG_Freznel: -1
+    - _GlowR_Freznel: 0.5
     - _Metal0: 0
     - _Metal100: 0
     - _Metal25: 0
@@ -129,9 +129,9 @@ Material:
     - _Col100: {r: 1, g: 0.99982125, b: 0.95, a: 1}
     - _Col25: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Col50: {r: 0.75, g: 0.75, b: 0.75, a: 1}
-    - _Col75: {r: 1, g: 0.8333334, b: 0, a: 1}
+    - _Col75: {r: 0.4, g: 0.45, b: 0.5, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GlowB: {r: 0.25, g: 0.25, b: 1, a: 1}
-    - _GlowG: {r: 1, g: 0.25, b: 0.25, a: 1}
+    - _GlowB: {r: 0.5019608, g: 0.5019608, b: 2, a: 1}
+    - _GlowG: {r: 2, g: 0.5019608, b: 0.5019608, a: 1}
     - _GlowR: {r: 1, g: 0.9509804, b: 0.9019608, a: 1}

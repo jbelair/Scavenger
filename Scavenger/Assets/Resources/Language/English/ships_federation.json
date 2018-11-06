@@ -1,0 +1,13 @@
+{
+	"literals":
+	[
+		{
+			"key": "ship_federation_fighter_heavy",
+			"value": "FSF Inigo"
+		},
+		{
+			"key": "ship_federation_fighter_heavy_desc",
+			"value": ""
+		}
+	]
+}

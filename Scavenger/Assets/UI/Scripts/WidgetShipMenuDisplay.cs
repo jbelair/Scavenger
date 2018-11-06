@@ -33,7 +33,7 @@ public class WidgetShipMenuDisplay : MonoBehaviour
         textDesc.SetText("<color=#" + ColorUtility.ToHtmlStringRGB(rarityScheme.colour) + ">" + Literals.active[rarity] +
             "\n<color=#" + ColorUtility.ToHtmlStringRGB(riskScheme.colour) + ">" + risk +
             "\n\n<color=#fff>" + Literals.active[ship.description]);
-        statValue.statistic_ref = "stat_salvage";
+        statValue.statistic_ref = "stat_matter";
         statValue.value.SetText(ship.value.ToString());
         statValue.Initialise();
 

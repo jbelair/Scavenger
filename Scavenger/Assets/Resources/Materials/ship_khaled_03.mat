@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: ship_khaled_03
+  m_Shader: {fileID: 4800000, guid: 202ecead73cea734f8016b8c2d622493, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Tex0:
+        m_Texture: {fileID: 2800000, guid: 35863848cf9795946aac9cd83722d96b, type: 3}
+        m_Scale: {x: 10, y: 10}
+        m_Offset: {x: 0, y: 0}
+    - _Tex0_N:
+        m_Texture: {fileID: 2800000, guid: f128b686ca407cb4487ba1bb3339cfea, type: 3}
+        m_Scale: {x: 10, y: 10}
+        m_Offset: {x: 0, y: 0}
+    - _Tex100:
+        m_Texture: {fileID: 2800000, guid: 4b4bf08ebf48e2c4f85260b01b20adc5, type: 3}
+        m_Scale: {x: 20, y: 20}
+        m_Offset: {x: 0, y: 0}
+    - _Tex100_N:
+        m_Texture: {fileID: 2800000, guid: 8d817ceb8b9057f48932c791a8c15fda, type: 3}
+        m_Scale: {x: 20, y: 20}
+        m_Offset: {x: 0, y: 0}
+    - _Tex25:
+        m_Texture: {fileID: 2800000, guid: 467a5ec56e8a1434a8975c4c0c4ea6d1, type: 3}
+        m_Scale: {x: 20, y: 20}
+        m_Offset: {x: 0, y: 0}
+    - _Tex25_N:
+        m_Texture: {fileID: 2800000, guid: ed5203343a6145549a84650980c03ad9, type: 3}
+        m_Scale: {x: 20, y: 20}
+        m_Offset: {x: 0, y: 0}
+    - _Tex50:
+        m_Texture: {fileID: 2800000, guid: 467a5ec56e8a1434a8975c4c0c4ea6d1, type: 3}
+        m_Scale: {x: 25, y: 25}
+        m_Offset: {x: 0, y: 0}
+    - _Tex50_N:
+        m_Texture: {fileID: 2800000, guid: ed5203343a6145549a84650980c03ad9, type: 3}
+        m_Scale: {x: 25, y: 25}
+        m_Offset: {x: 0, y: 0}
+    - _Tex75:
+        m_Texture: {fileID: 2800000, guid: 467a5ec56e8a1434a8975c4c0c4ea6d1, type: 3}
+        m_Scale: {x: 10, y: 10}
+        m_Offset: {x: 0, y: 0}
+    - _Tex75_N:
+        m_Texture: {fileID: 2800000, guid: ed5203343a6145549a84650980c03ad9, type: 3}
+        m_Scale: {x: 10, y: 10}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _GlowB_Freznel: 0
+    - _GlowG_Freznel: 0.25
+    - _GlowR_Freznel: 0
+    - _Metal0: 1
+    - _Metal100: 0.5
+    - _Metal25: 1
+    - _Metal50: 1
+    - _Metal75: 0
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _Smooth0: 0.5
+    - _Smooth100: 0.5
+    - _Smooth25: 0.5
+    - _Smooth50: 0.5
+    - _Smooth75: 0.5
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Col0: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _Col100: {r: 0.125, g: 0.25, b: 0.125, a: 1}
+    - _Col25: {r: 1, g: 0.75, b: 0, a: 1}
+    - _Col50: {r: 1, g: 0.75, b: 0, a: 1}
+    - _Col75: {r: 0.1875, g: 0.25, b: 0.1875, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _GlowB: {r: 0.30588236, g: 1.4980392, b: 0.30588236, a: 1}
+    - _GlowG: {r: 0.3764706, g: 1.4980392, b: 0.7529412, a: 1}
+    - _GlowR: {r: 1.4980392, g: 0.65882355, b: 0.3764706, a: 1}

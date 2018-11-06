@@ -1,0 +1,37 @@
+{
+	"literals":
+	[
+		{
+			"key": "ship_khaled_fighter_heavy",
+			"value": "Wraith"
+		},
+		{
+			"key": "ship_khaled_fighter_heavy_desc",
+			"value": ""
+		},
+		{
+			"key": "ship_khaled_destroyer_light",
+			"value": "Immolator"
+		},
+		{
+			"key": "ship_khaled_destroyer_light_desc",
+			"value": ""
+		},
+		{
+			"key": "ship_khaled_hashhan",
+			"value": "<color=#83FF52FF>Hashhan, <color=#fff>The Green"
+		},
+		{
+			"key": "ship_khaled_hashhan_desc",
+			"value": "Hashhan is a cunning queen, and mother of a cunning brood, Hashhan leads them in a primarily peaceful research cooperative. Hashhan and her brood use precision and technology to augment their more theoretical experience. Hashhan can discharge her breath in a near lightspeed beam of accelerated plasma, capable of cutting through armour with ease, using spatial distortions to cloak herself, using proximity annihilation mines, and an augmented laser array."
+		},
+		{
+			"key": "ship_khaled_skel_mother_0",
+			"value": "<color=#DA20FFFF>Vashna, <color=#fff>Broodmother"
+		},
+		{
+			"key": "ship_khaled_skel_mother_0_desc",
+			"value": ""
+		}
+	]
+}

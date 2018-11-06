@@ -18,6 +18,6 @@ public struct ShipDefinition
     public string material;
     public string risk;
     public int oneIn;
-    public float value;
+    public int value;
     public List<Statistic> statistics;
 }

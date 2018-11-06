@@ -53,6 +53,7 @@ public class MoveTo : MonoBehaviour
         }
     }
 
+    public float defaultTransition = 0.5f;
     public Transform restNode;
     public List<AnimationKey> frames = new List<AnimationKey>();
     private AnimationKey currentFrame;
@@ -92,11 +93,11 @@ public class MoveTo : MonoBehaviour
         if (frames.Count > 0)
         {
             AnimationKey lastFrame = frames[frames.Count - 1];
-            frames.Add(new AnimationKey { from = lastFrame.to, to = to, duration = 1f });
+            frames.Add(new AnimationKey { from = lastFrame.to, to = to, duration = defaultTransition });
         }
         else
         {
-            frames.Add(new AnimationKey { fromPoint = Camera.main.transform.position, fromRot = Camera.main.transform.rotation, to = to, duration = 1f });
+            frames.Add(new AnimationKey { fromPoint = Camera.main.transform.position, fromRot = Camera.main.transform.rotation, to = to, duration = defaultTransition });
         }
     }
 

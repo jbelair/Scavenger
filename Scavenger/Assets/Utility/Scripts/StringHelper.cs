@@ -324,6 +324,8 @@ public static class StringHelper
     public static string RarityIntToString(int i)
     {
         int log = Mathf.FloorToInt(Mathf.Clamp(Mathf.Log10(i), 0, 6f));
+        if (i == 0)
+            log = -1;
         switch (log)
         {
             case 0:
@@ -339,10 +341,10 @@ public static class StringHelper
             case 5:
                 return "rarity_epic";
             case 6:
+                return "rarity_immortal";
+            default:
                 return "rarity_unique";
         }
-
-        return "rarity_unknown";
     }
 
     public static string RiskIntToString(int risk)

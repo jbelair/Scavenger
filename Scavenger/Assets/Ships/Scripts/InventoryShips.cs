@@ -62,11 +62,8 @@ public class InventoryShips : MonoBehaviour
                     ship.model = Instantiate(shipPair.Value, ship.transform);
                     ship.model.transform.localPosition = Vector3.zero;
                     ship.model.transform.rotation = new Quaternion();
-                    MeshRenderer[] renderers = ship.model.GetComponentsInChildren<MeshRenderer>();
-                    foreach(MeshRenderer renderer in renderers)
-                    {
-                        renderer.sharedMaterial = new Material(Materials.materials[ship.definition.material]);
-                    }
+                    MeshRenderer renderer = ship.model.GetComponentInChildren<MeshRenderer>();
+                    renderer.sharedMaterial = Materials.materials[ship.definition.material];//new Material(Materials.materials[ship.definition.material]);
 
                     if (i == 0)
                     {
@@ -115,6 +112,8 @@ public class InventoryShips : MonoBehaviour
         this.index = index;
         if (moveTo)
             Camera.main.GetComponent<MoveTo>().AddFrame(focus.GetComponentInChildren<Ship>().node.transform, 1, false, 0);
+
+        Players.players[0].statistics["value"].Set(ships[index].definition.value);
     }
 
     public void Set(string mode)
@@ -169,7 +168,7 @@ public class InventoryShips : MonoBehaviour
 
     void X()
     {
-        
+
     }
 
     void Y()
@@ -193,7 +192,7 @@ public class InventoryShips : MonoBehaviour
         // "Tall" box
         if (isXLimit)
         {
-            
+
         }
         // "Wide" box
         else if (isYLimit)

@@ -3,7 +3,7 @@
 	[
 		{
 			"key": "ship_auron_fighter_light",
-			"value": "Intrepid"
+			"value": ""
 		},
 		{
 			"key": "ship_auron_fighter_light_desc",
@@ -11,7 +11,7 @@
 		},
 		{
 			"key": "ship_auron_fighter_heavy",
-			"value": "Resolute"
+			"value": ""
 		},
 		{
 			"key": "ship_auron_fighter_heavy_desc",
@@ -19,7 +19,7 @@
 		},
 		{
 			"key": "ship_auron_fighter_specialist",
-			"value": "Audacious"
+			"value": ""
 		},
 		{
 			"key": "ship_auron_fighter_specialist_desc",
@@ -27,11 +27,27 @@
 		},
 		{
 			"key": "ship_auron_cruiser_specialist",
-			"value": "Gallant"
+			"value": ""
 		},
 		{
 			"key": "ship_auron_cruiser_specialist_desc",
-			"value": "The Gallant is usually a rare sight, restricted only to space with Nim activity. The Gallant is a cruiser sized specialist that offers powerful bonuses to cooldown recovery, subunits, projectile speed, projectile range, and a very powerful bonus to effect durations. The Gallant is a low hull cruiser, but it makes up for this weakness in low delays before repairing, and having continuously regenerating shields."
+			"value": "The [Gallant] is usually a rare sight, restricted only to space with Nim activity. The Gallant is a cruiser sized specialist that offers powerful bonuses to cooldown recovery, subunits, projectile speed, projectile range, and a very powerful bonus to effect durations. The Gallant is a low hull cruiser, but it makes up for this weakness in low delays before repairing, and continuously regenerating shields."
+		},
+		{
+			"key": "ship_auron_bophose",
+			"value": "<color=#20FFEAFF>Bo'phose, <color=#fff>The Architect"
+		},
+		{
+			"key": "ship_auron_bophose_desc",
+			"value": "Bo’phose was the great designer and architect of the Auron, and can be found by following the many drones or the structures the drones build in systems. Bo’phose ignored the peace treaty between the Skel and the Auron, continuing to pursue the expansion of Auron influence in the universe, this violated Auron tenants, and resulted in Bo’phose’s excommunication. The Architect, Bo’phose’s ship, is a very large drone carrier capable of releasing legions of drones in order to construct a variety of structures of great power."
+		},
+		{
+			"key": "ship_auron_narma",
+			"value": "<color=#FF3852FF>Narma, <color=#fff>The Warrior"
+		},
+		{
+			"key": "ship_auron_narma_desc",
+			"value": "Narma cuts a path of destruction through Skel space, and can often be found battling Skel queens in orbit over terminally infested planets. As with Ala’nuin this active engagement in the events of the universe violates the tenants of the Auron, and their peace treaty with the Skel, and resulted in the excommunication of Narma. The Warrior, Narma’s ship, is specially suited for combatting Skel, armed with a variety of powerful anti-organic weaponry that pose a serious threat to any organic."
 		}
 	]
 }

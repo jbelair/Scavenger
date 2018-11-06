@@ -203,7 +203,8 @@
 			"file": "Assets/Resources/Language/English/core.json",
 			"settings":
 			{
-				"buffer_size": 1045,
+				"buffer_size": 1106,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -235,7 +236,7 @@
 			"file": "Assets/Resources/Language/English/statistics.json",
 			"settings":
 			{
-				"buffer_size": 2248,
+				"buffer_size": 2247,
 				"encoding": "UTF-8",
 				"line_ending": "Windows",
 				"name": "{"
@@ -254,17 +255,54 @@
 			"file": "Assets/Resources/Language/English/ships_auron.json",
 			"settings":
 			{
-				"buffer_size": 1002,
+				"buffer_size": 2313,
 				"encoding": "UTF-8",
 				"line_ending": "Windows",
 				"name": "{"
 			}
 		},
 		{
+			"file": "Assets/Resources/Language/English/ships_khaled.json",
+			"settings":
+			{
+				"buffer_size": 1104,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "{"
+			}
+		},
+		{
+			"file": "Assets/Resources/Language/English/ships_federation.json",
+			"settings":
+			{
+				"buffer_size": 169,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "{"
+			}
+		},
+		{
+			"file": "Assets/Resources/Language/English/ships_gavinc.json",
+			"settings":
+			{
+				"buffer_size": 437,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/Resources/Ships/definition.template",
+			"settings":
+			{
+				"buffer_size": 2196,
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "Assets/Resources/Ships/special.json",
 			"settings":
 			{
-				"buffer_size": 4703,
+				"buffer_size": 4702,
 				"encoding": "UTF-8",
 				"line_ending": "Windows",
 				"name": "{"
@@ -274,9 +312,38 @@
 			"file": "Assets/Resources/Ships/auron.json",
 			"settings":
 			{
-				"buffer_size": 9343,
+				"buffer_size": 14034,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/Resources/Ships/federation.json",
+			"settings":
+			{
+				"buffer_size": 2347,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/Resources/Ships/gavinc.json",
+			"settings":
+			{
+				"buffer_size": 6999,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "{"
+			}
+		},
+		{
+			"file": "Assets/Resources/Ships/khaled.json",
+			"settings":
+			{
+				"buffer_size": 9332,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "{"
 			}
 		},
 		{
@@ -323,7 +390,7 @@
 			"file": "Assets/Resources/UI/Schemes/schemes.json",
 			"settings":
 			{
-				"buffer_size": 13797,
+				"buffer_size": 14797,
 				"line_ending": "Unix"
 			}
 		}
@@ -363,11 +430,14 @@
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/UI",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/UI/Schemes"
 	],
 	"file_history":
 	[
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/definition.template.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/template.json",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/UI/Schemes/schemes.json",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/general.json",
 		"/D/Apps/MAMP/htdocs/Coursera/PHP/Week 5/check.php",
@@ -462,6 +532,9 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"fighter_heavy",
+			"destroyer_light",
+			"_fighter_heavy",
 			"}",
 			"},",
 			" : ",
@@ -510,7 +583,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 7,
 			"sheets":
 			[
 				{
@@ -539,7 +612,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 22,
 					"type": "text"
 				},
 				{
@@ -548,15 +621,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1045,
+						"buffer_size": 1106,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								974,
-								974
+								594,
+								594
 							]
 						],
 						"settings":
@@ -566,10 +639,10 @@
 							"word_wrap": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 912.0,
+						"translation.y": 320.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -599,7 +672,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
@@ -629,7 +702,7 @@
 						"translation.y": 1248.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
@@ -659,7 +732,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
@@ -668,15 +741,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2248,
+						"buffer_size": 2247,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								244,
-								244
+								102,
+								102
 							]
 						],
 						"settings":
@@ -685,10 +758,10 @@
 							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 576.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -717,7 +790,7 @@
 						"translation.y": 48.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
@@ -726,15 +799,168 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1002,
+						"buffer_size": 2313,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1,
-								1
+								920,
+								920
+							]
+						],
+						"settings":
+						{
+							"auto_name": "{",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 816.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "Assets/Resources/Language/English/ships_khaled.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1104,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								994,
+								994
+							]
+						],
+						"settings":
+						{
+							"auto_name": "{",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 159.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "Assets/Resources/Language/English/ships_federation.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 169,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								164,
+								164
+							]
+						],
+						"settings":
+						{
+							"auto_name": "{",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "Assets/Resources/Language/English/ships_gavinc.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 437,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								356,
+								356
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 5,
+			"sheets":
+			[
+				{
+					"buffer": 11,
+					"file": "Assets/Resources/Ships/definition.template",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2196,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								2196
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "Assets/Resources/Ships/special.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4702,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2477,
+								2477
 							]
 						],
 						"settings":
@@ -747,60 +973,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 8,
-					"file": "Assets/Resources/Ships/special.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4703,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3691,
-								3691
-							]
-						],
-						"settings":
-						{
-							"auto_name": "{",
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 672.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 13,
 					"file": "Assets/Resources/Ships/auron.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9343,
+						"buffer_size": 14034,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7571,
-								7580
+								11885,
+								11885
 							]
 						],
 						"settings":
@@ -809,7 +999,96 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2134.0,
+						"translation.y": 3727.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "Assets/Resources/Ships/federation.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2347,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1609,
+								1609
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 432.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "Assets/Resources/Ships/gavinc.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6999,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6263,
+								6263
+							]
+						],
+						"settings":
+						{
+							"auto_name": "{",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1776.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "Assets/Resources/Ships/khaled.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9332,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7221,
+								7221
+							]
+						],
+						"settings":
+						{
+							"auto_name": "{",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2591.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -822,7 +1101,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 10,
+					"buffer": 17,
 					"file": "Assets/Resources/Dungeons/any.json",
 					"semi_transient": false,
 					"settings":
@@ -848,11 +1127,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 21,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 18,
 					"file": "Assets/Resources/Dungeons/asteroid.json",
 					"semi_transient": false,
 					"settings":
@@ -878,11 +1157,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 20,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 19,
 					"file": "Assets/Resources/Dungeons/asteroids.json",
 					"semi_transient": false,
 					"settings":
@@ -908,11 +1187,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 19,
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 20,
 					"file": "Assets/Resources/Dungeons/planet.json",
 					"semi_transient": false,
 					"settings":
@@ -938,11 +1217,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 18,
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 21,
 					"file": "Assets/Resources/Dungeons/star.json",
 					"semi_transient": false,
 					"settings":
@@ -968,7 +1247,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 16,
 					"type": "text"
 				}
 			]
@@ -978,20 +1257,20 @@
 			"sheets":
 			[
 				{
-					"buffer": 15,
+					"buffer": 22,
 					"file": "Assets/Resources/UI/Schemes/schemes.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13797,
+						"buffer_size": 14797,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10171,
-								10171
+								324,
+								324
 							]
 						],
 						"settings":
@@ -1001,10 +1280,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6494.0,
+						"translation.y": 576.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
@@ -1056,7 +1335,7 @@
 		"rows":
 		[
 			0.0,
-			0.94923857868,
+			0.508629441624,
 			1.0
 		]
 	},

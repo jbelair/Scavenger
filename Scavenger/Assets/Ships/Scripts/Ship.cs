@@ -13,7 +13,8 @@ public class Ship : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        node.transform.position = GetComponentInChildren<MeshRenderer>().bounds.size.Multiply(new Vector3(-1,-1,1));
+        MeshRenderer renderer = GetComponentInChildren<MeshRenderer>();
+        node.transform.position = renderer.bounds.size*0.75f;//.Multiply(new Vector3(-1,-1,1));
         widgetShipSelector = UIManager.active.Button("menu play new grid ship", UIManager.Layer.Mid, "widget ship select", Vector2.zero, new UnityEngine.Events.UnityAction(Select), model.transform).GetComponent<WidgetShipSelector>();
         widgetShipSelector.index = index;
     }

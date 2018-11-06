@@ -38,6 +38,10 @@
 			"value": "Epic"
 		},
 		{
+			"key": "rarity_immortal",
+			"value": "Immortal"
+		},
+		{
 			"key": "rarity_unique",
 			"value": "Unique"
 		},

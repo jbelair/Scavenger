@@ -1,0 +1,29 @@
+{
+	"literals":
+	[
+		{
+			"key": "ship_gavinc_fighter_light",
+			"value": "EX7"
+		},
+		{
+			"key": "ship_gavinc_fighter_light_desc",
+			"value": ""
+		},
+		{
+			"key": "ship_gavinc_cruiser_specialist",
+			"value": "GR8"
+		},
+		{
+			"key": "ship_gavinc_cruiser_specialist_desc",
+			"value": ""
+		},
+		{
+			"key": "ship_gavinc_destroyer_light",
+			"value": "NA0"
+		},
+		{
+			"key": "ship_gavinc_destroyer_light_desc",
+			"value": ""
+		}
+	]
+}
