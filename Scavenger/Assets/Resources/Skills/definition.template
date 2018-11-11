@@ -1,0 +1,21 @@
+{
+	"skills":
+	[
+		{
+			"name": "",
+			"description": "",
+			"icon": "",
+			"risk": "",
+			"oneIn": 0,
+			"value": 0,
+		},
+		{
+			"name": "",
+			"description": "",
+			"icon": "",
+			"risk": "",
+			"oneIn": 0,
+			"value": 0,
+		}
+	]
+}

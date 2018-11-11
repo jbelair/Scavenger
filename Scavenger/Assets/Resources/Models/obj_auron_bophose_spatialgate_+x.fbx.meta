@@ -13,9 +13,13 @@ ModelImporter:
     400006: obj_auron_bophose_spatialgate_+x
     2000000: Camera
     2100000: Material.007
+    2100002: No Name
     2300000: obj_auron_bophose_spatialgate_+x
+    2300002: //RootNode
     3300000: obj_auron_bophose_spatialgate_+x
+    3300002: //RootNode
     4300000: obj_auron_bophose_spatialgate_+x
+    4300002: obj_auron_bophose_spatialgate_x
     10800000: Lamp
   externalObjects: {}
   materials:

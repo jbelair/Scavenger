@@ -1,0 +1,251 @@
+{
+	"definitions":
+	[
+		{
+			"name": "skill_slug_auto_basic",
+			"description": "skill_slug_auto_basic_desc",
+			"icon": "skill_slug_auto_basic",
+			"risk": "risk_low",
+			"oneIn": 1,
+			"value": 0
+		},
+		{
+			"name": "skill_slug_cannon_basic",
+			"description": "skill_slug_cannon_basic_desc",
+			"icon": "skill_slug_cannon_basic",
+			"risk": "risk_low",
+			"oneIn": 1,
+			"value": 0
+		},
+		{
+			"name": "skill_laser_mining_basic",
+			"description": "skill_laser_mining_basic_desc",
+			"icon": "skill_laser_mining_basic",
+			"risk": "risk_low",
+			"oneIn": 1,
+			"value": 0
+		},
+		{
+			"name": "skill_laser_cannon_basic",
+			"description": "skill_laser_cannon_basic_desc",
+			"icon": "skill_laser_cannon_basic",
+			"risk": "risk_low",
+			"oneIn": 1,
+			"value": 0
+		},
+		{
+			"name": "skill_laser_pulse_basic",
+			"description": "skill_laser_pulse_basic_desc",
+			"icon": "skill_laser_pulse_basic",
+			"risk": "risk_low",
+			"oneIn": 1,
+			"value": 0
+		},
+		{
+			"name": "skill_laser_beam_basic",
+			"description": "skill_laser_beam_basic_desc",
+			"icon": "skill_laser_beam_basic",
+			"risk": "risk_low",
+			"oneIn": 1,
+			"value": 0
+		},
+		{
+			"name": "skill_missile_basic",
+			"description": "skill_missile_basic_desc",
+			"icon": "skill_missile_basic",
+			"risk": "risk_low",
+			"oneIn": 1,
+			"value": 0
+		},
+		{
+			"name": "skill_torpedo_basic",
+			"description": "skill_torpedo_basic_desc",
+			"icon": "skill_torpedo_basic",
+			"risk": "risk_low",
+			"oneIn": 1,
+			"value": 0
+		},
+		{
+			"name": "skill_plasma_bolter_basic",
+			"description": "skill_plasma_bolter_basic_desc",
+			"icon": "skill_plasma_bolter_basic",
+			"risk": "risk_low",
+			"oneIn": 1,
+			"value": 0
+		},
+		{
+			"name": "skill_plasma_thrower_basic",
+			"description": "skill_plasma_thrower_basic_desc",
+			"icon": "skill_plasma_thrower_basic",
+			"risk": "risk_low",
+			"oneIn": 1,
+			"value": 0
+		},
+
+
+
+		{
+			"name": "skill_slug_auto",
+			"description": "skill_slug_auto_desc",
+			"icon": "skill_slug_auto",
+			"risk": "risk_medium",
+			"oneIn": 10,
+			"value": 100
+		},
+		{
+			"name": "skill_slug_cannon",
+			"description": "skill_slug_cannon_desc",
+			"icon": "skill_slug_cannon",
+			"risk": "risk_medium",
+			"oneIn": 10,
+			"value": 100
+		},
+		{
+			"name": "skill_laser_mining",
+			"description": "skill_laser_mining_desc",
+			"icon": "skill_laser_mining",
+			"risk": "risk_medium",
+			"oneIn": 10,
+			"value": 100
+		},
+		{
+			"name": "skill_laser_cannon",
+			"description": "skill_laser_cannon_desc",
+			"icon": "skill_laser_cannon",
+			"risk": "risk_medium",
+			"oneIn": 10,
+			"value": 100
+		},
+		{
+			"name": "skill_laser_pulse",
+			"description": "skill_laser_pulse_desc",
+			"icon": "skill_laser_pulse",
+			"risk": "risk_medium",
+			"oneIn": 10,
+			"value": 100
+		},
+		{
+			"name": "skill_laser_beam",
+			"description": "skill_laser_beam_desc",
+			"icon": "skill_laser_beam",
+			"risk": "risk_medium",
+			"oneIn": 10,
+			"value": 100
+		},
+		{
+			"name": "skill_missile",
+			"description": "skill_missile_desc",
+			"icon": "skill_missile",
+			"risk": "risk_medium",
+			"oneIn": 10,
+			"value": 100
+		},
+		{
+			"name": "skill_torpedo",
+			"description": "skill_torpedo_desc",
+			"icon": "skill_torpedo",
+			"risk": "risk_medium",
+			"oneIn": 10,
+			"value": 100
+		},
+		{
+			"name": "skill_plasma_bolter",
+			"description": "skill_plasma_bolter_desc",
+			"icon": "skill_plasma_bolter",
+			"risk": "risk_medium",
+			"oneIn": 10,
+			"value": 100
+		},
+		{
+			"name": "skill_plasma_thrower",
+			"description": "skill_plasma_thrower_desc",
+			"icon": "skill_plasma_thrower",
+			"risk": "risk_medium",
+			"oneIn": 10,
+			"value": 100
+		},
+
+
+
+		{
+			"name": "skill_slug_auto_advanced",
+			"description": "skill_slug_auto_advanced_desc",
+			"icon": "skill_slug_auto_advanced",
+			"risk": "risk_high",
+			"oneIn": 100,
+			"value": 10000
+		},
+		{
+			"name": "skill_slug_cannon_advanced",
+			"description": "skill_slug_cannon_advanced_desc",
+			"icon": "skill_slug_cannon_advanced",
+			"risk": "risk_high",
+			"oneIn": 100,
+			"value": 10000
+		},
+		{
+			"name": "skill_laser_mining_advanced",
+			"description": "skill_laser_mining_advanced_desc",
+			"icon": "skill_laser_mining_advanced",
+			"risk": "risk_high",
+			"oneIn": 100,
+			"value": 10000
+		},
+		{
+			"name": "skill_laser_cannon_advanced",
+			"description": "skill_laser_cannon_advanced_desc",
+			"icon": "skill_laser_cannon_advanced",
+			"risk": "risk_high",
+			"oneIn": 100,
+			"value": 10000
+		},
+		{
+			"name": "skill_laser_pulse_advanced",
+			"description": "skill_laser_pulse_advanced_desc",
+			"icon": "skill_laser_pulse_advanced",
+			"risk": "risk_high",
+			"oneIn": 100,
+			"value": 10000
+		},
+		{
+			"name": "skill_laser_beam_advanced",
+			"description": "skill_laser_beam_advanced_desc",
+			"icon": "skill_laser_beam_advanced",
+			"risk": "risk_high",
+			"oneIn": 100,
+			"value": 10000
+		},
+		{
+			"name": "skill_missile_advanced",
+			"description": "skill_missile_advanced_desc",
+			"icon": "skill_missile_advanced",
+			"risk": "risk_high",
+			"oneIn": 100,
+			"value": 10000
+		},
+		{
+			"name": "skill_torpedo_advanced",
+			"description": "skill_torpedo_advanced_desc",
+			"icon": "skill_torpedo_advanced",
+			"risk": "risk_high",
+			"oneIn": 100,
+			"value": 10000
+		},
+		{
+			"name": "skill_plasma_bolter_advanced",
+			"description": "skill_plasma_bolter_advanced_desc",
+			"icon": "skill_plasma_bolter_advanced",
+			"risk": "risk_high",
+			"oneIn": 100,
+			"value": 10000
+		},
+		{
+			"name": "skill_plasma_thrower_advanced",
+			"description": "skill_plasma_thrower_advanced_desc",
+			"icon": "skill_plasma_thrower_advanced",
+			"risk": "risk_high",
+			"oneIn": 100,
+			"value": 10000
+		}
+	]
+}

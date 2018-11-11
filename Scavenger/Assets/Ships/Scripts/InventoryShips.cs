@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +20,8 @@ public class InventoryShips : MonoBehaviour
         public bool clampX = false;
         public bool clampY = false;
         public bool clampZ = false;
+        public bool focused = false;
+        public bool showLocked = false;
     }
 
     [System.Serializable]
@@ -33,6 +36,7 @@ public class InventoryShips : MonoBehaviour
     public List<Mode> modes;
     public Mode activeMode;
     public Transform focus;
+    public Transform lastFocus;
     public int index;
 
     public Vector3 velocity;
@@ -74,9 +78,13 @@ public class InventoryShips : MonoBehaviour
             }
 
             Set();
+            Set(index, activeMode.moveToFocus);
         }
     }
 
+    private Mode lastMode;
+    private Transform _lastFocus_focus;
+    private Transform _lastFocus_lastFocus;
     // Update is called once per frame
     void Update()
     {
@@ -88,9 +96,21 @@ public class InventoryShips : MonoBehaviour
             transform.localPosition = Vector3.zero;
 
         if (activeMode.rotation.magnitude > 0)
-            transform.Rotate(activeMode.rotation * Time.deltaTime);
-        else
-            transform.rotation = new Quaternion();// Quaternion.Lerp(transform.rotation, new Quaternion(), 0.2f);
+            focus.Rotate(activeMode.rotation * Time.deltaTime);
+        //else
+        //    transform.rotation = new Quaternion();// Quaternion.Lerp(transform.rotation, new Quaternion(), 0.2f);
+
+        if (lastMode != activeMode || _lastFocus_focus != focus || _lastFocus_lastFocus != lastFocus)
+        {
+            foreach (Ship ship in ships)
+            {
+                ship.gameObject.SetActive(ship.transform == focus || ship.transform == lastFocus || !activeMode.focused);
+            }
+        }
+
+        lastMode = activeMode;
+        _lastFocus_focus = focus;
+        _lastFocus_lastFocus = lastFocus;
     }
 
     public void Next()
@@ -106,14 +126,94 @@ public class InventoryShips : MonoBehaviour
         Set(index, true);
     }
 
+    public void Search(string searchString)
+    {
+        foreach (Ship ship in ships)
+        {
+            ship.gameObject.SetActive(Literals.active[ship.definition.name].Contains(searchString));
+        }
+    }
+
+    void Sort(float valueA, float valueB, bool smallestToLargest, int indexA, int indexB)
+    {
+        if (smallestToLargest)
+        {
+            if (valueB < valueA)
+            {
+                ships[indexA].transform.SetSiblingIndex(indexB);
+                ships[indexB].transform.SetSiblingIndex(indexA);
+
+                //Ship temp = ships[indexA];
+                //ships[indexA] = ships[indexB];
+                //ships[indexB] = temp;
+            }
+        }
+        else
+        {
+            if (valueB > valueA)
+            {
+                ships[indexA].transform.SetSiblingIndex(indexB);
+                ships[indexB].transform.SetSiblingIndex(indexA);
+
+                //Ship temp = ships[indexB];
+                //ships[indexB] = ships[indexA];
+                //ships[indexA] = temp;
+            }
+        }
+
+        //ships[indexA].index = indexA;
+        //ships[indexB].index = indexB;
+        //ships[indexA].transform.SetSiblingIndex(indexA);
+        //ships[indexB].transform.SetSiblingIndex(indexB);
+    }
+
+    public void SortByValue(bool smallestToLargest)
+    {
+        for (int i = 0; i < ships.Count; i++)
+        {
+            for (int j = i; j < ships.Count; j++)
+            {
+                Sort(ships[i].definition.value, ships[j].definition.value, smallestToLargest, i, j);
+            }
+        }
+
+        Set();
+    }
+
+    public void SortByRarity(bool smallestToLargest)
+    {
+        for (int i = 0; i < ships.Count; i++)
+        {
+            for (int j = i; j < ships.Count; j++)
+            {
+                Sort(ships[i].definition.oneIn, ships[j].definition.oneIn, smallestToLargest, i, j);
+            }
+        }
+
+        Set();
+    }
+
+    public void SortByRisk(bool smallestToLargest)
+    {
+        for (int i = 0; i < ships.Count; i++)
+        {
+            for (int j = i; j < ships.Count; j++)
+            {
+                Sort(FloatHelper.RiskStringToFloat(ships[i].definition.risk), FloatHelper.RiskStringToFloat(ships[j].definition.risk), smallestToLargest, i, j);
+            }
+        }
+
+        Set();
+    }
+
     public void Set(int index, bool moveTo)
     {
+        lastFocus = focus;
         focus = transform.GetChild(index);
+
         this.index = index;
         if (moveTo)
-            Camera.main.GetComponent<MoveTo>().AddFrame(focus.GetComponentInChildren<Ship>().node.transform, 1, false, 0);
-
-        Players.players[0].statistics["value"].Set(ships[index].definition.value);
+            Camera.main.GetComponent<MoveTo>().AddFrame(ships[index].node.transform, 1, false, 0);
     }
 
     public void Set(string mode)
@@ -127,6 +227,14 @@ public class InventoryShips : MonoBehaviour
 
     public void Set()
     {
+        transform.rotation = new Quaternion();
+
+        for (int i = 0; i < ships.Count; i++)
+        {
+            ships[i].transform.rotation = Quaternion.Euler(0, 0, 180);
+            ships[i].gameObject.SetActive(activeMode.showLocked || PlayerSave.Active().Get("unlocked ships").value.Contains(ships[i].definition.name));
+        }
+
         // Determine the configuration of the inventory from the dimensions
         // Find out how many dimensions have scale 0
         // This determines whether the ships are arrayed 1D, 2D, or 3D
@@ -178,9 +286,13 @@ public class InventoryShips : MonoBehaviour
 
     void Z()
     {
-        for (int i = 0; i < ships.Count; i++)
+        int index = 0;
+        foreach(Ship ship in ships)
         {
-            ships[i].transform.localPosition = Vector3.forward * activeMode.Z.scale * i;
+            if (ship.gameObject.activeInHierarchy)
+            {
+                ship.transform.localPosition = Vector3.forward * activeMode.Z.scale * index++;
+            }
         }
     }
 
@@ -197,18 +309,21 @@ public class InventoryShips : MonoBehaviour
         // "Wide" box
         else if (isYLimit)
         {
+            int index = 0;
             int columns = Mathf.CeilToInt(ships.Count / (float)activeMode.Y.maximum);
             for (int i = 0; i < columns; i++)
             {
                 for (int j = 0; j < activeMode.Y.maximum; j++)
                 {
-                    int ind = (i * activeMode.Y.maximum) + j;
-                    if (ind < ships.Count)
+                    while (index < ships.Count)
                     {
-                        ships[ind].transform.localPosition = new Vector3((i - columns / 2) * activeMode.X.scale, (j - activeMode.Y.maximum / 2) * activeMode.Y.scale, 0);
+                        if (ships[index].gameObject.activeInHierarchy)
+                        {
+                            ships[index++].transform.localPosition = new Vector3((i - columns / 2) * activeMode.X.scale, (j - activeMode.Y.maximum / 2) * activeMode.Y.scale, 0);
+                            break;
+                        }
+                        index++;
                     }
-                    else
-                        break;
                 }
             }
         }

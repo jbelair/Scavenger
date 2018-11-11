@@ -76,7 +76,9 @@ public static class Literals
 
                 foreach(LibraryKeyValuePair entry in lib.literals)
                 {
-                    compressedLibrary.Add(entry.key, entry.value);
+                    //Debug.Log(entry.key + " " + entry.value);
+                    if (entry.key != null)
+                        compressedLibrary.Add(entry.key, entry.value);
                 }
             }
             return compressedLibrary;

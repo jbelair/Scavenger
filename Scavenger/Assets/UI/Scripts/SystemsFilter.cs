@@ -49,5 +49,6 @@ public class SystemsFilter : MonoBehaviour
 
         PlayerPrefs.SetString("filter", filter);
         PlayerPrefs.SetString("filter tags", filterTags);
+        //PlayerPrefs.Save();
     }
 }

@@ -1,0 +1,9 @@
+{
+    "definitions": [
+        {
+            "name": "skill_slug_auto_basic",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        }
+    ]
+}

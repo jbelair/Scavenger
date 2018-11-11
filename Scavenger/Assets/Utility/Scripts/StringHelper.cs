@@ -6,6 +6,11 @@ using UnityEngine;
 
 public static class StringHelper
 {
+    public static string PredictType(string value)
+    {
+        return "unknown";
+    }
+
     public static string Units(string units)
     {
         switch(units)

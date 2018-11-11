@@ -31,7 +31,7 @@
 		},
 		{
 			"key": "ship_auron_cruiser_specialist_desc",
-			"value": "The [Gallant] is usually a rare sight, restricted only to space with Nim activity. The Gallant is a cruiser sized specialist that offers powerful bonuses to cooldown recovery, subunits, projectile speed, projectile range, and a very powerful bonus to effect durations. The Gallant is a low hull cruiser, but it makes up for this weakness in low delays before repairing, and continuously regenerating shields."
+			"value": "The Gallant is usually a rare sight, restricted only to space with Nim activity. The Gallant is a cruiser sized specialist that offers powerful bonuses to cooldown recovery, subunits, projectile speed, projectile range, and a very powerful bonus to effect durations. The Gallant is a low hull cruiser, but it makes up for this weakness in low delays before repairing, and continuously regenerating shields."
 		},
 		{
 			"key": "ship_auron_bophose",
@@ -48,6 +48,14 @@
 		{
 			"key": "ship_auron_narma_desc",
 			"value": "Narma cuts a path of destruction through Skel space, and can often be found battling Skel queens in orbit over terminally infested planets. As with Ala’nuin this active engagement in the events of the universe violates the tenants of the Auron, and their peace treaty with the Skel, and resulted in the excommunication of Narma. The Warrior, Narma’s ship, is specially suited for combatting Skel, armed with a variety of powerful anti-organic weaponry that pose a serious threat to any organic."
+		},
+		{
+			"key": "ship_auron_traezyn",
+			"value": "<color=#FFB852FF>Traezyn, <color=#fff>The Destroyer"
+		},
+		{
+			"key": "ship_auron_traezyn_desc",
+			"value": "Traezyn is the scourge of life, and actively destroys any systems populated by anything but Auron. Traezyn is a rigid xenophobe that actively seeks out threats to the Auron and destroys their systems, as such they can often be found positioned above stars in any system with terminally infected Skel worlds, alternatively if the Skel have been destroyed, they can be found similarly in Federation systems. The Destroyer is a capital ship capable of creating a sustained particle weapon that can cause stars to go supernova. Traezyn’s incredible aggression, and active destruction of systems not only violates the peace treaty between the Skel and the Auron, as well as the Auron tenants, but draws the focused ire of the Skel queens, as well as the attention of the Federation, and Gav Inc. Traezyn is a highly sought after Auron, excommunicated by their own and much like Kal’ad, Traezyn has an active bounty by the Auron, the Skel, and the Federation, who frequently send hunters to attempt to track down and destroy Traezyn."
 		}
 	]
 }

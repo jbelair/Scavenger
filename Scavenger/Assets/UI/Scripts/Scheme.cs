@@ -6,6 +6,7 @@ using UnityEngine;
 public struct Scheme
 {
     public string name;
+    public string file;
     public Color colour;
     public Sprite symbol;
 }

@@ -1,0 +1,159 @@
+{
+    "definitions": [
+        {
+            "name": "stat_matter",
+            "colour": "BFBFBFFF",
+            "symbol": "signal_debris"
+        },
+        {
+            "name": "stat_jump_fuel",
+            "colour": "DA20FFFF",
+            "symbol": "signal_plasma"
+        },
+        {
+            "name": "stat_jump_range",
+            "colour": "83FF52FF",
+            "symbol": "stat_jump_range"
+        },
+        {
+            "name": "stat_jump_view",
+            "colour": "DA20FFFF",
+            "symbol": "stat_jump_view"
+        },
+        {
+            "name": "stat_hull_max",
+            "colour": "FF3852FF",
+            "symbol": "stat_hull"
+        },
+        {
+            "name": "stat_hull_reg",
+            "colour": "FF3852FF",
+            "symbol": "stat_hull"
+        },
+        {
+            "name": "stat_hull_delay",
+            "colour": "FF3852FF",
+            "symbol": "stat_hull"
+        },
+        {
+            "name": "stat_armour_max",
+            "colour": "FFB852FF",
+            "symbol": "stat_armour"
+        },
+        {
+            "name": "stat_armour_reg",
+            "colour": "FFB852FF",
+            "symbol": "stat_armour"
+        },
+        {
+            "name": "stat_armour_delay",
+            "colour": "FFB852FF",
+            "symbol": "stat_armour"
+        },
+        {
+            "name": "stat_shield_max",
+            "colour": "20FFEAFF",
+            "symbol": "stat_shield"
+        },
+        {
+            "name": "stat_shield_reg",
+            "colour": "20FFEAFF",
+            "symbol": "stat_shield"
+        },
+        {
+            "name": "stat_shield_delay",
+            "colour": "20FFEAFF",
+            "symbol": "stat_shield"
+        },
+        {
+            "name": "stat_speed",
+            "colour": "DA20FFFF",
+            "symbol": "stat_speed"
+        },
+        {
+            "name": "stat_acc",
+            "colour": "DA20FFFF",
+            "symbol": "stat_acc"
+        },
+        {
+            "name": "stat_turn",
+            "colour": "DA20FFFF",
+            "symbol": "stat_turn"
+        },
+        {
+            "name": "stat_radar_range",
+            "colour": "83FF52FF",
+            "symbol": "stat_radar_range"
+        },
+        {
+            "name": "stat_mult_cd_reg",
+            "colour": "2083FFFF",
+            "symbol": "stat_mult_cd_reg"
+        },
+        {
+            "name": "stat_mult_stack",
+            "colour": "FFB852FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_stack_reg",
+            "colour": "FFB852FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_subunit",
+            "colour": "FF20B5FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_proj",
+            "colour": "83FF52FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_proj_speed",
+            "colour": "83FF52FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_proj_acc",
+            "colour": "83FF52FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_proj_turn",
+            "colour": "83FF52FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_proj_size",
+            "colour": "83FF52FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_proj_range",
+            "colour": "83FF52FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_effect_str",
+            "colour": "FF3852FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_effect_dur",
+            "colour": "FF3852FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_effect_stack",
+            "colour": "FF3852FF",
+            "symbol": "stat_mult_default"
+        },
+        {
+            "name": "stat_mult_effect_size",
+            "colour": "FF3852FF",
+            "symbol": "stat_mult_default"
+        }
+    ]
+}

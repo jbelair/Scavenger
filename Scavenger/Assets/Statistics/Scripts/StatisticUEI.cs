@@ -77,6 +77,8 @@ public class StatisticUEI
                 return new Statistic(name, type, valueGO);
             case Statistic.ValueType.GameObjectArray:
                 return new Statistic(name, type, valueGOArray);
+            case Statistic.ValueType.Object:
+                return new Statistic(name, type, null);
             //case Statistic.ValueType.Statistic:
             //    return new Statistic(name, type, valueStatistic.Initialise());
         }

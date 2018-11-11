@@ -26,6 +26,11 @@ public static class VectorExtensions
         return new Vector3(0, f, 0);
     }
 
+    public static Vector3 OYO(this Vector3 v)
+    {
+        return new Vector3(0, v.y, 0);
+    }
+
     public static Vector3 OOZ(this float f)
     {
         return new Vector3(0, 0, f);
@@ -44,6 +49,11 @@ public static class VectorExtensions
     public static Vector3 XYO(this Vector3 v)
     {
         return new Vector3(v.x, v.y, 0);
+    }
+
+    public static Vector3 XOZ(this Vector3 v)
+    {
+        return new Vector3(v.x, 0, v.z);
     }
 
     public static Vector2 ToFloat(this Vector2Int v)

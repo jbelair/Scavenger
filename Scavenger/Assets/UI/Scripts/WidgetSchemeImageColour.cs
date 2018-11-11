@@ -65,9 +65,6 @@ public class WidgetSchemeImageColour : MonoBehaviour
 
     public void Set(string newScheme)
     {
-        //if (keys.Count > 0)
-        //    if (keys[keys.Count - 1].scheme == scheme)
-        //        keys.RemoveAt(keys.Count - 1);
         while (keys.Count > 2)
         {
             keys.RemoveAt(2);

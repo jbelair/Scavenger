@@ -21,6 +21,8 @@ public class WidgetShipMenuDisplay : MonoBehaviour
 
     public List<WidgetStatistic> statistics = new List<WidgetStatistic>();
 
+    private string lastDescription = "";
+
     public void Initialise()
     {
         statistics.Clear();
@@ -33,6 +35,7 @@ public class WidgetShipMenuDisplay : MonoBehaviour
         textDesc.SetText("<color=#" + ColorUtility.ToHtmlStringRGB(rarityScheme.colour) + ">" + Literals.active[rarity] +
             "\n<color=#" + ColorUtility.ToHtmlStringRGB(riskScheme.colour) + ">" + risk +
             "\n\n<color=#fff>" + Literals.active[ship.description]);
+        lastDescription = textDesc.text;
         statValue.statistic_ref = "stat_matter";
         statValue.value.SetText(ship.value.ToString());
         statValue.Initialise();
@@ -73,7 +76,7 @@ public class WidgetShipMenuDisplay : MonoBehaviour
             }
             else
             {
-                if (stat.value > 0)
+                if (stat.value != 0)
                 {
                     WidgetStatistic statWidget = Instantiate(statisticPrefab, stats.transform);
                     statWidget.statistic_ref = stat.name;
@@ -109,6 +112,7 @@ public class WidgetShipMenuDisplay : MonoBehaviour
         if (lastShip.name != ship.name)
             Refresh();
 
+        textDesc.SetText(lastDescription);
         lastShip = ship;
     }
 }

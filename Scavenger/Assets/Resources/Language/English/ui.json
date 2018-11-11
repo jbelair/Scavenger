@@ -18,16 +18,16 @@
 			"value": "BCK"
 		},
 		{
-			"key": "menu_play",
-			"value": "PLAY"
+			"key": "menu_continue",
+			"value": "CONTINUE"
 		},
 		{
-			"key": "menu_play_min",
-			"value": "PLY"
+			"key": "menu_continue_min",
+			"value": "CNT"
 		},
 		{
 			"key": "menu_play_new",
-			"value": "NEW"
+			"value": "NEW GAME"
 		},
 		{
 			"key": "menu_play_new_min",
@@ -35,23 +35,15 @@
 		},
 		{
 			"key": "menu_play_load",
-			"value": "LOAD"
+			"value": "LOAD GAME"
 		},
 		{
 			"key": "menu_play_load_min",
 			"value": "LOD"
 		},
 		{
-			"key": "menu_progress",
-			"value": "PROGRESS"
-		},
-		{
-			"key": "menu_progress_min",
-			"value": "PRO"
-		},
-		{
 			"key": "menu_progress_ships",
-			"value": "SHIPS"
+			"value": "SHIP PROGRESS"
 		},
 		{
 			"key": "menu_progress_ships_min",
@@ -59,7 +51,7 @@
 		},
 		{
 			"key": "menu_progress_skills",
-			"value": "SKILLS"
+			"value": "SKILL PROGRESS"
 		},
 		{
 			"key": "menu_progress_skills_min",

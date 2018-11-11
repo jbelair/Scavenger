@@ -200,6 +200,9 @@ public class Statistic
 
     public T Get<T>()
     {
+        if (value == null)
+            return default(T);
+
         Type t = typeof(T);
         switch (type)
         {

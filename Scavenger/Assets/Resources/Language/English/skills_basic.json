@@ -1,0 +1,251 @@
+{
+	"literals":
+	[
+		{
+			"key": "skill_slug_auto_basic",
+			"value": "Basic Autocannon"
+		},
+		{
+			"key": "skill_slug_auto_basic_desc",
+			"value": "The Basic Autocannon fires a high frequency stream of metal slugs at high velocities. Metal slugs are effective against armour and hull, but are plasmafied by shields. Autocannons are designed to overwhelm shields by fatiguing them."
+		},
+		{
+			"key": "skill_slug_cannon_basic",
+			"value": "Basic Cannon"
+		},
+		{
+			"key": "skill_slug_cannon_basic_desc",
+			"value": "The Basic Cannon fires a large metal slug with an explosive warhead at high velocities. Explosive warheads explode on impact, dealing 50% damage through shields. Explosives are effective against armour and hull, with 50% armour penetration."
+		},
+		{
+			"key": "skill_laser_mining_basic",
+			"value": "Basic Mining Laser"
+		},
+		{
+			"key": "skill_laser_mining_basic_desc",
+			"value": "The Basic Mining Laser fires a series of small laser beams and a tractor beam designed to break chunks off and collect chunks of asteroids or wrecks. Tractor beams pull impacted objects towards their source."
+		},
+		{
+			"key": "skill_laser_cannon_basic",
+			"value": "Basic Laser Cannon"
+		},
+		{
+			"key": "skill_laser_cannon_basic_desc",
+			"value": "The Basic Laser Cannon fires a single high energy laser for a short time. Lasers are effective against armour and hull, and ignore shields."
+		},
+		{
+			"key": "skill_laser_pulse_basic",
+			"value": "Basic Pulse Laser"
+		},
+		{
+			"key": "skill_laser_pulse_basic_desc",
+			"value": "The Basic Pulse Laser fires a high frequency stream of lasers. Lasers are effective against armour and hull, and ignore shields."
+		},
+		{
+			"key": "skill_laser_beam_basic",
+			"value": "Basic Laser Beam"
+		},
+		{
+			"key": "skill_laser_beam_basic_desc",
+			"value": "The Basic Laser Beam fires a continuous laser. Lasers are effective against armour and hull, and ignore shields."
+		},
+		{
+			"key": "skill_missile_basic",
+			"value": "Basic Missile"
+		},
+		{
+			"key": "skill_missile_basic_desc",
+			"value": "The Basic Missile fires a single missile that seeks a target. Missiles explode on impact, dealing 50% damage through shields. Explosives are effective against armour and hull, with 50% armour penetration."
+		},
+		{
+			"key": "skill_torpedo_basic",
+			"value": "Basic Torpedo"
+		},
+		{
+			"key": "skill_torpedo_basic_desc",
+			"value": "The Basic Torpedo fires a single torpedo that seeks a target. Torpedoes explode on impact, and penetrate shields. Explosives are effective against armour and hull, with 50% armour penetration."
+		},
+		{
+			"key": "skill_plasma_bolter_basic",
+			"value": "Basic Plasma Bolter"
+		},
+		{
+			"key": "skill_plasma_bolter_basic_desc",
+			"value": "The Basic Plasma Bolter fires a contained bolt of plasma that fatigues shields. Plasma deals 10% damage through shields. Plasma damage is dealt over time."
+		},
+		{
+			"key": "skill_plasma_thrower_basic",
+			"value": "Basic Plasma Thrower"
+		},
+		{
+			"key": "skill_plasma_thrower_basic_desc",
+			"value": "The Basic Plasma Thrower fires a continuous stream of plasma that fatigues shields. Plasma deals 10% damage through shields. Plasma damage is dealt over time."
+		},
+
+
+
+		{
+			"key": "skill_slug_auto",
+			"value": "Autocannon"
+		},
+		{
+			"key": "skill_slug_auto_desc",
+			"value": "The Autocannon fires a high frequency stream of metal slugs at high velocities. Metal slugs are effective against armour and hull, but are plasmafied by shields. Autocannons are designed to overwhelm shields by fatiguing them."
+		},
+		{
+			"key": "skill_slug_cannon",
+			"value": "Cannon"
+		},
+		{
+			"key": "skill_slug_cannon_desc",
+			"value": "The Cannon fires a large metal slug with an explosive warhead at high velocities. Explosive warheads explode on impact, dealing 50% damage through shields. Explosives are effective against armour and hull, with 50% armour penetration."
+		},
+		{
+			"key": "skill_laser_mining",
+			"value": "Mining Laser"
+		},
+		{
+			"key": "skill_laser_mining_desc",
+			"value": "The Mining Laser fires a series of small laser beams and a tractor beam designed to break chunks off and collect chunks of asteroids or wrecks. Tractor beams pull impacted objects towards their source."
+		},
+		{
+			"key": "skill_laser_cannon",
+			"value": "Laser Cannon"
+		},
+		{
+			"key": "skill_laser_cannon_desc",
+			"value": "The Laser Cannon fires a single high energy laser for a short time. Lasers are effective against armour and hull, and ignore shields."
+		},
+		{
+			"key": "skill_laser_pulse",
+			"value": "Pulse Laser"
+		},
+		{
+			"key": "skill_laser_pulse_desc",
+			"value": "The Pulse Laser fires a high frequency stream of lasers. Lasers are effective against armour and hull, and ignore shields."
+		},
+		{
+			"key": "skill_laser_beam",
+			"value": "Laser Beam"
+		},
+		{
+			"key": "skill_laser_beam_desc",
+			"value": "The Laser Beam fires a continuous laser. Lasers are effective against armour and hull, and ignore shields."
+		},
+		{
+			"key": "skill_missile",
+			"value": "Missile"
+		},
+		{
+			"key": "skill_missile_desc",
+			"value": "The Missile fires a single missile that seeks a target. Missiles explode on impact, dealing 50% damage through shields. Explosives are effective against armour and hull, with 50% armour penetration."
+		},
+		{
+			"key": "skill_torpedo",
+			"value": "Torpedo"
+		},
+		{
+			"key": "skill_torpedo_desc",
+			"value": "The Torpedo fires a single torpedo that seeks a target. Torpedoes explode on impact, and penetrate shields. Explosives are effective against armour and hull, with 50% armour penetration."
+		},
+		{
+			"key": "skill_plasma_bolter",
+			"value": "Plasma Bolter"
+		},
+		{
+			"key": "skill_plasma_bolter_desc",
+			"value": "The Plasma Bolter fires a contained bolt of plasma that fatigues shields. Plasma deals 10% damage through shields. Plasma damage is dealt over time."
+		},
+		{
+			"key": "skill_plasma_thrower",
+			"value": "Plasma Thrower"
+		},
+		{
+			"key": "skill_plasma_thrower_desc",
+			"value": "The Plasma Thrower fires a continuous stream of plasma that fatigues shields. Plasma deals 10% damage through shields. Plasma damage is dealt over time."
+		},
+
+
+
+		{
+			"key": "skill_slug_auto_advanced",
+			"value": "Advanced Autocannon"
+		},
+		{
+			"key": "skill_slug_auto_advanced_desc",
+			"value": "The Advanced Autocannon fires a high frequency stream of metal slugs at high velocities. Metal slugs are effective against armour and hull, but are plasmafied by shields. Autocannons are designed to overwhelm shields by fatiguing them."
+		},
+		{
+			"key": "skill_slug_cannon_advanced",
+			"value": "Advanced Cannon"
+		},
+		{
+			"key": "skill_slug_cannon_advanced_desc",
+			"value": "The Advanced Cannon fires a large metal slug with an explosive warhead at high velocities. Explosive warheads explode on impact, dealing 50% damage through shields. Explosives are effective against armour and hull, with 50% armour penetration."
+		},
+		{
+			"key": "skill_laser_mining_advanced",
+			"value": "Advanced Mining Laser"
+		},
+		{
+			"key": "skill_laser_mining_advanced_desc",
+			"value": "The Advanced Mining Laser fires a series of small laser beams and a tractor beam designed to break chunks off and collect chunks of asteroids or wrecks. Tractor beams pull impacted objects towards their source."
+		},
+		{
+			"key": "skill_laser_cannon_advanced",
+			"value": "Advanced Laser Cannon"
+		},
+		{
+			"key": "skill_laser_cannon_advanced_desc",
+			"value": "The Advanced Laser Cannon fires a single high energy laser for a short time. Lasers are effective against armour and hull, and ignore shields."
+		},
+		{
+			"key": "skill_laser_pulse_advanced",
+			"value": "Advanced Pulse Laser"
+		},
+		{
+			"key": "skill_laser_pulse_advanced_desc",
+			"value": "The Advanced Pulse Laser fires a high frequency stream of lasers. Lasers are effective against armour and hull, and ignore shields."
+		},
+		{
+			"key": "skill_laser_beam_advanced",
+			"value": "Advanced Laser Beam"
+		},
+		{
+			"key": "skill_laser_beam_advanced_desc",
+			"value": "The Advanced Laser Beam fires a continuous laser. Lasers are effective against armour and hull, and ignore shields."
+		},
+		{
+			"key": "skill_missile_advanced",
+			"value": "Advanced Missile"
+		},
+		{
+			"key": "skill_missile_advanced_desc",
+			"value": "The Advanced Missile fires a single missile that seeks a target. Missiles explode on impact, dealing 50% damage through shields. Explosives are effective against armour and hull, with 50% armour penetration."
+		},
+		{
+			"key": "skill_torpedo_advanced",
+			"value": "Advanced Torpedo"
+		},
+		{
+			"key": "skill_torpedo_advanced_desc",
+			"value": "The Advanced Torpedo fires a single torpedo that seeks a target. Torpedoes explode on impact, and penetrate shields. Explosives are effective against armour and hull, with 50% armour penetration."
+		},
+		{
+			"key": "skill_plasma_bolter_advanced",
+			"value": "Advanced Plasma Bolter"
+		},
+		{
+			"key": "skill_plasma_bolter_advanced_desc",
+			"value": "The Advanced Plasma Bolter fires a contained bolt of plasma that fatigues shields. Plasma deals 10% damage through shields. Plasma damage is dealt over time."
+		},
+		{
+			"key": "skill_plasma_thrower_advanced",
+			"value": "Advanced Plasma Thrower"
+		},
+		{
+			"key": "skill_plasma_thrower_advanced_desc",
+			"value": "The Advanced Plasma Thrower fires a continuous stream of plasma that fatigues shields. Plasma deals 10% damage through shields. Plasma damage is dealt over time."
+		}
+	]
+}
