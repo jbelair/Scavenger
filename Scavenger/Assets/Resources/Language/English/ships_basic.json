@@ -1,0 +1,29 @@
+{
+	"literals":
+	[
+		{
+			"key": "ship_basic_bobcat",
+			"value": "Bobcat"
+		},
+		{
+			"key": "ship_basic_bobcat_desc",
+			"value": "The Bobcat is a rugged little vessel, so numerous in the galaxy that their fabrication is essentially free. The Bobcat has adaptable statistics, with average health, and some armour and shielding. The Bobcat balances speed, acceleration, and maneuverability, with an average radar range."
+		},
+		{
+			"key": "ship_basic_boxer",
+			"value": "Boxer"
+		},
+		{
+			"key": "ship_basic_boxer_desc",
+			"value": "The Boxer is a maneuverable, and armoured starter vessel, so numerous in the galaxy that their fabrication is essentially free. The Boxer sacrifices shields for higher armour. The Boxer has reduced speed at the benefit of having higher acceleration and a higher turn rate. The Boxer has a lower radar range than other starting vessels."
+		},
+		{
+			"key": "ship_basic_gremlin",
+			"value": "Gremlin"
+		},
+		{
+			"key": "ship_basic_gremlin_desc",
+			"value": "The Gremlin is a high speed, shielded starter vessel, so numerous in the galaxy that their fabrication is essentially free. The Gremlin has reduced hull in order to gain shielding. The Gremlin sacrifices acceleration and turn rate for high speed, and has a high radar range."
+		}
+	]
+}

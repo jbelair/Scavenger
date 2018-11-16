@@ -34,14 +34,6 @@
 			"value": "NEW"
 		},
 		{
-			"key": "menu_play_load",
-			"value": "LOAD GAME"
-		},
-		{
-			"key": "menu_play_load_min",
-			"value": "LOD"
-		},
-		{
 			"key": "menu_progress_ships",
 			"value": "SHIP PROGRESS"
 		},

@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class WidgetSkillGrid : MonoBehaviour
 {
     public UIScreen screen;
+    public string widgetName = "widget skill display grid";
     public TextMeshProUGUI focusDescription;
-
     public RectTransform viewport;
     public RectTransform window;
     public GridLayoutGroup grid;
@@ -46,7 +46,13 @@ public class WidgetSkillGrid : MonoBehaviour
             viewRectDiagnostic = viewport.rect;
             gridRectDiagnostic = gridRect.rect;
             yGoal = Mathf.Clamp(-(focus.localPosition.y + grid.padding.top) - viewport.rect.height / 2f, 0, Mathf.Max(0, gridRect.rect.height - viewport.rect.height));
-            Vector3 target = new Vector3(window.rect.width / 2f, yGoal + viewport.rect.height / 2f, 0);// -(focus.localPosition).OYO() + ((float)).XOO() - ((float)grid.padding.top).OYO() + startPosition;
+            Vector3 target = new Vector3(window.rect.width / 2f, yGoal, 0);// -(focus.localPosition).OYO() + ((float)).XOO() - ((float)grid.padding.top).OYO() + startPosition;
+            // TODO resolve this gross hack:
+            // This will resolve the issue I am having where the skill grid in progress though literally a direct copy of the same skill grid in new game behaves differently.
+            // It is offset up the viewports height, same as the new game grid, except this results in the skills being place across the top of the screen in progress, and the correct behaviour in new game.
+            // If however in progress I do not add the viewport height it works as expected.
+            if (isSelectingCurrentSkills)
+                target += Vector3.up * viewport.rect.height / 2f;
             grid.transform.localPosition = Vector3.SmoothDamp(grid.transform.localPosition, target, ref velocity, time);//Vector3.SmoothDamp(scrollRect.content.localPosition, (scrollRect.viewport.localPosition + focus.localPosition).Multiply(-Vector3.up), ref velocity, time);
             yOffset = grid.transform.localPosition.y;
         }
@@ -70,15 +76,27 @@ public class WidgetSkillGrid : MonoBehaviour
         if (Skills.skills.Count > 0)
         {
             int i = 0;
-            foreach (Skill skill in Skills.skills)
+            foreach (Skill skill in Skills.skills.Values)
             {
-                WidgetSkillDisplay widget = UIManager.active.Button(screen.name, UIManager.Layer.Mid, "widget skill display grid", Vector2.zero, new UnityEngine.Events.UnityAction(Select)).GetComponent<WidgetSkillDisplay>();
-                widget.transform.parent = grid.transform;
-                widget.definition = skill;
-                widget.index = i;
-                widget.grid = this;
-                skills.Add(widget);
-                i++;
+                bool unlocked = PlayerSave.Active().Get("unlocked skills").value.Contains(skill.name + " ");
+
+                if (!isSelectingCurrentSkills || unlocked)
+                {
+                    WidgetSkillDisplay widget;
+                    if (isSelectingCurrentSkills)
+                        widget = UIManager.active.Button(screen.name, UIManager.Layer.Mid, widgetName, Vector2.zero, new UnityEngine.Events.UnityAction(Select)).GetComponent<WidgetSkillDisplay>();
+                    else
+                        widget = UIManager.active.Button(screen.name, UIManager.Layer.Mid, widgetName, Vector2.zero).GetComponent<WidgetSkillDisplay>();
+
+                    widget.isSelectingCurrentSkill = isSelectingCurrentSkills;
+                    widget.isUnlocked = unlocked;
+                    widget.transform.parent = grid.transform;
+                    widget.definition = skill;
+                    widget.index = i;
+                    widget.grid = this;
+                    skills.Add(widget);
+                    i++;
+                }
             }
         }
 
@@ -89,6 +107,11 @@ public class WidgetSkillGrid : MonoBehaviour
     {
         UIManager.active.AddScreen("menu play new");
         UIManager.active.RemoveScreen("menu play new grid skill");
+    }
+
+    public void ProgressSelect()
+    {
+        
     }
     
     public void Search(string searchString)

@@ -10,14 +10,26 @@ public class WidgetSkillDisplay : WidgetSkill
     
     public int index;
     public bool isSelectingCurrentSkill = true;
+    public bool isUnlocked = true;
 
     public RectTransform self;
     public WidgetSkillGrid grid;
 
-    // Update is called once per frame
-    void Update()
-    {
+    List<Graphic> graphics;
 
+    // Update is called once per frame
+    void LateUpdate()
+    {
+        if (graphics == null)
+        {
+            graphics = new List<Graphic>(GetComponentsInChildren<Graphic>());
+        }
+
+        foreach (Graphic graphic in graphics)
+        {
+            if (!isUnlocked)
+                graphic.color = graphic.color.A(0.5f);
+        }
     }
 
     public override void Set()

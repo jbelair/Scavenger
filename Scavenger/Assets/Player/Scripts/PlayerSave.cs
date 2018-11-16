@@ -18,11 +18,18 @@ public class PlayerSave
             string unlockedShips = "";
             foreach(ShipDefinition ships in Ships.definitions.Values)
             {
-                if (ships.oneIn == 1)
+                if (ships.value == 0)
                     unlockedShips += ships.name + " ";
             }
-
             saves[0].Add("unlocked ships", "StringList", unlockedShips);
+
+            string unlockedSkills = "";
+            foreach(Skill skill in Skills.skills.Values)
+            {
+                if (skill.value == 0)
+                    unlockedSkills += skill.name + " ";
+            }
+            saves[0].Add("unlocked skills", "StringList", unlockedSkills);
         }
 
         return saves[0];

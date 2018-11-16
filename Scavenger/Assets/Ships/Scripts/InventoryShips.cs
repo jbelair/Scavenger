@@ -43,6 +43,7 @@ public class InventoryShips : MonoBehaviour
     public float smoothSpeed = 1;
 
     public List<Ship> ships = new List<Ship>();
+    public List<Ship> activeShips = new List<Ship>();
 
     // Use this for initialization
     void Start()
@@ -95,7 +96,7 @@ public class InventoryShips : MonoBehaviour
         else
             transform.localPosition = Vector3.zero;
 
-        if (activeMode.rotation.magnitude > 0)
+        if (focus && activeMode.rotation.magnitude > 0)
             focus.Rotate(activeMode.rotation * Time.deltaTime);
         //else
         //    transform.rotation = new Quaternion();// Quaternion.Lerp(transform.rotation, new Quaternion(), 0.2f);
@@ -104,7 +105,12 @@ public class InventoryShips : MonoBehaviour
         {
             foreach (Ship ship in ships)
             {
-                ship.gameObject.SetActive(ship.transform == focus || ship.transform == lastFocus || !activeMode.focused);
+                bool active = ship.transform == focus || ship.transform == lastFocus || !activeMode.focused;
+                ship.gameObject.SetActive(active);
+                if (active && !activeShips.Contains(ship))
+                    activeShips.Add(ship);
+                else if (activeShips.Contains(ship))
+                    activeShips.Remove(ship);
             }
         }
 
@@ -115,20 +121,21 @@ public class InventoryShips : MonoBehaviour
 
     public void Next()
     {
-        index = (index + 1) % transform.childCount;
+        index = (index + 1) % activeShips.Count;
         Set(index, true);
     }
 
     public void Previous()
     {
         if (--index < 0)
-            index = transform.childCount - 1;
+            index = activeShips.Count - 1;
+
         Set(index, true);
     }
 
     public void Search(string searchString)
     {
-        foreach (Ship ship in ships)
+        foreach (Ship ship in activeShips)
         {
             ship.gameObject.SetActive(Literals.active[ship.definition.name].Contains(searchString));
         }
@@ -142,10 +149,6 @@ public class InventoryShips : MonoBehaviour
             {
                 ships[indexA].transform.SetSiblingIndex(indexB);
                 ships[indexB].transform.SetSiblingIndex(indexA);
-
-                //Ship temp = ships[indexA];
-                //ships[indexA] = ships[indexB];
-                //ships[indexB] = temp;
             }
         }
         else
@@ -154,17 +157,8 @@ public class InventoryShips : MonoBehaviour
             {
                 ships[indexA].transform.SetSiblingIndex(indexB);
                 ships[indexB].transform.SetSiblingIndex(indexA);
-
-                //Ship temp = ships[indexB];
-                //ships[indexB] = ships[indexA];
-                //ships[indexA] = temp;
             }
         }
-
-        //ships[indexA].index = indexA;
-        //ships[indexB].index = indexB;
-        //ships[indexA].transform.SetSiblingIndex(indexA);
-        //ships[indexB].transform.SetSiblingIndex(indexB);
     }
 
     public void SortByValue(bool smallestToLargest)
@@ -209,7 +203,7 @@ public class InventoryShips : MonoBehaviour
     public void Set(int index, bool moveTo)
     {
         lastFocus = focus;
-        focus = transform.GetChild(index);
+        focus = ships[index].transform;
 
         this.index = index;
         if (moveTo)
@@ -232,7 +226,17 @@ public class InventoryShips : MonoBehaviour
         for (int i = 0; i < ships.Count; i++)
         {
             ships[i].transform.rotation = Quaternion.Euler(0, 0, 180);
-            ships[i].gameObject.SetActive(activeMode.showLocked || PlayerSave.Active().Get("unlocked ships").value.Contains(ships[i].definition.name));
+            ships[i].isUnlocked = activeMode.showLocked || PlayerSave.Active().Get("unlocked ships").value.Contains(ships[i].definition.name + " ");
+            ships[i].gameObject.SetActive(ships[i].isUnlocked);
+            if (ships[i].isUnlocked && !activeShips.Contains(ships[i]))
+            {
+                activeShips.Add(ships[i]);
+                activeShips[activeShips.Count - 1].index = i;
+            }
+            else if (activeShips.Contains(ships[i]))
+            {
+                activeShips.Remove(ships[i]);
+            }
         }
 
         // Determine the configuration of the inventory from the dimensions
@@ -242,10 +246,6 @@ public class InventoryShips : MonoBehaviour
         bool isX = activeMode.X.scale != 0;
         bool isY = activeMode.Y.scale != 0;
         bool isZ = activeMode.Z.scale != 0;
-
-        //bool isXLimit = x.maximum > -1;
-        //bool isYLimit = y.maximum > -1;
-        //bool isZLimit = z.maximum > -1;
 
         // Arrange all ships along the X axis
         if (isX && !isY && !isZ)
@@ -287,12 +287,9 @@ public class InventoryShips : MonoBehaviour
     void Z()
     {
         int index = 0;
-        foreach(Ship ship in ships)
+        foreach (Ship ship in activeShips)
         {
-            if (ship.gameObject.activeInHierarchy)
-            {
-                ship.transform.localPosition = Vector3.forward * activeMode.Z.scale * index++;
-            }
+            ship.transform.localPosition = Vector3.forward * activeMode.Z.scale * index++;
         }
     }
 
@@ -315,15 +312,11 @@ public class InventoryShips : MonoBehaviour
             {
                 for (int j = 0; j < activeMode.Y.maximum; j++)
                 {
-                    while (index < ships.Count)
-                    {
-                        if (ships[index].gameObject.activeInHierarchy)
-                        {
-                            ships[index++].transform.localPosition = new Vector3((i - columns / 2) * activeMode.X.scale, (j - activeMode.Y.maximum / 2) * activeMode.Y.scale, 0);
-                            break;
-                        }
-                        index++;
-                    }
+                    index = i * columns + j;
+                    if (index < activeShips.Count)
+                        activeShips[index].transform.localPosition = new Vector3((i - columns / 2) * activeMode.X.scale, (j - activeMode.Y.maximum / 2) * activeMode.Y.scale, 0);
+                    else
+                        break;
                 }
             }
         }

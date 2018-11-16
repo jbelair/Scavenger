@@ -3,11 +3,11 @@
 	[
 		{
 			"key": "stat_matter",
-			"value": "Salvage"
+			"value": "Matter"
 		},
 		{
 			"key": "stat_jump_fuel",
-			"value": "Jump Fuel"
+			"value": "Plasma"
 		},
 		{
 			"key": "stat_jump_range",
@@ -15,7 +15,7 @@
 		},
 		{
 			"key": "stat_jump_view",
-			"value": "View Range"
+			"value": "Scan Range"
 		},
 		{
 			"key": "stat_hull",

@@ -56,6 +56,14 @@
 		{
 			"key": "ship_auron_traezyn_desc",
 			"value": "Traezyn is the scourge of life, and actively destroys any systems populated by anything but Auron. Traezyn is a rigid xenophobe that actively seeks out threats to the Auron and destroys their systems, as such they can often be found positioned above stars in any system with terminally infected Skel worlds, alternatively if the Skel have been destroyed, they can be found similarly in Federation systems. The Destroyer is a capital ship capable of creating a sustained particle weapon that can cause stars to go supernova. Traezyn’s incredible aggression, and active destruction of systems not only violates the peace treaty between the Skel and the Auron, as well as the Auron tenants, but draws the focused ire of the Skel queens, as well as the attention of the Federation, and Gav Inc. Traezyn is a highly sought after Auron, excommunicated by their own and much like Kal’ad, Traezyn has an active bounty by the Auron, the Skel, and the Federation, who frequently send hunters to attempt to track down and destroy Traezyn."
+		},
+		{
+			"key": "ship_auron_alanuin",
+			"value": "<color=#2083FFFF>Ala'nuin, <color=#fff>The Prophet"
+		},
+		{
+			"key": "ship_auron_alanuin_desc",
+			"value": "Ala’nuin bends space time in order to arbitrate probabile futures, selecting those best suited for Auron survival. Ala’nuin’s active alteration of reality violates the tenants of the Auron, and their peace agreement with the Skel, hence the Auron excommunicated Ala’nuin. Ala’nuin exists within a protoplanet turned spaceship armed with primarily defensive technologies. The Prophet, Ala’nuin’s ship, is powered by massive celestial objects and can only be found near singularities."
 		}
 	]
 }

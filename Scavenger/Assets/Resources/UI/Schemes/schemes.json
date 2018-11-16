@@ -11,6 +11,11 @@
             "symbol": ""
         },
         {
+            "name": "background",
+            "colour": "00000080",
+            "symbol": ""
+        },
+        {
             "name": "transparent",
             "colour": "FFFFFF00",
             "symbol": ""
@@ -103,6 +108,46 @@
         {
             "name": "menu_7",
             "colour": "A418BFFF",
+            "symbol": ""
+        },
+        {
+            "name": "menu_0_background",
+            "colour": "40404080",
+            "symbol": ""
+        },
+        {
+            "name": "menu_1_background",
+            "colour": "1862BF80",
+            "symbol": ""
+        },
+        {
+            "name": "menu_2_background",
+            "colour": "18BFB080",
+            "symbol": ""
+        },
+        {
+            "name": "menu_3_background",
+            "colour": "62BF3D80",
+            "symbol": ""
+        },
+        {
+            "name": "menu_4_background",
+            "colour": "BF8A3D80",
+            "symbol": ""
+        },
+        {
+            "name": "menu_5_background",
+            "colour": "BF2A3E80",
+            "symbol": ""
+        },
+        {
+            "name": "menu_6_background",
+            "colour": "BF188880",
+            "symbol": ""
+        },
+        {
+            "name": "menu_7_background",
+            "colour": "A418BF80",
             "symbol": ""
         },
         {

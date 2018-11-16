@@ -5,6 +5,6 @@ using System.Text;
 
 public static class Skills
 {
-    public static List<Skill> skills = new List<Skill>();
+    public static Dictionary<string, Skill> skills = new Dictionary<string, Skill>();
     public static List<string> skillNames = new List<string>();
 }

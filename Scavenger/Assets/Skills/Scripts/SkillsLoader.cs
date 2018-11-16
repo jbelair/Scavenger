@@ -18,13 +18,13 @@ public class SkillsLoader : MonoBehaviour
     {
         TextAsset[] assets = Resources.LoadAll<TextAsset>("Skills/");
         loaded = new List<Skill>();
-        Skills.skills = new List<Skill>();
+        Skills.skills = new Dictionary<string, Skill>();
         foreach (TextAsset asset in assets)
         {
             SkillDefinition definition = JsonUtility.FromJson<SkillDefinition>(asset.text);
             foreach (Skill skill in definition.definitions)
             {
-                Skills.skills.Add(skill);
+                Skills.skills.Add(skill.name, skill);
                 loaded.Add(skill);
                 Skills.skillNames.Add(skill.name);
             }

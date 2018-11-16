@@ -192,169 +192,29 @@
 	"buffers":
 	[
 		{
-			"file": "Assets/Resources/Ships/definition.template",
+			"file": "Assets/Resources/Ships/basic.json",
 			"settings":
 			{
-				"buffer_size": 2196,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Resources/Ships/special.json",
-			"settings":
-			{
-				"buffer_size": 4702,
+				"buffer_size": 6768,
 				"encoding": "UTF-8",
 				"line_ending": "Windows",
 				"name": "{"
 			}
 		},
 		{
-			"contents": "{\n\t\"definitions\" :\n\t[\n\t\t{\n\t\t\t\"name\":\"ship_auron_fighter_light\",\n\t\t\t\"description\":\"ship_auron_fighter_light_desc\",\n\t\t\t\"model\":\"Ships/Models/ship_auron_fighter_light\",\n\t\t\t\"material\": \"ship_auron_00\",\n\t\t\t\"risk\":\"risk_medium\",\n\t\t\t\"oneIn\":1000,\n\t\t\t\"value\":10000,\n\t\t\t\"statistics\":\n\t\t\t[\n\t\t\t\t{\"name\":\"stat_jump_fuel\",\"value\":50,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_jump_range\",\"value\":4,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_jump_view\",\"value\":8,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_hull\",\"value\":100,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_hull_max\",\"value\":100,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_hull_reg\",\"value\":1,\"unit\":\"persecond\"},\n\t\t\t\t{\"name\":\"stat_hull_delay\",\"value\":5,\"unit\":\"seconds\"},\n\t\t\t\t{\"name\":\"stat_armour\",\"value\":50,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_armour_max\",\"value\":50,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_armour_reg\",\"value\":0.5,\"unit\":\"persecond\"},\n\t\t\t\t{\"name\":\"stat_armour_delay\",\"value\":5,\"unit\":\"seconds\"},\n\t\t\t\t{\"name\":\"stat_shield\",\"value\":1000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_shield_max\",\"value\":1000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_shield_reg\",\"value\":10,\"unit\":\"persecond\"},\n\t\t\t\t{\"name\":\"stat_shield_delay\",\"value\":0,\"unit\":\"seconds\"},\n\t\t\t\t{\"name\":\"stat_speed\",\"value\":750,\"unit\":\"metrespersecond\"},\n\t\t\t\t{\"name\":\"stat_acc\",\"value\":1000,\"unit\":\"metrespersecond2\"},\n\t\t\t\t{\"name\":\"stat_turn\",\"value\":360,\"unit\":\"degreespersecond\"},\n\t\t\t\t{\"name\":\"stat_radar_range\",\"value\":5,\"unit\":\"kilometres\"},\n\t\t\t\t{\"name\":\"stat_mult_cd_reg\",\"value\":2,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_stack\",\"value\":2,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_stack_reg\",\"value\":2,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_subunit\",\"value\":0.5,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_speed\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_acc\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_turn\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_size\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_range\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_str\",\"value\":2,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_dur\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_stack\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_size\",\"value\":1,\"unit\":\"multiplier\"}\n\t\t\t],\n\t\t\t\"tags\":\"tag_auron tag_nim tag_fighter\"\n\t\t},\n\t\t{\n\t\t\t\"name\":\"ship_auron_fighter_heavy\",\n\t\t\t\"description\":\"ship_auron_fighter_heavy_desc\",\n\t\t\t\"model\":\"Ships/Models/ship_auron_fighter_heavy\",\n\t\t\t\"material\": \"ship_auron_00\",\n\t\t\t\"risk\":\"risk_medium\",\n\t\t\t\"oneIn\":1000,\n\t\t\t\"value\":10000,\n\t\t\t\"statistics\":\n\t\t\t[\n\t\t\t\t{\"name\":\"stat_jump_fuel\",\"value\":50,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_jump_range\",\"value\":4,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_jump_view\",\"value\":8,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_hull\",\"value\":500,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_hull_max\",\"value\":500,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_hull_reg\",\"value\":5,\"unit\":\"persecond\"},\n\t\t\t\t{\"name\":\"stat_hull_delay\",\"value\":5,\"unit\":\"seconds\"},\n\t\t\t\t{\"name\":\"stat_armour\",\"value\":250,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_armour_max\",\"value\":250,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_armour_reg\",\"value\":2.5,\"unit\":\"persecond\"},\n\t\t\t\t{\"name\":\"stat_armour_delay\",\"value\":5,\"unit\":\"seconds\"},\n\t\t\t\t{\"name\":\"stat_shield\",\"value\":1000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_shield_max\",\"value\":1000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_shield_reg\",\"value\":200,\"unit\":\"persecond\"},\n\t\t\t\t{\"name\":\"stat_shield_delay\",\"value\":0,\"unit\":\"seconds\"},\n\t\t\t\t{\"name\":\"stat_speed\",\"value\":500,\"unit\":\"metrespersecond\"},\n\t\t\t\t{\"name\":\"stat_acc\",\"value\":500,\"unit\":\"metrespersecond2\"},\n\t\t\t\t{\"name\":\"stat_turn\",\"value\":180,\"unit\":\"degreespersecond\"},\n\t\t\t\t{\"name\":\"stat_radar_range\",\"value\":4,\"unit\":\"kilometres\"},\n\t\t\t\t{\"name\":\"stat_mult_cd_reg\",\"value\":2,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_stack\",\"value\":2,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_stack_reg\",\"value\":2,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_subunit\",\"value\":0.5,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_speed\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_acc\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_turn\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_size\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_range\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_str\",\"value\":2,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_dur\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_stack\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_size\",\"value\":1,\"unit\":\"multiplier\"}\n\t\t\t],\n\t\t\t\"tags\":\"tag_auron tag_nim tag_fighter\"\n\t\t},\n\t\t{\n\t\t\t\"name\":\"ship_auron_fighter_specialist\",\n\t\t\t\"description\":\"ship_auron_fighter_specialist_desc\",\n\t\t\t\"model\":\"Ships/Models/ship_auron_fighter_specialist\",\n\t\t\t\"material\": \"ship_auron_00\",\n\t\t\t\"risk\":\"risk_medium\",\n\t\t\t\"oneIn\":1000,\n\t\t\t\"value\":10000,\n\t\t\t\"statistics\":\n\t\t\t[\n\t\t\t\t{\"name\":\"stat_jump_fuel\",\"value\":50,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_jump_range\",\"value\":4,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_jump_view\",\"value\":8,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_hull\",\"value\":100,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_hull_max\",\"value\":100,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_hull_reg\",\"value\":1,\"unit\":\"persecond\"},\n\t\t\t\t{\"name\":\"stat_hull_delay\",\"value\":5,\"unit\":\"seconds\"},\n\t\t\t\t{\"name\":\"stat_armour\",\"value\":50,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_armour_max\",\"value\":50,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_armour_reg\",\"value\":0.5,\"unit\":\"persecond\"},\n\t\t\t\t{\"name\":\"stat_armour_delay\",\"value\":5,\"unit\":\"seconds\"},\n\t\t\t\t{\"name\":\"stat_shield\",\"value\":500,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_shield_max\",\"value\":500,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_shield_reg\",\"value\":20,\"unit\":\"persecond\"},\n\t\t\t\t{\"name\":\"stat_shield_delay\",\"value\":0,\"unit\":\"seconds\"},\n\t\t\t\t{\"name\":\"stat_speed\",\"value\":1000,\"unit\":\"metrespersecond\"},\n\t\t\t\t{\"name\":\"stat_acc\",\"value\":1000,\"unit\":\"metrespersecond2\"},\n\t\t\t\t{\"name\":\"stat_turn\",\"value\":270,\"unit\":\"degreespersecond\"},\n\t\t\t\t{\"name\":\"stat_radar_range\",\"value\":6,\"unit\":\"kilometres\"},\n\t\t\t\t{\"name\":\"stat_mult_cd_reg\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_stack\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_stack_reg\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_subunit\",\"value\":2,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_speed\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_acc\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_turn\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_size\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_range\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_str\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_dur\",\"value\":4,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_stack\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_size\",\"value\":1,\"unit\":\"multiplier\"}\n\t\t\t],\n\t\t\t\"tags\":\"tag_auron tag_nim tag_fighter tag_specialist\"\n\t\t},\n\t\t{\n\t\t\t\"name\":\"ship_auron_cruiser_specialist\",\n\t\t\t\"description\":\"ship_auron_cruiser_specialist_desc\",\n\t\t\t\"model\":\"Ships/Models/ship_auron_cruiser_specialist\",\n\t\t\t\"material\": \"ship_auron_00\",\n\t\t\t\"risk\":\"risk_medium\",\n\t\t\t\"oneIn\":10000,\n\t\t\t\"value\":100000,\n\t\t\t\"statistics\":\n\t\t\t[\n\t\t\t\t{\"name\":\"stat_jump_fuel\",\"value\":100,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_jump_range\",\"value\":5,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_jump_view\",\"value\":10,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_hull\",\"value\":1000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_hull_max\",\"value\":1000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_hull_reg\",\"value\":10,\"unit\":\"persecond\"},\n\t\t\t\t{\"name\":\"stat_hull_delay\",\"value\":5,\"unit\":\"seconds\"},\n\t\t\t\t{\"name\":\"stat_armour\",\"value\":500,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_armour_max\",\"value\":500,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_armour_reg\",\"value\":5,\"unit\":\"persecond\"},\n\t\t\t\t{\"name\":\"stat_armour_delay\",\"value\":5,\"unit\":\"seconds\"},\n\t\t\t\t{\"name\":\"stat_shield\",\"value\":10000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_shield_max\",\"value\":10000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_shield_reg\",\"value\":100,\"unit\":\"persecond\"},\n\t\t\t\t{\"name\":\"stat_shield_delay\",\"value\":0,\"unit\":\"seconds\"},\n\t\t\t\t{\"name\":\"stat_speed\",\"value\":300,\"unit\":\"metrespersecond\"},\n\t\t\t\t{\"name\":\"stat_acc\",\"value\":300,\"unit\":\"metrespersecond2\"},\n\t\t\t\t{\"name\":\"stat_turn\",\"value\":90,\"unit\":\"degreespersecond\"},\n\t\t\t\t{\"name\":\"stat_radar_range\",\"value\":10,\"unit\":\"kilometres\"},\n\t\t\t\t{\"name\":\"stat_mult_cd_reg\",\"value\":2,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_stack\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_stack_reg\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_subunit\",\"value\":2,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_speed\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_acc\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_turn\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_size\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_range\",\"value\":2,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_str\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_dur\",\"value\":2,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_stack\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_size\",\"value\":1,\"unit\":\"multiplier\"}\n\t\t\t],\n\t\t\t\"tags\":\"tag_auron tag_nim tag_cruiser tag_specialist\"\n\t\t},\n\t\t{\n\t\t\t\"name\":\"ship_auron_bophose\",\n\t\t\t\"description\":\"ship_auron_bophose_desc\",\n\t\t\t\"model\":\"Ships/Models/ship_auron_bophose\",\n\t\t\t\"material\": \"ship_auron_bophose\",\n\t\t\t\"risk\":\"risk_terminal\",\n\t\t\t\"oneIn\":0,\n\t\t\t\"value\":10000000,\n\t\t\t\"statistics\":\n\t\t\t[\n\t\t\t\t{\"name\":\"stat_jump_fuel\",\"value\":1000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_jump_range\",\"value\":10,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_jump_view\",\"value\":15,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_hull\",\"value\":100000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_hull_max\",\"value\":100000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_hull_reg\",\"value\":1000,\"unit\":\"persecond\"},\n\t\t\t\t{\"name\":\"stat_hull_delay\",\"value\":5,\"unit\":\"seconds\"},\n\t\t\t\t{\"name\":\"stat_armour\",\"value\":500000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_armour_max\",\"value\":500000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_armour_reg\",\"value\":1000,\"unit\":\"persecond\"},\n\t\t\t\t{\"name\":\"stat_armour_delay\",\"value\":5,\"unit\":\"seconds\"},\n\t\t\t\t{\"name\":\"stat_shield\",\"value\":1000000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_shield_max\",\"value\":1000000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_shield_reg\",\"value\":10000,\"unit\":\"persecond\"},\n\t\t\t\t{\"name\":\"stat_shield_delay\",\"value\":0,\"unit\":\"seconds\"},\n\t\t\t\t{\"name\":\"stat_speed\",\"value\":150,\"unit\":\"metrespersecond\"},\n\t\t\t\t{\"name\":\"stat_acc\",\"value\":150,\"unit\":\"metrespersecond2\"},\n\t\t\t\t{\"name\":\"stat_turn\",\"value\":45,\"unit\":\"degreespersecond\"},\n\t\t\t\t{\"name\":\"stat_radar_range\",\"value\":100,\"unit\":\"kilometres\"},\n\t\t\t\t{\"name\":\"stat_mult_cd_reg\",\"value\":0.5,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_stack\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_stack_reg\",\"value\":0.5,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_subunit\",\"value\":4,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_speed\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_acc\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_turn\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_size\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_range\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_str\",\"value\":4,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_dur\",\"value\":4,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_stack\",\"value\":4,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_size\",\"value\":4,\"unit\":\"multiplier\"}\n\t\t\t],\n\t\t\t\"tags\":\"tag_auron tag_heretic tag_destroyer tag_bophose\"\n\t\t},\n\t\t{\n\t\t\t\"name\":\"ship_auron_narma\",\n\t\t\t\"description\":\"ship_auron_narma_desc\",\n\t\t\t\"model\":\"Ships/Models/ship_auron_narma\",\n\t\t\t\"material\": \"ship_auron_narma\",\n\t\t\t\"risk\":\"risk_terminal\",\n\t\t\t\"oneIn\":0,\n\t\t\t\"value\":10000000,\n\t\t\t\"statistics\":\n\t\t\t[\n\t\t\t\t{\"name\":\"stat_jump_fuel\",\"value\":1000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_jump_range\",\"value\":10,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_jump_view\",\"value\":15,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_hull\",\"value\":1000000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_hull_max\",\"value\":1000000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_hull_reg\",\"value\":1000,\"unit\":\"persecond\"},\n\t\t\t\t{\"name\":\"stat_hull_delay\",\"value\":0,\"unit\":\"seconds\"},\n\t\t\t\t{\"name\":\"stat_armour\",\"value\":5000000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_armour_max\",\"value\":5000000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_armour_reg\",\"value\":1000,\"unit\":\"persecond\"},\n\t\t\t\t{\"name\":\"stat_armour_delay\",\"value\":0,\"unit\":\"seconds\"},\n\t\t\t\t{\"name\":\"stat_shield\",\"value\":1000000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_shield_max\",\"value\":1000000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_shield_reg\",\"value\":10000,\"unit\":\"persecond\"},\n\t\t\t\t{\"name\":\"stat_shield_delay\",\"value\":0,\"unit\":\"seconds\"},\n\t\t\t\t{\"name\":\"stat_speed\",\"value\":500,\"unit\":\"metrespersecond\"},\n\t\t\t\t{\"name\":\"stat_acc\",\"value\":500,\"unit\":\"metrespersecond2\"},\n\t\t\t\t{\"name\":\"stat_turn\",\"value\":180,\"unit\":\"degreespersecond\"},\n\t\t\t\t{\"name\":\"stat_radar_range\",\"value\":100,\"unit\":\"kilometres\"},\n\t\t\t\t{\"name\":\"stat_mult_cd_reg\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_stack\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_stack_reg\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_subunit\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj\",\"value\":2,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_speed\",\"value\":2,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_acc\",\"value\":2,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_turn\",\"value\":2,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_size\",\"value\":2,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_range\",\"value\":2,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_str\",\"value\":4,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_dur\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_stack\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_size\",\"value\":1,\"unit\":\"multiplier\"}\n\t\t\t],\n\t\t\t\"tags\":\"tag_auron tag_heretic tag_destroyer tag_narma\"\n\t\t},\n\t\t{\n\t\t\t\"name\":\"ship_auron_traezyn\",\n\t\t\t\"description\":\"ship_auron_traezyn_desc\",\n\t\t\t\"model\":\"Ships/Models/ship_auron_traezyn\",\n\t\t\t\"material\": \"ship_auron_traezyn\",\n\t\t\t\"risk\":\"risk_terminal\",\n\t\t\t\"oneIn\":0,\n\t\t\t\"value\":100000000,\n\t\t\t\"statistics\":\n\t\t\t[\n\t\t\t\t{\"name\":\"stat_jump_fuel\",\"value\":1000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_jump_range\",\"value\":10,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_jump_view\",\"value\":15,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_hull\",\"value\":10000000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_hull_max\",\"value\":10000000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_hull_reg\",\"value\":100000,\"unit\":\"persecond\"},\n\t\t\t\t{\"name\":\"stat_hull_delay\",\"value\":15,\"unit\":\"seconds\"},\n\t\t\t\t{\"name\":\"stat_armour\",\"value\":10000000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_armour_max\",\"value\":10000000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_armour_reg\",\"value\":100000,\"unit\":\"persecond\"},\n\t\t\t\t{\"name\":\"stat_armour_delay\",\"value\":15,\"unit\":\"seconds\"},\n\t\t\t\t{\"name\":\"stat_shield\",\"value\":100000000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_shield_max\",\"value\":100000000,\"unit\":\"\"},\n\t\t\t\t{\"name\":\"stat_shield_reg\",\"value\":1000000,\"unit\":\"persecond\"},\n\t\t\t\t{\"name\":\"stat_shield_delay\",\"value\":0,\"unit\":\"seconds\"},\n\t\t\t\t{\"name\":\"stat_speed\",\"value\":125,\"unit\":\"metrespersecond\"},\n\t\t\t\t{\"name\":\"stat_acc\",\"value\":125,\"unit\":\"metrespersecond2\"},\n\t\t\t\t{\"name\":\"stat_turn\",\"value\":15,\"unit\":\"degreespersecond\"},\n\t\t\t\t{\"name\":\"stat_radar_range\",\"value\":100,\"unit\":\"kilometres\"},\n\t\t\t\t{\"name\":\"stat_mult_cd_reg\",\"value\":4,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_stack\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_stack_reg\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_subunit\",\"value\":8,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_speed\",\"value\":4,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_acc\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_turn\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_size\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_proj_range\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_str\",\"value\":8,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_dur\",\"value\":4,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_stack\",\"value\":1,\"unit\":\"multiplier\"},\n\t\t\t\t{\"name\":\"stat_mult_effect_size\",\"value\":1,\"unit\":\"multiplier\"}\n\t\t\t],\n\t\t\t\"tags\":\"tag_auron tag_heretic tag_capital tag_traezyn\"\n\t\t}\n\t]\n}",
 			"file": "Assets/Resources/Ships/auron.json",
-			"file_size": 16731,
-			"file_write_time": 131862524291390964,
 			"settings":
 			{
-				"buffer_size": 16408,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Resources/Ships/federation.json",
-			"settings":
-			{
-				"buffer_size": 2347,
+				"buffer_size": 18776,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Assets/Resources/Ships/gavinc.json",
+			"file": "Assets/Resources/Language/English/ships_basic.json",
 			"settings":
 			{
-				"buffer_size": 6999,
-				"encoding": "UTF-8",
-				"line_ending": "Windows",
-				"name": "{"
-			}
-		},
-		{
-			"file": "Assets/Resources/Ships/khaled.json",
-			"settings":
-			{
-				"buffer_size": 9332,
-				"encoding": "UTF-8",
-				"line_ending": "Windows",
-				"name": "{"
-			}
-		},
-		{
-			"file": "Assets/Resources/Skills/definition.template",
-			"settings":
-			{
-				"buffer_size": 231,
-				"encoding": "UTF-8",
-				"line_ending": "Windows",
-				"name": "{"
-			}
-		},
-		{
-			"file": "Assets/Resources/Skills/basic.json",
-			"settings":
-			{
-				"buffer_size": 5644,
-				"encoding": "UTF-8",
-				"line_ending": "Windows",
-				"name": "{"
-			}
-		},
-		{
-			"file": "Assets/Resources/UI/Schemes/schemes.json",
-			"settings":
-			{
-				"buffer_size": 10652,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Assets/Resources/UI/Schemes/stats.json",
-			"settings":
-			{
-				"buffer_size": 4173,
-				"encoding": "UTF-8",
-				"line_ending": "Unix",
-				"name": "{"
-			}
-		},
-		{
-			"file": "Assets/Resources/UI/Schemes/skills_basic.json",
-			"settings":
-			{
-				"buffer_size": 154,
-				"encoding": "UTF-8",
-				"line_ending": "Unix",
-				"name": "{"
-			}
-		},
-		{
-			"file": "Assets/Resources/Language/Languages/english.json",
-			"settings":
-			{
-				"buffer_size": 94,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Resources/Language/English/core.json",
-			"settings":
-			{
-				"buffer_size": 1106,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Resources/Language/English/signals.json",
-			"settings":
-			{
-				"buffer_size": 26841,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Resources/Language/English/tags.json",
-			"settings":
-			{
-				"buffer_size": 2629,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Resources/Language/English/ui.json",
-			"settings":
-			{
-				"buffer_size": 1586,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Resources/Language/English/statistics.json",
-			"settings":
-			{
-				"buffer_size": 2247,
-				"encoding": "UTF-8",
-				"line_ending": "Windows",
-				"name": "{"
-			}
-		},
-		{
-			"file": "Assets/Resources/Language/English/ships_special.json",
-			"settings":
-			{
-				"buffer_size": 959,
+				"buffer_size": 1280,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -363,86 +223,105 @@
 			"file": "Assets/Resources/Language/English/ships_auron.json",
 			"settings":
 			{
-				"buffer_size": 3506,
+				"buffer_size": 4155,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Downloads/Python+Basics+With+Numpy+v3.ipynb",
+			"settings":
+			{
+				"buffer_size": 41411,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/D/_School/Coursera/Machine Learning/Week 2/master.json",
+			"settings":
+			{
+				"buffer_size": 7015,
 				"encoding": "UTF-8",
 				"line_ending": "Windows",
 				"name": "{"
 			}
 		},
 		{
-			"file": "Assets/Resources/Language/English/ships_khaled.json",
+			"file": "/D/_School/Coursera/Machine Learning/Week 2/basic_sigmoid.json",
 			"settings":
 			{
-				"buffer_size": 1104,
+				"buffer_size": 1204,
 				"encoding": "UTF-8",
 				"line_ending": "Windows",
 				"name": "{"
 			}
 		},
 		{
-			"file": "Assets/Resources/Language/English/ships_federation.json",
+			"file": "/D/_School/Coursera/Machine Learning/Week 2/sigmoid.json",
 			"settings":
 			{
-				"buffer_size": 169,
+				"buffer_size": 1325,
 				"encoding": "UTF-8",
 				"line_ending": "Windows",
 				"name": "{"
 			}
 		},
 		{
-			"file": "Assets/Resources/Language/English/ships_gavinc.json",
+			"file": "/D/_School/Coursera/Machine Learning/Week 2/sigmoid_derivative.json",
 			"settings":
 			{
-				"buffer_size": 437,
+				"buffer_size": 1474,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"line_ending": "Windows",
+				"name": "{"
 			}
 		},
 		{
-			"file": "Assets/Resources/Dungeons/any.json",
+			"file": "/D/_School/Coursera/Machine Learning/Week 2/image2vector.json",
 			"settings":
 			{
-				"buffer_size": 9409,
-				"line_ending": "Windows"
+				"buffer_size": 1243,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "{"
 			}
 		},
 		{
-			"file": "Assets/Resources/Dungeons/asteroid.json",
+			"file": "/D/_School/Coursera/Machine Learning/Week 2/normalizeRows.json",
 			"settings":
 			{
-				"buffer_size": 1718,
-				"line_ending": "Windows"
+				"buffer_size": 1547,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "{"
 			}
 		},
 		{
-			"file": "Assets/Resources/Dungeons/asteroids.json",
+			"file": "/D/_School/Coursera/Machine Learning/Week 2/softmax.json",
 			"settings":
 			{
-				"buffer_size": 1733,
-				"line_ending": "Windows"
+				"buffer_size": 1748,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "{"
 			}
 		},
 		{
-			"file": "Assets/Resources/Dungeons/planet.json",
+			"file": "/D/_School/Coursera/Machine Learning/Week 2/L1 function.json",
 			"settings":
 			{
-				"buffer_size": 1950,
-				"line_ending": "Windows"
+				"buffer_size": 1242,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "{"
 			}
 		},
 		{
-			"file": "Assets/Resources/Dungeons/star.json",
+			"file": "/D/_School/Coursera/Machine Learning/Week 2/L2 function.json",
 			"settings":
 			{
-				"buffer_size": 2245,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Resources/Language/English/skills_basic.json",
-			"settings":
-			{
-				"buffer_size": 9477,
+				"buffer_size": 1250,
 				"encoding": "UTF-8",
 				"line_ending": "Windows",
 				"name": "{"
@@ -491,9 +370,37 @@
 	],
 	"file_history":
 	[
+		"/D/Downloads/Python+Basics+With+Numpy+v3.ipynb",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/UI/Schemes/schemes.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Dungeons/star.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Dungeons/planet.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Dungeons/asteroids.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Dungeons/asteroid.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Dungeons/any.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English/ships_gavinc.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English/ships_federation.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English/ships_khaled.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English/ships_auron.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English/ships_special.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English/ui.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English/tags.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English/signals.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English/core.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/Languages/english.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/UI/Schemes/skills_basic.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/UI/Schemes/stats.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Skills/basic.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Skills/definition.template",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/khaled.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/gavinc.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/federation.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/auron.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/special.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/definition.template",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English/statistics.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English/skills_basic.json",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/definition.template.json",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/template.json",
-		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/UI/Schemes/schemes.json",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/general.json",
 		"/D/Apps/MAMP/htdocs/Coursera/PHP/Week 5/check.php",
 		"/D/Apps/MAMP/htdocs/Coursera/PHP/Week 5/fail.php",
@@ -587,6 +494,7 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"FF\"",
 			"2",
 			"narma",
 			"risk_low",
@@ -658,141 +566,24 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Assets/Resources/Ships/definition.template",
+					"file": "Assets/Resources/Ships/basic.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2196,
+						"buffer_size": 6768,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								2196
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 20,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Assets/Resources/Ships/special.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4702,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2477,
-								2477
-							]
-						],
-						"settings":
-						{
-							"auto_name": "{",
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 26,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Assets/Resources/Ships/auron.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 16408,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								15078,
-								15078
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1177.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Assets/Resources/Ships/federation.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2347,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1609,
-								1609
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "Assets/Resources/Ships/gavinc.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6999,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6263,
-								6263
+								5801,
+								5801
 							]
 						],
 						"settings":
@@ -802,269 +593,67 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1776.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 27,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "Assets/Resources/Ships/khaled.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9332,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1427,
-								1427
-							]
-						],
-						"settings":
-						{
-							"auto_name": "{",
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 768.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "Assets/Resources/Skills/definition.template",
+					"buffer": 1,
+					"file": "Assets/Resources/Ships/auron.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 231,
+						"buffer_size": 18776,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								226,
-								120
+								18422,
+								18422
 							]
 						],
 						"settings":
 						{
-							"auto_name": "{",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 144.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "Assets/Resources/Skills/basic.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5644,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5432,
-								5432
-							]
-						],
-						"settings":
-						{
-							"auto_name": "{",
 							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3133.0,
+						"translation.y": 5129.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 11,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 3,
+			"sheets":
+			[
 				{
-					"buffer": 8,
-					"file": "Assets/Resources/UI/Schemes/schemes.json",
+					"buffer": 2,
+					"file": "Assets/Resources/Language/English/ships_basic.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10652,
+						"buffer_size": 1280,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1199,
-								1207
+								914,
+								914
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 576.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "Assets/Resources/UI/Schemes/stats.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4173,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								720,
-								720
-							]
-						],
-						"settings":
-						{
-							"auto_name": "{",
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "Assets/Resources/UI/Schemes/skills_basic.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 154,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								133,
-								133
-							]
-						],
-						"settings":
-						{
-							"auto_name": "{",
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "Assets/Resources/Language/Languages/english.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 94,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								94,
-								94
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 25,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "Assets/Resources/Language/English/core.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1106,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								533,
-								533
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 384.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "Assets/Resources/Language/English/signals.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 26841,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1366,
-								1366
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false,
 							"word_wrap": true
 						},
 						"translation.x": 0.0,
@@ -1075,204 +664,56 @@
 					"type": "text"
 				},
 				{
-					"buffer": 14,
-					"file": "Assets/Resources/Language/English/tags.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2629,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								956,
-								956
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 448.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 24,
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "Assets/Resources/Language/English/ui.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1586,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								904,
-								904
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "Assets/Resources/Language/English/statistics.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2247,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1017,
-								1017
-							]
-						],
-						"settings":
-						{
-							"auto_name": "{",
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 576.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 23,
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "Assets/Resources/Language/English/ships_special.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 959,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								959,
-								959
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 22,
-					"type": "text"
-				},
-				{
-					"buffer": 18,
+					"buffer": 3,
 					"file": "Assets/Resources/Language/English/ships_auron.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3506,
+						"buffer_size": 4155,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3496,
-								3496
+								4145,
+								4145
 							]
 						],
 						"settings":
 						{
-							"auto_name": "{",
 							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"word_wrap": true
+							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 0.0,
-						"translation.y": 368.0,
+						"translation.x": 2895.0,
+						"translation.y": 336.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 19,
-					"file": "Assets/Resources/Language/English/ships_khaled.json",
+					"buffer": 4,
+					"file": "/D/Downloads/Python+Basics+With+Numpy+v3.ipynb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1104,
+						"buffer_size": 41411,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1099,
-								1099
+								0,
+								41411
 							]
 						],
 						"settings":
 						{
-							"auto_name": "{",
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 159.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 21,
-					"type": "text"
-				},
-				{
-					"buffer": 20,
-					"file": "Assets/Resources/Language/English/ships_federation.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 169,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4,
-								12
-							]
-						],
-						"settings":
-						{
-							"auto_name": "{",
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1282,41 +723,12 @@
 					"type": "text"
 				},
 				{
-					"buffer": 21,
-					"file": "Assets/Resources/Language/English/ships_gavinc.json",
+					"buffer": 5,
+					"file": "/D/_School/Coursera/Machine Learning/Week 2/master.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 437,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								222,
-								226
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 15,
-					"type": "text"
-				},
-				{
-					"buffer": 22,
-					"file": "Assets/Resources/Dungeons/any.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9409,
+						"buffer_size": 7015,
 						"regions":
 						{
 						},
@@ -1324,252 +736,269 @@
 						[
 							[
 								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 19,
-					"type": "text"
-				},
-				{
-					"buffer": 23,
-					"file": "Assets/Resources/Dungeons/asteroid.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1718,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 18,
-					"type": "text"
-				},
-				{
-					"buffer": 24,
-					"file": "Assets/Resources/Dungeons/asteroids.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1733,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 17,
-					"type": "text"
-				},
-				{
-					"buffer": 25,
-					"file": "Assets/Resources/Dungeons/planet.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1950,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 16,
-					"type": "text"
-				},
-				{
-					"buffer": 26,
-					"file": "Assets/Resources/Dungeons/star.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2245,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1451,
-								1451
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 27,
-					"file": "Assets/Resources/Language/English/skills_basic.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9477,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6227,
-								6227
-							],
-							[
-								6317,
-								6317
-							],
-							[
-								6612,
-								6612
-							],
-							[
-								6700,
-								6700
-							],
-							[
-								7004,
-								7004
-							],
-							[
-								7099,
-								7099
-							],
-							[
-								7370,
-								7370
-							],
-							[
-								7465,
-								7465
-							],
-							[
-								7667,
-								7667
-							],
-							[
-								7760,
-								7760
-							],
-							[
-								7950,
-								7950
-							],
-							[
-								8041,
-								8041
-							],
-							[
-								8212,
-								8212
-							],
-							[
-								8297,
-								8297
-							],
-							[
-								8560,
-								8560
-							],
-							[
-								8645,
-								8645
-							],
-							[
-								8902,
-								8902
-							],
-							[
-								8999,
-								8999
-							],
-							[
-								9219,
-								9219
-							],
-							[
-								9318,
-								9318
+								7015
 							]
 						],
 						"settings":
 						{
 							"auto_name": "{",
 							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"word_wrap": true
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 768.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/D/_School/Coursera/Machine Learning/Week 2/basic_sigmoid.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1204,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								375,
+								375
+							]
+						],
+						"settings":
+						{
+							"auto_name": "{",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/D/_School/Coursera/Machine Learning/Week 2/sigmoid.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1325,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								763,
+								763
+							]
+						],
+						"settings":
+						{
+							"auto_name": "{",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/D/_School/Coursera/Machine Learning/Week 2/sigmoid_derivative.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1474,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								912,
+								912
+							]
+						],
+						"settings":
+						{
+							"auto_name": "{",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/D/_School/Coursera/Machine Learning/Week 2/image2vector.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1243,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								681,
+								681
+							]
+						],
+						"settings":
+						{
+							"auto_name": "{",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/D/_School/Coursera/Machine Learning/Week 2/normalizeRows.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1547,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								985,
+								985
+							]
+						],
+						"settings":
+						{
+							"auto_name": "{",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "/D/_School/Coursera/Machine Learning/Week 2/softmax.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1748,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1186,
+								1186
+							]
+						],
+						"settings":
+						{
+							"auto_name": "{",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 16.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/D/_School/Coursera/Machine Learning/Week 2/L1 function.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1242,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								953,
+								953
+							]
+						],
+						"settings":
+						{
+							"auto_name": "{",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 217.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "/D/_School/Coursera/Machine Learning/Week 2/L2 function.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1250,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13,
+								13
+							]
+						],
+						"settings":
+						{
+							"auto_name": "{",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -1651,24 +1080,9 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
-		"last_automatic_layout":
-		[
-			[
-				0,
-				0,
-				1,
-				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
-			]
-		]
 	},
 	"show_minimap": true,
 	"show_open_files": false,

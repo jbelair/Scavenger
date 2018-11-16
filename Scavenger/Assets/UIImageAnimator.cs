@@ -15,7 +15,7 @@ public class UIImageAnimator : MonoBehaviour
     public class Key
     {
         public string name;
-        public Sprite sprite;
+        public string sprite;
         public float duration;
         public float durationCurrent;
 
@@ -49,7 +49,7 @@ public class UIImageAnimator : MonoBehaviour
             }
             sequence[0].durationCurrent += Time.deltaTime;
             active = sequence[0].name;
-            image.sprite = sequence[0].sprite;
+            image.sprite = Sprites.Get(sequence[0].sprite);
         }
 
         lastActive = active;

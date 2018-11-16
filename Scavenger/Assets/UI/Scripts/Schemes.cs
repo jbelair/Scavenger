@@ -6,33 +6,44 @@ using UnityEngine;
 public class Schemes : MonoBehaviour
 {
     public static Schemes active;
-    public static List<Scheme> lastSchemes;
+    public static Dictionary<string, Scheme> lookup;
 
     public List<Scheme> schemes;
     public bool forceLoad = false;
 
     public static Scheme Scheme(string name)
     {
-        return active.schemes.Find(scheme => scheme.name == name);
+        if (!lookup.ContainsKey(name))
+            return lookup["default"];
+
+        return lookup[name];
+    }
+
+    public static void Scheme(Scheme scheme)
+    {
+        if (lookup.ContainsKey(scheme.name))
+            lookup[scheme.name] = scheme;
+        else
+            lookup.Add(scheme.name, scheme);
     }
 
     public void Awake()
     {
         active = this;
 
-        if (lastSchemes == null)
+        if (lookup == null)
             Load();
 
         if (schemes == null || forceLoad)
-            schemes = lastSchemes;
+        {
+            schemes.AddRange(lookup.Values);
+        }
     }
 
     public void OnDestroy()
     {
         if (active == this)
             active = null;
-
-        lastSchemes = schemes;
     }
 
     [ExposeMethodInEditor]
@@ -41,6 +52,7 @@ public class Schemes : MonoBehaviour
         TextAsset[] assets = Resources.LoadAll<TextAsset>("UI/Schemes");
 
         schemes = new List<Scheme>();
+        lookup = new Dictionary<string, Scheme>();
 
         foreach(TextAsset asset in assets)
         {
@@ -50,7 +62,8 @@ public class Schemes : MonoBehaviour
             {
                 Color colour = Color.white;
                 ColorUtility.TryParseHtmlString((def.colour[0] == '#') ? def.colour : "#" + def.colour, out colour);
-                schemes.Add(new Scheme() { name = def.name, file = asset.name, symbol = Resources.Load<Sprite>("UI/Icons/" + def.symbol), colour = colour });
+                schemes.Add(new Scheme(def.name, asset.name, colour, Sprites.Get(def.symbol)));
+                lookup.Add(def.name, schemes[schemes.Count - 1]);
             }
         }
     }

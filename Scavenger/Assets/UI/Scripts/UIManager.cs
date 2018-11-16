@@ -29,6 +29,8 @@ public class UIManager : MonoBehaviour
         {
             screen.gameObject.SetActive(screen.defaultScreen);
         }
+
+        Schemes.Scheme(new Scheme("current_focus", "fromscene", Color.white, null));
     }
 
     // Update is called once per frame
@@ -92,7 +94,11 @@ public class UIManager : MonoBehaviour
         foreach (UIScreen scrn in screens)
         {
             if (scrn.name == screen)
+            {
                 scrn.gameObject.SetActive(true);
+                //scrn.focus.name = "current_focus";
+                //Schemes.Scheme(scrn.focus);
+            }
         }
     }
 
@@ -110,6 +116,8 @@ public class UIManager : MonoBehaviour
         foreach (UIScreen scrn in screens)
         {
             scrn.gameObject.SetActive(scrn.name == screen);
+            //scrn.focus.name = "current_focus";
+            //Schemes.Scheme(scrn.focus);
         }
     }
 
@@ -150,6 +158,16 @@ public class UIManager : MonoBehaviour
         {
             Destroy(trans.gameObject);
         }
+    }
+
+    public void Focus(Color colour)
+    {
+        Schemes.Scheme("current_focus").colour = colour;
+    }
+
+    public void Focus(Sprite symbol)
+    {
+        Schemes.Scheme("current_focus").symbol = symbol;
     }
 
     public void OnDestroy()
