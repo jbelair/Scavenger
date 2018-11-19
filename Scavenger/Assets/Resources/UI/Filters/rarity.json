@@ -2,6 +2,6 @@
 	"target": "Systems",
 	"name": "Rarity",
 	"filter": "Rarity",
-	"selected": "Filter Rarity",
-	"deselected": "Filter Rarity Deselected"
+	"selected": "filter_rarity",
+	"deselected": "filter_rarity_deselected"
 }

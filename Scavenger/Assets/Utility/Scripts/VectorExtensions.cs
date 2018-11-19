@@ -90,4 +90,9 @@ public static class VectorExtensions
     {
         return new Vector3(Mathf.Round(v.x / nearest) * nearest, Mathf.Round(v.y / nearest) * nearest, Mathf.Round(v.z / nearest) * nearest);
     }
+
+    public static Vector3Int Int(this Vector3 v)
+    {
+        return new Vector3Int((int)v.x, (int)v.y, (int)v.z);
+    }
 }

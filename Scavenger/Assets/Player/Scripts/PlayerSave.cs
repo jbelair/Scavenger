@@ -22,6 +22,7 @@ public class PlayerSave
                     unlockedShips += ships.name + " ";
             }
             saves[0].Add("unlocked ships", "StringList", unlockedShips);
+            saves[0].Add("discovered ships", "StringList", unlockedShips);
 
             string unlockedSkills = "";
             foreach(Skill skill in Skills.skills.Values)
@@ -30,6 +31,9 @@ public class PlayerSave
                     unlockedSkills += skill.name + " ";
             }
             saves[0].Add("unlocked skills", "StringList", unlockedSkills);
+            saves[0].Add("discovered skills", "StringList", unlockedSkills);
+
+            saves[0].Add("system coordinates", "Vector3", JsonUtility.ToJson(UnityEngine.Random.insideUnitCircle.normalized.XYO() * 2000));
         }
 
         return saves[0];

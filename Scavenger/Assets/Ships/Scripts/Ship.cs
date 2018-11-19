@@ -13,15 +13,16 @@ public class Ship : MonoBehaviour
     public WidgetShipSelector widgetShipProgressor;
     public new MeshRenderer renderer;
     public bool isUnlocked = true;
+    public bool isDiscovered = true;
 
     // Use this for initialization
     void Start()
     {
         renderer = GetComponentInChildren<MeshRenderer>();
-        node.transform.position = renderer.bounds.size*0.75f;//.Multiply(new Vector3(-1,-1,1));
+
+        node.transform.position = renderer.bounds.size * 0.75f;
         widgetShipSelector = UIManager.active.Button("menu play new grid ship", UIManager.Layer.Mid, "widget ship select", Vector2.zero, new UnityEngine.Events.UnityAction(Select), model.transform).GetComponent<WidgetShipSelector>();
         widgetShipSelector.index = index;
-        widgetShipSelector.gameObject.SetActive(isUnlocked);
 
         widgetShipProgressor = UIManager.active.Button("menu progress grid ship", UIManager.Layer.Mid, "widget ship select", Vector2.zero, new UnityEngine.Events.UnityAction(ProgressSelect), model.transform).GetComponent<WidgetShipSelector>();
         widgetShipProgressor.index = index;
@@ -33,15 +34,19 @@ public class Ship : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        widgetShipSelector.gameObject.SetActive(isUnlocked);
+
         if (graphics == null)
         {
-            graphics = new List<Graphic>(GetComponentsInChildren<Graphic>());
+            graphics = new List<Graphic>(widgetShipProgressor.gameObject.GetComponentsInChildren<Graphic>());
         }
 
-        foreach (Graphic graphic in graphics)
+        if (InventoryShips.active.activeMode.showLocked && !isUnlocked)
         {
-            if (!isUnlocked)
+            foreach (Graphic graphic in graphics)
+            {
                 graphic.color = graphic.color.A(0.5f);
+            }
         }
     }
 
@@ -57,7 +62,7 @@ public class Ship : MonoBehaviour
     {
         InventoryShips.active.Set(index, true);
         InventoryShips.active.Set("Stack All");
-        UIManager.active.AddScreen("menu progress grid ship fullscreen");
+        UIManager.active.AddScreen("menu progress ship");
         UIManager.active.RemoveScreen("menu progress grid ship");
     }
 }

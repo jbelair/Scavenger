@@ -11,6 +11,7 @@ public class WidgetSkillDisplay : WidgetSkill
     public int index;
     public bool isSelectingCurrentSkill = true;
     public bool isUnlocked = true;
+    public bool isDiscovered = true;
 
     public RectTransform self;
     public WidgetSkillGrid grid;

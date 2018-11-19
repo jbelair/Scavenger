@@ -23,9 +23,8 @@ public class Statistics : MonoBehaviour, IStatistics, IEnumerable<Statistic>
         {
             Initialise();
             if (!statistics.ContainsKey(index))
-                return null;
-            else
-                return statistics[index];
+                statistics[index] = new Statistic(index, Statistic.ValueType.Object, null);
+            return statistics[index];
         }
         set
         {

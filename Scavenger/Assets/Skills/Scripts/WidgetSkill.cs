@@ -25,6 +25,10 @@ public abstract class WidgetSkill : MonoBehaviour
     {
         if (definition != null && definition.name != "")
         {
+            bool unlocked = PlayerSave.saves[0].Get("unlocked skills").value.Contains(definition.name + " ");
+            bool discovered = PlayerSave.saves[0].Get("discovered skills").value.Contains(definition.name + " ");
+            string disabled = "<color=#" + ColorUtility.ToHtmlStringRGB(Schemes.Scheme("disabled").colour) + ">???";
+
             Scheme iconScheme = Schemes.Scheme(definition.icon);
             if (!iconScheme.symbol)
             {
@@ -33,9 +37,9 @@ public abstract class WidgetSkill : MonoBehaviour
             icon.sprite = iconScheme.symbol;
             icon.color = iconScheme.colour;
 
-            nameWidget.SetText(Literals.active[definition.name]);
-            value.SetText(definition.value.ToString());
-            background.scheme = StringHelper.RarityIntToString(definition.oneIn);
+            nameWidget.SetText(discovered ? Literals.active[definition.name] : disabled);
+            value.SetText(discovered ? definition.value.ToString() : disabled);
+            background.scheme = unlocked ? StringHelper.RarityIntToString(discovered ? definition.oneIn : 1) : "background";
             background.Set();
         }
         else

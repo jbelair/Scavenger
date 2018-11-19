@@ -12,6 +12,9 @@ public class WidgetLiteralText : MonoBehaviour
 
     private void Start()
     {
+        if (!text)
+            text = GetComponentInChildren<TextMeshProUGUI>();
+
         if (setFromText)
         {
             startText = text.text;
@@ -25,6 +28,7 @@ public class WidgetLiteralText : MonoBehaviour
 
     public void Set(string literal)
     {
+        //Debug.Log(literal);
         text.SetText(Literals.active[literal]);
     }
 }

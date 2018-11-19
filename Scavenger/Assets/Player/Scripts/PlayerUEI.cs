@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Statistics))]
 public class PlayerUEI : MonoBehaviour
@@ -17,6 +18,8 @@ public class PlayerUEI : MonoBehaviour
 
     private void Start()
     {
+        DontDestroyOnLoad(this);
+
         isAlive = true;
 
         if (statistics == null)

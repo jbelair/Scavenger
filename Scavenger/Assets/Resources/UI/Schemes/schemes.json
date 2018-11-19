@@ -421,49 +421,34 @@
             "symbol": ""
         },
         {
-            "name": "filter_distance_rarity",
+            "name": "filter_distance",
             "colour": "B820FFFF",
-            "symbol": ""
+            "symbol": "game_nav_system_planet_distant"
         },
         {
-            "name": "filter_distance_rarity_deselected",
+            "name": "filter_distance_deselected",
             "colour": "B820FFFF",
-            "symbol": ""
-        },
-        {
-            "name": "filter_distance_risk",
-            "colour": "FF20B5FF",
-            "symbol": ""
+            "symbol": "game_nav_system_planet"
         },
         {
             "name": "filter_rarity",
             "colour": "83FF52FF",
-            "symbol": ""
+            "symbol": "game_nav_system_planet_distant"
         },
         {
             "name": "filter_rarity_deselected",
             "colour": "83FF52FF",
-            "symbol": ""
-        },
-        {
-            "name": "filter_rarity_risk",
-            "colour": "83FF52FF",
-            "symbol": ""
-        },
-        {
-            "name": "filter_risk_rarity",
-            "colour": "FF3852FF",
-            "symbol": ""
+            "symbol": "game_nav_system_planet"
         },
         {
             "name": "filter_risk",
             "colour": "FF7752FF",
-            "symbol": ""
+            "symbol": "game_nav_system_planet_distant"
         },
         {
             "name": "filter_risk_deselected",
             "colour": "FF7752FF",
-            "symbol": ""
+            "symbol": "game_nav_system_planet"
         }
     ]
 }

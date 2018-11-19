@@ -8,6 +8,10 @@ public class SystemsCamera : MonoBehaviour
     public CameraNode node;
     public Statistics statistics;
 
+    public ShipDefinition ship;
+    public ShipDefinition.Statistic stat_jumpView;
+    public Vector3 coordinate;
+
     public Statistic mousePosition;
     public Statistic scroll;
     public Statistic scrollCount;
@@ -29,6 +33,11 @@ public class SystemsCamera : MonoBehaviour
         scrollCount = statistics["Scroll Count"] = new Statistic("Scroll Count", Statistic.ValueType.Float, 100f);
         zoomMinimum = statistics["Zoom Minimum"];
         mousePosition = statistics["Mouse Position"];
+
+        ship = JsonUtility.FromJson<ShipDefinition>(PlayerSave.Active().Get("ship").value);
+        stat_jumpView = ship.statistics.Find(s => s.name == "stat_jump_view");
+
+        coordinate = JsonUtility.FromJson<Vector3>(PlayerSave.Active().Get("system coordinates").value);
     }
 
     // Update is called once per frame
@@ -39,9 +48,9 @@ public class SystemsCamera : MonoBehaviour
 
         scrollCount.Set(Mathf.Max(0, Mathf.Min(100, scrollCount.Get<float>() + scroll.Get<float>())));
 
-        float jumpRange = Mathf.Max(zoomMinimum.Get<float>(), Environment.scanRadius * scrollCount.Get<float>() / 100f);
+        float jumpRange = Mathf.Max(zoomMinimum.Get<float>(), stat_jumpView.value * scrollCount.Get<float>() / 100f);
 
-        Vector3 position = Environment.systemCoordinatesDepth.OOZ() + Environment.systemCoordinates.OOZ() + Vector3.Lerp(zoomInOffset, zoomOutOffset, scrollCount.Get<float>() / 100f) * jumpRange * 1000f;
+        Vector3 position = Environment.systemCoordinatesDepth.OOZ() + coordinate.OOZ() + Vector3.Lerp(zoomInOffset, zoomOutOffset, scrollCount.Get<float>() / 100f) * jumpRange * 1000f;
         node.transform.position = Vector3.SmoothDamp(node.transform.position, position, ref currentVelocity, 0.1f);
         
         //camera.transform.position += new Vector3(pos.x * 2f - 1f, pos.y * 2f - 1f, 0) * Environment.jumpRadius * 1000f;
@@ -54,7 +63,7 @@ public class SystemsCamera : MonoBehaviour
         if (generator == null)
             generator = SystemsGenerator.active;
 
-        if (generator.systems.ContainsKey(Environment.systemCoordinates))
+        if (generator.systems.ContainsKey(coordinate))
             transform.LookAt(Environment.systemCoordinatesDepth.OOZ(), -Vector3.forward);
     }
 }

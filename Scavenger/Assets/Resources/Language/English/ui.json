@@ -96,6 +96,54 @@
 		{
 			"key": "menu_exit_min",
 			"value": "EXT"
+		},
+		{
+			"key": "resolution",
+			"value": "Resolution"
+		},
+		{
+			"key": "resolution_tooltip",
+			"value": "This sets the screen resolution for the game. If your resolution is not supported send us a message at our website."
+		},
+		{
+			"key": "vsync",
+			"value": "Vertical Synchronization"
+		},
+		{
+			"key": "vsync_tooltip",
+			"value": "This tries to match the games fps to the monitors refresh rate."
+		},
+		{
+			"key": "volume_a",
+			"value": "Master Volume"
+		},
+		{
+			"key": "volume_a_tooltip",
+			"value": "This controls the total volume of all channels."
+		},
+		{
+			"key": "volume_b",
+			"value": "Background Volume"
+		},
+		{
+			"key": "volume_b_tooltip",
+			"value": "This controls the volume of all background sounds."
+		},
+		{
+			"key": "volume_m",
+			"value": "Music Volume"
+		},
+		{
+			"key": "volume_m_tooltip",
+			"value": "This controls the volume of all music."
+		},
+		{
+			"key": "volume_e",
+			"value": "Effect Volume"
+		},
+		{
+			"key": "volume_e_tooltip",
+			"value": "This controls the volume of all effects."
 		}
 	]
 }

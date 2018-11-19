@@ -105,9 +105,13 @@ MonoBehaviour:
     value: 0
     statistics: []
   model: {fileID: 0}
+  glow: {fileID: 0}
   node: {fileID: 114254469279524362}
   index: 0
   widgetShipSelector: {fileID: 0}
+  widgetShipProgressor: {fileID: 0}
+  renderer: {fileID: 0}
+  isUnlocked: 1
 --- !u!114 &114690602406854310
 MonoBehaviour:
   m_ObjectHideFlags: 1

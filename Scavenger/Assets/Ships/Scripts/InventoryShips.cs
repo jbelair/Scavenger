@@ -61,14 +61,14 @@ public class InventoryShips : MonoBehaviour
                 {
                     Ship ship = Instantiate(shipPrefab, transform);
                     ships.Add(ship);
-                    ship.name = shipPair.Key;
-                    ship.index = i;
-                    ship.definition = Ships.definitions[ship.name];
+                    ship.definition = Ships.definitions[shipPair.Key];
+                    ship.isUnlocked = PlayerSave.Active().Get("unlocked ships").value.Contains(shipPair.Key + " ");
+                    ship.isDiscovered = PlayerSave.Active().Get("discovered ships").value.Contains(shipPair.Key + " ");
                     ship.model = Instantiate(shipPair.Value, ship.transform);
                     ship.model.transform.localPosition = Vector3.zero;
                     ship.model.transform.rotation = new Quaternion();
                     MeshRenderer renderer = ship.model.GetComponentInChildren<MeshRenderer>();
-                    renderer.sharedMaterial = Materials.materials[ship.definition.material];//new Material(Materials.materials[ship.definition.material]);
+                    renderer.sharedMaterial = (ship.isUnlocked || ship.isDiscovered) ? Materials.materials[ship.definition.material] : Materials.materials["ship_locked"];
 
                     if (i == 0)
                     {
@@ -101,18 +101,18 @@ public class InventoryShips : MonoBehaviour
         //else
         //    transform.rotation = new Quaternion();// Quaternion.Lerp(transform.rotation, new Quaternion(), 0.2f);
 
-        if (lastMode != activeMode || _lastFocus_focus != focus || _lastFocus_lastFocus != lastFocus)
-        {
-            foreach (Ship ship in ships)
-            {
-                bool active = ship.transform == focus || ship.transform == lastFocus || !activeMode.focused;
-                ship.gameObject.SetActive(active);
-                if (active && !activeShips.Contains(ship))
-                    activeShips.Add(ship);
-                else if (activeShips.Contains(ship))
-                    activeShips.Remove(ship);
-            }
-        }
+        //if (lastMode != activeMode || _lastFocus_focus != focus || _lastFocus_lastFocus != lastFocus)
+        //{
+        //    foreach (Ship ship in ships)
+        //    {
+        //        bool active = ship.transform == focus || ship.transform == lastFocus || !activeMode.focused;
+        //        ship.gameObject.SetActive(active);
+        //        if (active && !activeShips.Contains(ship))
+        //            activeShips.Add(ship);
+        //        else if (activeShips.Contains(ship))
+        //            activeShips.Remove(ship);
+        //    }
+        //}
 
         lastMode = activeMode;
         _lastFocus_focus = focus;
@@ -203,11 +203,11 @@ public class InventoryShips : MonoBehaviour
     public void Set(int index, bool moveTo)
     {
         lastFocus = focus;
-        focus = ships[index].transform;
+        focus = activeShips[index].transform;
 
         this.index = index;
         if (moveTo)
-            Camera.main.GetComponent<MoveTo>().AddFrame(ships[index].node.transform, 1, false, 0);
+            Camera.main.GetComponent<MoveTo>().AddFrame(activeShips[index].node.transform, 1, false, 0);
     }
 
     public void Set(string mode)
@@ -219,25 +219,38 @@ public class InventoryShips : MonoBehaviour
         Set();
     }
 
-    public void Set()
+    public void SetActive()
     {
-        transform.rotation = new Quaternion();
-
         for (int i = 0; i < ships.Count; i++)
         {
             ships[i].transform.rotation = Quaternion.Euler(0, 0, 180);
-            ships[i].isUnlocked = activeMode.showLocked || PlayerSave.Active().Get("unlocked ships").value.Contains(ships[i].definition.name + " ");
-            ships[i].gameObject.SetActive(ships[i].isUnlocked);
-            if (ships[i].isUnlocked && !activeShips.Contains(ships[i]))
+            ships[i].gameObject.SetActive(ships[i].isUnlocked || activeMode.showLocked);
+            if (ships[i].gameObject.activeInHierarchy)
             {
-                activeShips.Add(ships[i]);
-                activeShips[activeShips.Count - 1].index = i;
+                if (!activeShips.Contains(ships[i]))
+                    activeShips.Add(ships[i]);
             }
             else if (activeShips.Contains(ships[i]))
             {
                 activeShips.Remove(ships[i]);
             }
         }
+
+        for (int i = 0; i < activeShips.Count; i++)
+        {
+            activeShips[i].index = i;
+        }
+    }
+
+    public void Set()
+    {
+        //index = 0;
+        transform.rotation = new Quaternion();
+
+        SetActive();
+
+        if (index > activeShips.Count)
+            index = 0;
 
         // Determine the configuration of the inventory from the dimensions
         // Find out how many dimensions have scale 0

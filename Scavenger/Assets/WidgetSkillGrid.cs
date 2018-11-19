@@ -62,13 +62,14 @@ public class WidgetSkillGrid : MonoBehaviour
     {
         index = i;
         focus = skills[index].self;
+        string disabled = "<color=#" + ColorUtility.ToHtmlStringRGB(Schemes.Scheme("disabled").colour) + ">???";
         string rarity = StringHelper.RarityIntToString(skills[index].definition.oneIn);
         string rarityHex = ColorUtility.ToHtmlStringRGBA(Schemes.Scheme(rarity).colour);
         string riskHex = ColorUtility.ToHtmlStringRGBA(Schemes.Scheme(skills[index].definition.risk).colour);
-        focusDescription.SetText(Literals.active[skills[index].definition.name] + 
+        focusDescription.SetText(skills[index].isUnlocked ? Literals.active[skills[index].definition.name] + 
             "\n\n<color=#" + rarityHex + ">" + Literals.active[rarity] + 
             "\n<color=#" + riskHex + ">" + Literals.active[skills[index].definition.risk] + 
-            "\n\n<color=#" + ColorUtility.ToHtmlStringRGBA(Schemes.Scheme("default").colour) + ">" + Literals.active[skills[index].definition.description]);
+            "\n\n<color=#" + ColorUtility.ToHtmlStringRGBA(Schemes.Scheme("default").colour) + ">" + Literals.active[skills[index].definition.description] : disabled);
     }
 
     public void Set()
@@ -79,6 +80,7 @@ public class WidgetSkillGrid : MonoBehaviour
             foreach (Skill skill in Skills.skills.Values)
             {
                 bool unlocked = PlayerSave.Active().Get("unlocked skills").value.Contains(skill.name + " ");
+                bool discovered = PlayerSave.Active().Get("discovered skills").value.Contains(skill.name + " ");
 
                 if (!isSelectingCurrentSkills || unlocked)
                 {
@@ -90,6 +92,7 @@ public class WidgetSkillGrid : MonoBehaviour
 
                     widget.isSelectingCurrentSkill = isSelectingCurrentSkills;
                     widget.isUnlocked = unlocked;
+                    widget.isDiscovered = discovered;
                     widget.transform.parent = grid.transform;
                     widget.definition = skill;
                     widget.index = i;

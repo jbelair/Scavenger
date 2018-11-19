@@ -25,6 +25,9 @@ public class Ships : MonoBehaviour
             Definitions defs = JsonUtility.FromJson<Definitions>(asset.text);
             foreach(ShipDefinition def in defs.definitions)
             {
+                if (ships.ContainsKey(def.name))
+                    continue;
+
                 definitions.Add(def.name, def);
                 ships.Add(def.name, Resources.Load<GameObject>(def.model));
                 loaded.Add(ships[def.name]);

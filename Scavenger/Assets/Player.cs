@@ -9,7 +9,13 @@ public class Player : MonoBehaviour
     // Use this for initialization
     private void Awake()
     {
-        Players.players.Add(this);
+        if (Players.players.Find(p => p.name == name))
+            DestroyImmediate(gameObject);
+        else
+        {
+            DontDestroyOnLoad(this);
+            Players.players.Add(this);
+        }
     }
 
     // Update is called once per frame

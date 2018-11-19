@@ -11,6 +11,9 @@ public class Materials : MonoBehaviour
         Material[] mats = Resources.LoadAll<Material>("Materials/");
         foreach(Material material in mats)
         {
+            if (materials.ContainsKey(material.name))
+                continue;
+
             materials.Add(material.name, material);
         }
     }

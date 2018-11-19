@@ -183,7 +183,7 @@
 		},
 		{
 			"key": "signals_any_probe_inactive_desc",
-			"value": "The computer is detecting a small object. High resolution scans have revealed this object to be a probe of some form. The lack of communications signals, and heat signatures leads the computer to believe that the probe is inactive and has been for long enough to have cooled to background levels. The computer advises caution as the probe may reasonable be operating in a low power mode, using only passive sensors, in other words, it could be a trap."
+			"value": "The computer is detecting a small object. High resolution scans have revealed this object to be a probe of some form. The lack of communications signals, and heat signatures leads the computer to believe that the probe is inactive and has been for long enough to have cooled to background levels. The computer advises caution as the probe may reasonably be operating in a low power mode, using only passive sensors, in other words, it could be a trap."
 		},
 		{
 			"key": "signals_any_probe_active",

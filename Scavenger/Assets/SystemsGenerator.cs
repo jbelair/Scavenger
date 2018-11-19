@@ -6,6 +6,9 @@ public class SystemsGenerator : MonoBehaviour
 {
     public static SystemsGenerator active;
 
+    public string mapPath;
+    public Texture2D map;
+
     public Statistics systemDefault;
     public Statistics systemDisabled;
     public Statistics systemCenter;
@@ -30,8 +33,10 @@ public class SystemsGenerator : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Load();
+
         jumpRange = Environment.jumpRadius;
-        lastPosition = position.position = Environment.systemCoordinates.XY() * 1000f;
+        lastPosition = position.position = Environment.systemCoordinates.XY();
         StartCoroutine(Generate());
 
         active = this;
@@ -267,5 +272,11 @@ public class SystemsGenerator : MonoBehaviour
             active = null;
 
         StopAllCoroutines();
+    }
+
+    [ExposeMethodInEditor]
+    public void Load()
+    {
+        map = Resources.Load<Texture2D>(mapPath);
     }
 }

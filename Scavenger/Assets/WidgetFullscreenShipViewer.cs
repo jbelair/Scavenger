@@ -25,7 +25,7 @@ public class WidgetFullscreenShipViewer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDragging)
+        if (isDragging && InventoryShips.active.activeShips[InventoryShips.active.index].isUnlocked)
         {
             target = InventoryShips.active.focus;
 
@@ -98,9 +98,9 @@ public class WidgetFullscreenShipViewer : MonoBehaviour
         }
 
         zoomCurrent = Mathf.Clamp(zoomCurrent + Players.players[0].statistics["Scroll"].Get<float>(), 0, zoomMaximum);
-        CameraNode node = InventoryShips.active.ships[InventoryShips.active.index].node;
+        CameraNode node = InventoryShips.active.activeShips[InventoryShips.active.index].node;
         float zoom = Mathf.Lerp(minZoom, maxZoom, Mathf.Clamp01(zoomCurrent / zoomMaximum));
-        node.transform.position = Vector3.SmoothDamp(node.transform.position, InventoryShips.active.ships[InventoryShips.active.index].renderer.bounds.size * zoom, ref velocity, Time.deltaTime);
+        node.transform.position = Vector3.SmoothDamp(node.transform.position, InventoryShips.active.activeShips[InventoryShips.active.index].renderer.bounds.size * zoom, ref velocity, Time.deltaTime);
     }
 
     public bool isDragging = false;

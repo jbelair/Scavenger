@@ -29,6 +29,7 @@ public class SystemSelect : MonoBehaviour
 
             Vector3 position = environment["System Coordinates"];
             Environment.jumpFuel = Environment.jumpFuel - Environment.jumpDistance;
+            Players.players[0].statistics["stat_jump_fuel_cur"].Set(Environment.jumpFuel);
             Environment.selectedCoordinates = Environment.systemCoordinates = position.XY();
             Environment.jumpDistance = 0;
             systems.lastPosition = systems.position.position = position.XY() * systems.scale;

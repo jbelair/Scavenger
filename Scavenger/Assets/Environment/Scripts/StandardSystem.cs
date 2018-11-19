@@ -38,8 +38,10 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
     {
         List<string> dungeonTargets = new List<string>();
         statistics["Dungeon Targets"] = new Statistic("Dungeon Targets", Statistic.ValueType.Object, dungeonTargets);
+        Vector3Int coordinates = (statistics["System Coordinates"].Get<Vector3>() + new Vector3(SystemsGenerator.active.map.width / 2f - 1, SystemsGenerator.active.map.height / 2f - 1, 0)).Int();
+        Debug.Log(coordinates);
 
-        if (UnityEngine.Random.Range(0, 4) == 1)
+        if (SystemsGenerator.active.map.GetPixel(coordinates.x, coordinates.y).Vector3().magnitude > 0)
         {
             float stars = UnityEngine.Random.Range(0f, 1f);
             int numberOfStars = Mathf.RoundToInt(starPlotStars.Evaluate(stars));
