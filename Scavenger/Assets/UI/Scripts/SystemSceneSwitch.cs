@@ -23,11 +23,11 @@ public class SystemSceneSwitch : MonoBehaviour
 
     void Transition()
     {
-        if (Environment.jumpFuel >= Environment.jumpDistance)
+        if (Environment.JumpFuel >= Environment.jumpDistance)
         {
             Vector3 position = environment["System Coordinates"];
-            Environment.jumpFuel = Environment.jumpFuel - Environment.jumpDistance;
-            Environment.selectedCoordinates = Environment.systemCoordinates = position;
+            Environment.JumpFuel = Environment.JumpFuel - Environment.jumpDistance;
+            Environment.selectedCoordinates = Environment.SystemCoordinates = position;
             Environment.jumpDistance = 0;
             //SystemsGenerator.active.Regenerate();
             SceneManager.LoadScene("Game.Load", LoadSceneMode.Single);

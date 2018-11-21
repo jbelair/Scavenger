@@ -24,7 +24,7 @@ public class SystemGenerator : MonoBehaviour
             statistics.Initialise();
 
             if (generatesFromEnvironment)
-                statistics["System Coordinates"].Set(JsonUtility.FromJson<Vector3>(PlayerSave.Active().Get("system coordinates").value));
+                statistics["System Coordinates"].Set(JsonUtility.FromJson<Vector3>(PlayerSave.Active.Get("system coordinates").value));
 
             StartCoroutine(Generate());
         }

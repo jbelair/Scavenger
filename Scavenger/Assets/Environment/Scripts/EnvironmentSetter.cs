@@ -18,11 +18,6 @@ public class EnvironmentSetter : MonoBehaviour
     void Awake()
     {
         Set();
-
-        Environment.scanRadius = Players.players[0].statistics["stat_jump_view"].Get<float>();
-        Environment.jumpFuel = Players.players[0].statistics["stat_jump_fuel_cur"].Get<float>();
-        Environment.jumpFuelMax = Players.players[0].statistics["stat_jump_fuel"].Get<float>();
-        Environment.jumpRadius = Players.players[0].statistics["stat_jump_range"].Get<float>();
     }
 
     void Start()

@@ -8,6 +8,7 @@ public class SystemsGenerator : MonoBehaviour
 
     public string mapPath;
     public Texture2D map;
+    public Transform mapPlane;
 
     public Statistics systemDefault;
     public Statistics systemDisabled;
@@ -35,8 +36,10 @@ public class SystemsGenerator : MonoBehaviour
     {
         Load();
 
-        jumpRange = Environment.jumpRadius;
-        lastPosition = position.position = Environment.systemCoordinates.XY();
+        jumpRange = Environment.JumpRadius;
+        lastPosition = position.position = Environment.SystemCoordinates.ToInt();
+        mapPlane.position = -(position.position + new Vector3(0.5f, 0.5f, 0)) * scale;
+
         StartCoroutine(Generate());
 
         active = this;
@@ -48,9 +51,9 @@ public class SystemsGenerator : MonoBehaviour
         if (!systems.ContainsKey(Environment.selectedCoordinates))
             return;
 
-        jumpRange = Mathf.Min(Environment.jumpFuel, Environment.jumpRadius);
+        jumpRange = Mathf.Min(Environment.JumpFuel, Environment.JumpRadius);
 
-        if (lastPosition != position.position || jumpRange != Environment.jumpRadius || jumpFuel != Environment.jumpFuel)
+        if (lastPosition != position.position || jumpRange != Environment.JumpRadius || jumpFuel != Environment.JumpFuel)
         {
             StartCoroutine(Generate());
         }
@@ -59,21 +62,21 @@ public class SystemsGenerator : MonoBehaviour
 
         Vector3 pos = Environment.selectedCoordinates;
 
-        if (Environment.jumpRadius != jumpRange)
-            maxJumpRadius.transform.localScale = Vector3.one * Environment.jumpRadius * scale;
+        if (Environment.JumpRadius != jumpRange)
+            maxJumpRadius.transform.localScale = Vector3.one * Environment.JumpRadius * scale;
         else
             maxJumpRadius.transform.localScale = Vector3.zero;
 
         if (SystemsFilter.active.filter.Contains("Distance"))
         {
-            float distance = Mathf.Round((pos - Environment.systemCoordinates).magnitude * 10f) / 10f;
+            float distance = Mathf.Round((pos - Environment.SystemCoordinates).magnitude * 10f) / 10f;
 
             int value = 0;
 
             if (!SystemsFilter.active.filter.Contains("Risk"))
-                value = Mathf.FloorToInt(Mathf.Pow(10, (pos - Environment.systemCoordinates).magnitude / jumpRange * 6f + 0.5f));
+                value = Mathf.FloorToInt(Mathf.Pow(10, (pos - Environment.SystemCoordinates).magnitude / jumpRange * 6f + 0.5f));
             else
-                value = Mathf.FloorToInt((pos - Environment.systemCoordinates).magnitude / jumpRange * 5f + 0.5f);
+                value = Mathf.FloorToInt((pos - Environment.SystemCoordinates).magnitude / jumpRange * 5f + 0.5f);
 
             if (distance <= jumpRange)
             {
@@ -144,23 +147,23 @@ public class SystemsGenerator : MonoBehaviour
         {
             isGenerating = true;
 
-            Vector3 center = position.position.RoundToNearestNoScaling(scale);
-            Vector3 centerWorld;
+            Vector3 center = Vector3.zero;
+            Vector3 centerWorld = position.position.RoundToNearestNoScaling(scale);
             Statistics system;
             Vector3 pos = center;
 
             Random.InitState(SystemGenerator.Hash(pos));
-            Vector3 worldPos = centerWorld = ((pos.XY() - Environment.systemCoordinates.XY()).XYO() + Random.Range(-2.5f, 2.5f).OOZ()) * scale;
+            Vector3 worldPos = centerWorld = ((pos.XY() - Environment.SystemCoordinates.XY()).XYO() + Random.Range(-2.5f, 2.5f).OOZ()) * scale;
             Environment.systemCoordinatesDepth = worldPos.z;
             if (!systems.ContainsKey(pos))
             {
-                system = Instantiate(systemCenter, worldPos, new Quaternion(), transform);
-                system["System Coordinates"].Set(pos);
+                system = Instantiate(systemCenter, Vector3.zero, new Quaternion(), transform);
+                system["System Coordinates"].Set(centerWorld);
                 systems.Add(pos, system);
                 systemsSoFar++;
             }
             
-            for (int r = 1; r < Mathf.FloorToInt(Environment.scanRadius); r++)
+            for (int r = 1; r < Mathf.FloorToInt(Environment.ScanRadius); r++)
             {
                 for (int x = -r; x < r; x++)
                 {
@@ -180,16 +183,16 @@ public class SystemsGenerator : MonoBehaviour
 
                         pos = center + new Vector3(x, y, center.z);
                         Random.InitState(SystemGenerator.Hash(pos));
-                        worldPos = ((pos.XY() - Environment.systemCoordinates.XY()).XYO() + Random.Range(-2.5f, 2.5f).OOZ()) * scale;
+                        worldPos = ((pos.XY() - Environment.SystemCoordinates.XY()).XYO() + Random.Range(-2.5f, 2.5f).OOZ()) * scale;
                         float distance = (worldPos - centerWorld).magnitude / scale;
                         if (!systems.ContainsKey(pos) && distance <= r)
                         {
                             //if (distance > Environment.jumpFuel)
                             //    system = Instantiate(systemDisabled, worldPos, new Quaternion(), transform);
                             //else
-                                system = Instantiate(systemDefault, worldPos, new Quaternion(), transform);
+                            system = Instantiate(systemDefault, pos * scale, new Quaternion(), transform);
 
-                            system["System Coordinates"].Set(pos);
+                            system["System Coordinates"].Set(Environment.SystemCoordinates.ToInt() + pos);
                             systems.Add(pos, system);
                             systemsSoFar++;
                         }
@@ -200,7 +203,7 @@ public class SystemsGenerator : MonoBehaviour
             CleanUp();
 
             lastPosition = center;
-            jumpFuel = Environment.jumpFuel;
+            jumpFuel = Environment.JumpFuel;
 
             isGenerating = false;
         }
@@ -212,12 +215,12 @@ public class SystemsGenerator : MonoBehaviour
     {
         List<Vector3> validPoints = new List<Vector3>();
         Vector3 center = position.position.RoundToNearestNoScaling(scale);
-        for (int x = -Mathf.CeilToInt(Environment.scanRadius); x <= Mathf.CeilToInt(Environment.scanRadius); x++)
+        for (int x = -Mathf.CeilToInt(Environment.ScanRadius); x <= Mathf.CeilToInt(Environment.ScanRadius); x++)
         {
-            for (int y = -Mathf.CeilToInt(Environment.scanRadius); y <= Mathf.CeilToInt(Environment.scanRadius); y++)
+            for (int y = -Mathf.CeilToInt(Environment.ScanRadius); y <= Mathf.CeilToInt(Environment.ScanRadius); y++)
             {
                 Vector3 pos = center + new Vector3(x, y, center.z);
-                if ((pos - center).magnitude <= Environment.scanRadius)
+                if ((pos - center).magnitude <= Environment.ScanRadius)
                 {
                     validPoints.Add(pos);
                 }

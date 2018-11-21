@@ -79,8 +79,8 @@ public class WidgetSkillGrid : MonoBehaviour
             int i = 0;
             foreach (Skill skill in Skills.skills.Values)
             {
-                bool unlocked = PlayerSave.Active().Get("unlocked skills").value.Contains(skill.name + " ");
-                bool discovered = PlayerSave.Active().Get("discovered skills").value.Contains(skill.name + " ");
+                bool unlocked = PlayerSave.Active.Get("unlocked skills").value.Contains(skill.name + " ");
+                bool discovered = PlayerSave.Active.Get("discovered skills").value.Contains(skill.name + " ");
 
                 if (!isSelectingCurrentSkills || unlocked)
                 {

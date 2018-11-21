@@ -98,7 +98,7 @@ public class WidgetSystem : MonoBehaviour
                 pos = Camera.main.WorldToScreenPoint(SystemsGenerator.active.systems[position].transform.position);
 
             distanceFromCursor = 1;// - Mathf.Clamp01(Vector2.Distance(pos, Input.mousePosition) / radius);
-            distance = Mathf.Round((position - Environment.systemCoordinates).magnitude * 10f) / 10f;
+            distance = Mathf.Round((position - Environment.SystemCoordinates).magnitude * 10f) / 10f;
 
             if (!initialised)
             {
@@ -203,10 +203,10 @@ public class WidgetSystem : MonoBehaviour
                     tag.Set(activeDungeons);
 
                 label.text = StringHelper.CoordinateName(environment["System Coordinates"]);
-                if (distance <= Environment.jumpRadius)
+                if (distance <= Environment.JumpRadius)
                 {
                     distanceLabel.text = Literals.active["distance"] + " " + distance;
-                    distanceLabel.color = Schemes.Scheme(StringHelper.RiskIntToString(Mathf.FloorToInt((distance / Environment.jumpRadius) * 5)).Replace("risk_", "distance_")).colour;
+                    distanceLabel.color = Schemes.Scheme(StringHelper.RiskIntToString(Mathf.FloorToInt((distance / Environment.JumpRadius) * 5)).Replace("risk_", "distance_")).colour;
                 }
                 else
                 {
@@ -247,7 +247,7 @@ public class WidgetSystem : MonoBehaviour
                 active = true;
             }
 
-            float jumpRange = Mathf.Min(Environment.jumpFuel, Environment.jumpRadius);
+            float jumpRange = Mathf.Min(Environment.JumpFuel, Environment.JumpRadius);
 
             if (lastFilter != SystemsFilter.active.filter || lastActive != active)
             {
@@ -257,9 +257,9 @@ public class WidgetSystem : MonoBehaviour
                     int value = 0;
 
                     if (SystemsFilter.active.filter.Contains("Rarity"))
-                        value = Mathf.FloorToInt(Mathf.Pow(10, (position - Environment.systemCoordinates).magnitude / jumpRange * 6f + 0.5f));
+                        value = Mathf.FloorToInt(Mathf.Pow(10, (position - Environment.SystemCoordinates).magnitude / jumpRange * 6f + 0.5f));
                     else
-                        value = Mathf.FloorToInt((position - Environment.systemCoordinates).magnitude / jumpRange * 5f + 0.5f);
+                        value = Mathf.FloorToInt((position - Environment.SystemCoordinates).magnitude / jumpRange * 5f + 0.5f);
 
                     if (distance <= jumpRange)
                     {

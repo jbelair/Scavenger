@@ -9,7 +9,7 @@ public class SystemsSceneSwitch : MonoBehaviour
     
     public void Transition()
     {
-        Environment.selectedCoordinates = Environment.systemCoordinates = environment["System Coordinates"];
+        Environment.selectedCoordinates = Environment.SystemCoordinates = environment["System Coordinates"];
         Environment.jumpDistance = 0;
         SceneManager.LoadScene("Game.Load", LoadSceneMode.Single);
         Environment.sceneName = "Game.Systems";

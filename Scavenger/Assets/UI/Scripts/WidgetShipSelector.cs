@@ -12,9 +12,9 @@ public class WidgetShipSelector : MonoBehaviour
         InventoryShips.active.Set(index, false);
         if (isSelectingCurrentShip)
         {
-            PlayerSave.Active().Add("ship", JsonUtility.ToJson(InventoryShips.active.activeShips[index].definition));
+            PlayerSave.Active.Add("ship", JsonUtility.ToJson(InventoryShips.active.activeShips[index].definition));
             Players.players[0].statistics["ship value"].Set(InventoryShips.active.activeShips[index].definition.value);
-            Players.players[0].statistics["stat_jump_view"].Set(InventoryShips.active.activeShips[index].definition.statistics.Find(s => s.name == "stat_jump_view").value);
+            Players.players[0].statistics["jump view"].Set(InventoryShips.active.activeShips[index].definition.statistics.Find(s => s.name == "stat_jump_view").value);
             Players.players[0].statistics["stat_jump_fuel"].Set(InventoryShips.active.activeShips[index].definition.statistics.Find(s => s.name == "stat_jump_fuel").value);
             Players.players[0].statistics["stat_jump_fuel_cur"].Set(InventoryShips.active.activeShips[index].definition.statistics.Find(s => s.name == "stat_jump_fuel").value);
             Players.players[0].statistics["stat_jump_range"].Set(InventoryShips.active.activeShips[index].definition.statistics.Find(s => s.name == "stat_jump_range").value);

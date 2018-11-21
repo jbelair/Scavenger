@@ -62,8 +62,8 @@ public class InventoryShips : MonoBehaviour
                     Ship ship = Instantiate(shipPrefab, transform);
                     ships.Add(ship);
                     ship.definition = Ships.definitions[shipPair.Key];
-                    ship.isUnlocked = PlayerSave.Active().Get("unlocked ships").value.Contains(shipPair.Key + " ");
-                    ship.isDiscovered = PlayerSave.Active().Get("discovered ships").value.Contains(shipPair.Key + " ");
+                    ship.isUnlocked = PlayerSave.Active.Get("unlocked ships").value.Contains(shipPair.Key + " ");
+                    ship.isDiscovered = PlayerSave.Active.Get("discovered ships").value.Contains(shipPair.Key + " ");
                     ship.model = Instantiate(shipPair.Value, ship.transform);
                     ship.model.transform.localPosition = Vector3.zero;
                     ship.model.transform.rotation = new Quaternion();

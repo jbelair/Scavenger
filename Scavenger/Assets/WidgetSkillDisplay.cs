@@ -44,7 +44,7 @@ public class WidgetSkillDisplay : WidgetSkill
 
         if (isSelectingCurrentSkill)
         {
-            PlayerSave.Active().Add(set, "Skill", JsonUtility.ToJson(definition));
+            PlayerSave.Active.Add(set, "Skill", JsonUtility.ToJson(definition));
 
             Players.players[0].statistics[set + " value"].Set(definition.value);
             if (Players.players[0].statistics[set] != null)

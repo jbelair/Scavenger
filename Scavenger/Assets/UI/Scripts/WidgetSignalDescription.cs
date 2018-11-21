@@ -17,6 +17,12 @@ public class WidgetSignalDescription : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        if (type.name == "")
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Scheme rarityScheme = Schemes.Scheme("Rarity " + StringHelper.RarityIntToString(type.oneIn));
 
         //if (background)

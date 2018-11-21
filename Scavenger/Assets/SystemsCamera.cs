@@ -34,10 +34,10 @@ public class SystemsCamera : MonoBehaviour
         zoomMinimum = statistics["Zoom Minimum"];
         mousePosition = statistics["Mouse Position"];
 
-        ship = JsonUtility.FromJson<ShipDefinition>(PlayerSave.Active().Get("ship").value);
+        ship = JsonUtility.FromJson<ShipDefinition>(PlayerSave.Active.Get("ship").value);
         stat_jumpView = ship.statistics.Find(s => s.name == "stat_jump_view");
 
-        coordinate = JsonUtility.FromJson<Vector3>(PlayerSave.Active().Get("system coordinates").value);
+        coordinate = JsonUtility.FromJson<Vector3>(PlayerSave.Active.Get("system coordinates").value);
     }
 
     // Update is called once per frame

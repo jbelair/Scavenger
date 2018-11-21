@@ -25,13 +25,13 @@ public class WidgetJumpFuelBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        barText.text = barConsumptionText.text = barEmptyText.text = (Mathf.Round(Environment.jumpFuel * 10f) / 10f).ToString();
+        barText.text = barConsumptionText.text = barEmptyText.text = (Mathf.Round(Environment.JumpFuel * 10f) / 10f).ToString();
 
-        barMask.fillAmount = ((Environment.jumpFuel - Environment.jumpDistance) / Environment.jumpFuelMax);
-        barConsumptionMask.fillAmount = (Environment.jumpFuelMax - Environment.jumpFuel + Environment.jumpDistance) / Environment.jumpFuelMax;
-        barEmptyMask.fillAmount = (Environment.jumpFuelMax - Environment.jumpFuel) / Environment.jumpFuelMax;
+        barMask.fillAmount = ((Environment.JumpFuel - Environment.jumpDistance) / Environment.JumpFuelMax);
+        barConsumptionMask.fillAmount = (Environment.JumpFuelMax - Environment.JumpFuel + Environment.jumpDistance) / Environment.JumpFuelMax;
+        barEmptyMask.fillAmount = (Environment.JumpFuelMax - Environment.JumpFuel) / Environment.JumpFuelMax;
 
-        barConsumptionText.color = barConsumption.color = Schemes.Scheme(StringHelper.RiskIntToString(Mathf.RoundToInt(Environment.jumpDistance / Environment.jumpRadius * 5f))).colour;
-        barEmptyText.color = barEmpty.color = Schemes.Scheme(StringHelper.RiskIntToString(Mathf.RoundToInt((1f - Environment.jumpFuel / Environment.jumpFuelMax) * 5f))).colour * new Color(0.25f,0.25f,0.25f,1);
+        barConsumptionText.color = barConsumption.color = Schemes.Scheme(StringHelper.RiskIntToString(Mathf.RoundToInt(Environment.jumpDistance / Environment.JumpRadius * 5f))).colour;
+        barEmptyText.color = barEmpty.color = Schemes.Scheme(StringHelper.RiskIntToString(Mathf.RoundToInt((1f - Environment.JumpFuel / Environment.JumpFuelMax) * 5f))).colour * new Color(0.25f,0.25f,0.25f,1);
     }
 }

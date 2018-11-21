@@ -22,15 +22,15 @@ public class SystemSelect : MonoBehaviour
 
     void Transition()
     {
-        if (Environment.jumpFuel >= Environment.jumpDistance && Environment.jumpDistance <= Environment.jumpRadius)
+        if (Environment.JumpFuel >= Environment.jumpDistance && Environment.jumpDistance <= Environment.JumpRadius)
         {
             if (!systems)
                 systems = SystemsGenerator.active;
 
             Vector3 position = environment["System Coordinates"];
-            Environment.jumpFuel = Environment.jumpFuel - Environment.jumpDistance;
-            Players.players[0].statistics["stat_jump_fuel_cur"].Set(Environment.jumpFuel);
-            Environment.selectedCoordinates = Environment.systemCoordinates = position.XY();
+            Environment.JumpFuel = Environment.JumpFuel - Environment.jumpDistance;
+            Players.players[0].statistics["stat_jump_fuel_cur"].Set(Environment.JumpFuel);
+            Environment.selectedCoordinates = Environment.SystemCoordinates = position.XY();
             Environment.jumpDistance = 0;
             systems.lastPosition = systems.position.position = position.XY() * systems.scale;
             UIManager.active.ClearBack("system navigation");

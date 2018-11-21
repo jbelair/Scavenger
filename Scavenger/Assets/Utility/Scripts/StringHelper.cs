@@ -400,7 +400,7 @@ public static class StringHelper
         {
             if (split[i] == "Distance")
             {
-                ret += split[i] + " " + RiskIntToString(Mathf.FloorToInt((float.Parse(split[i + 1]) / Environment.jumpRadius) * 5)).Replace("risk_", "");
+                ret += split[i] + " " + RiskIntToString(Mathf.FloorToInt((float.Parse(split[i + 1]) / Environment.JumpRadius) * 5)).Replace("risk_", "");
                 i++;
             }
             else if (i != split.Length - 1)

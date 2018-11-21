@@ -17,6 +17,6 @@ public class TMProSystemCoordinate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = StringHelper.CoordinateName(Environment.systemCoordinates);
+        text.text = StringHelper.CoordinateName(Environment.SystemCoordinates);
     }
 }
