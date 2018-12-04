@@ -38,7 +38,7 @@ public class PlayerCamera : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (!initialised)
             Initialise();
@@ -52,14 +52,14 @@ public class PlayerCamera : MonoBehaviour
         zoomLevel = Mathf.Clamp(zoomLevel + zoom, 0, zoomSteps);
         float z = zoomLevel / zoomSteps;
         float theta = Mathf.LerpAngle(low, high, z) * Mathf.Deg2Rad;
-        Vector3 position = new Vector3(0, Mathf.Cos(theta), Mathf.Abs(Mathf.Sin(theta))) * Mathf.Lerp(near, far, z);
+        Vector3 position = Vector3.forward * Mathf.Lerp(near, far, z);//new Vector3(0, Mathf.Cos(theta), Mathf.Abs(Mathf.Sin(theta))) * Mathf.Lerp(near, far, z);
 
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position + position, speed * Time.deltaTime);
 
-        if (zoomLevel < zoomSteps)
-            transform.LookAt(player.transform.position, new Vector3(0, 0, 1));
-        else
-            transform.LookAt(player.transform.position);
+        //if (zoomLevel < zoomSteps)
+        //    transform.LookAt(player.transform.position, new Vector3(0, 0, 1));
+        //else
+            transform.LookAt(transform.position.XY());
     }
 
     bool Initialise()
@@ -68,12 +68,17 @@ public class PlayerCamera : MonoBehaviour
             return false;
         else
         {
-            if (player.statistics.Has(statisticZoom))
+            player = FindObjectOfType<PlayerUEI>();
+
+            if (player)
             {
-                zoom = player.statistics[statisticZoom];
-                Position();
-                initialised = true;
-                return true;
+                if (player.statistics.Has(statisticZoom))
+                {
+                    zoom = player.statistics[statisticZoom];
+                    Position();
+                    initialised = true;
+                    return true;
+                }
             }
 
             return false;

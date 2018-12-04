@@ -2,6 +2,11 @@
 
 public static class ColorExtensions
 {
+    public static float Greatest(this Color colour)
+    {
+        return Mathf.Max(Mathf.Max(colour.r, colour.g), colour.b);
+    }
+
     public static Vector3 Vector3(this Color colour)
     {
         return new Vector3(colour.r, colour.g, colour.b);

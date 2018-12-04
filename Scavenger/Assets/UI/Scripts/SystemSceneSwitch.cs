@@ -17,8 +17,8 @@ public class SystemSceneSwitch : MonoBehaviour
             widget = UIManager.active.Button("systems navigation", UIManager.Layer.Back, "System", Camera.main.WorldToScreenPoint(transform.position * 1000f), Transition, transform);
             widget.GetComponentInChildren<WidgetSystem>().Set(environment);
         }
-        else
-            Destroy(gameObject);
+        //else
+        //    Destroy(gameObject);
     }
 
     void Transition()
@@ -27,7 +27,7 @@ public class SystemSceneSwitch : MonoBehaviour
         {
             Vector3 position = environment["System Coordinates"];
             Environment.JumpFuel = Environment.JumpFuel - Environment.jumpDistance;
-            Environment.selectedCoordinates = Environment.SystemCoordinates = position;
+            Environment.selectedCoordinates = Environment.SystemCoordinates = position.ToInt();
             Environment.jumpDistance = 0;
             //SystemsGenerator.active.Regenerate();
             SceneManager.LoadScene("Game.Load", LoadSceneMode.Single);

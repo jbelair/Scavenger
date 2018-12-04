@@ -51,3 +51,5 @@ Scavenger/.vs/Scavenger/v15/Browse.VC.db
 *.ide-wal
 Scavenger/.vs/Scavenger/DesignTimeBuild/.dtbcache
 Scavenger/Library.zip
+*.zip
+Scavenger/Captures/Screenshots/archive_0.zip

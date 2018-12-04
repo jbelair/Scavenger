@@ -10,9 +10,10 @@ public static class GameObjectExtensions
     {
         gameObject.layer = layer;
 
-        foreach(GameObject child in gameObject.transform)
+        foreach(Transform child in gameObject.transform)
         {
-            child.layer = layer;
+            child.gameObject.SetLayerRecursively(layer);
+            //child.gameObject.layer = layer;
         }
     }
 }

@@ -11,13 +11,16 @@ public class SystemSelect : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        if (environment["Stars"].Get<int>() > 1)
-        {
+        //if (environment["Stars"].Get<int>() > 1)
+        //{
             widget = UIManager.active.Button("systems", UIManager.Layer.Back, "System", Camera.main.WorldToScreenPoint(transform.position * 1000f), Transition, transform);
             widget.GetComponentInChildren<WidgetSystem>().Set(environment);
-        }
-        else
-            Destroy(gameObject);
+        //}
+        //else
+        //{
+        //    Debug.Log("Deleting System -----\nNo Stars");
+        //    Destroy(gameObject);
+        //}
     }
 
     void Transition()
@@ -30,9 +33,9 @@ public class SystemSelect : MonoBehaviour
             Vector3 position = environment["System Coordinates"];
             Environment.JumpFuel = Environment.JumpFuel - Environment.jumpDistance;
             Players.players[0].statistics["stat_jump_fuel_cur"].Set(Environment.JumpFuel);
-            Environment.selectedCoordinates = Environment.SystemCoordinates = position.XY();
+            Environment.selectedCoordinates = Environment.SystemCoordinates = position.XYO().ToInt();
             Environment.jumpDistance = 0;
-            systems.lastPosition = systems.position.position = position.XY() * systems.scale;
+            systems.lastPosition = systems.position.position = position.XY();
             UIManager.active.ClearBack("system navigation");
             UIManager.active.AddScreen("system navigation");
             systems.Regenerate();

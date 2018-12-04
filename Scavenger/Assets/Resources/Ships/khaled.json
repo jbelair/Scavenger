@@ -9,11 +9,12 @@
 			"risk":"risk_high",
 			"oneIn":1000,
 			"value":10000,
+			"starting":false,
 			"statistics":
 			[
 				{"name":"stat_jump_fuel","value":15,"unit":""},
-				{"name":"stat_jump_range","value":10,"unit":""},
-				{"name":"stat_jump_view","value":10,"unit":""},
+				{"name":"stat_jump_range","value":5,"unit":""},
+				{"name":"stat_jump_view","value":5,"unit":""},
 				{"name":"stat_hull","value":500,"unit":""},
 				{"name":"stat_hull_max","value":500,"unit":""},
 				{"name":"stat_hull_reg","value":50,"unit":"persecond"},
@@ -55,11 +56,12 @@
 			"risk":"risk_extreme",
 			"oneIn":100000,
 			"value":1000000,
+			"starting":false,
 			"statistics":
 			[
 				{"name":"stat_jump_fuel","value":30,"unit":""},
-				{"name":"stat_jump_range","value":10,"unit":""},
-				{"name":"stat_jump_view","value":10,"unit":""},
+				{"name":"stat_jump_range","value":5,"unit":""},
+				{"name":"stat_jump_view","value":5,"unit":""},
 				{"name":"stat_hull","value":500000,"unit":""},
 				{"name":"stat_hull_max","value":500000,"unit":""},
 				{"name":"stat_hull_reg","value":500,"unit":"persecond"},
@@ -101,11 +103,12 @@
 			"risk":"risk_terminal",
 			"oneIn":0,
 			"value":10000000,
+			"starting":false,
 			"statistics":
 			[
 				{"name":"stat_jump_fuel","value":50,"unit":""},
-				{"name":"stat_jump_range","value":15,"unit":""},
-				{"name":"stat_jump_view","value":15,"unit":""},
+				{"name":"stat_jump_range","value":10,"unit":""},
+				{"name":"stat_jump_view","value":10,"unit":""},
 				{"name":"stat_hull","value":500000,"unit":""},
 				{"name":"stat_hull_max","value":500000,"unit":""},
 				{"name":"stat_hull_reg","value":5000,"unit":"persecond"},
@@ -137,7 +140,7 @@
 				{"name":"stat_mult_effect_stack","value":1,"unit":"multiplier"},
 				{"name":"stat_mult_effect_size","value":4,"unit":"multiplier"}
 			],
-			"tags":"tag_khaledqueen tag_hashhan"
+			"tags":"tag_khaled_queen tag_hashhan"
 		},
 		{
 			"name":"ship_khaled_skel_mother_0",
@@ -147,6 +150,7 @@
 			"risk":"risk_terminal",
 			"oneIn":1000000,
 			"value":5000000,
+			"starting":false,
 			"statistics":
 			[
 				{"name":"stat_jump_fuel","value":15,"unit":""},

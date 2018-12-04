@@ -32,6 +32,6 @@ public class PlayerSaveUEI : MonoBehaviour
 
     public void New()
     {
-        PlayerSave.saves[0] = new PlayerSave("save");
+        PlayerSave.Active = PlayerSave.New();
     }
 }

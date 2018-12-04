@@ -42,7 +42,9 @@ public class WidgetSystem : MonoBehaviour
         //    transform.localScale = Vector3.one * 2;
 
         if (!environment.Has("Dungeons"))
-            Destroy(gameObject);
+        {
+            //    Destroy(gameObject);
+        }
         else
         {
             StartCoroutine(Poll());
@@ -82,6 +84,7 @@ public class WidgetSystem : MonoBehaviour
         StopAllCoroutines();
     }
 
+    private List<DungeonType> activeTargets;
     IEnumerator Poll()
     {
         while (polling)
@@ -98,7 +101,7 @@ public class WidgetSystem : MonoBehaviour
                 pos = Camera.main.WorldToScreenPoint(SystemsGenerator.active.systems[position].transform.position);
 
             distanceFromCursor = 1;// - Mathf.Clamp01(Vector2.Distance(pos, Input.mousePosition) / radius);
-            distance = Mathf.Round((position - Environment.SystemCoordinates).magnitude * 10f) / 10f;
+            distance = Mathf.Round((position.XY() - Environment.SystemCoordinates.XY()).magnitude * 10f) / 10f;
 
             if (!initialised)
             {
@@ -112,22 +115,23 @@ public class WidgetSystem : MonoBehaviour
 
                 List<DungeonType> dungeons = new List<DungeonType>();
                 dungeons.AddRange(environment["Dungeons"].Get<object>() as List<DungeonType>);
+                //DungeonType.SortByRarity(dungeons);
 
                 for (int i = 0; i < dungeons.Count; i++)
                 {
                     dungeons[i] = new DungeonType(dungeons[i]);
                 }
 
-                List<DungeonType> activeTargets = new List<DungeonType>();
+                activeTargets = new List<DungeonType>();
                 if (environment.Has("Active Dungeons"))
                     activeTargets = environment["Active Dungeons"].Get<object>() as List<DungeonType>;
 
-                int rarity = 0;
+                int rarity = 1;
                 float risk = -1;
 
                 if (activeTargets.Count > 0)
                 {
-                    foreach(DungeonType dungeon in activeTargets)
+                    foreach (DungeonType dungeon in activeTargets)
                     {
                         rarity = Mathf.Max(rarity, dungeon.oneIn);
 
@@ -142,50 +146,64 @@ public class WidgetSystem : MonoBehaviour
 
                     foreach (string target in targets)
                     {
-                        DungeonType dungeonType;
-                        if (target.Contains("Star"))
-                        {
-                            dungeonType = dungeons.Find(dungeon => dungeon.target.Contains("Any") || dungeon.target.Contains("Star"));
-                            //if (dungeonType.name == null)
-                            //    dungeonType = dungeons.Find(dungeon => dungeon.target.Contains("Any"));
+                        DungeonType dungeonType;// = dungeons.Find(dungeon => dungeon.target.Contains("Any"));
 
-                            activeDungeons.Add(dungeonType);
-                        }
-                        else if (target.Contains("Planet"))
-                        {
-                            if (target.Contains("Moon"))
-                            {
-                                dungeonType = dungeons.Find(dungeon => dungeon.target.Contains("Any") || dungeon.target.Contains("Moon"));
-                                //if (dungeonType.name == null)
-                                //    dungeonType = dungeons.Find(dungeon => dungeon.target.Contains("Any"));
-                                activeDungeons.Add(dungeonType);
-                            }
-                            else
-                            {
-                                dungeonType = dungeons.Find(dungeon => dungeon.target.Contains("Any") || dungeon.target.Contains("Planet"));
-                                //if (dungeonType.name == null)
-                                //    dungeonType = dungeons.Find(dungeon => dungeon.target.Contains("Any"));
-                                activeDungeons.Add(dungeonType);
-                            }
+                        dungeonType = dungeons.Find(dng => target.Contains(dng.target) && StandardSystem.Contains(target, dng.targetModifiers));
+                        // Only look for an any dungeon if you fail to find an appropriately targeted one.
+                        if (dungeonType.name == null)
+                            dungeonType = dungeons.Find(dng => dng.target.Contains("Any"));
 
-                        }
-                        else if (target.Contains("Singularity"))
-                        {
-                            dungeonType = dungeons.Find(dungeon => dungeon.target.Contains("Singularity"));
-                            activeDungeons.Add(dungeonType);
-                        }
-                        else
-                        {
-                            dungeonType = dungeons.Find(dungeon => dungeon.target.Contains("Any"));
-                            activeDungeons.Add(dungeonType);
-                        }
+                        //if (target.Contains("Star"))
+                        //{
+                        //    dungeonType = dungeons.Find(dungeon => dungeon.target.Contains("Any") || dungeon.target.Contains("Star"));
+                        //}
+                        //else if (target.Contains("Planet"))
+                        //{
+                        //    if (target.Contains("Moon"))
+                        //    {
+                        //        dungeonType = dungeons.Find(dungeon => dungeon.target.Contains("Any") || dungeon.target.Contains("Moon"));
+                        //    }
+                        //    else
+                        //    {
+                        //        dungeonType = dungeons.Find(dungeon => dungeon.target.Contains("Any") || dungeon.target.Contains("Planet"));
+                        //    }
+                        //}
+                        //else if (target.Contains("Singularity"))
+                        //{
+                        //    dungeonType = dungeons.Find(dungeon => dungeon.target.Contains("Singularity"));
+                        //}
+                        //else if (target.Contains(" Cloud") || target.Contains(" Belt"))
+                        //{
+                        //    if (target.Contains("Asteroid") || target.Contains("Oort"))
+                        //    {
+                        //        dungeonType = dungeons.Find(dungeon => dungeon.target.Contains("Any") || dungeon.target.Contains("Asteroids"));
+                        //    }
+                        //    else if (target.Contains("Nebulous"))
+                        //    {
+                        //        dungeonType = dungeons.Find(dungeon => dungeon.target.Contains("Any") || dungeon.target.Contains("Nebulous"));
+                        //    }
+                        //}
+                        //else if (target.Contains("Asteroid"))
+                        //{
+                        //    dungeonType = dungeons.Find(dungeon => dungeon.target.Contains("Any") || dungeon.target.Contains("Asteroid"));
+                        //}
+                        //else if (target.Length > 0)
+                        //{
+                        //    dungeonType = dungeons.Find(dungeon => dungeon.target.Contains("Any") || dungeon.target.Contains(target.Split(' ')[0]));
+                        //}
+                        activeDungeons.Add(dungeonType);
 
                         rarity = Mathf.Max(rarity, activeDungeons[activeDungeons.Count - 1].oneIn);
 
                         risk = Mathf.Max(risk, FloatHelper.RiskStringToFloat(activeDungeons[activeDungeons.Count - 1].risk));
-
-                        labelWidget.Add(dungeonType);
+                        
                         dungeons.Remove(dungeonType);
+                    }
+
+                    DungeonType.SortByRarity(activeDungeons);
+                    foreach(DungeonType type in activeDungeons)
+                    {
+                        labelWidget.Add(type);
                     }
                 }
 
@@ -213,10 +231,22 @@ public class WidgetSystem : MonoBehaviour
                     distanceLabel.text = Literals.active["unreachable"];
                     distanceLabel.color = Schemes.Scheme("disabled").colour;//WidgetScheme.Scheme("Distance " + StringHelper.RiskIntToString(Mathf.FloorToInt((distance / Environment.jumpRadius) * 5)).Replace("risk_", "")).colour;
                 }
-                rarityLabel.text = Literals.active[StringHelper.RarityIntToString(rarity)];
-                rarityLabel.color = Schemes.Scheme(StringHelper.RarityIntToString(rarity)).colour;
-                riskLabel.text = Literals.active[StringHelper.RiskIntToString(Mathf.FloorToInt(risk))];
-                riskLabel.color = Schemes.Scheme(StringHelper.RiskIntToString(Mathf.FloorToInt(risk))).colour;
+
+                if (activeDungeons.Count > 0 || activeTargets.Count > 0)
+                {
+                    rarityLabel.gameObject.SetActive(true);
+                    riskLabel.gameObject.SetActive(true);
+
+                    rarityLabel.text = Literals.active[StringHelper.RarityIntToString(rarity)];
+                    rarityLabel.color = Schemes.Scheme(StringHelper.RarityIntToString(rarity)).colour;
+                    riskLabel.text = Literals.active[StringHelper.RiskIntToString(Mathf.FloorToInt(risk))];
+                    riskLabel.color = Schemes.Scheme(StringHelper.RiskIntToString(Mathf.FloorToInt(risk))).colour;
+                }
+                else
+                {
+                    rarityLabel.gameObject.SetActive(false);
+                    riskLabel.gameObject.SetActive(false);
+                }
 
                 initialised = true;
             }
@@ -252,47 +282,36 @@ public class WidgetSystem : MonoBehaviour
             if (lastFilter != SystemsFilter.active.filter || lastActive != active)
             {
                 Scheme scheme = Schemes.Scheme("default");
-                if (SystemsFilter.active.filter.Contains("Distance"))
+                if (activeDungeons.Count < 1 && activeTargets.Count < 1)
+                {
+                    scheme = Schemes.Scheme("disabled");
+                }
+                else if (SystemsFilter.active.filter.Contains("Distance"))
                 {
                     int value = 0;
 
-                    if (SystemsFilter.active.filter.Contains("Rarity"))
-                        value = Mathf.FloorToInt(Mathf.Pow(10, (position - Environment.SystemCoordinates).magnitude / jumpRange * 6f + 0.5f));
-                    else
-                        value = Mathf.FloorToInt((position - Environment.SystemCoordinates).magnitude / jumpRange * 5f + 0.5f);
+                    value = Mathf.FloorToInt(Mathf.Pow(10, (position - Environment.SystemCoordinates).magnitude / jumpRange * 6f + 0.5f));
 
                     if (distance <= jumpRange)
                     {
-                        if (SystemsFilter.active.filter.Contains("Rarity"))
-                            scheme = Schemes.Scheme(StringHelper.RarityIntToString(value));
-                        else
-                            scheme = Schemes.Scheme(StringHelper.RiskIntToString(value));
+                        scheme = Schemes.Scheme(StringHelper.RarityIntToString(value));
                     }
                     else
                     {
-                        if (SystemsFilter.active.filter.Contains("Rarity"))
-                            scheme = Schemes.Scheme("rarity_abundant");
-                        else
-                            scheme = Schemes.Scheme("risk_none");
+                        scheme = Schemes.Scheme("rarity_abundant");
                     }
                 }
                 else if (SystemsFilter.active.filter.Contains("Rarity"))
                 {
                     int rarity = environment["Average Rarity"];
 
-                    if (!SystemsFilter.active.filter.Contains("Risk"))
-                        scheme = Schemes.Scheme(StringHelper.RarityIntToString(rarity));
-                    else
-                        scheme = Schemes.Scheme(StringHelper.RiskIntToString(Mathf.FloorToInt(Mathf.Log10(rarity))));
+                    scheme = Schemes.Scheme(StringHelper.RarityIntToString(rarity));
                 }
                 else if (SystemsFilter.active.filter.Contains("Risk"))
                 {
                     float risk = environment["Average Risk"];
 
-                    if (SystemsFilter.active.filter.Contains("Rarity"))
-                        scheme = Schemes.Scheme(StringHelper.RarityIntToString(Mathf.FloorToInt(Mathf.Pow(10, risk))));
-                    else
-                        scheme = Schemes.Scheme(StringHelper.RiskIntToString(Mathf.FloorToInt(risk)));
+                    scheme = Schemes.Scheme(StringHelper.RiskIntToString(Mathf.FloorToInt(risk)));
                 }
 
                 foreach (Image image in images)

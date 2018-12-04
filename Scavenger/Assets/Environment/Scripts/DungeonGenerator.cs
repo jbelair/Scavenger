@@ -10,6 +10,7 @@ public class DungeonGenerator : MonoBehaviour
 
     public int hash;
     public bool generates = false;
+    public bool displays = false;
     public DungeonType dungeonType;
     public string dungeonTarget;
     public float riskLevel = 0;
@@ -23,12 +24,24 @@ public class DungeonGenerator : MonoBehaviour
     {
         if (generates)
         {
-            node = GetComponentInChildren<CameraNode>();
-            risk = StringHelper.RiskIntToString(Mathf.FloorToInt(riskLevel));
+            if (displays)
+            {
+                node = GetComponentInChildren<CameraNode>();
+                risk = StringHelper.RiskIntToString(Mathf.FloorToInt(riskLevel));
+                widget = UIManager.active.Button("system navigation", UIManager.Layer.Back, "Signal", Vector2.zero, Transition, transform);
+                widgets.Add(widget);
+                widget.GetComponent<WidgetSignal>().Set(dungeonType);
+            }
 
-            widget = UIManager.active.Button("system navigation", UIManager.Layer.Back, "Signal", Vector2.zero, Transition, transform);
-            widgets.Add(widget);
-            widget.GetComponent<WidgetSignal>().Set(dungeonType);
+            if (dungeonType.decorators != null && dungeonType.decorators != "")
+            {
+                string[] split = dungeonType.decorators.Split(' ');
+                foreach (string str in split)
+                {
+                    if (str != null || str != "")
+                        Instantiate(Resources.Load<GameObject>("Dungeons/Objects/" + str), transform);
+                }
+            }
         }
     }
 
@@ -40,6 +53,7 @@ public class DungeonGenerator : MonoBehaviour
 
     private void OnDestroy()
     {
+        //Debug.Log(name);
         Destroy(widget);
     }
 
@@ -54,6 +68,6 @@ public class DungeonGenerator : MonoBehaviour
         UIManager.active.RemoveScreen("systems navigation");
 
         widget = UIManager.active.Element("system dungeon", UIManager.Layer.Mid, "Signal Description");//, new Vector2(1920/2f, 0f));
-        widget.GetComponent<WidgetSignalDescription>().Set(dungeonType);
+        widget.GetComponent<WidgetSignalDescription>().Set(dungeonType, this);
     }
 }

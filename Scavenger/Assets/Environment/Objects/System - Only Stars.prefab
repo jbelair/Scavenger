@@ -42,6 +42,8 @@ GameObject:
   - component: {fileID: 114149767565523968}
   - component: {fileID: 114812996354804596}
   - component: {fileID: 114053831102153174}
+  - component: {fileID: 114086636975577380}
+  - component: {fileID: 114001440912067654}
   - component: {fileID: 114247833679624264}
   - component: {fileID: 114520721530897346}
   m_Layer: 0
@@ -78,6 +80,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114001440912067654
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483591082564970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056a0af7218e05e45bd6330bcbe8988c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nebulousCloudPrefab: {fileID: 114170568950731138, guid: a32860ea534992044bb98c00c3067361,
+    type: 2}
+  nebulaPlotDensity:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 10.679583
+      outSlope: 10.679583
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.044680852
+    - serializedVersion: 3
+      time: 1
+      value: 5
+      inSlope: -0.013255119
+      outSlope: -0.013255119
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  statistics: {fileID: 114554045935923528}
 --- !u!114 &114053831102153174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,6 +150,72 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookAtParent: 0
   target: {fileID: 4528344722369224}
+--- !u!114 &114086636975577380
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483591082564970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ffc344d7d4ec94ca1b78bcd6d2c6c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroidPrefab: {fileID: 114845426668703888, guid: 9cbd2c4483049364dbdde87b121f2537,
+    type: 2}
+  asteroidCloudPrefab: {fileID: 114863377595498704, guid: 3bc0c0d3d8b42f74cbc193f2100a1591,
+    type: 2}
+  asteroidBeltPrefab: {fileID: 114117209612826218, guid: 6aa73e84bb57dbf428f5c7d9ab562992,
+    type: 2}
+  asteroidPlotNumber:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 8.972889
+      outSlope: 8.972889
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.057446808
+    - serializedVersion: 3
+      time: 1
+      value: 10
+      inSlope: -0.029390745
+      outSlope: -0.029390745
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.5010638
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  oortPlotRadius:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  statistics: {fileID: 114554045935923528}
 --- !u!114 &114149767565523968
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -423,6 +529,304 @@ MonoBehaviour:
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
     statistics: {fileID: 114554045935923528}
+  - name: Asteroidal
+    trigger: 0
+    oneIn: 1
+    factionName: 
+    system:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114086636975577380}
+          m_MethodName: System
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    stars:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114086636975577380}
+          m_MethodName: Stars
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    populateStars:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114086636975577380}
+          m_MethodName: PopulateStars
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    planets:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114086636975577380}
+          m_MethodName: Planets
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    populatePlanets:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114086636975577380}
+          m_MethodName: PopulatePlanets
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    moons:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114086636975577380}
+          m_MethodName: Moons
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    populateMoons:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114086636975577380}
+          m_MethodName: PopulateMoons
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    dungeons:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114086636975577380}
+          m_MethodName: Dungeons
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    populateDungeons:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114086636975577380}
+          m_MethodName: PopulateDungeons
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    statistics: {fileID: 114554045935923528}
+  - name: Nebulous
+    trigger: 0
+    oneIn: 1
+    factionName: 
+    system:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114001440912067654}
+          m_MethodName: System
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    stars:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114001440912067654}
+          m_MethodName: Stars
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    populateStars:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114001440912067654}
+          m_MethodName: PopulateStars
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    planets:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114001440912067654}
+          m_MethodName: Planets
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    populatePlanets:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114001440912067654}
+          m_MethodName: PopulatePlanets
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    moons:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114001440912067654}
+          m_MethodName: Moons
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    populateMoons:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114001440912067654}
+          m_MethodName: PopulateMoons
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    dungeons:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114001440912067654}
+          m_MethodName: Dungeons
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    populateDungeons:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114001440912067654}
+          m_MethodName: PopulateDungeons
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    statistics: {fileID: 114554045935923528}
   statistics: {fileID: 114554045935923528}
 --- !u!114 &114247833679624264
 MonoBehaviour:
@@ -582,6 +986,12 @@ MonoBehaviour:
     type: 2}
   planetPrefab: {fileID: 114183782413579774, guid: 77a48959c7c3af24bb0430aca7e607aa,
     type: 2}
+  moonPrefab: {fileID: 114600948816371314, guid: 9a8bb09e4bcddac40aa1eddd3ddf4565,
+    type: 2}
+  gasGiantPrefab: {fileID: 114527646035151940, guid: 6c1ebe4643ec4bf49814cb06125b9fff,
+    type: 2}
+  gasDwarfPrefab: {fileID: 114129444997619930, guid: 01364c4334498304a9a5e0ed4b1f9dff,
+    type: 2}
   orbitPrefab: {fileID: 114428484334938752, guid: 9328eeb80bd715d4bb34a490922d8e11,
     type: 2}
   starsDisplayOrbits: 0
@@ -644,12 +1054,12 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 20
-      inSlope: 127.33971
-      outSlope: 127.33971
+      value: 5
+      inSlope: 12.557705
+      outSlope: 12.557705
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.103655815
+      inWeight: 0.1206857
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2

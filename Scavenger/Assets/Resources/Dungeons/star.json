@@ -2,15 +2,57 @@
 	"signals" :
 	[
 		{
+			"name": "signals_star_corona",
+			"description": "signals_star_corona_desc",
+			"category": "tag_ejection_plasma",
+			"risk": "risk_high",
+			"oneIn": 1,
+			"target": "Star",
+			"generator": "Standard",
+			"tags": "tag_neutral tag_plasma tag_ejection $1:5[tag_distress,tag_debris,tag_ship] $1:10[tag_shipwreck,tag_ships] $1:25[tag_conflict,tag_graveyard] $1:50[tag_battle]",
+			"distance": 5
+		},
+
+		{
+			"name": "signals_star_ejection_plasma",
+			"description": "signals_star_ejection_plasma_desc",
+			"category": "tag_ejection_plasma",
+			"risk": "risk_low",
+			"oneIn": 10,
+			"target": "Star",
+			"targetModifiers": "_M",
+			"generator": "Standard",
+			"tags": "tag_neutral tag_plasma tag_ejection $1:5[tag_distress,tag_debris,tag_ship] $1:10[tag_shipwreck,tag_ships] $1:25[tag_conflict,tag_graveyard] $1:50[tag_battle]",
+			"decorators": "coronal_mass_ejector",
+			"distance": 10
+		},
+		{
 			"name": "signals_star_ejection_plasma",
 			"description": "signals_star_ejection_plasma_desc",
 			"category": "tag_ejection_plasma",
 			"risk": "risk_medium",
-			"oneIn": 5,
+			"oneIn": 25,
 			"target": "Star",
+			"targetModifiers": "_L,_K",
 			"generator": "Standard",
-			"tags": "tag_neutral tag_plasma tag_ejection $1:5[tag_debris,tag_ship] $1:10[tag_shipwreck,tag_ships] $1:25[tag_conflict,tag_graveyard] $1:50[tag_battle]"
+			"tags": "tag_neutral tag_plasma tag_ejection $1:5[tag_distress,tag_debris,tag_ship] $1:10[tag_shipwreck,tag_ships] $1:25[tag_conflict,tag_graveyard] $1:50[tag_battle]",
+			"decorators": "coronal_mass_ejector",
+			"distance": 10
 		},
+		{
+			"name": "signals_star_ejection_plasma",
+			"description": "signals_star_ejection_plasma_desc",
+			"category": "tag_ejection_plasma",
+			"risk": "risk_high",
+			"oneIn": 50,
+			"target": "Star",
+			"targetModifiers": "_G,_F,_A",
+			"generator": "Standard",
+			"tags": "tag_neutral tag_plasma tag_ejection $1:5[tag_distress,tag_debris,tag_ship] $1:10[tag_shipwreck,tag_ships] $1:25[tag_conflict,tag_graveyard] $1:50[tag_battle]",
+			"decorators": "coronal_mass_ejector",
+			"distance": 10
+		},
+
 		{
 			"name": "signals_star_sunglider",
 			"description": "signals_star_sunglider_desc",
@@ -19,7 +61,8 @@
 			"oneIn": 10000,
 			"target": "Star",
 			"generator": "Standard",
-			"tags": "tag_neutral tag_sunglider $1:2[tag_defended]"
+			"tags": "tag_neutral tag_sunglider $1:2[tag_defended] $1:5[tag_ship,tag_distress,tag_debris] $1:10[tag_shipwreck,tag_ships] $1:25[tag_conflict,tag_graveyard] $1:50[tag_battle]",
+			"distance": 10
 		},
 		{
 			"name": "signals_star_sunglider_fleet",
@@ -29,8 +72,10 @@
 			"oneIn": 100000,
 			"target": "Star",
 			"generator": "Standard",
-			"tags": "tag_neutral tag_sungliders $1:2[tag_defended]"
+			"tags": "tag_neutral tag_sungliders $1:2[tag_defended] $1:5[tag_ship,tag_distress,tag_debris] $1:10[tag_shipwreck,tag_ships] $1:25[tag_conflict,tag_graveyard] $1:50[tag_battle]",
+			"distance": 10
 		},
+
 		{
 			"name": "signals_star_starfish",
 			"description": "signals_star_starfish_desc",
@@ -39,7 +84,8 @@
 			"oneIn": 5000,
 			"target": "Star",
 			"generator": "Standard",
-			"tags": "tag_neutral tag_starfish"
+			"tags": "tag_neutral tag_starfish $1:5[tag_ship,tag_distress,tag_debris] $1:10[tag_shipwreck,tag_ships] $1:25[tag_conflict,tag_graveyard] $1:50[tag_battle]",
+			"distance": 10
 		},
 		{
 			"name": "signals_star_starfish_matriarch",
@@ -49,8 +95,10 @@
 			"oneIn": 50000,
 			"target": "Star",
 			"generator": "Standard",
-			"tags": "tag_neutral tag_starfishes"
+			"tags": "tag_neutral tag_starfishes $1:5[tag_ship,tag_distress,tag_debris] $1:10[tag_shipwreck,tag_ships] $1:25[tag_conflict,tag_graveyard] $1:50[tag_battle]",
+			"distance": 10
 		},
+
 		{
 			"name": "signals_star_array_solar",
 			"description": "signals_star_array_solar_desc",
@@ -59,7 +107,8 @@
 			"oneIn": 5000,
 			"target": "Star",
 			"generator": "Standard",
-			"tags": "tag_neutral tag_array_solar $1:2[tag_defended] $1:5[tag_shipwreck,tag_debris] $1:100[tag_graveyard,tag_battle]"
+			"tags": "tag_neutral tag_array_solar $1:2[tag_defended] $1:5[tag_distress,tag_debris] $1:10[tag_shipwreck,tag_ships] $1:25[tag_conflict,tag_graveyard] $1:50[tag_battle]",
+			"distance": 10
 		},
 		{
 			"name": "signals_star_array_solar_bank",
@@ -69,7 +118,8 @@
 			"oneIn": 50000,
 			"target": "Star",
 			"generator": "Standard",
-			"tags": "tag_neutral tag_array_solar_bank $1:2[tag_defended] $1:5[tag_shipwreck,tag_debris] $1:100[tag_graveyard,tag_battle]"
+			"tags": "tag_neutral tag_array_solar_bank $1:2[tag_defended] $1:5[tag_distress,tag_ship,tag_debris] $1:10[tag_shipwreck,tag_ships] $1:25[tag_conflict,tag_graveyard] $1:50[tag_battle]",
+			"distance": 10
 		}
 	]
 }

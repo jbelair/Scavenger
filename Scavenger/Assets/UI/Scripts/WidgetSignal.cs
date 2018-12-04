@@ -26,7 +26,10 @@ public class WidgetSignal : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //Debug.Log(type.name);
+        //Debug.Log(StringHelper.RarityIntToString(type.oneIn));
         Scheme rarityScheme = Schemes.Scheme(StringHelper.RarityIntToString(type.oneIn));
+        //Debug.Log(type.risk);
         Scheme riskScheme = Schemes.Scheme(type.risk);
 
         foreach(ImageContainer rarity in rarityImages)

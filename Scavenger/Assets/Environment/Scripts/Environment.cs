@@ -39,6 +39,8 @@ public static class Environment
     {
         get
         {
+            _jumpFuel = float.Parse(PlayerSave.Active.Get("fuel").value);
+
             if (_jumpFuel < 0)
                 _jumpFuel = JsonUtility.FromJson<ShipDefinition>(PlayerSave.Active.Get("ship").value).statistics.Find(stat => stat.name == "stat_jump_fuel").value;
             PlayerSave.Active.Add("fuel", _jumpFuel.ToString());

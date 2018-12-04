@@ -85,17 +85,17 @@ MonoBehaviour:
   eyeAdaptation:
     m_Enabled: 1
     m_Settings:
-      lowPercent: 48.182602
+      lowPercent: 71.71073
       highPercent: 99
-      minLuminance: -4
-      maxLuminance: 4
+      minLuminance: -8
+      maxLuminance: 8
       keyValue: 0.25
       dynamicKeyValue: 1
       adaptationType: 0
       speedUp: 10
       speedDown: 10
-      logMin: -4
-      logMax: 4
+      logMin: -8
+      logMax: 8
   bloom:
     m_Enabled: 1
     m_Settings:
@@ -109,10 +109,10 @@ MonoBehaviour:
         texture: {fileID: 2800000, guid: a2960ffde020f27409e070d92fb2e00b, type: 3}
         intensity: 1
   colorGrading:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       tonemapping:
-        tonemapper: 2
+        tonemapper: 1
         neutralBlackIn: 0.02
         neutralWhiteIn: 10
         neutralBlackOut: 0

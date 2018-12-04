@@ -10,7 +10,9 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         if (Players.players.Find(p => p.name == name))
+        {
             DestroyImmediate(gameObject);
+        }
         else
         {
             DontDestroyOnLoad(this);
@@ -21,7 +23,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        statistics["matter"].Set(int.Parse(PlayerSave.Active.Get("matter").value));
     }
 
     private void OnDestroy()

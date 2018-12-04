@@ -12,4 +12,5 @@ public class Skill
     public string risk;
     public int oneIn;
     public int value;
+    public bool starting;
 }

@@ -23,9 +23,6 @@ public class SystemGenerator : MonoBehaviour
         {
             statistics.Initialise();
 
-            if (generatesFromEnvironment)
-                statistics["System Coordinates"].Set(JsonUtility.FromJson<Vector3>(PlayerSave.Active.Get("system coordinates").value));
-
             StartCoroutine(Generate());
         }
 
@@ -49,13 +46,15 @@ public class SystemGenerator : MonoBehaviour
         if (setter)
             setter.Set();
 
+        hash = Hash(statistics["System Coordinates"].Get<Vector3>());
+        statistics["System Hash"] = new Statistic("System Hash", Statistic.ValueType.Integer, hash);
+
         foreach (SystemGeneratorDecorator decorator in decorators)
         {
             bool happens = decorator.Happens();
 
             if (happens)
             {
-                hash = Hash(statistics["System Coordinates"].Get<Vector3>());
                 Random.InitState(hash);
 
                 decorator.system.Invoke();
@@ -152,7 +151,7 @@ public class SystemGenerator : MonoBehaviour
 
             if (happens)
             {
-                //hash = Hash(statistics["System Coordinates"].Get<Vector3>() + new Vector3(0, 0, EnvironmentTime.active.time));
+                hash = Hash(statistics["System Coordinates"].Get<Vector3>() + new Vector3(0, 0, EnvironmentTime.active.time));
                 Random.InitState(hash);
                 if (Environment.generateDungeons)
                     decorator.dungeons.Invoke();
@@ -171,18 +170,18 @@ public class SystemGenerator : MonoBehaviour
         }
 
         stopwatch.Stop();
-        Debug.Log("System Generation -----\nTime: " + stopwatch.ElapsedMilliseconds + "ms");
+        //Debug.Log("System Generation -----\nTime: " + stopwatch.ElapsedMilliseconds + "ms");
 
         yield return null;
     }
 
-    public void Clear()
-    {
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            GameObject child = transform.GetChild(i).gameObject;
-            if (child.activeSelf)
-                Destroy(child);
-        }
-    }
+    //public void Clear()
+    //{
+    //    for (int i = 0; i < transform.childCount; i++)
+    //    {
+    //        GameObject child = transform.GetChild(i).gameObject;
+    //        if (child.activeSelf)
+    //            Destroy(child);
+    //    }
+    //}
 }

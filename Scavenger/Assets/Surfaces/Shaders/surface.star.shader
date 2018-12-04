@@ -32,7 +32,7 @@
 
 		CGPROGRAM
 		// Physically based Standard lighting model, and enable shadows on all light types
-		#pragma surface surf WrapScattering vertex:vert
+		#pragma surface surf WrapScattering vertex:vert approxview
 
 		#pragma target 4.0
 
@@ -78,10 +78,12 @@
 
 		struct Input
 		{
+			float3 worldPos;
 			float3 localPos;
 			float3 texturePos;
 			float3 viewDir;
 			float3 normal;
+			float distance;
 		};
 
 		#include "Assets/Surfaces/Shaders/noise.cginc"
@@ -162,6 +164,7 @@
 			o.localPos = v.vertex.xyz;
 			o.texturePos = float3(v.texcoord.xy, 1 - pow(abs(v.vertex.y), 2));
 			o.normal = v.normal;
+			o.distance = length(_WorldSpaceCameraPos - o.worldPos);
 		}
 
 		void surf(Input IN, inout SurfaceOutputStandard o)
@@ -171,27 +174,37 @@
 			float4 pD = float4(1 - pow(k, 0.1), pow(k, 0.5) * 128, k * 256, pow(k, 2) * 512);
 
 			float3 rgbNoise = float3(0, 0, 0);
-
-			if (_Turbulence > 0)
-			{
-				rgbNoise = float3(abs(snoise4(float4(IN.localPos * _Scale.x, _Time.x * _Speed.x), _Octaves)), abs(snoise4(float4(IN.localPos * _Scale.y, _Time.x * _Speed.y), _Octaves)), abs(snoise4(float4(IN.localPos * _Scale.z, _Time.x * _Speed.z), _Octaves))) * _Turbulence;
-				//rgbNoise.r = cos((rgbNoise.r - 0.5) * 6.2831853);
-				//rgbNoise.g = sin((rgbNoise.g - 0.5) * 6.2831853);
-				//rgbNoise.b = (rgbNoise.b - 0.5);
-			}
-
 			float freznel = abs(dot(normalize(ObjSpaceViewDir(float4(IN.viewDir, 1))), IN.normal));
-			float4 sampleAt = float4(IN.texturePos, lerp(0, freznel, pD.x));
-			sampleAt += float4(rgbNoise.r * rgbNoise.b, rgbNoise.g * rgbNoise.b, 0, 0);
-			sampleAt += float4(_Time.x * _Spin * (1 + kR * 4), 0, 0, 0);
 
-			float3 albedo = lerp(tex2D(_Texture, sampleAt.xy * _Texture_ST.xy + _Texture_ST.zw), tex1D(_Emissive, k), pow(k, 0.5));
-			// magnitude of 1,1,1 is √3 ~ 1.732051 (1.7320508...)
-			float3 temperature = lerp(1, dot(albedo, float3(0.33, 0.56, 0.11)) / (8 * 1.732051), 1 - pD.x);
-			// magnitude of 1,1,1 is √3 ~ 1.732051 (1.7320508...)
-			o.Albedo = temperature * lerp((tex1D(_Gasses, length(albedo) / 1.732051) + tex1D(_Gasses, 1) * freznel + tex1D(_Gasses, 1) * IN.texturePos.z) / 2, tex1D(_Gasses, 1), 1 - IN.texturePos.z);
-			o.Emission = SampleAtKelvinEmission(albedo, sampleAt);
-			o.Emission = o.Emission + float3(pD.x, pD.x, pD.x) * o.Albedo * (1 - freznel) * _Scattering + tex1D(_Emissive, kR) * (freznel) * _HDR;
+			if (IN.distance < 10000)
+			{
+				if (_Turbulence > 0)
+				{
+					rgbNoise = float3(abs(snoise4(float4(IN.localPos * _Scale.x, _Time.x * _Speed.x), _Octaves)), abs(snoise4(float4(IN.localPos * _Scale.y, _Time.x * _Speed.y), _Octaves)), abs(snoise4(float4(IN.localPos * _Scale.z, _Time.x * _Speed.z), _Octaves))) * _Turbulence;
+					//rgbNoise.r = cos((rgbNoise.r - 0.5) * 6.2831853);
+					//rgbNoise.g = sin((rgbNoise.g - 0.5) * 6.2831853);
+					//rgbNoise.b = (rgbNoise.b - 0.5);
+				}
+
+				float4 sampleAt = float4(IN.texturePos, lerp(0, freznel, pD.x));
+
+				sampleAt += float4(rgbNoise.r * rgbNoise.b, rgbNoise.g * rgbNoise.b, 0, 0);
+				sampleAt += float4(_Time.x * _Spin * (1 + kR * 4), 0, 0, 0);
+
+				float3 albedo = lerp(tex2D(_Texture, sampleAt.xy * _Texture_ST.xy + _Texture_ST.zw), tex1D(_Emissive, k), pow(k, 0.5));
+				// magnitude of 1,1,1 is √3 ~ 1.732051 (1.7320508...)
+				float3 temperature = lerp(1, dot(albedo, float3(0.33, 0.56, 0.11)) / (8 * 1.732051), 1 - pD.x);
+				// magnitude of 1,1,1 is √3 ~ 1.732051 (1.7320508...)
+				o.Albedo = temperature * lerp((tex1D(_Gasses, length(albedo) / 1.732051) + tex1D(_Gasses, 1) * freznel + tex1D(_Gasses, 1) * IN.texturePos.z) / 2, tex1D(_Gasses, 1), 1 - IN.texturePos.z);
+
+				o.Emission = SampleAtKelvinEmission(albedo, sampleAt);
+				o.Emission = o.Emission + float3(pD.x, pD.x, pD.x) * o.Albedo * (1 - freznel) * _Scattering + tex1D(_Emissive, kR) * (freznel) * _HDR;
+			}
+			else
+			{
+				o.Albedo = tex1D(_Emissive, k);
+				o.Emission = o.Albedo * _HDR + float3(pD.x, pD.x, pD.x) * o.Albedo * (1 - freznel) * _Scattering + tex1D(_Emissive, kR) * (freznel) * _HDR;
+			}
 
 			//float3 n = lerp(UnpackNormal(tex2D(_Normal, sampleAt.xy * _Normal_ST.xy + _Normal_ST.zw)), UnpackNormal(float4(0.5, 0.5, 1, 1)), max(abs(IN.localPos.y), temperature));
 			//float3 n = UnpackNormal(tex2D(_Normal, sampleAt.xy * _Normal_ST.xy + _Normal_ST.zw));

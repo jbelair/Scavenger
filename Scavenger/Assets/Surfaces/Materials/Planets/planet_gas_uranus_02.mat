@@ -111,7 +111,7 @@ Material:
     - _GlossyReflections: 1
     - _HDR: 8
     - _Kelvin: 1
-    - _KelvinMax: 100000
+    - _KelvinMax: 30000
     - _KelvinRange: 1
     - _LightSamples: 2
     - _Metallic: 0

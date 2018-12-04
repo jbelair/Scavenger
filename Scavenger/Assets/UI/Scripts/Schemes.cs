@@ -13,6 +13,9 @@ public class Schemes : MonoBehaviour
 
     public static Scheme Scheme(string name)
     {
+        if (lookup == null)
+            active.Load();
+
         if (!lookup.ContainsKey(name))
             return lookup["default"];
 

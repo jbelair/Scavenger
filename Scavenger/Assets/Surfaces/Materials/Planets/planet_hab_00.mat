@@ -143,7 +143,7 @@ Material:
         m_Scale: {x: 8, y: 4}
         m_Offset: {x: 0, y: 0}
     - _TexCloudsCold:
-        m_Texture: {fileID: 2800000, guid: 47f5be7c742a5c74b90257472831ea3d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 630a507211355e2498f1d89138fba24d, type: 3}
         m_Scale: {x: 4, y: 2}
         m_Offset: {x: 0, y: 0}
     - _TexCloudsCold_Norm:
@@ -151,7 +151,7 @@ Material:
         m_Scale: {x: 16, y: 8}
         m_Offset: {x: 0, y: 0}
     - _TexCloudsHot:
-        m_Texture: {fileID: 2800000, guid: 3378f89db93ab6d4981d5b57ef11fd87, type: 3}
+        m_Texture: {fileID: 2800000, guid: 630a507211355e2498f1d89138fba24d, type: 3}
         m_Scale: {x: 4, y: 4}
         m_Offset: {x: 0, y: 0}
     - _TexCloudsHot_Norm:
@@ -159,7 +159,7 @@ Material:
         m_Scale: {x: 32, y: 16}
         m_Offset: {x: 0, y: 0}
     - _TexCloudsWarm:
-        m_Texture: {fileID: 2800000, guid: 3378f89db93ab6d4981d5b57ef11fd87, type: 3}
+        m_Texture: {fileID: 2800000, guid: 630a507211355e2498f1d89138fba24d, type: 3}
         m_Scale: {x: 8, y: 4}
         m_Offset: {x: 0, y: 0}
     - _TexCloudsWarm_Norm:
@@ -167,7 +167,7 @@ Material:
         m_Scale: {x: 16, y: 8}
         m_Offset: {x: 0, y: 0}
     - _TexClouds_Norm:
-        m_Texture: {fileID: 2800000, guid: 59caf1b0e12b32f4d8239faf4332e156, type: 3}
+        m_Texture: {fileID: 2800000, guid: fdeef6e4e1d77c64a84813a9a75b9be1, type: 3}
         m_Scale: {x: 8, y: 4}
         m_Offset: {x: 0, y: 0}
     - _TexFrontCold:

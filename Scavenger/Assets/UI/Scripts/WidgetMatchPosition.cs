@@ -17,7 +17,7 @@ public class WidgetMatchPosition : MonoBehaviour
         self = transform as RectTransform;
 
         if (deparent)
-            transform.parent = UIManager.active.canvas.transform;
+            transform.SetParent(UIManager.active.canvas.transform);
 
         self.position = target.position;
     }

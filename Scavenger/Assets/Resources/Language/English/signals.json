@@ -279,7 +279,7 @@
 		},
 		{
 			"key": "signals_planet_collisionevent_minor_desc",
-			"value": ""
+			"value": "PLACEHOLDER"
 		},
 		{
 			"key": "signals_planet_collisionevent_major",
@@ -287,7 +287,7 @@
 		},
 		{
 			"key": "signals_planet_collisionevent_major_desc",
-			"value": ""
+			"value": "PLACEHOLDER"
 		},
 		{
 			"key": "signals_planet_collisionevent_catastrophic",
@@ -295,7 +295,7 @@
 		},
 		{
 			"key": "signals_planet_collisionevent_catastrophic_desc",
-			"value": ""
+			"value": "PLACEHOLDER"
 		},
 		{
 			"key": "signals_planet_station_terraforming",
@@ -306,8 +306,16 @@
 			"value": "The computer is detecting a high mass object in orbit of the planet. High resolution scans have identified an extensive array of docking bays, and a space elevator, with active cable shuttles in transit to and from the surface of the planet. As well scans of surrounding space have discovered at least 1 slush asteroid with thrusters on a collision course with the atmosphere. The frequent shuttles traveling to and from the station have a variety of chemical signatures in keeping with a terraforming project. The computer suggests visiting the station as it is almost certain to have some services of use."
 		},
 		{
+			"key": "signals_star_corona",
+			"value": "Harvest Corona"
+		},
+		{
+			"key": "signals_star_corona_desc",
+			"value": "The computer calculates that by traveling into this star's corona you will be able to replenish your fuel. The computer warns that travelling too close to a star can cause serious damage."
+		},
+		{
 			"key": "signals_star_ejection_plasma",
-			"value": "Plasma Ejection"
+			"value": "Coronal Mass Ejection"
 		},
 		{
 			"key": "signals_star_ejection_plasma_desc",

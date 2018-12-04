@@ -1,7 +1,5 @@
 D:\_GameDev\_Me\_Scavenger\Scavenger\Scavenger\Temp\bin\Debug\Assembly-CSharp-Editor-firstpass.dll
 D:\_GameDev\_Me\_Scavenger\Scavenger\Scavenger\Temp\bin\Debug\Assembly-CSharp-Editor-firstpass.pdb
-D:\_GameDev\_Me\_Scavenger\Scavenger\Scavenger\Temp\bin\Debug\Assembly-CSharp-Editor-firstpass.dll.CodeAnalysisLog.xml
-D:\_GameDev\_Me\_Scavenger\Scavenger\Scavenger\Temp\bin\Debug\Assembly-CSharp-Editor-firstpass.dll.lastcodeanalysissucceeded
 D:\_GameDev\_Me\_Scavenger\Scavenger\Scavenger\Temp\bin\Debug\Boo.Lang.dll
 D:\_GameDev\_Me\_Scavenger\Scavenger\Scavenger\Temp\bin\Debug\Facebook.Unity.Settings.dll
 D:\_GameDev\_Me\_Scavenger\Scavenger\Scavenger\Temp\bin\Debug\KdTreeLib.dll
@@ -26,7 +24,6 @@ D:\_GameDev\_Me\_Scavenger\Scavenger\Scavenger\Temp\bin\Debug\UnityEditor.Advert
 D:\_GameDev\_Me\_Scavenger\Scavenger\Scavenger\Temp\bin\Debug\UnityEditor.Analytics.dll
 D:\_GameDev\_Me\_Scavenger\Scavenger\Scavenger\Temp\bin\Debug\UnityEditor.Android.Extensions.dll
 D:\_GameDev\_Me\_Scavenger\Scavenger\Scavenger\Temp\bin\Debug\UnityEditor.dll
-D:\_GameDev\_Me\_Scavenger\Scavenger\Scavenger\Temp\bin\Debug\UnityEditor.Facebook.Extensions.dll
 D:\_GameDev\_Me\_Scavenger\Scavenger\Scavenger\Temp\bin\Debug\UnityEditor.GoogleAudioSpatializer.dll
 D:\_GameDev\_Me\_Scavenger\Scavenger\Scavenger\Temp\bin\Debug\UnityEditor.Graphs.dll
 D:\_GameDev\_Me\_Scavenger\Scavenger\Scavenger\Temp\bin\Debug\UnityEditor.HoloLens.dll
@@ -219,3 +216,4 @@ D:\_GameDev\_Me\_Scavenger\Scavenger\Scavenger\obj\Debug\Assembly-CSharp-Editor-
 D:\_GameDev\_Me\_Scavenger\Scavenger\Scavenger\obj\Debug\Assembly-CSharp-Editor-firstpass.csproj.CopyComplete
 D:\_GameDev\_Me\_Scavenger\Scavenger\Scavenger\obj\Debug\Assembly-CSharp-Editor-firstpass.dll
 D:\_GameDev\_Me\_Scavenger\Scavenger\Scavenger\obj\Debug\Assembly-CSharp-Editor-firstpass.pdb
+D:\_GameDev\_Me\_Scavenger\Scavenger\Scavenger\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb

@@ -15,8 +15,11 @@ public struct DungeonType
     public string risk;
     public int oneIn;
     public string target;
+    public string targetModifiers;
     public string generator;
     public string tags;
+    public string decorators;
+    public float distance;
 
     public static implicit operator string(DungeonType dungeon)
     {
@@ -106,6 +109,22 @@ public struct DungeonType
             throw new System.Exception("Attempted to select a dungeon by chance but passed an empty list of dungeons");
     }
 
+    public static void SortByRarity(List<DungeonType> dungeons)
+    {
+        for (int i = 0; i < dungeons.Count; i++)
+        {
+            for (int j = i; j < dungeons.Count; j++)
+            {
+                if (dungeons[j].oneIn > dungeons[i].oneIn)
+                {
+                    DungeonType t = dungeons[i];
+                    dungeons[i] = dungeons[j];
+                    dungeons[j] = t;
+                }
+            }
+        }
+    }
+
     public DungeonType(DungeonType clone)
     {
         name = clone.name;
@@ -115,7 +134,10 @@ public struct DungeonType
         risk = clone.risk;
         oneIn = clone.oneIn;
         target = clone.target;
+        targetModifiers = clone.targetModifiers;
         generator = clone.generator;
         tags = clone.tags;
+        decorators = clone.decorators;
+        distance = clone.distance;
     }
 }

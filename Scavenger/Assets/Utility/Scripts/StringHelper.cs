@@ -287,13 +287,13 @@ public static class StringHelper
     public static string RemoveTrailingSpaces(string str)
     {
         string value = str;
-        while (value[0] == ' ')
+        while (value.Length > 0 && value[0] == ' ')
         {
-            value.Remove(0);
+            value = value.Remove(0, 1);
         }
-        while (value[value.Length - 1] == ' ')
+        while (value.Length > 0 && value[value.Length - 1] == ' ')
         {
-            value.Remove(value.Length - 1);
+            value = value.Remove(value.Length - 1, 1);
         }
         return value;
     }

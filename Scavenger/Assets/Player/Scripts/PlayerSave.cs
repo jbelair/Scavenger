@@ -15,31 +15,44 @@ public class PlayerSave
         {
             if (saves.Count == 0)
             {
-                saves.Add(new PlayerSave("save"));
-
-                string unlockedShips = "";
-                foreach (ShipDefinition ships in Ships.definitions.Values)
-                {
-                    if (ships.value == 0)
-                        unlockedShips += ships.name + " ";
-                }
-                saves[0].Add("unlocked ships", "StringList", unlockedShips);
-                saves[0].Add("discovered ships", "StringList", unlockedShips);
-
-                string unlockedSkills = "";
-                foreach (Skill skill in Skills.skills.Values)
-                {
-                    if (skill.value == 0)
-                        unlockedSkills += skill.name + " ";
-                }
-                saves[0].Add("unlocked skills", "StringList", unlockedSkills);
-                saves[0].Add("discovered skills", "StringList", unlockedSkills);
-
-                saves[0].Add("system coordinates", "Vector3", JsonUtility.ToJson(UnityEngine.Random.insideUnitCircle.normalized.XYO().ToInt() * 100 + new Vector3(500, 0, 0)));
+                saves.Add(New());
             }
 
             return saves[0];
         }
+        set
+        {
+            saves[0] = value;
+        }
+    }
+
+    public static PlayerSave New()
+    {
+        PlayerSave newSave = new PlayerSave("save");
+
+        string unlockedShips = "";
+        foreach (ShipDefinition ships in Ships.definitions.Values)
+        {
+            if (ships.starting)
+                unlockedShips += ships.name + " ";
+        }
+        newSave.Add("unlocked ships", "StringList", unlockedShips);
+        newSave.Add("discovered ships", "StringList", unlockedShips);
+
+        string unlockedSkills = "";
+        foreach (Skill skill in Skills.skills.Values)
+        {
+            if (skill.starting)
+                unlockedSkills += skill.name + " ";
+        }
+        newSave.Add("unlocked skills", "StringList", unlockedSkills);
+        newSave.Add("discovered skills", "StringList", unlockedSkills);
+
+        newSave.Add("system coordinates", "Vector3", JsonUtility.ToJson((UnityEngine.Random.insideUnitCircle.XYO() * 64).Round() - new Vector3(511, 0, 0)));
+        newSave.Add("fuel", "Float", (-1).ToString());
+        newSave.Add("matter", "Integer", 250.ToString());
+
+        return newSave;
     }
 
     public static void Save()

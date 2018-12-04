@@ -28,7 +28,9 @@ public class GuideCircle : LineRendererCircle
         base.Update();
     }
 
+    #if UNITY_EDITOR
     [ExposeMethodInEditor]
+    #endif
     public void Adjust()
     {
         SetCircle();

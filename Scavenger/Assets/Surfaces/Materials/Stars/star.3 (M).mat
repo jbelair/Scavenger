@@ -4,7 +4,7 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: star.3 (M)
   m_Shader: {fileID: 4800000, guid: 71a40a7f9f9f92548b7bd855bacf132f, type: 3}
@@ -98,7 +98,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _HDR: 6.5
+    - _HDR: 2
     - _Kelvin: 2750
     - _KelvinMax: 30000
     - _KelvinRange: 1000

@@ -19,5 +19,6 @@ public struct ShipDefinition
     public string risk;
     public int oneIn;
     public int value;
+    public bool starting;
     public List<Statistic> statistics;
 }

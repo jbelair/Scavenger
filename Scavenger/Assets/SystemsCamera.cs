@@ -46,11 +46,11 @@ public class SystemsCamera : MonoBehaviour
         Vector2 pos = mousePosition;
         pos = pos.Multiply(new Vector2(1f / Screen.width, 1f / Screen.height));
 
-        scrollCount.Set(Mathf.Max(0, Mathf.Min(100, scrollCount.Get<float>() + scroll.Get<float>())));
+        scrollCount.Set(Mathf.Max(0, Mathf.Min(200, scrollCount.Get<float>() + scroll.Get<float>())));
 
-        float jumpRange = Mathf.Max(zoomMinimum.Get<float>(), stat_jumpView.value * scrollCount.Get<float>() / 100f);
+        float jumpRange = Mathf.Max(zoomMinimum.Get<float>(), stat_jumpView.value * scrollCount.Get<float>() / 200f);
 
-        Vector3 position = Environment.systemCoordinatesDepth.OOZ() + coordinate.OOZ() + Vector3.Lerp(zoomInOffset, zoomOutOffset, scrollCount.Get<float>() / 100f) * jumpRange * 1000f;
+        Vector3 position = Environment.systemCoordinatesDepth.OOZ() + coordinate.OOZ() + Vector3.Lerp(zoomInOffset, zoomOutOffset, scrollCount.Get<float>() / 200f) * jumpRange * 1000f;
         node.transform.position = Vector3.SmoothDamp(node.transform.position, position, ref currentVelocity, 0.1f);
         
         //camera.transform.position += new Vector3(pos.x * 2f - 1f, pos.y * 2f - 1f, 0) * Environment.jumpRadius * 1000f;

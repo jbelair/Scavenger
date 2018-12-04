@@ -63,36 +63,36 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Tex100:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Texture: {fileID: 2800000, guid: 42ef422e9c8bb5d4ab6ed4a6e7f6016b, type: 3}
+        m_Scale: {x: 10, y: 10}
+        m_Offset: {x: 0.01, y: 0}
     - _Tex100_N:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Texture: {fileID: 2800000, guid: e46a608becdc2574290e6d4cbfab69e6, type: 3}
+        m_Scale: {x: 10, y: 10}
+        m_Offset: {x: 0.01, y: 0}
     - _Tex25:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 0105f1355ef2c524d84d4cf83499d623, type: 3}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _Tex25_N:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: bfee812860bbb13449b1ef2160a54984, type: 3}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _Tex50:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: d46215d9710749f40ae9ba713d72b4eb, type: 3}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _Tex50_N:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 15f220b463f03ba4fa61909a5b7f429a, type: 3}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _Tex75:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 5f924b5663a0c404888631219921ca87, type: 3}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _Tex75_N:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: a1351fd2783f1e04e9db65ebe667d049, type: 3}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
@@ -106,18 +106,18 @@ Material:
     - _GlowG_Freznel: 0
     - _GlowR_Freznel: 0
     - _Metal0: 0
-    - _Metal100: 0
-    - _Metal25: 0
-    - _Metal50: 0
-    - _Metal75: 0
+    - _Metal100: 0.481
+    - _Metal25: 0.75
+    - _Metal50: 0.5
+    - _Metal75: 0.5
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Smooth0: 0.5
-    - _Smooth100: 0.5
-    - _Smooth25: 0.5
-    - _Smooth50: 0.5
+    - _Smooth100: 0
+    - _Smooth25: 0.25
+    - _Smooth50: 0.25
     - _Smooth75: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -125,13 +125,13 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Col0: {r: 1, g: 1, b: 1, a: 1}
+    - _Col0: {r: 0.1, g: 0.1, b: 0.1, a: 1}
     - _Col100: {r: 1, g: 1, b: 1, a: 1}
-    - _Col25: {r: 1, g: 1, b: 1, a: 1}
-    - _Col50: {r: 1, g: 1, b: 1, a: 1}
-    - _Col75: {r: 1, g: 1, b: 1, a: 1}
+    - _Col25: {r: 0.25, g: 0.25, b: 0.25, a: 1}
+    - _Col50: {r: 0.25, g: 0.5, b: 0.5, a: 1}
+    - _Col75: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GlowB: {r: 0, g: 0, b: 1, a: 1}
-    - _GlowG: {r: 0, g: 1, b: 0, a: 1}
-    - _GlowR: {r: 1, g: 0, b: 0, a: 1}
+    - _GlowB: {r: 1.6705883, g: 1.0039216, b: 2, a: 1}
+    - _GlowG: {r: 2, g: 1.5058824, b: 1.0039216, a: 1}
+    - _GlowR: {r: 0.75, g: 1, b: 0.9166667, a: 1}

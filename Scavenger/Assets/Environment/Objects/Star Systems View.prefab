@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 205445736127873524}
   m_Layer: 2
   m_Name: Star Systems View
-  m_TagString: Untagged
+  m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -555,6 +555,7 @@ MonoBehaviour:
   lastKelvin: 0
   lastKelvinRange: 0
   lastKelvinMax: 0
+  lastParticleSystems: 0
 --- !u!114 &114879598551871470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -571,6 +572,7 @@ MonoBehaviour:
   dungeonType:
     name: 
     description: 
+    goTarget: 
     category: 
     risk: 
     oneIn: 0
@@ -1178,7 +1180,7 @@ ParticleSystem:
     randomizeRotationDirection: 0
     maxNumParticles: 1000
     size3D: 0
-    rotation3D: 1
+    rotation3D: 0
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
@@ -5711,7 +5713,7 @@ ParticleSystem:
     randomizeRotationDirection: 0
     maxNumParticles: 1000
     size3D: 0
-    rotation3D: 1
+    rotation3D: 0
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
@@ -10244,7 +10246,7 @@ ParticleSystem:
     randomizeRotationDirection: 0
     maxNumParticles: 1000
     size3D: 0
-    rotation3D: 1
+    rotation3D: 0
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0

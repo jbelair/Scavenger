@@ -79,7 +79,7 @@ public static class ColourHelper
     //    return new Vector2(v.z, v.z);
     //}
 
-    public static Color rgb(this Vector3 v)
+    public static Color RGB(this Vector3 v)
     {
         return new Color(v.x, v.y, v.z, 1);
     }
@@ -91,7 +91,7 @@ public static class ColourHelper
     {
         Vector3 normal = new Vector3(colour.r, colour.g, colour.b).normalized;
 
-        return normal.rgb();
+        return normal.RGB();
     }
 
     public static Gradient heatMap = new Gradient

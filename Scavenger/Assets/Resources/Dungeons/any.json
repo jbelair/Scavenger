@@ -2,96 +2,6 @@
 	"signals":
 	[
 		{
-			"name": "signals_any_station",
-			"description" : "signals_any_station_desc",
-			"category": "tag_station",
-			"risk" : "risk_none",
-			"oneIn" : 500,
-			"target" : "Any",
-			"generator" : "Standard",
-			"tags" : "tag_neutral tag_station tag_respawn tag_repair $1:20[tag_buy,tag_sell,tag_defended,tag_ship] $1:50[tag_ships,tag_debris,tag_asteroid] $1:100[tag_asteroids,tag_conflict] $1:500[tag_shipwreck,tag_battle] $1:1000[tag_graveyard]"
-		},
-		{
-			"name": "signals_any_station_wreck",
-			"description": "signals_any_station_wreck_desc",
-			"category": "tag_station_wreck",
-			"risk": "risk_medium",
-			"oneIn": 1000,
-			"target" : "Any",
-			"generator" : "Standard",
-			"tags" : "tag_neutral tag_station tag_debris $1:20[tag_ship,tag_asteroid] $1:50[tag_ships,tag_asteroids,tag_conflict] $1:100[tag_shipwreck,tag_battle] $1:500[tag_graveyard,tag_battle]"
-		},
-		{
-			"name": "signals_any_station_construction",
-			"description": "signals_any_station_construction_desc",
-			"category": "tag_station_construction", 
-			"risk": "risk_low",
-			"oneIn": 1000,
-			"target" : "Any",
-			"generator" : "Standard",
-			"tags" : "tag_neutral tag_station tag_ship $1:20[tag_buy,tag_sell,tag_defended,tag_ships] $1:50[tag_debris] $1:100[tag_asteroid,tag_conflict] $1:500[tag_respawn,tag_repair,tag_asteroids,tag_battle] $1:1000[tag_shipwreck] $1:5000[tag_graveyard]"
-		},
-		{
-			"name": "signals_any_station_trading",
-			"description": "signals_any_station_trading_desc",
-			"category": "tag_station",
-			"risk": "risk_low",
-			"oneIn": 500,
-			"target" : "Any",
-			"generator" : "Standard",
-			"tags" : "tag_allied tag_station tag_buy tag_defended $1:20[tag_sell,tag_ship] $1:50[tag_ships,tag_debris] $1:100[tag_asteroid,tag_conflict] $1:500[tag_asteroids,tag_shipwreck,tag_battle] $1:1000[tag_graveyard]"
-		},
-		{
-			"name": "signals_any_station_trading_wreck",
-			"description": "signals_any_station_trading_wreck_desc",
-			"category": "tag_station_wreck",
-			"risk": "risk_medium",
-			"oneIn": 500,
-			"target" : "Any",
-			"generator" : "Standard",
-			"tags" : "tag_neutral tag_station tag_debris $1:20[tag_ship,tag_asteroid] $1:50[tag_ships,tag_asteroids,tag_conflict] $1:100[tag_shipwreck] $1:500[tag_graveyard,tag_battle]"
-		},
-		{
-			"name": "signals_any_station_trading_construction",
-			"description": "signals_any_station_trading_construction_desc",
-			"category": "tag_station_construction",
-			"risk": "risk_low",
-			"oneIn": 500,
-			"target" : "Any",
-			"generator" : "Standard",
-			"tags" : "tag_neutral tag_station tag_ship $1:20[tag_repair,tag_buy,tag_sell,tag_defended,tag_ships] $1:50[tag_debris] $1:100[tag_asteroid,tag_conflict] $1:500[tag_asteroids,tag_battle] $1:1000[tag_shipwreck] $1:5000[tag_graveyard]"
-		},
-		{
-			"name": "signals_any_station_military",
-			"description": "signals_any_station_military_desc",
-			"category": "tag_station",
-			"risk": "risk_medium",
-			"oneIn": 1000,
-			"target" : "Any",
-			"generator" : "Standard",
-			"tags" : "tag_neutral tag_station tag_defended $1:20[tag_debris,tag_ship] $1:50[tag_ships,tag_asteroid,tag_shipwreck,tag_conflict] $1:100[tag_graveyard,tag_battle]"
-		},
-		{
-			"name": "signals_any_station_military_wreck",
-			"description": "signals_any_station_military_wreck_desc",
-			"category": "tag_station_wreck",
-			"risk": "risk_medium",
-			"oneIn": 500,
-			"target" : "Any",
-			"generator" : "Standard",
-			"tags" : "tag_neutral tag_station tag_debris $1:20[tag_defended,tag_ship,tag_asteroid,tag_conflict] $1:50[tag_ships,tag_asteroids,tag_battle] $1:100[tag_shipwreck] $1:500[tag_graveyard,tag_battle]"
-		},
-		{
-			"name": "signals_any_station_military_construction",
-			"description": "signals_any_station_military_construction_desc",
-			"category": "tag_station_construction",
-			"risk": "risk_medium",
-			"oneIn": 500,
-			"target" : "Any",
-			"generator" : "Standard",
-			"tags" : "tag_neutral tag_station tag_ship $1:20[tag_repair,tag_defended,tag_ships] $1:50[tag_debris,tag_conflict] $1:100[tag_asteroid,tag_battle] $1:500[tag_asteroids] $1:1000[tag_shipwreck] $1:5000[tag_graveyard]"
-		},
-		{
 			"name": "signals_any_trader",
 			"description": "signals_any_trader_desc",
 			"category": "tag_ship",
@@ -136,7 +46,7 @@
 			"description": "signals_any_shipwreck_desc",
 			"category": "tag_shipwreck",
 			"risk": "risk_low",
-			"oneIn": 50,
+			"oneIn": 25,
 			"target" : "Any",
 			"generator" : "Standard",
 			"tags" : "tag_neutral tag_shipwreck tag_debris $1:20[tag_ship,tag_asteroid] $1:50[tag_ships,tag_asteroids,tag_conflict] $1:100[tag_battle]"

@@ -7,7 +7,8 @@
 			"icon": "skill_slug_auto_basic",
 			"risk": "risk_low",
 			"oneIn": 1,
-			"value": 0
+			"value": 0,
+			"starting":true
 		},
 		{
 			"name": "skill_slug_cannon_basic",
@@ -15,7 +16,8 @@
 			"icon": "skill_slug_cannon_basic",
 			"risk": "risk_low",
 			"oneIn": 1,
-			"value": 0
+			"value": 0,
+			"starting":true
 		},
 		{
 			"name": "skill_laser_mining_basic",
@@ -23,7 +25,8 @@
 			"icon": "skill_laser_mining_basic",
 			"risk": "risk_low",
 			"oneIn": 1,
-			"value": 0
+			"value": 0,
+			"starting":true
 		},
 		{
 			"name": "skill_laser_cannon_basic",
@@ -31,7 +34,8 @@
 			"icon": "skill_laser_cannon_basic",
 			"risk": "risk_low",
 			"oneIn": 1,
-			"value": 0
+			"value": 0,
+			"starting":true
 		},
 		{
 			"name": "skill_laser_pulse_basic",
@@ -39,7 +43,8 @@
 			"icon": "skill_laser_pulse_basic",
 			"risk": "risk_low",
 			"oneIn": 1,
-			"value": 0
+			"value": 0,
+			"starting":true
 		},
 		{
 			"name": "skill_laser_beam_basic",
@@ -47,7 +52,8 @@
 			"icon": "skill_laser_beam_basic",
 			"risk": "risk_low",
 			"oneIn": 1,
-			"value": 0
+			"value": 0,
+			"starting":true
 		},
 		{
 			"name": "skill_missile_basic",
@@ -55,7 +61,8 @@
 			"icon": "skill_missile_basic",
 			"risk": "risk_low",
 			"oneIn": 1,
-			"value": 0
+			"value": 0,
+			"starting":true
 		},
 		{
 			"name": "skill_torpedo_basic",
@@ -63,7 +70,8 @@
 			"icon": "skill_torpedo_basic",
 			"risk": "risk_low",
 			"oneIn": 1,
-			"value": 0
+			"value": 0,
+			"starting":true
 		},
 		{
 			"name": "skill_plasma_bolter_basic",
@@ -71,7 +79,8 @@
 			"icon": "skill_plasma_bolter_basic",
 			"risk": "risk_low",
 			"oneIn": 1,
-			"value": 0
+			"value": 0,
+			"starting":true
 		},
 		{
 			"name": "skill_plasma_thrower_basic",
@@ -79,7 +88,8 @@
 			"icon": "skill_plasma_thrower_basic",
 			"risk": "risk_low",
 			"oneIn": 1,
-			"value": 0
+			"value": 0,
+			"starting":true
 		},
 
 
@@ -90,7 +100,8 @@
 			"icon": "skill_slug_auto",
 			"risk": "risk_medium",
 			"oneIn": 10,
-			"value": 100
+			"value": 100,
+			"starting":true
 		},
 		{
 			"name": "skill_slug_cannon",
@@ -98,7 +109,8 @@
 			"icon": "skill_slug_cannon",
 			"risk": "risk_medium",
 			"oneIn": 10,
-			"value": 100
+			"value": 100,
+			"starting":true
 		},
 		{
 			"name": "skill_laser_mining",
@@ -106,7 +118,8 @@
 			"icon": "skill_laser_mining",
 			"risk": "risk_medium",
 			"oneIn": 10,
-			"value": 100
+			"value": 100,
+			"starting":true
 		},
 		{
 			"name": "skill_laser_cannon",
@@ -114,7 +127,8 @@
 			"icon": "skill_laser_cannon",
 			"risk": "risk_medium",
 			"oneIn": 10,
-			"value": 100
+			"value": 100,
+			"starting":true
 		},
 		{
 			"name": "skill_laser_pulse",
@@ -122,7 +136,8 @@
 			"icon": "skill_laser_pulse",
 			"risk": "risk_medium",
 			"oneIn": 10,
-			"value": 100
+			"value": 100,
+			"starting":true
 		},
 		{
 			"name": "skill_laser_beam",
@@ -130,7 +145,8 @@
 			"icon": "skill_laser_beam",
 			"risk": "risk_medium",
 			"oneIn": 10,
-			"value": 100
+			"value": 100,
+			"starting":true
 		},
 		{
 			"name": "skill_missile",
@@ -138,7 +154,8 @@
 			"icon": "skill_missile",
 			"risk": "risk_medium",
 			"oneIn": 10,
-			"value": 100
+			"value": 100,
+			"starting":true
 		},
 		{
 			"name": "skill_torpedo",
@@ -146,7 +163,8 @@
 			"icon": "skill_torpedo",
 			"risk": "risk_medium",
 			"oneIn": 10,
-			"value": 100
+			"value": 100,
+			"starting":true
 		},
 		{
 			"name": "skill_plasma_bolter",
@@ -154,7 +172,8 @@
 			"icon": "skill_plasma_bolter",
 			"risk": "risk_medium",
 			"oneIn": 10,
-			"value": 100
+			"value": 100,
+			"starting":true
 		},
 		{
 			"name": "skill_plasma_thrower",
@@ -162,7 +181,8 @@
 			"icon": "skill_plasma_thrower",
 			"risk": "risk_medium",
 			"oneIn": 10,
-			"value": 100
+			"value": 100,
+			"starting":true
 		},
 
 
@@ -173,7 +193,8 @@
 			"icon": "skill_slug_auto_advanced",
 			"risk": "risk_high",
 			"oneIn": 100,
-			"value": 10000
+			"value": 10000,
+			"starting":false
 		},
 		{
 			"name": "skill_slug_cannon_advanced",
@@ -181,7 +202,8 @@
 			"icon": "skill_slug_cannon_advanced",
 			"risk": "risk_high",
 			"oneIn": 100,
-			"value": 10000
+			"value": 10000,
+			"starting":false
 		},
 		{
 			"name": "skill_laser_mining_advanced",
@@ -189,7 +211,8 @@
 			"icon": "skill_laser_mining_advanced",
 			"risk": "risk_high",
 			"oneIn": 100,
-			"value": 10000
+			"value": 10000,
+			"starting":false
 		},
 		{
 			"name": "skill_laser_cannon_advanced",
@@ -197,7 +220,8 @@
 			"icon": "skill_laser_cannon_advanced",
 			"risk": "risk_high",
 			"oneIn": 100,
-			"value": 10000
+			"value": 10000,
+			"starting":false
 		},
 		{
 			"name": "skill_laser_pulse_advanced",
@@ -205,7 +229,8 @@
 			"icon": "skill_laser_pulse_advanced",
 			"risk": "risk_high",
 			"oneIn": 100,
-			"value": 10000
+			"value": 10000,
+			"starting":false
 		},
 		{
 			"name": "skill_laser_beam_advanced",
@@ -213,7 +238,8 @@
 			"icon": "skill_laser_beam_advanced",
 			"risk": "risk_high",
 			"oneIn": 100,
-			"value": 10000
+			"value": 10000,
+			"starting":false
 		},
 		{
 			"name": "skill_missile_advanced",
@@ -221,7 +247,8 @@
 			"icon": "skill_missile_advanced",
 			"risk": "risk_high",
 			"oneIn": 100,
-			"value": 10000
+			"value": 10000,
+			"starting":false
 		},
 		{
 			"name": "skill_torpedo_advanced",
@@ -229,7 +256,8 @@
 			"icon": "skill_torpedo_advanced",
 			"risk": "risk_high",
 			"oneIn": 100,
-			"value": 10000
+			"value": 10000,
+			"starting":false
 		},
 		{
 			"name": "skill_plasma_bolter_advanced",
@@ -237,7 +265,8 @@
 			"icon": "skill_plasma_bolter_advanced",
 			"risk": "risk_high",
 			"oneIn": 100,
-			"value": 10000
+			"value": 10000,
+			"starting":false
 		},
 		{
 			"name": "skill_plasma_thrower_advanced",
@@ -245,7 +274,8 @@
 			"icon": "skill_plasma_thrower_advanced",
 			"risk": "risk_high",
 			"oneIn": 100,
-			"value": 10000
+			"value": 10000,
+			"starting":false
 		}
 	]
 }

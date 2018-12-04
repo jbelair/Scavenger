@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 4172349813
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: dungeons_standard
+      Dependencies: {}

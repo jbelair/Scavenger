@@ -98,7 +98,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _HDR: 6
+    - _HDR: 2
     - _Kelvin: 3000
     - _KelvinMax: 30000
     - _KelvinRange: 500

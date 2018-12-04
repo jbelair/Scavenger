@@ -105,7 +105,7 @@ public class PlanetGenerator : MonoBehaviour
         EnvironmentBasedPlanet.Temperature temperature;
         EnvironmentBasedPlanet.Classification classification;
 
-        if (planet.transform.localScale.x >= (EnvironmentRules.RadiusOfEarth * 2f) / 10000f)
+        if (planet.transform.localScale.x >= (EnvironmentRules.RadiusOfEarth * 2f) / SystemsGenerator.active.scale)
         {
             if (kelvinLow >= 75 && kelvinHigh <= 200)
             {
@@ -123,7 +123,7 @@ public class PlanetGenerator : MonoBehaviour
                 }
             }
 
-            if (planet.transform.localScale.x >= (EnvironmentRules.RadiusOfEarth * 5f) / 10000f)
+            if (planet.transform.localScale.x >= (EnvironmentRules.RadiusOfEarth * 5f) / SystemsGenerator.active.scale)
                 classification = EnvironmentBasedPlanet.Classification.GasGiant;
             else
                 classification = EnvironmentBasedPlanet.Classification.GasDwarf;
@@ -146,7 +146,7 @@ public class PlanetGenerator : MonoBehaviour
                 }
             }
 
-            if (planet.transform.localScale.x > (EnvironmentRules.RadiusOfEarth * 0.25f) / 10000f)
+            if (planet.transform.localScale.x > (EnvironmentRules.RadiusOfEarth * 0.25f) / SystemsGenerator.active.scale)
             {
                 classification = EnvironmentBasedPlanet.Classification.Mixed;
             }

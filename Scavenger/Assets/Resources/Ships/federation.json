@@ -9,6 +9,7 @@
 			"risk":"risk_low",
 			"oneIn":10,
 			"value":100,
+			"starting": false,
 			"statistics":
 			[
 				{"name":"stat_jump_fuel","value":10,"unit":""},
