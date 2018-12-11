@@ -68,7 +68,7 @@ public class InventoryShips : MonoBehaviour
                     ship.model.transform.localPosition = Vector3.zero;
                     ship.model.transform.rotation = new Quaternion();
                     MeshRenderer renderer = ship.model.GetComponentInChildren<MeshRenderer>();
-                    renderer.sharedMaterial = (ship.isUnlocked || ship.isDiscovered) ? Materials.materials[ship.definition.material] : Materials.materials["ship_locked"];
+                    renderer.sharedMaterial = (ship.isUnlocked || ship.isDiscovered) ? Materials.materials[Skins.Get(ship.definition.skin).skin] : Materials.materials["ship_locked"];
 
                     if (i == 0)
                     {

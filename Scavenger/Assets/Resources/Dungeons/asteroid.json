@@ -24,7 +24,7 @@
 		{
 			"name": "signals_asteroid_station_wreck",
 			"description": "signals_asteroid_station_wreck_desc",
-			"category": "tag_asteroid tag_station Wreck",
+			"category": "tag_asteroid_station_wreck",
 			"risk": "risk_medium",
 			"oneIn": 500,
 			"target" : "Asteroid",
@@ -34,7 +34,7 @@
 		{
 			"name": "signals_asteroid_station_construction",
 			"description": "signals_asteroid_station_construction_desc",
-			"category": "tag_asteroid tag_station Construction",
+			"category": "tag_asteroid_station_construction",
 			"risk": "risk_low",
 			"oneIn": 250,
 			"target" : "Asteroid",

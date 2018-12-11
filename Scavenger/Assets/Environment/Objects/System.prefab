@@ -560,7 +560,7 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.5
-      value: 8
+      value: 5
       inSlope: 0.20137616
       outSlope: 0.20137616
       tangentMode: 0
@@ -569,7 +569,7 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 16
+      value: 10
       inSlope: 0
       outSlope: 0
       tangentMode: 136
@@ -659,7 +659,7 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.5
-      value: 2
+      value: 5
       inSlope: -0.090776995
       outSlope: -0.090776995
       tangentMode: 0

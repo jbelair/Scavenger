@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class PlayerStatisticModifier : MonoBehaviour
 {
-    public StatisticModifier value;
-    private Statistic data;
+    public StatisticModifier modifier;
 
     public void Do()
     {
-        if (data == null)
-            data = FindObjectOfType<PlayerUEI>().statistics[value.unityStatistic.name];
+        if (modifier.maximum == null)
+            modifier.maximum = FindObjectOfType<Player>().statistics[modifier.unityStatistic.maximum.name];
 
-        if (value.Maximum == null)
-            value.Maximum = FindObjectOfType<PlayerUEI>().statistics[value.maximumStatistic];
+        modifier.Modify(modifier.unityStatistic.Value);
+    }
 
-        value.Modify(data);
+    public void Undo()
+    {
+        if (modifier.maximum == null)
+            modifier.maximum = FindObjectOfType<Player>().statistics[modifier.unityStatistic.maximum.name];
+
+        modifier.Unmodify(modifier.unityStatistic.Value);
     }
 }

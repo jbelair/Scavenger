@@ -1,0 +1,33 @@
+{
+	"literals":
+	[
+		{
+			"key": "hazard_plasma",
+			"value": "Plasma"
+		},
+		{
+			"key": "hazard_corona",
+			"value": "Corona"
+		},
+		{
+			"key": "hazard_radiation",
+			"value": "Radiation"
+		},
+		{
+			"key": "hazard_atmosphere_gasgiant",
+			"value": "Atmosphere"
+		},
+		{
+			"key": "hazard_magnetosphere_gasgiant",
+			"value": "Magnetosphere"
+		},
+		{
+			"key": "hazard_magnetosphere_gasdwarf",
+			"value": "Magnetosphere"
+		},
+		{
+			"key": "hazard_magnetosphere_star",
+			"value": "Magnetosphere"
+		}
+	]
+}

@@ -67,6 +67,7 @@ public class Schemes : MonoBehaviour
                 ColorUtility.TryParseHtmlString((def.colour[0] == '#') ? def.colour : "#" + def.colour, out colour);
                 schemes.Add(new Scheme(def.name, asset.name, colour, Sprites.Get(def.symbol)));
                 lookup.Add(def.name, schemes[schemes.Count - 1]);
+                //Debug.Log(def.name);
             }
         }
     }

@@ -10,7 +10,8 @@
 			"target": "Star",
 			"generator": "Standard",
 			"tags": "tag_neutral tag_plasma tag_ejection $1:5[tag_distress,tag_debris,tag_ship] $1:10[tag_shipwreck,tag_ships] $1:25[tag_conflict,tag_graveyard] $1:50[tag_battle]",
-			"distance": 5
+			"distance": 3,
+			"hazards": "hazard_corona,hazard_plasma,hazard_radiation,hazard_magnetosphere_star"
 		},
 
 		{
@@ -24,7 +25,8 @@
 			"generator": "Standard",
 			"tags": "tag_neutral tag_plasma tag_ejection $1:5[tag_distress,tag_debris,tag_ship] $1:10[tag_shipwreck,tag_ships] $1:25[tag_conflict,tag_graveyard] $1:50[tag_battle]",
 			"decorators": "coronal_mass_ejector",
-			"distance": 10
+			"distance": 10,
+			"hazards": "hazard_plasma,hazard_radiation"
 		},
 		{
 			"name": "signals_star_ejection_plasma",
@@ -37,7 +39,8 @@
 			"generator": "Standard",
 			"tags": "tag_neutral tag_plasma tag_ejection $1:5[tag_distress,tag_debris,tag_ship] $1:10[tag_shipwreck,tag_ships] $1:25[tag_conflict,tag_graveyard] $1:50[tag_battle]",
 			"decorators": "coronal_mass_ejector",
-			"distance": 10
+			"distance": 10,
+			"hazards": "hazard_plasma,hazard_radiation"
 		},
 		{
 			"name": "signals_star_ejection_plasma",
@@ -50,7 +53,8 @@
 			"generator": "Standard",
 			"tags": "tag_neutral tag_plasma tag_ejection $1:5[tag_distress,tag_debris,tag_ship] $1:10[tag_shipwreck,tag_ships] $1:25[tag_conflict,tag_graveyard] $1:50[tag_battle]",
 			"decorators": "coronal_mass_ejector",
-			"distance": 10
+			"distance": 10,
+			"hazards": "hazard_plasma,hazard_radiation"
 		},
 
 		{

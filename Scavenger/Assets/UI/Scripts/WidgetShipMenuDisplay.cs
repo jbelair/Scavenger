@@ -13,6 +13,8 @@ public class WidgetShipMenuDisplay : MonoBehaviour
 
     public TextMeshProUGUI textName;
     public TextMeshProUGUI textDesc;
+    public WidgetSkinSelector skin;
+    public WidgetSkinSelector shield;
     public WidgetStatistic statValue;
     public WidgetStatistic statFuel;
     public WidgetStatistic statRange;
@@ -41,6 +43,11 @@ public class WidgetShipMenuDisplay : MonoBehaviour
         statValue.statistic_ref = "stat_matter";
         statValue.value.SetText(active.isUnlocked ? ship.value.ToString() : disabled);
         statValue.Initialise();
+
+        skin.isShield = false;
+        skin.Initialise(ship);
+        shield.isShield = true;
+        shield.Initialise(ship);
 
         foreach (ShipDefinition.Statistic stat in ship.statistics)
         {

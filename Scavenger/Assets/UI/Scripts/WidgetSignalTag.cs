@@ -15,6 +15,8 @@ public class WidgetSignalTag : MonoBehaviour
     {
         Scheme scheme = Schemes.Scheme(tag);
 
+        Debug.Log(scheme.name);
+
         if (label)
             label.text = Literals.active[scheme.name];
 

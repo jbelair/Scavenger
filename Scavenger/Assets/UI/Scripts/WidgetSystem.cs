@@ -129,18 +129,18 @@ public class WidgetSystem : MonoBehaviour
                 int rarity = 1;
                 float risk = -1;
 
-                if (activeTargets.Count > 0)
-                {
-                    foreach (DungeonType dungeon in activeTargets)
-                    {
-                        rarity = Mathf.Max(rarity, dungeon.oneIn);
+                //if (activeTargets.Count > 0)
+                //{
+                //    foreach (DungeonType dungeon in activeTargets)
+                //    {
+                //        rarity = Mathf.Max(rarity, dungeon.oneIn);
 
-                        risk = Mathf.Max(risk, FloatHelper.RiskStringToFloat(dungeon.risk));
+                //        risk = Mathf.Max(risk, FloatHelper.RiskStringToFloat(dungeon.risk));
 
-                        labelWidget.Add(dungeon);
-                    }
-                }
-                else
+                //        labelWidget.Add(dungeon);
+                //    }
+                //}
+                //else
                 {
                     List<string> targets = environment["Dungeon Targets"].Get<object>() as List<string>;
 

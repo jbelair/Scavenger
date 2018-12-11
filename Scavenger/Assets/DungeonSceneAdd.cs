@@ -23,6 +23,23 @@ public class DungeonSceneAdd : MonoBehaviour
 
     private void Op_completed(AsyncOperation obj)
     {
+        // Instantiate all hazards
+        if (active.dungeonType.hazards != null)
+        {
+            string[] split = active.dungeonType.hazards.Split(new char[] { ' ', ',' }, System.StringSplitOptions.RemoveEmptyEntries);
+            foreach (string str in split)
+            {
+                GameObject hazard = Resources.Load<GameObject>("Dungeons/Objects/" + str);
+                if (hazard)
+                {
+                    hazard = Instantiate(hazard, Vector3.zero, new Quaternion());
+                    hazard.name = str;
+                    if (!hazard.GetComponentInChildren<Hazard>())
+                        hazard.AddComponent<Hazard>();
+                }
+            }
+        }
+
         // Set the active scene to the newly loaded scene (so that all instantiates now occur in this scene)
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(loadedScene));
 
@@ -39,13 +56,5 @@ public class DungeonSceneAdd : MonoBehaviour
         Player player = FindObjectOfType<Player>();
         SceneManager.MoveGameObjectToScene(player.gameObject, SceneManager.GetActiveScene());
         player.GetComponentInChildren<PlayerMovementUEI>().enabled = true;
-
-        ShipDefinition ship = JsonUtility.FromJson<ShipDefinition>(PlayerSave.Active.Get("ship").value);
-        foreach (ShipDefinition.Statistic stat in ship.statistics)
-        {
-            string statistic = StringHelper.RemoveTrailingSpaces(stat.name.Replace("_", " ").Replace("stat", "").Replace("max", "maximum").Replace("reg", "recovery"));
-            if (!player.statistics.Has(statistic))
-                player.statistics[statistic] = new Statistic(statistic, Statistic.ValueType.Float, stat.value);
-        }
     }
 }

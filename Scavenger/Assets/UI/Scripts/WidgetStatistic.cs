@@ -24,7 +24,8 @@ public class WidgetStatistic : MonoBehaviour
             statistic_ref = value.text;
 
         //Debug.Log(statistic_ref);
-        labelText.SetText(Literals.active[statistic_ref]);
+        if (labelText && Literals.active.ContainsKey(statistic_ref))
+            labelText.SetText(Literals.active[statistic_ref]);
         if (isValueFromRef)
             value.SetText(labelText.text);
 

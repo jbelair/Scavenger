@@ -16,7 +16,10 @@ public class EnvironmentTime : MonoBehaviour
     {
         active = this;
         time = Environment.environmentTime;
-        Environment.environmentTimeSpeed = 1f/(minutesToTime * 60);
+        if (minutesToTime > 0)
+            Environment.environmentTimeSpeed = Mathf.Min(1, Mathf.Max(0, 1f / (minutesToTime * 60)));
+        else
+            Environment.environmentTimeSpeed = minutesToTime;
         timeCounter = Environment.environmentTimeCounter;
     }
 

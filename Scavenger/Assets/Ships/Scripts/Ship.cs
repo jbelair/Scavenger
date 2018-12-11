@@ -64,7 +64,7 @@ public class Ship : MonoBehaviour
                 model = Instantiate(Resources.Load<GameObject>("Ships/Models/" + definition.name), Vector3.zero, Quaternion.Euler(0, 0, 180), transform);
 
                 renderer = model.GetComponentInChildren<MeshRenderer>();
-                renderer.sharedMaterial = Materials.materials[definition.material];
+                renderer.sharedMaterial = Materials.materials[Skins.Get(Players.players[0].statistics["ship material"]).skin];
             }
         }
     }

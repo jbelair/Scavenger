@@ -9,7 +9,7 @@ using UnityEngine;
 [CanEditMultipleObjects]
 public class StatisticUEIEditor : PropertyDrawer
 {
-    public SerializedProperty vName, state, vI, vF, vS, vC, vV2, vV3, vGO, vGOArray, vStat;
+    public SerializedProperty vName, state, vI, vF, vS, vC, vV2, vV3, vGO, vGOArray, vStat, vO;
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
@@ -84,10 +84,14 @@ public class StatisticUEIEditor : PropertyDrawer
                 EditorGUI.indentLevel -= 1;
                 //EditorGUI.MultiPropertyField(rField, , vGOArray, GUIContent.none);
                 break;
-                //case Statistic.ValueType.Statistic:
-                //    vStat = prop.FindPropertyRelative("valueStatistic");
-                //    EditorGUI.PropertyField(rField, vStat, GUIContent.none);
-                //    break;
+            //case Statistic.ValueType.Statistic:
+            //    vStat = prop.FindPropertyRelative("valueStatistic");
+            //    EditorGUI.PropertyField(rField, vStat, GUIContent.none);
+            //    break;
+            //case Statistic.ValueType.Object:
+            //    vO = prop.FindPropertyRelative("valueObject");
+            //    EditorGUI.PropertyField(rField, vO, GUIContent.none);
+            //    break;
         }
 
         EditorGUI.indentLevel = indent;

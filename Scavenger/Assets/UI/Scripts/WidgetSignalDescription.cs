@@ -76,7 +76,7 @@ public class WidgetSignalDescription : MonoBehaviour
 
         Random.InitState(generator.hash);
 
-        Vector3 offset = new Vector3(Random.Range(0f, 1f) * 2 - 1, 0, -1);
+        Vector3 offset = new Vector3(Random.Range(-0.25f, 0.25f), Random.Range(-0.25f, 0.25f), -1);
 
         int i = 0;
         if (!generator.dungeonTarget.Contains("Star"))
@@ -122,7 +122,7 @@ public class WidgetSignalDescription : MonoBehaviour
     private void Op_completed(AsyncOperation obj)
     {
         Transform background = GameObject.Find("Background").transform;
-        background.GetComponent<ParallaxBackground>().scale = EnvironmentRules.RadiusOfMercury * generator.dungeonType.distance;
+        background.GetComponent<ParallaxBackground>().scale = EnvironmentRules.RadiusOfJupiter * generator.dungeonType.distance;
         foreach (Transform transform in transforms)
         {
             SceneManager.MoveGameObjectToScene(transform.gameObject, SceneManager.GetActiveScene());

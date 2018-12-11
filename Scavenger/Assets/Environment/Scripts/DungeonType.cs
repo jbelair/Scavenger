@@ -20,6 +20,7 @@ public struct DungeonType
     public string tags;
     public string decorators;
     public float distance;
+    public string hazards;
 
     public static implicit operator string(DungeonType dungeon)
     {
@@ -139,5 +140,6 @@ public struct DungeonType
         tags = clone.tags;
         decorators = clone.decorators;
         distance = clone.distance;
+        hazards = clone.hazards;
     }
 }

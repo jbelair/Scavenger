@@ -19,6 +19,8 @@ public static class StringHelper
                 return "/s";
             case "seconds":
                 return "s";
+            case "metres":
+                return "m";
             case "metrespersecond":
                 return "m/s";
             case "metrespersecond2":

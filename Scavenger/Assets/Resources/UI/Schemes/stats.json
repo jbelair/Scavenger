@@ -21,6 +21,11 @@
             "symbol": "stat_jump_view"
         },
         {
+            "name": "stat_hull",
+            "colour": "BF2A3EFF",
+            "symbol": "stat_hull"
+        },
+        {
             "name": "stat_hull_max",
             "colour": "FF3852FF",
             "symbol": "stat_hull"
@@ -34,6 +39,11 @@
             "name": "stat_hull_delay",
             "colour": "FF3852FF",
             "symbol": "stat_hull"
+        },
+        {
+            "name": "stat_armour",
+            "colour": "BF8A3DFF",
+            "symbol": "stat_armour"
         },
         {
             "name": "stat_armour_max",
@@ -51,6 +61,11 @@
             "symbol": "stat_armour"
         },
         {
+            "name": "stat_shield",
+            "colour": "18BFB0FF",
+            "symbol": "stat_shield"
+        },
+        {
             "name": "stat_shield_max",
             "colour": "20FFEAFF",
             "symbol": "stat_shield"
@@ -64,6 +79,21 @@
             "name": "stat_shield_delay",
             "colour": "20FFEAFF",
             "symbol": "stat_shield"
+        },
+        {
+            "name": "stat_dimension_width",
+            "colour": "FFFFFFFF",
+            "symbol": "stat_dimension_width"
+        },
+        {
+            "name": "stat_dimension_length",
+            "colour": "FFFFFFFF",
+            "symbol": "stat_dimension_length"
+        },
+        {
+            "name": "stat_dimension_height",
+            "colour": "FFFFFFFF",
+            "symbol": "stat_dimension_height"
         },
         {
             "name": "stat_speed",

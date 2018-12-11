@@ -24,7 +24,7 @@ public class Statistic
 
     public void Set(int i)
     {
-        if (type == ValueType.Integer)
+        if (type == ValueType.Integer || type == ValueType.Float)
         {
             value = i;
             isDirty = true;
@@ -243,6 +243,30 @@ public class Statistic
         }
 
         return default(T);
+    }
+
+    public void Add(int i)
+    {
+        if (type == ValueType.Integer)
+        {
+            value = (int)value + i;
+        }
+        else if (type == ValueType.Float)
+        {
+            value = (float)value + i;
+        }
+    }
+
+    public void Add(float f)
+    {
+        if (type == ValueType.Float)
+        {
+            value = (float)value + f;
+        }
+        else if (type == ValueType.Integer)
+        {
+            value = (int)value + (int)f;
+        }
     }
 
     public void Default()

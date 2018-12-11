@@ -17,6 +17,7 @@ public class StatisticUEI
     public Vector3 valueV3;
     public GameObject valueGO;
     public GameObject[] valueGOArray;
+    public object valueObject;
     //public StatisticUEI valueStatistic;
 
     public Statistic statistic;

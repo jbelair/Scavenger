@@ -109,6 +109,8 @@ public class StandardSystem : MonoBehaviour, ISystemGeneratorDecorator
             stellarTemperature += kelvin;
 
             float kelvinSkewed = starPlotKelvin.Evaluate(kelvin);
+            if (radiusSkewed > EnvironmentRules.RadiusOfJupiter * 2f / SystemsGenerator.active.scale && kelvinSkewed < 3000f)
+                kelvinSkewed += 2000f;
             statistics[name + " Kelvin"] = new Statistic(name + " Kelvin", Statistic.ValueType.Float, kelvinSkewed);
 
             float kelvinRange = (UnityEngine.Random.Range(0, kelvinSkewed / 2f) + UnityEngine.Random.Range(0, kelvinSkewed / 2f) + UnityEngine.Random.Range(0, kelvinSkewed / 2f)) / 3;

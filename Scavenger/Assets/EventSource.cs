@@ -16,6 +16,8 @@ public class EventSource : MonoBehaviour
 
     public UnityEvent start;
     public UnityEvent update;
+    public UnityEvent disable;
+    public UnityEvent destroy;
     public List<TickEvent> ticks;
     public Dictionary<string, UnityEvent> dynamic;
 
@@ -34,6 +36,16 @@ public class EventSource : MonoBehaviour
     void Update()
     {
         update.Invoke();
+    }
+
+    void OnDisable()
+    {
+        disable.Invoke();
+    }
+
+    void OnDestroy()
+    {
+        destroy.Invoke();
     }
 
     IEnumerator Co_Tick(TickEvent tick)

@@ -1,0 +1,381 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1346879248331714}
+  m_IsPrefabAsset: 1
+--- !u!1 &1346879248331714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4888860081418256}
+  - component: {fileID: 114557932247072010}
+  - component: {fileID: 114802191460552026}
+  - component: {fileID: 114275206642644474}
+  - component: {fileID: 114187075419908890}
+  m_Layer: 0
+  m_Name: hazard_magnetosphere_star
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1593783123302828
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4042989086276842}
+  - component: {fileID: 114408372532663486}
+  m_Layer: 0
+  m_Name: stat_speed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1653238587882916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4193483998892600}
+  - component: {fileID: 114609171269874632}
+  m_Layer: 0
+  m_Name: stat_acc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4042989086276842
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1593783123302828}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4888860081418256}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4193483998892600
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1653238587882916}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4888860081418256}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4888860081418256
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1346879248331714}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4042989086276842}
+  - {fileID: 4193483998892600}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114187075419908890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1346879248331714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5069090d51ffd34e9fda86cd51eab9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114275206642644474
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1346879248331714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3a4e8cb6aec404babe0a05c5237815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  format: 2
+  entity: {fileID: 0}
+--- !u!114 &114408372532663486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1593783123302828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b7aea3c8ca6e1645b3c17d6891a129c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifier:
+    type: 2
+    value: 1
+    unityStatistic:
+      value:
+        name: stat_speed
+        type: 1
+        valueInt: 0
+        valueFloat: 0
+        valueString: 
+        valueColour: {r: 0, g: 0, b: 0, a: 0}
+        valueV2: {x: 0, y: 0}
+        valueV3: {x: 0, y: 0, z: 0}
+        valueGO: {fileID: 0}
+        valueGOArray: []
+      minimum:
+        name: minimum
+        type: 1
+        valueInt: 0
+        valueFloat: 0
+        valueString: 
+        valueColour: {r: 0, g: 0, b: 0, a: 0}
+        valueV2: {x: 0, y: 0}
+        valueV3: {x: 0, y: 0, z: 0}
+        valueGO: {fileID: 0}
+        valueGOArray: []
+      maximum:
+        name: stat_speed_max
+        type: 1
+        valueInt: 0
+        valueFloat: 0
+        valueString: 
+        valueColour: {r: 0, g: 0, b: 0, a: 0}
+        valueV2: {x: 0, y: 0}
+        valueV3: {x: 0, y: 0, z: 0}
+        valueGO: {fileID: 0}
+        valueGOArray: []
+    modifier: 0.5
+--- !u!114 &114557932247072010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1346879248331714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de3a497377651c479874cb79e5e120b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114408372532663486}
+        m_MethodName: Do
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114609171269874632}
+        m_MethodName: Do
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  update:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114802191460552026}
+        m_MethodName: Do
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  disable:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  destroy:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114408372532663486}
+        m_MethodName: Undo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114609171269874632}
+        m_MethodName: Undo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  ticks:
+  - running: 1
+    seconds: 0.1
+    tick:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114776611291614210, guid: f520d0f920c749341bf8e5c014f58d1d,
+            type: 2}
+          m_MethodName: Do
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - running: 0
+    seconds: 0.033333335
+    tick:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114802191460552026}
+          m_MethodName: Do
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+--- !u!114 &114609171269874632
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1653238587882916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b7aea3c8ca6e1645b3c17d6891a129c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifier:
+    type: 2
+    value: 1
+    unityStatistic:
+      value:
+        name: stat_acc
+        type: 1
+        valueInt: 0
+        valueFloat: 0
+        valueString: 
+        valueColour: {r: 0, g: 0, b: 0, a: 0}
+        valueV2: {x: 0, y: 0}
+        valueV3: {x: 0, y: 0, z: 0}
+        valueGO: {fileID: 0}
+        valueGOArray: []
+      minimum:
+        name: minimum
+        type: 1
+        valueInt: 0
+        valueFloat: 0
+        valueString: 
+        valueColour: {r: 0, g: 0, b: 0, a: 0}
+        valueV2: {x: 0, y: 0}
+        valueV3: {x: 0, y: 0, z: 0}
+        valueGO: {fileID: 0}
+        valueGOArray: []
+      maximum:
+        name: stat_speed_max
+        type: 1
+        valueInt: 0
+        valueFloat: 0
+        valueString: 
+        valueColour: {r: 0, g: 0, b: 0, a: 0}
+        valueV2: {x: 0, y: 0}
+        valueV3: {x: 0, y: 0, z: 0}
+        valueGO: {fileID: 0}
+        valueGOArray: []
+    modifier: 0.5
+--- !u!114 &114802191460552026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1346879248331714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee7dc9992c0bb04dbb3ed4e148155d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage:
+    name: damage
+    type: 1
+    valueInt: 0
+    valueFloat: 0.1
+    valueString: 
+    valueColour: {r: 0, g: 0, b: 0, a: 0}
+    valueV2: {x: 0, y: 0}
+    valueV3: {x: 0, y: 0, z: 0}
+    valueGO: {fileID: 0}
+    valueGOArray: []
+  damageFormat: 0
+  format: 1
+  hullMultiplier: 0
+  armourPenetration: 0
+  armourMultiplier: 0
+  shieldPenetration: 0
+  shieldMultiplier: 1
+  target: {fileID: 114275206642644474}

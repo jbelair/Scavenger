@@ -391,6 +391,11 @@
             "symbol": "signal_sell"
         },
         {
+            "name": "tag_atmosphere",
+            "colour": "83FF52FF",
+            "symbol": "tag_atmosphere"
+        },
+        {
             "name": "distance_none",
             "colour": "FFFFFFFF",
             "symbol": ""

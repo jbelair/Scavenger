@@ -168,6 +168,10 @@
 		{
 			"key": "tag_collision",
 			"value": "Collision"
+		},
+		{
+			"key": "tag_atmosphere",
+			"value": "Atmosphere"
 		}
 	]
 }

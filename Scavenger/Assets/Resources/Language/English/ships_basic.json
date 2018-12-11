@@ -23,7 +23,7 @@
 		},
 		{
 			"key": "ship_basic_gremlin_desc",
-			"value": "The Gremlin is a high speed, shielded starter vessel, so numerous in the galaxy that their fabrication is essentially free. The Gremlin has reduced hull in order to gain shielding. The Gremlin sacrifices acceleration and turn rate for high speed, and has a high radar range."
+			"value": "The Gremlin is a high speed, shielded starter vessel, so numerous in the galaxy that their fabrication is essentially free. The Gremlin sacrifices hull and turn rate for high speed, and has a high radar range."
 		}
 	]
 }

@@ -1,0 +1,13 @@
+{
+	"literals" : 
+	[
+		{
+			"key": "signals_gasdwarf_harvest",
+			"value": "Harvest Gas"
+		},
+		{
+			"key": "signals_gasdwarf_harvest_desc",
+			"value": ""
+		}
+	]
+}

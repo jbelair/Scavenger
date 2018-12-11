@@ -15,7 +15,8 @@ public struct ShipDefinition
     public string name;
     public string description;
     public string model;
-    public string material;
+    public string skin;
+    public string shield;
     public string risk;
     public int oneIn;
     public int value;

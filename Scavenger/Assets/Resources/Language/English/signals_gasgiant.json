@@ -1,0 +1,13 @@
+{
+	"literals" : 
+	[
+		{
+			"key": "signals_gasgiant_harvest",
+			"value": "Harvest Gas"
+		},
+		{
+			"key": "signals_gasgiant_harvest_desc",
+			"value": ""
+		}
+	]
+}

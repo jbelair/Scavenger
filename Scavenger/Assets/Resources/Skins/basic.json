@@ -1,0 +1,35 @@
+{
+	"skins":
+	[
+		{
+			"name": "ship_basic_00",
+			"skin": "ship_basic_00",
+			"oneIn": 1
+		},
+		{
+			"name": "shield_basic_00",
+			"skin": "shield_basic_00",
+			"oneIn": 1
+		},
+		{
+			"name": "ship_basic_01",
+			"skin": "ship_basic_01",
+			"oneIn": 1
+		},
+		{
+			"name": "shield_basic_01",
+			"skin": "shield_basic_01",
+			"oneIn": 1
+		},
+		{
+			"name": "ship_basic_02",
+			"skin": "ship_basic_02",
+			"oneIn": 1
+		},
+		{
+			"name": "shield_basic_02",
+			"skin": "shield_basic_02",
+			"oneIn": 1
+		}
+	]
+}

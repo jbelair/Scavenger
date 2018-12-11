@@ -57,7 +57,7 @@ public static class ProjectileMovement
     /// <param name="move">The projectile executing Shot movement logic.</param>
     public static Vector2 Shot(ProjectileMovementUEI move)
     {
-        move.velocity.Set(move.velocity.Get<float>() + move.acceleration.Get<float>() * Time.deltaTime);
+        move.velocity.Add(move.acceleration.Get<float>() * Time.deltaTime);
 
         if (move.velocity.Get<float>() > move.maximumVelocity.Get<float>())
             move.velocity.Set(move.maximumVelocity.Get<float>());

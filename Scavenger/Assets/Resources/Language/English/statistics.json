@@ -66,6 +66,18 @@
 			"value": "Generation Delay"
 		},
 		{
+			"key": "stat_dimension_width",
+			"value": "Width"
+		},
+		{
+			"key": "stat_dimension_length",
+			"value": "Length"
+		},
+		{
+			"key": "stat_dimension_height",
+			"value": "Height"
+		},
+		{
 			"key": "stat_speed",
 			"value": "Speed"
 		},

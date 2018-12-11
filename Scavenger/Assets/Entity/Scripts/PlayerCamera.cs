@@ -75,6 +75,8 @@ public class PlayerCamera : MonoBehaviour
                 if (player.statistics.Has(statisticZoom))
                 {
                     zoom = player.statistics[statisticZoom];
+                    near = player.statistics["stat_dimension_height"].Get<float>();
+                    far = player.statistics["stat_dimension_length"].Get<float>() * 25f;
                     Position();
                     initialised = true;
                     return true;

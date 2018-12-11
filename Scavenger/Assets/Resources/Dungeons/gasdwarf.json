@@ -1,0 +1,17 @@
+{
+	"signals" : 
+	[
+		{
+			"name": "signals_gasdwarf_harvest",
+			"description": "signals_gasdwarf_harvest_desc",
+			"category": "tag_atmosphere",
+			"risk": "risk_medium",
+			"oneIn": 1,
+			"target": "GasDwarf",
+			"generator": "Standard",
+			"tags": "tag_neutral tag_atmosphere tag_plasma $1:5[tag_ship] $1:10[tag_shipwreck,tag_ships] $1:20[tag_conflict] $1:50[tag_graveyard,tag_battle]",
+			"distance": 3,
+			"hazards": "hazard_magnetosphere_gasdwarf"
+		}
+	]
+}
