@@ -6,28 +6,48 @@
 			"value": "Plasma"
 		},
 		{
+			"key": "hazard_plasma_effect",
+			"value": "<color=#20FFEAFF>2.5%/s Shield damage, no penetration.\n<color=#FFB852FF>2.5%/s Armour damage, 25% penetration.\n<color=#FF3852FF>5%/s Hull damage.\n<color=#DA20FFFF>+0.01/s fuel."
+		},
+		{
 			"key": "hazard_corona",
 			"value": "Corona"
+		},
+		{
+			"key": "hazard_corona_effect",
+			"value": "<color=#20FFEAFF>5%/s Shield damage, no penetration.\n<color=#FFB852FF>1.25%/s Armour damage, 25% penetration.\n<color=#FF3852FF>10%/s Hull damage.\n<color=#DA20FFFF>+0.01/s fuel."
 		},
 		{
 			"key": "hazard_radiation",
 			"value": "Radiation"
 		},
 		{
-			"key": "hazard_atmosphere_gasgiant",
-			"value": "Atmosphere"
-		},
-		{
-			"key": "hazard_magnetosphere_gasgiant",
-			"value": "Magnetosphere"
+			"key": "hazard_radiation_effect",
+			"value": "<color=#20FFEAFF>Penetrates shields.\n<color=#FFB852FF>1%/s Armour damage, no penetration.\n<color=#FF3852FF>2%/s Hull damage."
 		},
 		{
 			"key": "hazard_magnetosphere_gasdwarf",
 			"value": "Magnetosphere"
 		},
 		{
+			"key": "hazard_magnetosphere_gasdwarf_effect",
+			"value": "<color=#20FFEAFF>10%/s Shield damage.\n<color=#DA20FFFF>+0.01/s fuel.\n<color=#fff>80% Acceleration.\n<color=#fff>80% Maximum speed."
+		},
+		{
+			"key": "hazard_magnetosphere_gasgiant",
+			"value": "Magnetosphere"
+		},
+		{
+			"key": "hazard_magnetosphere_gasgiant_effect",
+			"value": "<color=#20FFEAFF>20%/s Shield damage.\n<color=#DA20FFFF>+0.01/s fuel.\n<color=#fff>60% Acceleration.\n<color=#fff>60% Maximum speed."
+		},
+		{
 			"key": "hazard_magnetosphere_star",
 			"value": "Magnetosphere"
+		},
+		{
+			"key": "hazard_magnetosphere_star_effect",
+			"value": "<color=#20FFEAFF>50%/s Shield damage.\n<color=#DA20FFFF>+0.01/s fuel.\n<color=#fff>50% Acceleration.\n<color=#fff>50% Maximum speed."
 		}
 	]
 }

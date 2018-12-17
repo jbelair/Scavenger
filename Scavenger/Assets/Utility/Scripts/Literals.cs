@@ -60,6 +60,7 @@ public static class Literals
             int i = 0;
             foreach (TextAsset literal in literalsFile)
             {
+                Debug.Log("Loading Literals Library: " + literal.name);
                 libraries[i] = JsonUtility.FromJson<JSONLibrary>(literal.ToString());
                 iLibraries[i] = new JSONLibrary() { literals = libraries[i].Inverse() };
                 i++;

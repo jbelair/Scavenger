@@ -20,13 +20,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.Environment.unity
     guid: 98772992dfb78d842bf9acb6a9a7338c
-  - enabled: 1
-    path: Assets/Dungeons/Scenes/signals_default.unity
-    guid: c410425a780058244aa5658a2e235ed5
-  - enabled: 1
-    path: Assets/Dungeons/Scenes/signals_star_ejection_plasma.unity
-    guid: 1488e3ac10781754095c666fae452d62
-  - enabled: 1
-    path: Assets/Dungeons/Scenes/signals_star_corona.unity
-    guid: a49297c5d199a4e428383e970bd11d13
   m_configObjects: {}

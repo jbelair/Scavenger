@@ -54,8 +54,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d3a4e8cb6aec404babe0a05c5237815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  format: 2
-  entity: {fileID: 0}
+  format: 4
+  entities: []
 --- !u!114 &114188244156043638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,7 +84,7 @@ MonoBehaviour:
   armourPenetration: 0
   armourMultiplier: 1
   shieldPenetration: 1
-  shieldMultiplier: 1
+  shieldMultiplier: 0
   target: {fileID: 114023283320984802}
 --- !u!114 &114772880276460862
 MonoBehaviour:

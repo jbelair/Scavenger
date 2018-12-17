@@ -23,6 +23,7 @@ public class WidgetSkillGrid : MonoBehaviour
     public Rect viewRectDiagnostic;
     public Rect gridRectDiagnostic;
     public bool isSelectingCurrentSkills = true;
+    public string selectingScreen;
 
     public List<WidgetSkillDisplay> skills = new List<WidgetSkillDisplay>();
 
@@ -93,7 +94,7 @@ public class WidgetSkillGrid : MonoBehaviour
                     widget.isSelectingCurrentSkill = isSelectingCurrentSkills;
                     widget.isUnlocked = unlocked;
                     widget.isDiscovered = discovered;
-                    widget.transform.parent = grid.transform;
+                    widget.transform.SetParent(grid.transform);
                     widget.definition = skill;
                     widget.index = i;
                     widget.grid = this;
@@ -106,9 +107,14 @@ public class WidgetSkillGrid : MonoBehaviour
         SortByValue(true);
     }
 
+    public void Screen(string screen)
+    {
+        selectingScreen = screen;
+    }
+
     public void Select()
     {
-        UIManager.active.AddScreen("menu play new");
+        UIManager.active.AddScreen(selectingScreen);
         UIManager.active.RemoveScreen("menu play new grid skill");
     }
 

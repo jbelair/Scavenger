@@ -1,0 +1,17 @@
+{
+	"skins":
+	[
+		{
+			"name": "ship_federation_00",
+			"skin": "ship_federation_00",
+			"oneIn": 10,
+			"starting": false
+		},
+		{
+			"name": "shield_federation_00",
+			"skin": "shield_federation_00",
+			"oneIn": 10,
+			"starting": false
+		}
+	]
+}

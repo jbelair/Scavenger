@@ -150,7 +150,7 @@ public static class ProjectileMovement
     public static Vector2 Return(ProjectileMovementUEI move)
     {
         Vector2 position = Shot(move);
-        Vector2 delta = move.player.Get<GameObject>().transform.position - move.transform.position;
+        Vector2 delta = move.parent.Get<GameObject>().transform.position - move.transform.position;
 
         delta.Normalize();
 

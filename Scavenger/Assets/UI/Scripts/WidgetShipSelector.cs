@@ -10,14 +10,31 @@ public class WidgetShipSelector : MonoBehaviour
     public void Set()
     {
         InventoryShips.active.Set(index, false);
+
         if (isSelectingCurrentShip)
         {
             PlayerSave.Active.Add("ship", JsonUtility.ToJson(InventoryShips.active.activeShips[index].definition));
 
             Players.players[0].statistics["ship"] = new Statistic("ship", Statistic.ValueType.Object, InventoryShips.active.activeShips[index].definition);
 
-            Players.players[0].statistics["ship material"] = new Statistic("ship material", Statistic.ValueType.String, InventoryShips.active.activeShips[index].definition.skin);
-            Players.players[0].statistics["shield material"] = new Statistic("shield material", Statistic.ValueType.String, InventoryShips.active.activeShips[index].definition.shield);
+            if (!Players.players[0].statistics.Has("ship skin"))
+                Players.players[0].statistics["ship skin"] = new Statistic("ship skin", Statistic.ValueType.String, InventoryShips.active.activeShips[index].definition.skin);
+            else
+            {
+                if (Players.players[0].statistics["ship skin"].Get<string>() == InventoryShips.active.activeShips[InventoryShips.active.lastIndex].definition.skin)
+                    Players.players[0].statistics["ship skin"].Set(InventoryShips.active.activeShips[index].definition.skin);
+            }
+
+            if (!Players.players[0].statistics.Has("shield skin"))
+                Players.players[0].statistics["shield skin"] = new Statistic("shield skin", Statistic.ValueType.String, InventoryShips.active.activeShips[index].definition.shield);
+            else
+            {
+                if (Players.players[0].statistics["shield skin"].Get<string>() == InventoryShips.active.activeShips[InventoryShips.active.lastIndex].definition.shield)
+                    Players.players[0].statistics["shield skin"].Set(InventoryShips.active.activeShips[index].definition.shield);
+            }
+
+            InventoryShips.active.activeShips[index].renderer.sharedMaterial = Materials.materials[Skins.Get(Players.players[0].statistics["ship skin"].Get<string>()).skin];
+            Players.players[0].statistics["ship material"].Set(InventoryShips.active.activeShips[index].renderer.sharedMaterial);
 
             foreach (ShipDefinition.Statistic stat in InventoryShips.active.activeShips[index].definition.statistics)
             {

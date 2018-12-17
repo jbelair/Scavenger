@@ -84,13 +84,13 @@ public static class EnvironmentRules
 
     public static float AtmosphereIntensity(float radius, float kelvin)
     {
-        float intensity = (kelvin / 200f) * Mathf.Max(0, 1f - (kelvin / 1500f)) * radius;
+        float intensity = (kelvin / 200f) * Mathf.Max(0, 1f - (kelvin / 1500f));
         return Mathf.Max(0.01f, intensity);
     }
 
     public static float AtmosphereDensity(float radius, float kelvin)
     {
-        float density = Mathf.Max(1, (20f - kelvin / 100f) * Mathf.Max(0, 1f - (kelvin / 2000f)) * (1f / radius));
+        float density = Mathf.Max(1, (20f - kelvin / 100f) * Mathf.Max(0, 1f - (kelvin / 2000f)));
         return density;
     }
 

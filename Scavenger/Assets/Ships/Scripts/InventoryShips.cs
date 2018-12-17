@@ -38,6 +38,7 @@ public class InventoryShips : MonoBehaviour
     public Transform focus;
     public Transform lastFocus;
     public int index;
+    public int lastIndex;
 
     public Vector3 velocity;
     public float smoothSpeed = 1;
@@ -204,7 +205,7 @@ public class InventoryShips : MonoBehaviour
     {
         lastFocus = focus;
         focus = activeShips[index].transform;
-
+        lastIndex = this.index;
         this.index = index;
         if (moveTo)
             Camera.main.GetComponent<MoveTo>().AddFrame(activeShips[index].node.transform, 1, false, 0);

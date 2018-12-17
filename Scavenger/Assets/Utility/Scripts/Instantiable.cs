@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [AddComponentMenu("Utility/Instantiable")]
+[Serializable]
 public class Instantiable : MonoBehaviour
 {
+    public string prefabResourcesRef;
     public bool isDead = false;
 
     // Use this for initialization

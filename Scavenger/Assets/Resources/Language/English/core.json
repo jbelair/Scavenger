@@ -2,6 +2,10 @@
 	"literals":
 	[
 		{
+			"key": "okay",
+			"value": "Okay"
+		},
+		{
 			"key": "distance",
 			"value": "Distance"
 		},

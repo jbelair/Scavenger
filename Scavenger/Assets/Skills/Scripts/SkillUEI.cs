@@ -20,8 +20,9 @@ public class SkillUEI : MonoBehaviour
         Magazine
     };
 
-    public string skillName;
-    public string description;
+    public EntityRef target;
+    public Skill skill;
+    public string binding = "skill 0";
     public CooldownFormat cooldownFormat;
     public float cooldown;
     public float cooldownCurrent;
@@ -29,9 +30,8 @@ public class SkillUEI : MonoBehaviour
     public int stacksMax;
     public float stackRecovery;
     public float stackRecoveryCurrent;
-
-    public Statistics statistics;
-    public string statisticInput;
+    
+    public string statisticInput = "skill 0 input";
     private Statistic input;
     public float lastInput;
 
@@ -45,7 +45,7 @@ public class SkillUEI : MonoBehaviour
             sequence.Input(true);
         }
 
-        input = statistics[statisticInput];
+        input = target.Entity.statistics[statisticInput];
     }
 
     // Update is called once per frame

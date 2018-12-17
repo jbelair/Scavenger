@@ -103,8 +103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d3a4e8cb6aec404babe0a05c5237815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  format: 2
-  entity: {fileID: 0}
+  format: 4
+  entities: []
 --- !u!114 &114676894804712524
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -177,24 +177,6 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-  - running: 0
-    seconds: 0.033333335
-    tick:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114777849650737224}
-          m_MethodName: Do
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
 --- !u!114 &114777849650737224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -210,7 +192,7 @@ MonoBehaviour:
     name: damage
     type: 1
     valueInt: 0
-    valueFloat: 0.05
+    valueFloat: 0.025
     valueString: 
     valueColour: {r: 0, g: 0, b: 0, a: 0}
     valueV2: {x: 0, y: 0}
@@ -221,7 +203,7 @@ MonoBehaviour:
   format: 1
   hullMultiplier: 2
   armourPenetration: 0.25
-  armourMultiplier: 0.5
+  armourMultiplier: 1
   shieldPenetration: 0
-  shieldMultiplier: 0.5
+  shieldMultiplier: 1
   target: {fileID: 114283233489890932}

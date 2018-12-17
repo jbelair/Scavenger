@@ -27,7 +27,7 @@ public class WidgetHazards : MonoBehaviour
             inst.name = hazard.name;
             inst.icon.sprite = Sprites.Get(hazard.name);
             if (inst.text != null)
-                inst.text.SetText(Literals.active[hazard.name]);
+                inst.text.SetText(Literals.active[hazard.name] + "\n<size=50%>" + Literals.active[hazard.name + "_effect"]);
         }
 
         yield return new WaitForSeconds(2f);

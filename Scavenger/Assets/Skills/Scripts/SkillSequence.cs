@@ -206,10 +206,7 @@ public class SkillSequence
             {
                 isActivated = false;
 
-                foreach (Instantiable instantiated in instantiatedObjects)
-                {
-                    instantiated.Die();
-                }
+                End();
             }
         }
     }
@@ -254,29 +251,38 @@ public class SkillSequence
 
     public void Evaluate()
     {
-        foreach (Instantiable instantiable in keys[index].instantiables)
+        SkillSequenceKey activeKey = keys[index];
+        if (activeKey.instantiables.Length != activeKey.instantiableRefs.Length)
+        {
+            activeKey.instantiables = new Instantiable[activeKey.instantiableRefs.Length];
+            for (int i = 0; i < activeKey.instantiableRefs.Length; i++)
+            {
+                activeKey.instantiables[i] = Resources.Load<Instantiable>(activeKey.instantiableRefs[i]);
+            }
+        }
+
+        foreach (Instantiable instantiable in activeKey.instantiables)
         {
             Instantiable inst = GameObject.Instantiate(instantiable, skill.transform.position, skill.transform.rotation);
             Statistics instStats = inst.GetComponent<Statistics>();
-            IEnumerable<StatisticUEI> stats = instStats.unityStatistics.Where(stat => stat.name == "Player");
-            PlayerUEI player = skill.statistics["Player"].Get<PlayerUEI>();
-            GameObject playerGO = player.gameObject;
+            IEnumerable<StatisticUEI> stats = instStats.unityStatistics.Where(stat => stat.name == "Parent");
+            GameObject go = skill.target.Entity.gameObject;
             foreach (StatisticUEI stat in stats)
-                stat.valueGO = playerGO;
+                stat.valueGO = go;
 
-            instStats["Relative Velocity"].Set(instStats["Player"].Get<PlayerUEI>().statistics["Rigidbody"].Get<Rigidbody2D>().velocity);
+            instStats["Relative Velocity"].Set(skill.target.Entity.statistics["Rigidbody"].Get<Rigidbody2D>().velocity);
 
-            Statistic aiming = player.statistics["Aiming"];
+            Statistic aiming = skill.target.Entity.statistics["Aiming"];
 
             if (aiming.type == Statistic.ValueType.Vector2)
             {
                 Vector3 aim = aiming.Get<Vector2>();
-                SkillAimingModes.Aim(player.transform, inst.transform, keys[index].aimingFormat, Vector3.zero, aim);
+                SkillAimingModes.Aim(skill.target.Entity.transform, inst.transform, activeKey.aimingFormat, Vector3.zero, aim);
             }
             else if (aiming.type == Statistic.ValueType.Vector3)
             {
                 Vector3 aim = aiming.Get<Vector3>();
-                SkillAimingModes.Aim(player.transform, inst.transform, keys[index].aimingFormat, aim, Vector3.zero);
+                SkillAimingModes.Aim(skill.target.Entity.transform, inst.transform, activeKey.aimingFormat, aim, Vector3.zero);
             }
         }
 
@@ -294,9 +300,9 @@ public class SkillSequence
 
     public void End()
     {
-        foreach (Instantiable instantiated in instantiatedObjects)
-        {
-            instantiated.Die();
-        }
+        //foreach (Instantiable instantiated in instantiatedObjects)
+        //{
+        //    instantiated.Die();
+        //}
     }
 }

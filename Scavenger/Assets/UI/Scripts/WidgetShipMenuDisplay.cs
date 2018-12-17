@@ -44,10 +44,14 @@ public class WidgetShipMenuDisplay : MonoBehaviour
         statValue.value.SetText(active.isUnlocked ? ship.value.ToString() : disabled);
         statValue.Initialise();
 
+        if (!Players.players[0].statistics.Has("ship skin"))
+            Players.players[0].statistics["ship skin"] = new Statistic("ship skin", Statistic.ValueType.String, ship.skin);
         skin.isShield = false;
-        skin.Initialise(ship);
+        skin.Initialise(Skins.Get(Players.players[0].statistics["ship skin"].Get<string>()));
+        if (!Players.players[0].statistics.Has("shield skin"))
+            Players.players[0].statistics["shield skin"] = new Statistic("shield skin", Statistic.ValueType.String, ship.shield);
         shield.isShield = true;
-        shield.Initialise(ship);
+        shield.Initialise(Skins.Get(Players.players[0].statistics["shield skin"].Get<string>()));
 
         foreach (ShipDefinition.Statistic stat in ship.statistics)
         {

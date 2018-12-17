@@ -164,8 +164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d3a4e8cb6aec404babe0a05c5237815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  format: 2
-  entity: {fileID: 0}
+  format: 4
+  entities: []
 --- !u!114 &114641885648119358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -386,24 +386,6 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 114641885648119358}
-          m_MethodName: Do
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - running: 0
-    seconds: 0.033333335
-    tick:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114799550293038944}
           m_MethodName: Do
           m_Mode: 1
           m_Arguments:

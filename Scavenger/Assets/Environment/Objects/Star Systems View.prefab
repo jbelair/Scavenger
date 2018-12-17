@@ -11,6 +11,25 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1855007398051558}
   m_IsPrefabAsset: 1
+--- !u!1 &1055626221064264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4767742697089210}
+  - component: {fileID: 33245667105582438}
+  - component: {fileID: 23997129488201360}
+  - component: {fileID: 114991224120019830}
+  - component: {fileID: 114671665444267882}
+  m_Layer: 0
+  m_Name: Corona
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1184579641129156
 GameObject:
   m_ObjectHideFlags: 1
@@ -323,8 +342,22 @@ Transform:
   - {fileID: 4589147889086566}
   - {fileID: 4367460830765110}
   - {fileID: 4415841512381476}
+  - {fileID: 4767742697089210}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4767742697089210
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1055626221064264}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.01, y: 1.01, z: 1.01}
+  m_Children: []
+  m_Father: {fileID: 4705751496395264}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4775225753546258
 Transform:
@@ -483,6 +516,41 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!23 &23997129488201360
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1055626221064264}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 2100000, guid: 972dbd9d629ce4d4c9bbd785d7c513c9, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!33 &33062458343210724
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -497,6 +565,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1488112857260286}
   m_Mesh: {fileID: 4300000, guid: 3b500b8c0c3322a4bb93a689fb7b8dcd, type: 3}
+--- !u!33 &33245667105582438
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1055626221064264}
+  m_Mesh: {fileID: 4300000, guid: f36e539821cfb0b4ea9f09bc17c685ea, type: 3}
 --- !u!33 &33787493889675274
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -530,6 +605,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deparent: 0
   defaultNode: 0
+--- !u!114 &114671665444267882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1055626221064264}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97762898e11679340bc0c404f0ee2081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  mesh: {fileID: 23997129488201360}
+  ship: {fileID: 0}
+  isInitialised: 0
 --- !u!114 &114813173675649578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -545,8 +635,10 @@ MonoBehaviour:
   - {fileID: 2100000, guid: bda88ec9c3e97ac4c84914e6ca854193, type: 2}
   environment: {fileID: 0}
   star: {fileID: 0}
+  corona: {fileID: 2100000, guid: 972dbd9d629ce4d4c9bbd785d7c513c9, type: 2}
   blackbodyRamp: {fileID: 0}
   light: {fileID: 0}
+  coronaMesh: {fileID: 23997129488201360}
   particleSystems: []
   statisticName: 
   kelvin: 0
@@ -569,6 +661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hash: 0
   generates: 0
+  displays: 0
   dungeonType:
     name: 
     description: 
@@ -577,8 +670,12 @@ MonoBehaviour:
     risk: 
     oneIn: 0
     target: 
+    targetModifiers: 
     generator: 
     tags: 
+    decorators: 
+    distance: 0
+    hazards: 
   dungeonTarget: Star
   riskLevel: 0
   risk: 
@@ -602,6 +699,21 @@ MonoBehaviour:
   goal: {x: 0, y: 0, z: 0}
   offset: 0
   theta: 0
+--- !u!114 &114991224120019830
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1055626221064264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a439a56d9a18b3f45861bc1b51da0426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  statisticX: stat_dimension_width
+  statisticY: stat_dimension_length
+  statisticZ: stat_dimension_height
 --- !u!135 &135287184546910436
 SphereCollider:
   m_ObjectHideFlags: 1

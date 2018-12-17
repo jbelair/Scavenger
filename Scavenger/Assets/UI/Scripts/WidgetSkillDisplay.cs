@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class WidgetSkillDisplay : WidgetSkill
 {
     public static string set = "skill 0";
-    
+
     public int index;
     public bool isSelectingCurrentSkill = true;
     public bool isUnlocked = true;
@@ -47,13 +47,10 @@ public class WidgetSkillDisplay : WidgetSkill
             PlayerSave.Active.Add(set, "Skill", JsonUtility.ToJson(definition));
 
             Players.players[0].statistics[set + " value"].Set(definition.value);
-            if (Players.players[0].statistics[set] != null)
-                Players.players[0].statistics[set].Set(definition);
-            else
-                Players.players[0].statistics[set] = new Statistic(set, Statistic.ValueType.Object, definition);
+            Players.players[0].statistics[set].Set(definition);
         }
 
-        foreach(WidgetSkillSelect skill in WidgetSkillSelect.skills)
+        foreach (WidgetSkillSelect skill in WidgetSkillSelect.skills)
         {
             if (skill.skillBinding == set)
             {

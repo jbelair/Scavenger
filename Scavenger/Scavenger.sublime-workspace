@@ -192,113 +192,21 @@
 	"buffers":
 	[
 		{
-			"file": "Assets/Resources/Ships/basic.json",
+			"file": "Assets/Resources/Skins/federation.json",
 			"settings":
 			{
-				"buffer_size": 7498,
-				"encoding": "UTF-8",
-				"line_ending": "Windows",
-				"name": "{"
-			}
-		},
-		{
-			"file": "Assets/Resources/Language/English/statistics.json",
-			"settings":
-			{
-				"buffer_size": 2436,
+				"buffer_size": 246,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Assets/Resources/UI/Schemes/stats.json",
+			"file": "Assets/Resources/UI/Schemes/skills_basic.json",
 			"settings":
 			{
-				"buffer_size": 4983,
+				"buffer_size": 4008,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Assets/Resources/Dungeons/gasgiant.json",
-			"settings":
-			{
-				"buffer_size": 462,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Resources/Dungeons/gasdwarf.json",
-			"settings":
-			{
-				"buffer_size": 462,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Resources/Language/English/tags.json",
-			"settings":
-			{
-				"buffer_size": 2691,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Resources/Ships/federation.json",
-			"settings":
-			{
-				"buffer_size": 2370,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Resources/Ships/gavinc.json",
-			"settings":
-			{
-				"buffer_size": 7056,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Resources/Ships/khaled.json",
-			"settings":
-			{
-				"buffer_size": 9397,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Resources/Ships/special.json",
-			"settings":
-			{
-				"buffer_size": 4735,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Resources/Skins/basic.json",
-			"settings":
-			{
-				"buffer_size": 504,
-				"encoding": "UTF-8",
-				"line_ending": "Windows",
-				"name": "{"
-			}
-		},
-		{
-			"file": "Assets/Resources/Skills/basic.json",
-			"settings":
-			{
-				"buffer_size": 6254,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
 			}
 		},
 		{
@@ -333,6 +241,24 @@
 			"settings":
 			{
 				"buffer_size": 163,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/Resources/UI/Schemes/schemes.json",
+			"settings":
+			{
+				"buffer_size": 11640,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Resources/Skills/basic.json",
+			"settings":
+			{
+				"buffer_size": 6254,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -377,9 +303,17 @@
 			"file": "Assets/Resources/Language/English/hazards.json",
 			"settings":
 			{
-				"buffer_size": 508,
+				"buffer_size": 1709,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/Resources/UI/Schemes/stats.json",
+			"settings":
+			{
+				"buffer_size": 4983,
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -388,14 +322,6 @@
 			{
 				"buffer_size": 1710,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Resources/Dungeons/asteroids.json",
-			"settings":
-			{
-				"buffer_size": 1733,
 				"line_ending": "Windows"
 			}
 		},
@@ -436,12 +362,22 @@
 			}
 		},
 		{
-			"file": "Assets/Resources/UI/Schemes/schemes.json",
+			"file": "Assets/Resources/Language/English/validate.json",
 			"settings":
 			{
-				"buffer_size": 11640,
+				"buffer_size": 477,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows",
+				"name": "{"
+			}
+		},
+		{
+			"file": "Assets/Resources/Language/English/core.json",
+			"settings":
+			{
+				"buffer_size": 1152,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -586,10 +522,27 @@
 	"expanded_folders":
 	[
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources",
-		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Skins"
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Skills",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Skins",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/UI",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/UI/Schemes"
 	],
 	"file_history":
 	[
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Skins/basic.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/special.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/khaled.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/gavinc.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/federation.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English/tags.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Dungeons/gasdwarf.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Dungeons/gasgiant.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/UI/Schemes/stats.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English/statistics.json",
+		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/basic.json",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/.gitignore",
 		"/D/Downloads/Python+Basics+With+Numpy+v3.ipynb",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/UI/Schemes/schemes.json",
@@ -604,21 +557,14 @@
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English/ships_auron.json",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English/ships_special.json",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English/ui.json",
-		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English/tags.json",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English/signals.json",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English/core.json",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/Languages/english.json",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/UI/Schemes/skills_basic.json",
-		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/UI/Schemes/stats.json",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Skills/basic.json",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Skills/definition.template",
-		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/khaled.json",
-		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/gavinc.json",
-		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/federation.json",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/auron.json",
-		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/special.json",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/definition.template",
-		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English/statistics.json",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Language/English/skills_basic.json",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/definition.template.json",
 		"/D/_GameDev/_Me/_Scavenger/Scavenger/Scavenger/Assets/Resources/Ships/template.json",
@@ -714,6 +660,13 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"hull",
+			"armour",
+			"_basic",
+			"skill_slug_autod",
+			"_basic",
+			"FFFFFFFF",
+			"skill_laser_heavy",
 			"ship",
 			"material",
 			"false",
@@ -797,420 +750,57 @@
 	"groups":
 	[
 		{
-			"selected": 10,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Assets/Resources/Ships/basic.json",
+					"file": "Assets/Resources/Skins/federation.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7498,
+						"buffer_size": 246,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								153,
-								153
-							],
-							[
-								2641,
-								2641
-							],
-							[
-								5138,
-								5138
+								237,
+								237
 							]
 						],
 						"settings":
 						{
-							"auto_name": "{",
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Assets/Resources/Language/English/statistics.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2436,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1140,
-								1140
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 528.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 20,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Assets/Resources/UI/Schemes/stats.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4983,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2363,
-								2363
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 19,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Assets/Resources/Dungeons/gasgiant.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 462,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								462,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 15,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "Assets/Resources/Dungeons/gasdwarf.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 462,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								460,
-								460
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "Assets/Resources/Language/English/tags.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2691,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2682,
-								2682
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2047.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "Assets/Resources/Ships/federation.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2370,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								189,
-								189
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "Assets/Resources/Ships/gavinc.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7056,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								177,
-								177
-							],
-							[
-								2515,
-								2515
-							],
-							[
-								4867,
-								4867
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "Assets/Resources/Ships/khaled.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9397,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								177,
-								177
-							],
-							[
-								2504,
-								2504
-							],
-							[
-								4831,
-								4831
-							],
-							[
-								7202,
-								7202
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "Assets/Resources/Ships/special.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4735,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								162,
-								162
-							],
-							[
-								2505,
-								2505
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "Assets/Resources/Skins/basic.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 504,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								495,
-								495
-							]
-						],
-						"settings":
-						{
-							"auto_name": "{",
 							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
-					"file": "Assets/Resources/Skills/basic.json",
+					"buffer": 1,
+					"file": "Assets/Resources/UI/Schemes/skills_basic.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6254,
+						"buffer_size": 4008,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2265,
-								2265
-							],
-							[
-								2460,
-								2460
-							],
-							[
-								2658,
-								2658
-							],
-							[
-								2856,
-								2856
-							],
-							[
-								3051,
-								3051
-							],
-							[
-								3243,
-								3243
-							],
-							[
-								3426,
-								3426
-							],
-							[
-								3609,
-								3609
-							],
-							[
-								3810,
-								3810
-							],
-							[
-								4014,
-								4014
+								727,
+								749
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1220,7 +810,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 2,
 					"file": "Assets/Resources/Ships/auron.json",
 					"semi_transient": false,
 					"settings":
@@ -1273,11 +863,11 @@
 						"translation.y": 4141.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 3,
 					"file": "Assets/Resources/Language/English/signals.json",
 					"semi_transient": false,
 					"settings":
@@ -1303,11 +893,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 4,
 					"file": "Assets/Resources/Language/English/signals_gasgiant.json",
 					"semi_transient": false,
 					"settings":
@@ -1331,11 +921,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 15,
+					"buffer": 5,
 					"file": "Assets/Resources/Language/English/signals_gasdwarf.json",
 					"semi_transient": false,
 					"settings":
@@ -1360,17 +950,76 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "Assets/Resources/UI/Schemes/schemes.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11640,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1712,
+								1720
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 5,
+			"selected": 0,
 			"sheets":
 			[
 				{
-					"buffer": 16,
+					"buffer": 7,
+					"file": "Assets/Resources/Skills/basic.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6254,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2771,
+								2771
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
 					"file": "Assets/Resources/Language/English/ships_basic.json",
 					"semi_transient": false,
 					"settings":
@@ -1395,11 +1044,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 24,
+					"stack_index": 18,
 					"type": "text"
 				},
 				{
-					"buffer": 17,
+					"buffer": 9,
 					"file": "Assets/Resources/Language/English/ui.json",
 					"semi_transient": false,
 					"settings":
@@ -1424,11 +1073,11 @@
 						"translation.y": 1403.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 22,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
-					"buffer": 18,
+					"buffer": 10,
 					"file": "Assets/Resources/UI/Filters/risk.json",
 					"semi_transient": false,
 					"settings":
@@ -1452,11 +1101,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 26,
+					"stack_index": 19,
 					"type": "text"
 				},
 				{
-					"buffer": 19,
+					"buffer": 11,
 					"file": "Assets/Resources/Dungeons/star.json",
 					"semi_transient": false,
 					"settings":
@@ -1482,39 +1131,70 @@
 						"translation.y": 1536.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 18,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 20,
+					"buffer": 12,
 					"file": "Assets/Resources/Language/English/hazards.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 508,
+						"buffer_size": 1709,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								428,
-								428
+								126,
+								305
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"word_wrap": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 21,
+					"buffer": 13,
+					"file": "Assets/Resources/UI/Schemes/stats.json",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 4983,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 96.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
 					"file": "Assets/Resources/Dungeons/asteroid.json",
 					"semi_transient": false,
 					"settings":
@@ -1539,40 +1219,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 22,
-					"file": "Assets/Resources/Dungeons/asteroids.json",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 1733,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 23,
+					"buffer": 15,
 					"file": "Assets/Resources/Dungeons/any.json",
 					"semi_transient": false,
 					"settings":
@@ -1597,11 +1248,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 23,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
-					"buffer": 24,
+					"buffer": 16,
 					"file": "Assets/Resources/Dungeons/removed.dungeons",
 					"semi_transient": false,
 					"settings":
@@ -1626,11 +1277,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 27,
+					"stack_index": 20,
 					"type": "text"
 				},
 				{
-					"buffer": 25,
+					"buffer": 17,
 					"file": "Assets/Resources/UI/Filters/rarity.json",
 					"semi_transient": false,
 					"settings":
@@ -1654,11 +1305,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 28,
+					"stack_index": 21,
 					"type": "text"
 				},
 				{
-					"buffer": 26,
+					"buffer": 18,
 					"file": "Assets/Resources/UI/Filters/distance.json",
 					"semi_transient": false,
 					"settings":
@@ -1682,41 +1333,69 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 25,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 27,
-					"file": "Assets/Resources/UI/Schemes/schemes.json",
+					"buffer": 19,
+					"file": "Assets/Resources/Language/English/validate.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11640,
+						"buffer_size": 477,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10020,
-								10020
+								197,
+								197
+							]
+						],
+						"settings":
+						{
+							"auto_name": "{",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "Assets/Resources/Language/English/core.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1152,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								58,
+								58
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3933.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 16,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 28,
+					"buffer": 21,
 					"file": "Assets/Resources/Language/English/ships_auron.json",
 					"semi_transient": false,
 					"settings":
@@ -1741,11 +1420,11 @@
 						"translation.y": 123.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 21,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
-					"buffer": 29,
+					"buffer": 22,
 					"file": "/D/Downloads/Python+Basics+With+Numpy+v3.ipynb",
 					"semi_transient": false,
 					"settings":
@@ -1771,11 +1450,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 38,
+					"stack_index": 31,
 					"type": "text"
 				},
 				{
-					"buffer": 30,
+					"buffer": 23,
 					"file": "/D/_School/Coursera/Machine Learning/Week 2/master.json",
 					"semi_transient": false,
 					"settings":
@@ -1802,11 +1481,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 29,
+					"stack_index": 22,
 					"type": "text"
 				},
 				{
-					"buffer": 31,
+					"buffer": 24,
 					"file": "/D/_School/Coursera/Machine Learning/Week 2/basic_sigmoid.json",
 					"semi_transient": false,
 					"settings":
@@ -1833,11 +1512,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 30,
+					"stack_index": 23,
 					"type": "text"
 				},
 				{
-					"buffer": 32,
+					"buffer": 25,
 					"file": "/D/_School/Coursera/Machine Learning/Week 2/sigmoid.json",
 					"semi_transient": false,
 					"settings":
@@ -1864,11 +1543,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 31,
+					"stack_index": 24,
 					"type": "text"
 				},
 				{
-					"buffer": 33,
+					"buffer": 26,
 					"file": "/D/_School/Coursera/Machine Learning/Week 2/sigmoid_derivative.json",
 					"semi_transient": false,
 					"settings":
@@ -1895,11 +1574,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 32,
+					"stack_index": 25,
 					"type": "text"
 				},
 				{
-					"buffer": 34,
+					"buffer": 27,
 					"file": "/D/_School/Coursera/Machine Learning/Week 2/image2vector.json",
 					"semi_transient": false,
 					"settings":
@@ -1926,11 +1605,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 37,
+					"stack_index": 30,
 					"type": "text"
 				},
 				{
-					"buffer": 35,
+					"buffer": 28,
 					"file": "/D/_School/Coursera/Machine Learning/Week 2/normalizeRows.json",
 					"semi_transient": false,
 					"settings":
@@ -1957,11 +1636,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 36,
+					"stack_index": 29,
 					"type": "text"
 				},
 				{
-					"buffer": 36,
+					"buffer": 29,
 					"file": "/D/_School/Coursera/Machine Learning/Week 2/softmax.json",
 					"semi_transient": false,
 					"settings":
@@ -1988,11 +1667,11 @@
 						"translation.y": 16.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 35,
+					"stack_index": 28,
 					"type": "text"
 				},
 				{
-					"buffer": 37,
+					"buffer": 30,
 					"file": "/D/_School/Coursera/Machine Learning/Week 2/L1 function.json",
 					"semi_transient": false,
 					"settings":
@@ -2019,11 +1698,11 @@
 						"translation.y": 217.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 34,
+					"stack_index": 27,
 					"type": "text"
 				},
 				{
-					"buffer": 38,
+					"buffer": 31,
 					"file": "/D/_School/Coursera/Machine Learning/Week 2/L2 function.json",
 					"semi_transient": false,
 					"settings":
@@ -2050,7 +1729,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 33,
+					"stack_index": 26,
 					"type": "text"
 				}
 			]
@@ -2132,7 +1811,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},

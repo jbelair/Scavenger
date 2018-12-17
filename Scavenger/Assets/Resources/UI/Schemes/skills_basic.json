@@ -1,7 +1,159 @@
 {
-    "definitions": [
+    "definitions": 
+    [
         {
             "name": "skill_slug_auto_basic",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "skill_slug_cannon_basic",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "skill_laser_mining_basic",
+            "colour": "FF3852FF",
+            "symbol": "skill_laser"
+        },
+        {
+            "name": "skill_laser_cannon_basic",
+            "colour": "FF3852FF",
+            "symbol": "skill_laser"
+        },
+        {
+            "name": "skill_laser_pulse_basic",
+            "colour": "FF3852FF",
+            "symbol": "skill_laser"
+        },
+        {
+            "name": "skill_laser_beam_basic",
+            "colour": "FF3852FF",
+            "symbol": "skill_laser"
+        },
+        {
+            "name": "skill_missile_basic",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "skill_torpedo_basic",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "skill_plasma_bolter_basic",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "skill_plasma_thrower_basic",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+
+
+
+        {
+            "name": "skill_slug_auto",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "skill_slug_cannon",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "skill_laser_mining",
+            "colour": "83FF52FF",
+            "symbol": "skill_laser_heavy"
+        },
+        {
+            "name": "skill_laser_cannon",
+            "colour": "83FF52FF",
+            "symbol": "skill_laser_heavy"
+        },
+        {
+            "name": "skill_laser_pulse",
+            "colour": "83FF52FF",
+            "symbol": "skill_laser_heavy"
+        },
+        {
+            "name": "skill_laser_beam",
+            "colour": "83FF52FF",
+            "symbol": "skill_laser_heavy"
+        },
+        {
+            "name": "skill_missile",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "skill_torpedo",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "skill_plasma_bolter",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "skill_plasma_thrower",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+
+
+
+        {
+            "name": "skill_slug_auto_advanced",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "skill_slug_cannon_advanced",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "skill_laser_mining_advanced",
+            "colour": "2083FFFF",
+            "symbol": "skill_laser_very_heavy"
+        },
+        {
+            "name": "skill_laser_cannon_advanced",
+            "colour": "2083FFFF",
+            "symbol": "skill_laser_very_heavy"
+        },
+        {
+            "name": "skill_laser_pulse_advanced",
+            "colour": "2083FFFF",
+            "symbol": "skill_laser_very_heavy"
+        },
+        {
+            "name": "skill_laser_beam_advanced",
+            "colour": "2083FFFF",
+            "symbol": "skill_laser_very_heavy"
+        },
+        {
+            "name": "skill_missile_advanced",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "skill_torpedo_advanced",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "skill_plasma_bolter_advanced",
+            "colour": "FFFFFFFF",
+            "symbol": ""
+        },
+        {
+            "name": "skill_plasma_thrower_advanced",
             "colour": "FFFFFFFF",
             "symbol": ""
         }

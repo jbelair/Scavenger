@@ -35,6 +35,7 @@ public abstract class WidgetSkill : MonoBehaviour
                 iconScheme = Schemes.Scheme("disabled");
             }
             icon.sprite = iconScheme.symbol;
+            //icon.sprite = Sprites.Get(definition.icon);
             icon.color = iconScheme.colour;
 
             nameWidget.SetText(discovered ? Literals.active[definition.name] : disabled);

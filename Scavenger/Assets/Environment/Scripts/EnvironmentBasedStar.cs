@@ -9,8 +9,10 @@ public class EnvironmentBasedStar : MonoBehaviour
 
     public Statistics environment;
     public Material star;
+    public Material corona;
     public Texture2D blackbodyRamp;
     public new Light light;
+    public MeshRenderer coronaMesh;
 
     [System.Serializable]
     public class ParticleSystemContainer
@@ -51,6 +53,9 @@ public class EnvironmentBasedStar : MonoBehaviour
             }
         }
 
+        corona = new Material(corona);
+        coronaMesh.sharedMaterial = corona;
+
         statisticName = name;
 
         if (environment == null)
@@ -65,9 +70,12 @@ public class EnvironmentBasedStar : MonoBehaviour
 
         luminosity = EnvironmentRules.StellarLuminosity(transform.localScale.x, kelvin + kelvinRange);
 
+        Color colour = blackbodyRamp.GetPixelBilinear((kelvin + kelvinRange) / star.GetFloat("_KelvinMax"), 0);
+        corona.SetColor("_TintColor", colour);
+
         if (light)
         {
-            light.color = blackbodyRamp.GetPixelBilinear(((kelvin + kelvinRange) / star.GetFloat("_KelvinMax")), 0);
+            light.color = colour;
             light.intensity = Mathf.Log10(luminosity) / 4f;
         }
 

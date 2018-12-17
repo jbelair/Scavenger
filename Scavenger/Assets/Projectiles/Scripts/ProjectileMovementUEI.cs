@@ -30,7 +30,7 @@ public class ProjectileMovementUEI : MonoBehaviour
     public string statisticTarget = "Target";
 
     new public Statistic rigidbody;
-    public Statistic player,
+    public Statistic parent,
         startingPosition,
         format,
         velocity,
@@ -55,7 +55,7 @@ public class ProjectileMovementUEI : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        player = projectile.statistics[statisticPlayer];
+        parent = projectile.statistics[statisticPlayer];
         rigidbody = projectile.statistics[statisticRigidbody];
         format = projectile.statistics[statisticFormat];
         startingPosition = projectile.statistics[statisticStartingPosition];
@@ -85,7 +85,7 @@ public class ProjectileMovementUEI : MonoBehaviour
             target = projectile.statistics[statisticTarget];
 
         startingPosition.Set(rigidbody.Get<Rigidbody2D>().position);
-        relativeVelocity.Set(player.Get<PlayerUEI>().statistics[statisticPlayerRigidbody].Get<Rigidbody2D>().velocity);
+        //relativeVelocity.Set(parent.Get<Entity>().statistics[statisticPlayerRigidbody].Get<Rigidbody2D>().velocity);
     }
 
     // Update is called once per frame

@@ -13,13 +13,35 @@ public class Ship : MonoBehaviour
     public WidgetShipSelector widgetShipSelector;
     public WidgetShipSelector widgetShipProgressor;
     public new MeshRenderer renderer;
+    public MeshRenderer shield;
     public bool isUnlocked = true;
     public bool isDiscovered = true;
 
-    // Use this for initialization
-    void Start()
+    public bool isStarted = false;
+
+    public void Start()
     {
-        renderer = GetComponentInChildren<MeshRenderer>();
+        StartCoroutine(Co_Start());
+    }
+
+    // Use this for initialization
+    IEnumerator Co_Start()
+    {
+        if (definition.name == "")
+        {
+            definition = JsonUtility.FromJson<ShipDefinition>(PlayerSave.Active.Get("ship").value);
+        }
+
+        if (model == null)
+        {
+            model = Instantiate(Resources.Load<GameObject>("Ships/Models/" + definition.name), Vector3.zero, Quaternion.Euler(0, 0, 180), transform);
+        }
+
+        if (renderer == null)
+        { 
+            renderer = model.GetComponent<MeshRenderer>();
+            renderer.sharedMaterial = Players.players[0].statistics["ship material"].Get<Material>();
+        }
 
         if (isMenu)
         {
@@ -31,12 +53,19 @@ public class Ship : MonoBehaviour
             widgetShipProgressor.index = index;
             widgetShipProgressor.isSelectingCurrentShip = false;
         }
+
+        isStarted = true;
+
+        yield return null;
     }
 
     List<Graphic> graphics;
     // Update is called once per frame
     void LateUpdate()
     {
+        if (!isStarted)
+            return;
+
         if (isMenu)
         {
             widgetShipSelector.gameObject.SetActive(isUnlocked);
@@ -56,15 +85,13 @@ public class Ship : MonoBehaviour
         }
         else
         {
-            if (model == null)
+            if (model != null)
             {
-                if (definition.name == "")
-                    definition = JsonUtility.FromJson<ShipDefinition>(PlayerSave.Active.Get("ship").value);
-
-                model = Instantiate(Resources.Load<GameObject>("Ships/Models/" + definition.name), Vector3.zero, Quaternion.Euler(0, 0, 180), transform);
-
-                renderer = model.GetComponentInChildren<MeshRenderer>();
-                renderer.sharedMaterial = Materials.materials[Skins.Get(Players.players[0].statistics["ship material"]).skin];
+                Material mat = Players.players[0].statistics["ship material"].Get<Material>();
+                if (renderer.sharedMaterial.name != mat.name)
+                {
+                    renderer.sharedMaterial = mat;
+                }
             }
         }
     }

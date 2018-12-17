@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1674628369269970}
+  m_IsPrefabAsset: 1
+--- !u!1 &1674628369269970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4061016256104930}
+  - component: {fileID: 114535439838207326}
+  m_Layer: 0
+  m_Name: skill_laser_cannon_basic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4061016256104930
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1674628369269970}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114535439838207326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1674628369269970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb079dfb69481ca41b6f613b9e26fc7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  skill:
+    name: 
+    description: 
+    icon: 
+    risk: 
+    oneIn: 0
+    value: 0
+    starting: 0
+  binding: skill 0
+  cooldownFormat: 2
+  cooldown: 0.1
+  cooldownCurrent: 0
+  stacks: 16
+  stacksMax: 16
+  stackRecovery: 1
+  stackRecoveryCurrent: 0
+  statisticInput: skill 0 input
+  lastInput: 0
+  sequences:
+  - name: Pulse
+    skill: {fileID: 114535439838207326}
+    inputFormat: 0
+    inputs: 0
+    sequenceFormat: 1
+    keys:
+    - name: Fire
+      format: 6
+      aimingFormat: 1
+      interval: 0
+      duration: 1
+      durationCurrent: 0
+      cooldownOverride: 0
+      instantiableRefs:
+      - Skills/Objects/laser_cannon_basic
+      instantiables:
+      - {fileID: 114874121834567766, guid: 56f3a2be18e095845bdad67c139e1f61, type: 2}
+    index: 0
+    instantiatedObjects: []
+    isActivated: 0
+    lastActivated: 0
+    isToggled: 0

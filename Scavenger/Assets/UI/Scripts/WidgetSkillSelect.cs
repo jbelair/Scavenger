@@ -17,7 +17,7 @@ public class WidgetSkillSelect : WidgetSkill
             object obj = Players.players[0].statistics[skillBinding].Get<object>();
             if (obj != null)
             {
-                definition = Players.players[0].statistics[skillBinding].Get<Skill>();
+                definition = obj as Skill;
             }
         }
         base.Start();

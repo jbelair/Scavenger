@@ -26,73 +26,77 @@ public class DamageModule : MonoBehaviour
     {
         if (target != null)
         {
-            if (hull == null)
-                hull = target.Entity.statistics["hull"].Get<object>() as MinMaxStatistic;
-            if (hull == null)
-                hull = new MinMaxStatistic() { value = target.Entity.statistics["stat_hull"], maximum = target.Entity.statistics["stat_hull_max"], minimum = new StatisticUEI(new Statistic("minimum", Statistic.ValueType.Float, 0f)) };
-            if (armour == null)
-                armour = target.Entity.statistics["armour"].Get<object>() as MinMaxStatistic;
-            if (armour == null)
-                armour = new MinMaxStatistic() { value = target.Entity.statistics["stat_armour"], maximum = target.Entity.statistics["stat_armour_max"], minimum = new StatisticUEI(new Statistic("minimum", Statistic.ValueType.Float, 0f)) };
-            if (shield == null)
-                shield = target.Entity.statistics["shield"].Get<object>() as MinMaxStatistic;
-            if (shield == null)
-                shield = new MinMaxStatistic() { value = target.Entity.statistics["stat_shield"], maximum = target.Entity.statistics["stat_shield_max"], minimum = new StatisticUEI(new Statistic("minimum", Statistic.ValueType.Float, 0f)) };
-            if (dmg == null)
-                dmg = damage.Initialise();
-
-            float toShield = dmg.Get<float>() * (1 - shieldPenetration);
-            float perShield = (float)shield.Value / shield.Maximum;
-            if (float.IsNaN(perShield))
-                perShield = 0;
-            if (toShield > perShield)
-                toShield = perShield;
-            float toArmour = (dmg.Get<float>() - toShield) * (1 - armourPenetration);
-            float perArmour = (float)armour.Value / armour.Maximum;
-            if (float.IsNaN(perArmour))
-                perArmour = 0;
-            if (toArmour > perArmour)
-                toArmour = perArmour;
-            float toHull = dmg.Get<float>() - toArmour - toShield;
-
-            toHull *= hullMultiplier * Time.deltaTime * target.Entity.timescale;
-            toArmour *= armourMultiplier * Time.deltaTime * target.Entity.timescale;
-            toShield *= shieldMultiplier * Time.deltaTime * target.Entity.timescale;
-
-            if (format == Format.Percentage)
+            List<Entity> targets = target.Entities;
+            foreach (Entity trg in targets)
             {
-                toHull *= hull.Maximum;
-                toArmour *= armour.Maximum;
-                toShield *= shield.Maximum;
+                if (hull == null)
+                    hull = trg.statistics["hull"].Get<object>() as MinMaxStatistic;
+                if (hull == null)
+                    hull = new MinMaxStatistic() { value = trg.statistics["stat_hull"], maximum = trg.statistics["stat_hull_max"], minimum = new StatisticUEI(new Statistic("minimum", Statistic.ValueType.Float, 0f)) };
+                if (armour == null)
+                    armour = trg.statistics["armour"].Get<object>() as MinMaxStatistic;
+                if (armour == null)
+                    armour = new MinMaxStatistic() { value = trg.statistics["stat_armour"], maximum = trg.statistics["stat_armour_max"], minimum = new StatisticUEI(new Statistic("minimum", Statistic.ValueType.Float, 0f)) };
+                if (shield == null)
+                    shield = trg.statistics["shield"].Get<object>() as MinMaxStatistic;
+                if (shield == null)
+                    shield = new MinMaxStatistic() { value = trg.statistics["stat_shield"], maximum = trg.statistics["stat_shield_max"], minimum = new StatisticUEI(new Statistic("minimum", Statistic.ValueType.Float, 0f)) };
+                if (dmg == null)
+                    dmg = damage.Initialise();
+
+                float toShield = dmg.Get<float>() * (1 - shieldPenetration);
+                float perShield = (float)shield.Value / shield.Maximum;
+                if (float.IsNaN(perShield))
+                    perShield = 0;
+                if (toShield > perShield)
+                    toShield = perShield;
+                float toArmour = (dmg.Get<float>() - toShield) * (1 - armourPenetration);
+                float perArmour = (float)armour.Value / armour.Maximum;
+                if (float.IsNaN(perArmour))
+                    perArmour = 0;
+                if (toArmour > perArmour)
+                    toArmour = perArmour;
+                float toHull = dmg.Get<float>() - toArmour - toShield;
+
+                toHull *= hullMultiplier * Time.deltaTime * trg.timescale;
+                toArmour *= armourMultiplier * Time.deltaTime * trg.timescale;
+                toShield *= shieldMultiplier * Time.deltaTime * trg.timescale;
+
+                if (format == Format.Percentage)
+                {
+                    toHull *= hull.Maximum;
+                    toArmour *= armour.Maximum;
+                    toShield *= shield.Maximum;
+                }
+                //else
+                //{
+                //    //if (toShield > shield.Value.Get<float>())
+                //    //{
+                //    //    toArmour += toShield - shield.Value.Get<float>();
+                //    //    toShield = shield.Value.Get<float>();
+                //    //}
+
+                //    //if (toArmour > armour.Value.Get<float>())
+                //    //{
+                //    //    toHull += toArmour - armour.Value.Get<float>();
+                //    //    toArmour = armour.Value.Get<float>();
+                //    //}
+                //}
+
+                shield.Value.Add(-toShield);
+                armour.Value.Add(-toArmour);
+                hull.Value.Add(-toHull);
+
+                if (trg.isCounting)
+                {
+                    trg.statistics["count_damage_all"].Add(dmg.Get<float>());
+                    trg.statistics["count_damage_hull"].Add(toHull);
+                    trg.statistics["count_damage_armour"].Add(toArmour);
+                    trg.statistics["count_damage_shield"].Add(toShield);
+                }
+
+                trg.Damage(this);
             }
-            //else
-            //{
-            //    //if (toShield > shield.Value.Get<float>())
-            //    //{
-            //    //    toArmour += toShield - shield.Value.Get<float>();
-            //    //    toShield = shield.Value.Get<float>();
-            //    //}
-
-            //    //if (toArmour > armour.Value.Get<float>())
-            //    //{
-            //    //    toHull += toArmour - armour.Value.Get<float>();
-            //    //    toArmour = armour.Value.Get<float>();
-            //    //}
-            //}
-
-            shield.Value.Add(-toShield);
-            armour.Value.Add(-toArmour);
-            hull.Value.Add(-toHull);
-
-            if (target.Entity.isCounting)
-            {
-                target.Entity.statistics["count_damage_all"].Add(dmg.Get<float>());
-                target.Entity.statistics["count_damage_hull"].Add(toHull);
-                target.Entity.statistics["count_damage_armour"].Add(toArmour);
-                target.Entity.statistics["count_damage_shield"].Add(toShield);
-            }
-
-            target.Entity.Damage(this);
         }
     }
 }

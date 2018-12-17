@@ -48,6 +48,15 @@ public class PlayerSave
         newSave.Add("unlocked skills", "StringList", unlockedSkills);
         newSave.Add("discovered skills", "StringList", unlockedSkills);
 
+        string unlockedSkins = "";
+        foreach (SkinDefinition.Skin skin in Skins.skins.Values)
+        {
+            if (skin.starting)
+                unlockedSkins += skin.name + " ";
+        }
+        newSave.Add("unlocked skins", "StringList", unlockedSkins);
+        newSave.Add("discovered skins", "StringList", unlockedSkins);
+
         newSave.Add("system coordinates", "Vector3", JsonUtility.ToJson((UnityEngine.Random.insideUnitCircle.XYO() * 64).Round() - new Vector3(511, 0, 0)));
         newSave.Add("fuel", "Float", (-1).ToString());
         newSave.Add("matter", "Integer", 250.ToString());

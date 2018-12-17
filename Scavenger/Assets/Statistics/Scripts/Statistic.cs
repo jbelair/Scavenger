@@ -269,6 +269,14 @@ public class Statistic
         }
     }
 
+    public void Max(float f)
+    {
+        if (type == ValueType.Float)
+        {
+            value = Mathf.Min(f, (float)value);
+        }
+    }
+
     public void Default()
     {
         switch(type)

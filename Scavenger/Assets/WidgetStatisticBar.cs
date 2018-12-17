@@ -22,9 +22,26 @@ public class WidgetStatisticBar : MonoBehaviour
     private Statistic reg;
     private Statistic del;
 
+    private List<float> polls = new List<float>();
+
     private void Awake()
     {
         StartCoroutine(Poll());
+    }
+
+    private void Update()
+    {
+        float average = 0;
+        foreach (float f in polls)
+        {
+            average += f;
+        }
+        average /= polls.Count;
+        while (polls.Count > 10)
+        {
+            polls.RemoveAt(0);
+        }
+        fill.fillAmount = average;
     }
 
     // Update is called once per frame
@@ -40,8 +57,9 @@ public class WidgetStatisticBar : MonoBehaviour
             {
                 regen = reg;
                 delay = del;
-
-                fill.fillAmount = value.Value.Get<float>() / value.Maximum.Get<float>();
+                
+                polls.Add(value.Value.Get<float>() / value.Maximum.Get<float>());
+                //fill.fillAmount = ;
 
                 textCurrentMaximum.SetText(value.Value.Get<float>().RoundTo(1).ToString() + "/" + value.Maximum.Get<float>().RoundTo(1).ToString());
                 if (value.Maximum.name.Contains("hull"))
@@ -95,7 +113,7 @@ public class WidgetStatisticBar : MonoBehaviour
         yield return null;
     }
 
-    private bool isInitialised = false;
+    public bool isInitialised = false;
     void Initialise()
     {
         //if (!isInitialised)

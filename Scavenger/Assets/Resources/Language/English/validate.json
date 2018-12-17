@@ -1,0 +1,25 @@
+{
+	"literals":
+	[
+		{
+			"key": "validate_game_new",
+			"value": "A new game cannot be started without:"
+		},
+		{
+			"key": "validate_game_new_ship",
+			"value": "\nA valid ship selected."
+		},
+		{
+			"key": "validate_game_new_skills",
+			"value": "\n4 valid skills selected."
+		},
+		{
+			"key": "validate_game_new_skin_ship",
+			"value": "\nA valid ship skin selected."
+		},
+		{
+			"key": "validate_game_new_skin_shield",
+			"value": "\nA valid shield skin selected."
+		}
+	]
+}

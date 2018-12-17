@@ -2138,6 +2138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84727353ddd220149858a28442fa75f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timescale: 1
   statistics: {fileID: 289440493}
   isCounting: 0
 --- !u!4 &289440495
@@ -2875,7 +2876,7 @@ MonoBehaviour:
       valueGO: {fileID: 0}
       valueGOArray: []
   regen:
-    name: stat_hull_reg
+    name: stat_hull_reg_cur
     type: 1
     valueInt: 0
     valueFloat: 0
@@ -2896,6 +2897,7 @@ MonoBehaviour:
     valueV3: {x: 0, y: 0, z: 0}
     valueGO: {fileID: 0}
     valueGOArray: []
+  isInitialised: 0
 --- !u!1 &391772200
 GameObject:
   m_ObjectHideFlags: 0
@@ -3912,7 +3914,7 @@ MonoBehaviour:
       valueGO: {fileID: 0}
       valueGOArray: []
   regen:
-    name: stat_armour_reg
+    name: stat_armour_reg_cur
     type: 1
     valueInt: 0
     valueFloat: 0
@@ -3933,6 +3935,7 @@ MonoBehaviour:
     valueV3: {x: 0, y: 0, z: 0}
     valueGO: {fileID: 0}
     valueGOArray: []
+  isInitialised: 0
 --- !u!1 &483136919
 GameObject:
   m_ObjectHideFlags: 0
@@ -5643,8 +5646,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 10
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2bd55fcb108c1c841a6eec5a9125651f, type: 2}
-  m_sharedMaterial: {fileID: 21685671957697620, guid: 2bd55fcb108c1c841a6eec5a9125651f,
+  m_fontAsset: {fileID: 11400000, guid: 6ef3eab806d63a14794e37c3a884fe6a, type: 2}
+  m_sharedMaterial: {fileID: 21786622779681516, guid: 6ef3eab806d63a14794e37c3a884fe6a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5669,8 +5672,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 128
-  m_fontSizeBase: 128
+  m_fontSize: 64
+  m_fontSizeBase: 64
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 16
@@ -5937,8 +5940,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 10
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2bd55fcb108c1c841a6eec5a9125651f, type: 2}
-  m_sharedMaterial: {fileID: 21685671957697620, guid: 2bd55fcb108c1c841a6eec5a9125651f,
+  m_fontAsset: {fileID: 11400000, guid: 6ef3eab806d63a14794e37c3a884fe6a, type: 2}
+  m_sharedMaterial: {fileID: 21786622779681516, guid: 6ef3eab806d63a14794e37c3a884fe6a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5963,8 +5966,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 128
-  m_fontSizeBase: 128
+  m_fontSize: 64
+  m_fontSizeBase: 64
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 16
@@ -10524,7 +10527,8 @@ MonoBehaviour:
     name: 
     description: 
     model: 
-    material: 
+    skin: 
+    shield: 
     risk: 
     oneIn: 0
     value: 0
@@ -11046,7 +11050,7 @@ MonoBehaviour:
       valueGO: {fileID: 0}
       valueGOArray: []
   regen:
-    name: stat_shield_reg
+    name: stat_shield_reg_cur
     type: 1
     valueInt: 0
     valueFloat: 0
@@ -11067,6 +11071,7 @@ MonoBehaviour:
     valueV3: {x: 0, y: 0, z: 0}
     valueGO: {fileID: 0}
     valueGOArray: []
+  isInitialised: 0
 --- !u!1 &1240635178
 GameObject:
   m_ObjectHideFlags: 0
@@ -13987,7 +13992,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 16}
   m_SizeDelta: {x: 512, y: 64}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1567294808
@@ -14029,8 +14034,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 2147.13.12.11:30.00
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6ef3eab806d63a14794e37c3a884fe6a, type: 2}
-  m_sharedMaterial: {fileID: 21786622779681516, guid: 6ef3eab806d63a14794e37c3a884fe6a,
+  m_fontAsset: {fileID: 11400000, guid: c09c440413ce3944f989723344600f51, type: 2}
+  m_sharedMaterial: {fileID: 21795331952300612, guid: c09c440413ce3944f989723344600f51,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -14055,8 +14060,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 64
-  m_fontSizeBase: 64
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 16
@@ -14073,7 +14078,7 @@ MonoBehaviour:
   m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -15418,8 +15423,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 10
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2bd55fcb108c1c841a6eec5a9125651f, type: 2}
-  m_sharedMaterial: {fileID: 21685671957697620, guid: 2bd55fcb108c1c841a6eec5a9125651f,
+  m_fontAsset: {fileID: 11400000, guid: 6ef3eab806d63a14794e37c3a884fe6a, type: 2}
+  m_sharedMaterial: {fileID: 21786622779681516, guid: 6ef3eab806d63a14794e37c3a884fe6a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -15444,8 +15449,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 128
-  m_fontSizeBase: 128
+  m_fontSize: 64
+  m_fontSizeBase: 64
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 16
@@ -16133,7 +16138,7 @@ MonoBehaviour:
       valueGO: {fileID: 0}
       valueGOArray: []
   regen:
-    name: stat_shield_reg
+    name: stat_shield_reg_cur
     type: 1
     valueInt: 0
     valueFloat: 0
@@ -16154,6 +16159,7 @@ MonoBehaviour:
     valueV3: {x: 0, y: 0, z: 0}
     valueGO: {fileID: 0}
     valueGOArray: []
+  isInitialised: 0
 --- !u!1 &1823741426
 GameObject:
   m_ObjectHideFlags: 0
@@ -17388,7 +17394,7 @@ MonoBehaviour:
       valueGO: {fileID: 0}
       valueGOArray: []
   regen:
-    name: stat_armour_reg
+    name: stat_armour_reg_cur
     type: 1
     valueInt: 0
     valueFloat: 0
@@ -17409,6 +17415,7 @@ MonoBehaviour:
     valueV3: {x: 0, y: 0, z: 0}
     valueGO: {fileID: 0}
     valueGOArray: []
+  isInitialised: 0
 --- !u!1 &1929904532
 GameObject:
   m_ObjectHideFlags: 0
@@ -18355,7 +18362,7 @@ MonoBehaviour:
       valueGO: {fileID: 0}
       valueGOArray: []
   regen:
-    name: stat_hull_reg
+    name: stat_hull_reg_cur
     type: 1
     valueInt: 0
     valueFloat: 0
@@ -18376,6 +18383,7 @@ MonoBehaviour:
     valueV3: {x: 0, y: 0, z: 0}
     valueGO: {fileID: 0}
     valueGOArray: []
+  isInitialised: 0
 --- !u!1001 &2034335324
 Prefab:
   m_ObjectHideFlags: 0
@@ -18895,6 +18903,8 @@ GameObject:
   - component: {fileID: 2116586212}
   - component: {fileID: 2116586215}
   - component: {fileID: 2116586216}
+  - component: {fileID: 2116586214}
+  - component: {fileID: 2116586213}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Untagged
@@ -18919,6 +18929,104 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2116586213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2116586211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de3a497377651c479874cb79e5e120b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  update:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  disable:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  destroy:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  ticks:
+  - running: 1
+    seconds: 1
+    tick:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2116586214}
+          m_MethodName: Do
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+--- !u!114 &2116586214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2116586211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fe288b6e49cb674fbfc648b39a8aca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataName: fuel
+  modifierType: 1
+  modifier: 0.0033333334
+  value:
+    value:
+      name: 
+      type: 0
+      valueInt: 0
+      valueFloat: 0
+      valueString: 
+      valueColour: {r: 0, g: 0, b: 0, a: 0}
+      valueV2: {x: 0, y: 0}
+      valueV3: {x: 0, y: 0, z: 0}
+      valueGO: {fileID: 0}
+      valueGOArray: []
+    minimum:
+      name: 
+      type: 0
+      valueInt: 0
+      valueFloat: 0
+      valueString: 
+      valueColour: {r: 0, g: 0, b: 0, a: 0}
+      valueV2: {x: 0, y: 0}
+      valueV3: {x: 0, y: 0, z: 0}
+      valueGO: {fileID: 0}
+      valueGOArray: []
+    maximum:
+      name: 
+      type: 0
+      valueInt: 0
+      valueFloat: 0
+      valueString: 
+      valueColour: {r: 0, g: 0, b: 0, a: 0}
+      valueV2: {x: 0, y: 0}
+      valueV3: {x: 0, y: 0, z: 0}
+      valueGO: {fileID: 0}
+      valueGOArray: []
 --- !u!114 &2116586215
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ public class SkinDefinition
         public string name;
         public string skin;
         public int oneIn;
+        public bool starting;
         public Color[] colours;
     }
 

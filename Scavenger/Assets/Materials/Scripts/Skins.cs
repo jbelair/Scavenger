@@ -8,7 +8,12 @@ public static class Skins
 {
     public static Dictionary<string, SkinDefinition.Skin> skins = null;
 
-    public static SkinDefinition.Skin Get(string name)
+    static Skins()
+    {
+        Load();
+    }
+
+    public static void Load()
     {
         if (skins == null)
         {
@@ -43,6 +48,11 @@ public static class Skins
                 }
             }
         }
+    }
+
+    public static SkinDefinition.Skin Get(string name)
+    {
+        Load();
 
         if (skins.ContainsKey(name))
         {

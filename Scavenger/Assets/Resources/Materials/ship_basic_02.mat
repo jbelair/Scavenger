@@ -63,36 +63,36 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Tex100:
-        m_Texture: {fileID: 2800000, guid: 42ef422e9c8bb5d4ab6ed4a6e7f6016b, type: 3}
-        m_Scale: {x: 10, y: 10}
-        m_Offset: {x: 0.01, y: 0}
+        m_Texture: {fileID: 2800000, guid: 57257943b5c57da419c939c683d85340, type: 3}
+        m_Scale: {x: 50, y: 50}
+        m_Offset: {x: 0, y: 0}
     - _Tex100_N:
-        m_Texture: {fileID: 2800000, guid: e46a608becdc2574290e6d4cbfab69e6, type: 3}
-        m_Scale: {x: 10, y: 10}
-        m_Offset: {x: 0.01, y: 0}
+        m_Texture: {fileID: 2800000, guid: 4595553677273a147ab3c4ff3f5d215a, type: 3}
+        m_Scale: {x: 50, y: 50}
+        m_Offset: {x: 0, y: 0}
     - _Tex25:
         m_Texture: {fileID: 2800000, guid: 0105f1355ef2c524d84d4cf83499d623, type: 3}
-        m_Scale: {x: 10, y: 10}
+        m_Scale: {x: 50, y: 50}
         m_Offset: {x: 0, y: 0}
     - _Tex25_N:
         m_Texture: {fileID: 2800000, guid: bfee812860bbb13449b1ef2160a54984, type: 3}
-        m_Scale: {x: 10, y: 10}
+        m_Scale: {x: 50, y: 50}
         m_Offset: {x: 0, y: 0}
     - _Tex50:
         m_Texture: {fileID: 2800000, guid: d46215d9710749f40ae9ba713d72b4eb, type: 3}
-        m_Scale: {x: 10, y: 10}
+        m_Scale: {x: 50, y: 50}
         m_Offset: {x: 0, y: 0}
     - _Tex50_N:
         m_Texture: {fileID: 2800000, guid: 15f220b463f03ba4fa61909a5b7f429a, type: 3}
-        m_Scale: {x: 10, y: 10}
+        m_Scale: {x: 50, y: 50}
         m_Offset: {x: 0, y: 0}
     - _Tex75:
-        m_Texture: {fileID: 2800000, guid: 5f924b5663a0c404888631219921ca87, type: 3}
-        m_Scale: {x: 10, y: 10}
+        m_Texture: {fileID: 2800000, guid: 43209d7d5c36c3e4a9d0f978f9f887a4, type: 3}
+        m_Scale: {x: 50, y: 50}
         m_Offset: {x: 0, y: 0}
     - _Tex75_N:
-        m_Texture: {fileID: 2800000, guid: a1351fd2783f1e04e9db65ebe667d049, type: 3}
-        m_Scale: {x: 10, y: 10}
+        m_Texture: {fileID: 2800000, guid: 61d7dadffda856541963a4a356cb0914, type: 3}
+        m_Scale: {x: 50, y: 50}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
@@ -109,7 +109,7 @@ Material:
     - _Metal100: 0.481
     - _Metal25: 0.75
     - _Metal50: 0.5
-    - _Metal75: 0.5
+    - _Metal75: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -118,7 +118,7 @@ Material:
     - _Smooth100: 0
     - _Smooth25: 0.25
     - _Smooth50: 0.25
-    - _Smooth75: 0.5
+    - _Smooth75: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1

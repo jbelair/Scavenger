@@ -25,7 +25,7 @@ public class AttachToObjectByTag : MonoBehaviour
     {
         while (target == null)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForEndOfFrame();
             if (scene != "")
             {
                 List<GameObject> objs = new List<GameObject>(SceneManager.GetSceneByName(scene).GetRootGameObjects());

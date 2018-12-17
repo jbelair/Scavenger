@@ -64,11 +64,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Tex100:
         m_Texture: {fileID: 2800000, guid: 0bc7310ad50705541b70d904f910f4d8, type: 3}
-        m_Scale: {x: 20, y: 20}
+        m_Scale: {x: 50, y: 50}
         m_Offset: {x: 0, y: 0}
     - _Tex100_N:
         m_Texture: {fileID: 2800000, guid: 4c0297d92622b274f9e3c00cee370fc3, type: 3}
-        m_Scale: {x: 20, y: 20}
+        m_Scale: {x: 50, y: 50}
         m_Offset: {x: 0, y: 0}
     - _Tex25:
         m_Texture: {fileID: 2800000, guid: 2bf78572b910cd148bccf15a6f205804, type: 3}
@@ -80,19 +80,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Tex50:
         m_Texture: {fileID: 2800000, guid: 2bf78572b910cd148bccf15a6f205804, type: 3}
-        m_Scale: {x: 20, y: 20}
+        m_Scale: {x: 50, y: 50}
         m_Offset: {x: 0, y: 0}
     - _Tex50_N:
         m_Texture: {fileID: 2800000, guid: cedb3cec649a108408e640412db1197a, type: 3}
-        m_Scale: {x: 20, y: 20}
+        m_Scale: {x: 50, y: 50}
         m_Offset: {x: 0, y: 0}
     - _Tex75:
         m_Texture: {fileID: 2800000, guid: d46215d9710749f40ae9ba713d72b4eb, type: 3}
-        m_Scale: {x: 20, y: 20}
+        m_Scale: {x: 50, y: 50}
         m_Offset: {x: 0, y: 0}
     - _Tex75_N:
         m_Texture: {fileID: 2800000, guid: 15f220b463f03ba4fa61909a5b7f429a, type: 3}
-        m_Scale: {x: 20, y: 20}
+        m_Scale: {x: 50, y: 50}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
@@ -106,7 +106,7 @@ Material:
     - _GlowG_Freznel: 0
     - _GlowR_Freznel: 0
     - _Metal0: 0.75
-    - _Metal100: 0.5
+    - _Metal100: 0
     - _Metal25: 0.75
     - _Metal50: 0
     - _Metal75: 0

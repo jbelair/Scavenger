@@ -1202,36 +1202,66 @@ MonoBehaviour:
     - {fileID: 2100000, guid: b313e1cfea8bc674eadf4fffa9ddb749, type: 2}
     - {fileID: 2100000, guid: af8d5188fa1524540a838d0348c55c11, type: 2}
     - {fileID: 2100000, guid: 4a724bb21b5d1694cbb99ee3c82c51e1, type: 2}
+    - {fileID: 2100000, guid: b08c85c0ce22a0a46a069ac6c2bf2fdb, type: 2}
     atmospheres:
     - {fileID: 2100000, guid: 20033e1c4a59b5c40be70434ccfa9a59, type: 2}
+    - {fileID: 2100000, guid: 27a42f2cdc2d09543873054d60a275d7, type: 2}
+    - {fileID: 2100000, guid: fc0d4723b9e8afc40b4d21b5eb5ece45, type: 2}
+    - {fileID: 2100000, guid: b2fcaf4f8dc2da7449ab372f8db47ab3, type: 2}
+    - {fileID: 2100000, guid: 3df143ba751979b42a733f79bb121c4c, type: 2}
   - name: Jupiter
     surfaces:
     - {fileID: 2100000, guid: 6a20c04f99638884aaeceb81154da50b, type: 2}
     - {fileID: 2100000, guid: a52618dcee20cac4298a4f62ae7e9107, type: 2}
     - {fileID: 2100000, guid: 22f47f31c6ade004b8af8baee6e6f01f, type: 2}
-    atmospheres: []
+    atmospheres:
+    - {fileID: 2100000, guid: 27a42f2cdc2d09543873054d60a275d7, type: 2}
+    - {fileID: 2100000, guid: fc0d4723b9e8afc40b4d21b5eb5ece45, type: 2}
+    - {fileID: 2100000, guid: b2fcaf4f8dc2da7449ab372f8db47ab3, type: 2}
+    - {fileID: 2100000, guid: 3df143ba751979b42a733f79bb121c4c, type: 2}
+    - {fileID: 2100000, guid: 20033e1c4a59b5c40be70434ccfa9a59, type: 2}
   - name: Saturn
     surfaces:
     - {fileID: 2100000, guid: 6139024cad901214fa80b86e7fad0824, type: 2}
     - {fileID: 2100000, guid: 338d00c88efcec34c976833ac43e6a32, type: 2}
     - {fileID: 2100000, guid: 5f6f603b94f5b4a4482b721610104723, type: 2}
-    atmospheres: []
+    atmospheres:
+    - {fileID: 2100000, guid: 27a42f2cdc2d09543873054d60a275d7, type: 2}
+    - {fileID: 2100000, guid: fc0d4723b9e8afc40b4d21b5eb5ece45, type: 2}
+    - {fileID: 2100000, guid: b2fcaf4f8dc2da7449ab372f8db47ab3, type: 2}
+    - {fileID: 2100000, guid: 3df143ba751979b42a733f79bb121c4c, type: 2}
+    - {fileID: 2100000, guid: 20033e1c4a59b5c40be70434ccfa9a59, type: 2}
   - name: Uranus
     surfaces:
     - {fileID: 2100000, guid: bfe7e1e45833ca94fb5a371f00ef13cd, type: 2}
     - {fileID: 2100000, guid: 3cf2bdee0a72e1a47990ab6e3f21775b, type: 2}
     - {fileID: 2100000, guid: 8765796f58abe924aa04a0130158e4bf, type: 2}
-    atmospheres: []
+    atmospheres:
+    - {fileID: 2100000, guid: 27a42f2cdc2d09543873054d60a275d7, type: 2}
+    - {fileID: 2100000, guid: fc0d4723b9e8afc40b4d21b5eb5ece45, type: 2}
+    - {fileID: 2100000, guid: b2fcaf4f8dc2da7449ab372f8db47ab3, type: 2}
+    - {fileID: 2100000, guid: 3df143ba751979b42a733f79bb121c4c, type: 2}
+    - {fileID: 2100000, guid: 20033e1c4a59b5c40be70434ccfa9a59, type: 2}
   - name: Neptune
     surfaces:
     - {fileID: 2100000, guid: 1b365ef9baa77ab429eaa91b4260a0bf, type: 2}
     - {fileID: 2100000, guid: 0e0d3996177bb694aa55fdc121d3be38, type: 2}
     - {fileID: 2100000, guid: 27c915a45c59bf04685d1ab7e6d2012e, type: 2}
-    atmospheres: []
+    atmospheres:
+    - {fileID: 2100000, guid: 27a42f2cdc2d09543873054d60a275d7, type: 2}
+    - {fileID: 2100000, guid: fc0d4723b9e8afc40b4d21b5eb5ece45, type: 2}
+    - {fileID: 2100000, guid: b2fcaf4f8dc2da7449ab372f8db47ab3, type: 2}
+    - {fileID: 2100000, guid: 3df143ba751979b42a733f79bb121c4c, type: 2}
+    - {fileID: 2100000, guid: 20033e1c4a59b5c40be70434ccfa9a59, type: 2}
   - name: Custom Gas Giant
     surfaces:
     - {fileID: 2100000, guid: 6ce4510d038ebe540bf9d7964ae8d7fb, type: 2}
-    atmospheres: []
+    atmospheres:
+    - {fileID: 2100000, guid: 27a42f2cdc2d09543873054d60a275d7, type: 2}
+    - {fileID: 2100000, guid: fc0d4723b9e8afc40b4d21b5eb5ece45, type: 2}
+    - {fileID: 2100000, guid: b2fcaf4f8dc2da7449ab372f8db47ab3, type: 2}
+    - {fileID: 2100000, guid: 3df143ba751979b42a733f79bb121c4c, type: 2}
+    - {fileID: 2100000, guid: 20033e1c4a59b5c40be70434ccfa9a59, type: 2}
   - name: All Gas Giant
     surfaces:
     - {fileID: 2100000, guid: 6ce4510d038ebe540bf9d7964ae8d7fb, type: 2}
@@ -1247,7 +1277,12 @@ MonoBehaviour:
     - {fileID: 2100000, guid: bfe7e1e45833ca94fb5a371f00ef13cd, type: 2}
     - {fileID: 2100000, guid: 3cf2bdee0a72e1a47990ab6e3f21775b, type: 2}
     - {fileID: 2100000, guid: 8765796f58abe924aa04a0130158e4bf, type: 2}
-    atmospheres: []
+    atmospheres:
+    - {fileID: 2100000, guid: 27a42f2cdc2d09543873054d60a275d7, type: 2}
+    - {fileID: 2100000, guid: fc0d4723b9e8afc40b4d21b5eb5ece45, type: 2}
+    - {fileID: 2100000, guid: b2fcaf4f8dc2da7449ab372f8db47ab3, type: 2}
+    - {fileID: 2100000, guid: 3df143ba751979b42a733f79bb121c4c, type: 2}
+    - {fileID: 2100000, guid: 20033e1c4a59b5c40be70434ccfa9a59, type: 2}
   metallicProfiles:
   - Metallic World
   mixedProfiles:
